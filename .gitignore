@@ -9,3 +9,7 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+static/ltximg
+quartz/static/ltximg
+
+content/journal
