@@ -8,20 +8,23 @@ draft: false
 ---
 
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Statistics: notes 1700 notes (5 attachments), keywords 938 distinct keywords
--   Last revised and exported on 2024-11-27 17:01:40 +0900
+-   Statistics: notes 1701 notes (5 attachments), keywords 939 distinct keywords
+-   Last revised and exported on 2024-11-28 18:39:49 +0900
 
 
 ## Braindump/Digital Garden {#braindump-digital-garden}
 
--   이 곳은 [#junghanacs]({{< relref "/notes/20240418T124656.md" >}}) 의 **DigitalGarden** 입니다.
+-   이 곳은 [#junghanacs]({{< relref "/meta/20240418T124656.md" >}}) 의 **DigitalGarden** 입니다.
 -   [#정한]({{< relref "/notes/20230615T121400.md" >}})님의 **BrainDump** 이기도 하구요.
 
 
-## All Notes/Tags {#all-notes-tags}
+## Categories/Tags {#categories-tags}
 
--   [#모든노트: AllNotes]({{< relref "/notes" >}})
--   [#모든태그: AllTags]({{< relref "/tags/" >}})
+-   [#Meta]({{< relref "/meta" >}})
+-   [#Bibliography]({{< relref "/bib" >}})
+-   [#Notes]({{< relref "/notes" >}})
+-   [#Journal]({{< relref "/journal" >}})
+-   [#All-Tags]({{< relref "/tags" >}})
 
 
 ## **Now** Project {#now-project}
