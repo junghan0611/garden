@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🧠Junghanacs",
+    pageTitle: "#junghanacs",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: false,
@@ -18,14 +18,14 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "notes.junghanacs.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "created",
+    defaultDateType: "created", // "modified"
     generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
         header: "IBM Plex Sans KR",
-        body: "IBM Plex Sans KR", // "Noto Sans KR"
+        body: "Noto Sans KR",
         code: "Nanum Gothic Coding",
       },
       colors: {

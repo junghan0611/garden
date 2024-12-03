@@ -7,3 +7,36 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
   color: #ffeeff;
 }
+
+.org-todo,
+.todo,
+.org-done,
+.done,
+.NEXT,
+.DONT,
+.timestamp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  // font-size: 1em; /* 4 */
+}
+
+.TODO {
+  color: --color-danger-fg;
+}
+
+.NEXT {
+  color: --color-accent-fg;
+}
+
+.DONT {
+  color: --color-attention-fg;
+}
+
+.DONE {
+  color: --color-success-fg;
+}
+
+.timestamp {
+  color: --color-fg-muted;
+}
