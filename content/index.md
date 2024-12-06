@@ -2,7 +2,7 @@
 today: "#home: notes.junghanacs.com"
 author: ["Junghan Kim"]
 date: 2024-09-06T15:48:00+09:00
-lastmod: 2024-12-06T16:59:00+09:00
+lastmod: 2024-12-06T20:31:00+09:00
 keywords: ["homepage"]
 draft: false
 title: "Welcome to notes@junghanacs"
@@ -43,60 +43,57 @@ title: "Welcome to notes@junghanacs"
 
 오늘 하루를 남기는 것 뿐. 모든 대담한 시작은 그저 오늘 하루를 사는 것에서 시작했다. 배움 이전에 하루를 남기는 것 뿐. 연결 확장 구성은 저절로 되어 가는 듯하다. 저널에 남긴 기록들은 그 자체로 완전하다. 온전한 오늘이다.
 
--   [#Journal #데일리노트]({{< relref "/journal" >}})
+-   [journal]({{< relref "/journal" >}})
 
 
 ## #메타노트: 이상한고리 {#메타노트-이상한고리}
 
 사전은 아니다. 그렇다고 개념어도 아니다. 설명하는 태그랄까?
 
--   [#Meta 메타노트]({{< relref "/meta" >}})
+-   [meta]({{< relref "/meta" >}})
 
 
 ## #서지노트: 정보의정보 인물중심 {#서지노트-정보의정보-인물중심}
 
 [#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 기가막힌 영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 까페도 포함 된다. 모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 책만 분류 할 때 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})를 활용한다. 아! 그리고 가능하다면 인물 중심으로 묶는다. 인생은 한 권의 책이기도 하다. 1권 말이다.
 
--   [#Bibliography 서지노트 ]({{< relref "/bib" >}})
+-   [bib]({{< relref "/bib" >}})
 
 
 ## #일반노트: 한글제목 미완성작 {#일반노트-한글제목-미완성작}
 
 일반노트는 개념어 여러 개와 추가 정보를 담는다. 한글 제목으로 통일성 유지. 제텔카스텐을 예로 들자면 플리팅노트이다. 사실, 디지털가든의 모든 노트는 다 플리팅노트다.
 
--   [#Notes 일반노트]({{< relref "/notes" >}})
+-   [notes]({{< relref "/notes" >}})
 
 
 ## #LLM노트: 집중 검색 관계확장 {#llm노트-집중-검색-관계확장}
 
-다양한 LLM 서비스를 이용한다. LLM API를 이용하여 동일한 방식으로 접근한다. 대화한 내용은 노트로 담기도 한다. 예를 들면 다음과 같다.
+다양한 LLM 서비스를 이용한다. LLM API를 이용하여 동일한 방식으로 접근한다. 대화한 내용은 노트로 담기도 한다. 집중력 유지에 도움이 된다 ([#ADHD #AI 인공지능 활용 의미]({{< relref "/notes/20241203T114414.md" >}})).
 
--   [#LLMLog]({{< relref "/llmlog" >}})
--   묘하게 집중에 도움 된다.
+-   [llmlog]({{< relref "/llmlog" >}})
 
 
 ## #텍사노미: English Only {#텍사노미-english-only}
 
-영어만 사용한다. 태그관리는 되는 대로 하는 편이다.
+영어만 사용한다. 태그관리는 되는 대로 하는 편이다. 다음은 모든 태그 목록을 보인다.
 
--   [#AllTags 모든태그]({{< relref "/tags" >}})
+-   [tags]({{< relref "/tags" >}})
 
 예를 들어, 몇 개 태그를 보자면 다음과 같다.
 
--   [태그: 임시노트 FleetingNotes]({{< relref "/tags/fleeting" >}})
--   [태그: 모음 Collection]({{< relref "/tags/collection" >}})
--   [태그: 목록 Lists]({{< relref "/tags/lists" >}})
--   [태그: 어쏠리즘 Autholism]({{< relref "/tags/autholism" >}})
--   [태그: 이맥스]({{< relref "/tags/emacs" >}})
--   [태그: 조직모드]({{< relref "/tags/orgmode" >}})
--   [태그: 저널]({{< relref "/tags/journal" >}})
+-   [tags: fleeting]({{< relref "/tags/fleeting" >}})
+-   [tags: collection]({{< relref "/tags/collection" >}})
+-   [tags: lists]({{< relref "/tags/lists" >}})
+-   [tags: autholog]({{< relref "/tags/autholog" >}})
+-   [tags: emacs]({{< relref "/tags/emacs" >}})
+-   [tags: orgmode]({{< relref "/tags/orgmode" >}})
+-   [tags: journal]({{< relref "/tags/journal" >}})
 
 
 ## #발표자료: 그냥노트 {#발표자료-그냥노트}
 
-내보내기를 발표용으로 할 뿐이다.
-
--   [#Talks]({{< relref "/talks" >}})
+-   [talks]({{< relref "/talks" >}})
 
 
 ## #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
@@ -108,7 +105,7 @@ title: "Welcome to notes@junghanacs"
 
 [#데릭시버스]({{< relref "/bib/20240326T223142.md" >}}) 따라서 [#nownownow]({{< relref "/notes/20240618T125104.md" >}}) 해보려는데 잘 안되더라. [#올리버버크먼]({{< relref "/bib/20241022T145747.md" >}})을 알고 나서는 자연스러운 방식을 선호한다.
 
--   [#Now: What I'm Doing]({{< relref "/now" >}})
+-   [now]({{< relref "/now" >}})
 
 
 ## #인생도구: 이맥스 조직모드 {#인생도구-이맥스-조직모드}
@@ -135,8 +132,8 @@ title: "Welcome to notes@junghanacs"
 ## #추가정보 {#추가정보}
 
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-06 17:02:40 +0900
--   Statistics: notes 1745 notes (5 attachments), keywords 959 distinct keywords
+-   Last revised and exported on 2024-12-06 20:31:56 +0900
+-   Statistics: notes 1747 notes (5 attachments), keywords 960 distinct keywords
 
 ## References
 
