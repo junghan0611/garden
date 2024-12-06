@@ -2,7 +2,7 @@
 today: "#home: notes.junghanacs.com"
 author: ["Junghan Kim"]
 date: 2024-09-06T15:48:00+09:00
-lastmod: 2024-12-06T22:59:00+09:00
+lastmod: 2024-12-07T08:12:00+09:00
 keywords: ["homepage"]
 draft: false
 title: "Welcome to notes@junghanacs"
@@ -61,7 +61,11 @@ title: "Welcome to notes@junghanacs"
 
 ## #서지노트: 정보의정보 인물중심 {#서지노트-정보의정보-인물중심}
 
-[#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 기가막힌 영화/영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 까페도 포함 된다((“조양방직 \#근대건축물 \#미술관까페” 2024)). 모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 책만 분류 할 때 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})를 활용한다. 아! 그리고 가능하다면 인물 중심으로 묶는다. 인생은 한 권의 책이기도 하다. 1권 말이다 ([#모두가저자다 #인생은한권의책 #조테로공유그룹]({{< relref "/notes/20240925T200824.md" >}})).
+[#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 기가막힌 영화/영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 까페도 포함 된다: (“\#까페: 조양방직 \#근대건축물 \#미술관까페 \#강화도 \#적산가옥” 2024)
+
+모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 책만 분류 할 때 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})를 활용한다.
+
+아! 그리고 가능하다면 인물 중심으로 묶는다. 인생은 한 권의 책이기도 하다. 1권 말이다 ([#모두가저자다 #인생은한권의책 #조테로공유그룹]({{< relref "/notes/20240925T200824.md" >}})).
 
 -   [bib]({{< relref "/bib" >}})
 
@@ -114,9 +118,6 @@ title: "Welcome to notes@junghanacs"
 -   [now]({{< relref "/now" >}})
 
 
-## #워크플로우: {#워크플로우}
-
-
 ## #인생도구: 이맥스 조직모드 {#인생도구-이맥스-조직모드}
 
 손맛을 즐긴다. 거의 모든 작업은 이맥스로 한다. [#옴니]({{< relref "/meta/20241013T213110.md" >}}) 스타일이라고 해야 할까. LLM 덕분에 브라우저도 별로 쓸 일 없다.
@@ -138,15 +139,20 @@ title: "Welcome to notes@junghanacs"
 -   [#모음: #이맥스 #LLM클라이언트]({{< relref "/notes/20240521T172329.md" >}})
 
 
+## #관련링크 {#관련링크}
+
+-   [junghan's allmylinks.com](https://allmylinks.com/junghanacs) #junghan #링크 #모음
+
+
 ## #추가정보 {#추가정보}
 
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-06 22:59:55 +0900
--   Statistics: notes 1747 notes (5 attachments), keywords 960 distinct keywords
+-   Last revised and exported on 2024-12-07 08:12:31 +0900
+-   Statistics: notes 1750 notes (5 attachments), keywords 960 distinct keywords
 
 ## References
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry">“조양방직 \#근대건축물 \#미술관까페.” 2024. 나무위키. September 23, 2024. <a href="https://namu.wiki/w/%EC%A1%B0%EC%96%91%EB%B0%A9%EC%A7%81">https://namu.wiki/w/%EC%A1%B0%EC%96%91%EB%B0%A9%EC%A7%81</a>.</div>
+  <div class="csl-entry">“\#까페: 조양방직 \#근대건축물 \#미술관까페 \#강화도 \#적산가옥.” 2024. 나무위키. September 23, 2024. <a href="https://namu.wiki/w/%EC%A1%B0%EC%96%91%EB%B0%A9%EC%A7%81">https://namu.wiki/w/%EC%A1%B0%EC%96%91%EB%B0%A9%EC%A7%81</a>.</div>
   <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
 </div>
