@@ -2,7 +2,7 @@
 today: "#home: notes.junghanacs.com"
 author: ["Junghan Kim"]
 date: 2024-09-06T15:48:00+09:00
-lastmod: 2024-12-07T08:12:00+09:00
+lastmod: 2024-12-08T11:31:00+09:00
 keywords: ["homepage"]
 draft: false
 title: "Welcome to notes@junghanacs"
@@ -146,9 +146,11 @@ title: "Welcome to notes@junghanacs"
 
 ## #추가정보 {#추가정보}
 
+-   [#텍스트에디터]({{< relref "/meta/20240614T090202.md" >}}): [#이맥스 Emacs ]({{< relref "/meta/20230521T215600.md" >}}) \\30.0.92\\, [#조직모드 Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
+-   [#정적사이트생성기 SSG]({{< relref "/meta/20240616T075251.md" >}}) : [#쿼츠 Quart]({{< relref "/meta/20241007T112300.md" >}})
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-07 08:12:31 +0900
--   Statistics: notes 1750 notes (5 attachments), keywords 960 distinct keywords
+-   Last revised and exported on 2024-12-08 11:31:46 +0900
+-   Statistics: notes 1751 notes (5 attachments), keywords 959 distinct keywords
 
 ## References
 
