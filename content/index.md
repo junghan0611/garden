@@ -2,7 +2,7 @@
 today: "#home: notes.junghanacs.com"
 author: ["Junghan Kim"]
 date: 2024-09-06T15:48:00+09:00
-lastmod: 2024-12-08T11:31:00+09:00
+lastmod: 2024-12-09T17:25:00+09:00
 keywords: ["homepage"]
 draft: false
 title: "Welcome to notes@junghanacs"
@@ -61,7 +61,7 @@ title: "Welcome to notes@junghanacs"
 
 ## #서지노트: 정보의정보 인물중심 {#서지노트-정보의정보-인물중심}
 
-[#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 기가막힌 영화/영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 까페도 포함 된다: (“\#까페: 조양방직 \#근대건축물 \#미술관까페 \#강화도 \#적산가옥” 2024)
+[#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 기가막힌 영화/영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 [#까페]({{< relref "/meta/20241207T071235.md" >}})도 포함 된다.
 
 모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 책만 분류 할 때 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})를 활용한다.
 
@@ -79,7 +79,7 @@ title: "Welcome to notes@junghanacs"
 
 ## #LLM노트: 집중 탐구 관계 확장 {#llm노트-집중-탐구-관계-확장}
 
-다양한 LLM API 서비스를(Claude,Perplexity,ChatGPT,xAI,UpstageAI 등) 이용한다([#이맥스: #LLM #GPTEL #활용법]({{< relref "/notes/20240830T161957.md" >}})). 뭔가 물어보기 위해서 브라우저를 열 필요는 없다. 지금 있는 그 자리에서 디테일을 채운다. 단 llmlog로 분류한다. 인공지능과 협업은 묘하게 집중력 유지에 도움이 된다([#ADHD #AI 인공지능 활용 의미]({{< relref "/notes/20241203T114414.md" >}})).
+다양한 LLM API 서비스를 (Claude,Perplexity,ChatGPT,xAI,UpstageAI 등) 이용한다([#이맥스: #LLM #GPTEL #활용법]({{< relref "/notes/20240830T161957.md" >}})). 뭔가 물어보기 위해서 브라우저를 열 필요는 없다. 지금 있는 그 자리에서 디테일을 채운다. 단 llmlog로 분류한다. 인공지능과 협업은 묘하게 집중력 유지에 도움이 된다([#ADHD #AI 인공지능 활용 의미]({{< relref "/notes/20241203T114414.md" >}})).
 
 -   [llmlog]({{< relref "/llmlog" >}})
 
@@ -146,15 +146,14 @@ title: "Welcome to notes@junghanacs"
 
 ## #추가정보 {#추가정보}
 
--   [#텍스트에디터]({{< relref "/meta/20240614T090202.md" >}}): [#이맥스 Emacs ]({{< relref "/meta/20230521T215600.md" >}}) \\30.0.92\\, [#조직모드 Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
--   [#정적사이트생성기 SSG]({{< relref "/meta/20240616T075251.md" >}}) : [#쿼츠 Quart]({{< relref "/meta/20241007T112300.md" >}})
+-   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
+-   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-08 11:31:46 +0900
--   Statistics: notes 1751 notes (5 attachments), keywords 959 distinct keywords
+-   Last revised and exported on 2024-12-09 17:26:05 +0900
+-   Statistics: notes 1764 notes (5 attachments), keywords 966 distinct keywords
 
 ## References
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry">“\#까페: 조양방직 \#근대건축물 \#미술관까페 \#강화도 \#적산가옥.” 2024. 나무위키. September 23, 2024. <a href="https://namu.wiki/w/%EC%A1%B0%EC%96%91%EB%B0%A9%EC%A7%81">https://namu.wiki/w/%EC%A1%B0%EC%96%91%EB%B0%A9%EC%A7%81</a>.</div>
   <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
 </div>
