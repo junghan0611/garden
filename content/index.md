@@ -10,8 +10,8 @@ title: "Welcome to notes@junghanacs"
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
--   [#junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든🏡(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
--   [#junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 이기도 하구요.
+-   [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든🏡(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
+-   [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 이기도 하구요.
 -   \#지식의지식, #정보의정보 담는 공간 입니다.
 -   현재 가든에는 1000 여개의 노트가 있습니다.
 -   노트들을 잘 묶어서 [홈페이지](https://junghanacs.com/)에 올릴 예정
@@ -81,14 +81,16 @@ title: "Welcome to notes@junghanacs"
 
 ## #LLM노트: 집중 탐구 관계 확장 {#llm노트-집중-탐구-관계-확장}
 
-[이맥스에서 다양한 LLM API 서비스]({{< relref "/notes/20240830T161957.md" >}})를 이용하고 있다. 무엇보다도 집중력을 유지하는데 도움이 된다([#ADHD #AI 인공지능 활용 의미]({{< relref "/notes/20241203T114414.md" >}})). 여기에는 마우스와 웹브라우저를 사용할 필요가 없다는 점에도 이유가 있을 것이다. llmlog 폴더에 대화 시 프롬프트와 내용을 자동 저장한다. 물론 언제든 대화는 이어 나갈 수 있다. 사용하다 보니, 위에서 언급한 notes 와 llmlog를 폴더로 구분하는 것 자체가 의미가 없을 것 같다. 물론 LLM과 대화에는 [AI], [ME]로 자동으로 구분이 된다.
+[이맥스에서 다양한 LLM API 서비스]({{< relref "/notes/20240830T161957.md" >}})를 이용하고 있다. 무엇보다도 집중력을 유지하는데 도움이 된다([#ADHD #AI 인공지능 활용 의미]({{< relref "/notes/20241203T114414.md" >}})). 여기에는 마우스와 웹브라우저를 사용할 필요가 없다는 점에도 이유가 있을 것이다. 대화의 프롬프트와 내용을 자동 저장하기에 다시 대화는 이어 나갈 수 있다. 대화에는 [AI], [ME]로 자동으로 구분이 된다.
 
--   [llmlog]({{< relref "/llmlog" >}})
+-   <span class="timestamp-wrapper"><span class="timestamp">[2024-12-11 Wed 13:30] </span></span> llmlog를 폴더구분 안함. notes로 통합.
+
+-   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : llmlog 태그분류
 
 
 ## #텍사노미: English Only {#텍사노미-english-only}
 
-영어만 사용한다. 스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/llmlog/20241206T164930.md" >}}))
+영어만 사용한다. 스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
 
 -   [tags]({{< relref "/tags" >}})
 
@@ -101,6 +103,7 @@ title: "Welcome to notes@junghanacs"
 -   [tags: emacs]({{< relref "/tags/emacs" >}}) : 이맥스
 -   [tags: orgmode]({{< relref "/tags/orgmode" >}}) : 조직모드
 -   [tags: journal]({{< relref "/tags/journal" >}}) : 데일리저널
+-   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : LLM대화포함
 
 
 ## #발표자료: 일반 텍스트파일 {#발표자료-일반-텍스트파일}
@@ -138,7 +141,7 @@ title: "Welcome to notes@junghanacs"
 
 ## #관련노트 {#관련노트}
 
--   [#LLM노트의예-정보와프롬프트보관]({{< relref "/llmlog/20241204T054419.md" >}})
+-   [#LLM노트의예-정보와프롬프트보관]({{< relref "/notes/20241204T054419.md" >}})
 -   [#모음: #디지털가든 #브레인덤프]({{< relref "/notes/20241010T061440.md" >}})
 -   [#모음: #이맥스 #LLM클라이언트]({{< relref "/notes/20240521T172329.md" >}})
 
@@ -153,8 +156,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-10 16:52:34 +0900
--   Statistics: notes 1772 notes (5 attachments), keywords 969 distinct keywords
+-   Last revised and exported on 2024-12-11 13:34:59 +0900
+-   Statistics: notes 1776 notes (5 attachments), keywords 971 distinct keywords
 
 ## References
 
