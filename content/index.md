@@ -39,6 +39,7 @@ title: "Welcome to notes@junghanacs"
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
 -   [#그는요즘뭐하는가]({{< relref "/20230202T020200.md" >}})
+-   [#그의생각들 #어쏠로그]({{< relref "/tags/autholog" >}})
 
 
 ## #저널노트: 데일리노트 중복환영 {#저널노트-데일리노트-중복환영}
@@ -51,7 +52,8 @@ title: "Welcome to notes@junghanacs"
 
 하나 더. 창조와 영감이 어디로 이끄는 지 그는 모른다. 맥락이 맞는 연결은 아는 그 맛일 뿐이다. 왜 지난 주에 몇 시간 동안 삼천포로 빠졌는지 아는가? 무의미와 의미는 하나다. 모른 다는 것을 받아드리는 것, 내맡기는 것이 곧 지혜일지도 모른다. 의미는 드러나기 마련이다.
 
--   [journal]({{< relref "/journal" >}})
+-   [오늘: today journal]({{< relref "/journal/today" >}})
+-   [전체데일리저널: journal]({{< relref "/journal" >}})
 
 
 ## #메타노트: 이상한고리 {#메타노트-이상한고리}
@@ -88,7 +90,26 @@ title: "Welcome to notes@junghanacs"
 -   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : llmlog 태그분류
 
 
-## #텍사노미: English Only {#텍사노미-english-only}
+## #어쏠로그: 그의생각들 {#어쏠로그-그의생각들}
+
+전체적인 그의 앎의 틀을 다룹니다. 모닝페이지가 대부분 입니다. 끄적인 흔적들.
+
+-   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
+-   [#명상하는글쓰기 #평균의종말 #오디오북 (2024-09-21)]({{< relref "/notes/20240921T062312.md" >}})
+-   [#모닝페이지 #데일리루틴 #저널쓰기 (2024-09-21)]({{< relref "/notes/20240921T063447.md" >}})
+-   [#갈매기의꿈 #상처받지않는영혼 #무지의앎 (2024-09-22)]({{< relref "/notes/20240922T081323.md" >}})
+-   [#모두가저자다 #인생은한권의책 #조테로공유그룹 - #어쏠로지 (2024-09-25)]({{< relref "/notes/20240925T200824.md" >}})
+-   [#영감: #상처받지않는영혼 #슬로우워크 #모바일워크플로우 (2024-09-28)]({{< relref "/notes/20240928T141333.md" >}})
+-   [#삶은언제나여여하다 (2024-11-26)]({{< relref "/notes/20241126T182143.md" >}})
+-   [#낮잠 #브레인워시 #에너지 #회복 (2024-12-07)]({{< relref "/notes/20241207T065515.md" >}})
+-   [#모닝페이지 #포춘쿠키 #삶과죽음 #삶으로서일 #도서목록 (2024-12-07)]({{< relref "/notes/20241207T071748.md" >}})
+-   [#호모오티오수스: 심심 한가 권태 현대인 (2024-12-08)]({{< relref "/notes/20241208T125348.md" >}})
+-   [#일이란 #최선을다한다는것 #어쏠로그 #소명 (2024-12-10)]({{< relref "/notes/20241210T161853.md" >}})
+-   [#흘려보내라 #허락하라 #분노 #카르마 #고통체 (2024-12-13)]({{< relref "/notes/20241213T163033.md" >}})
+-   [#랜덤포춘쿠키 #웨이 #도 #인생도구 #깨어남 #필요와암울 (2024-12-14)]({{< relref "/notes/20241214T070506.md" >}})
+
+
+## #텍사노미: 영어태그 {#텍사노미-영어태그}
 
 영어만 사용한다. 스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
 
@@ -99,18 +120,10 @@ title: "Welcome to notes@junghanacs"
 -   [tags: fleeting]({{< relref "/tags/fleeting" >}}) : 최근노트
 -   [tags: collection]({{< relref "/tags/collection" >}}) : 모음
 -   [tags: lists]({{< relref "/tags/lists" >}}) : 목록
--   [tags: autholog]({{< relref "/tags/autholog" >}}) : 어쏠로그
 -   [tags: emacs]({{< relref "/tags/emacs" >}}) : 이맥스
 -   [tags: orgmode]({{< relref "/tags/orgmode" >}}) : 조직모드
 -   [tags: journal]({{< relref "/tags/journal" >}}) : 데일리저널
 -   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : LLM대화포함
-
-
-## #발표자료: 일반 텍스트파일 {#발표자료-일반-텍스트파일}
-
-디지털가든이 뒤에 있다면 발표 준비는 수월해 진다. 여기에 LLM이 서브로 조금만 도와준다면 라이브톡이 가능할 것이다. 그는 말한다. 결과가 아니라 과정으로, 오늘의 삶으로 보여 달라. 발표는 청중과의 대화일 때 빛이 난다. 먼 길을 돌아보니 개인지식관리는 1강 완성이었다. 누구와도 비교할 필요 없이 오늘만큼 익히고 하는 것이 전부다.
-
--   [talks]({{< relref "/talks" >}})
 
 
 ## <span class="org-todo todo TODO">TODO</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
@@ -128,6 +141,13 @@ title: "Welcome to notes@junghanacs"
 ## <span class="org-todo todo TODO">TODO</span> #인생도구: 이맥스 조직모드 {#인생도구-이맥스-조직모드}
 
 손맛을 즐긴다. 거의 모든 작업은 이맥스로 한다. [#옴니]({{< relref "/meta/20241013T213110.md" >}}) 스타일이라고 해야 할까. LLM 덕분에 브라우저도 별로 쓸 일 없다.
+
+
+## #발표자료: 일반 텍스트파일 {#발표자료-일반-텍스트파일}
+
+디지털가든이 뒤에 있다면 발표 준비는 수월해 진다. 여기에 LLM이 서브로 조금만 도와준다면 라이브톡이 가능할 것이다. 그는 말한다. 결과가 아니라 과정으로, 오늘의 삶으로 보여 달라. 발표는 청중과의 대화일 때 빛이 난다. 먼 길을 돌아보니 개인지식관리는 1강 완성이었다. 누구와도 비교할 필요 없이 오늘만큼 익히고 하는 것이 전부다.
+
+-   [talks]({{< relref "/talks" >}})
 
 
 ## #스타터키트: 옵시디언 이맥스 버전 {#스타터키트-옵시디언-이맥스-버전}
@@ -156,8 +176,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-11 13:34:59 +0900
--   Statistics: notes 1776 notes (5 attachments), keywords 971 distinct keywords
+-   Last revised and exported on 2024-12-14 07:40:01 +0900
+-   Statistics: notes 1802 notes (5 attachments), keywords 987 distinct keywords
 
 ## References
 
