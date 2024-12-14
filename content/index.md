@@ -52,7 +52,7 @@ title: "Welcome to notes@junghanacs"
 
 하나 더. 창조와 영감이 어디로 이끄는 지 그는 모른다. 맥락이 맞는 연결은 아는 그 맛일 뿐이다. 왜 지난 주에 몇 시간 동안 삼천포로 빠졌는지 아는가? 무의미와 의미는 하나다. 모른 다는 것을 받아드리는 것, 내맡기는 것이 곧 지혜일지도 모른다. 의미는 드러나기 마련이다.
 
--   [오늘: today journal]({{< relref "/journal/today" >}})
+-   [오늘바로가기: today]({{< relref "/journal/today" >}})
 -   [전체데일리저널: journal]({{< relref "/journal" >}})
 
 
@@ -94,7 +94,10 @@ title: "Welcome to notes@junghanacs"
 
 전체적인 그의 앎의 틀을 다룹니다. 모닝페이지가 대부분 입니다. 끄적인 흔적들.
 
+-   [창의적 인간의 시대 - 미래 인간상 (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
 -   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
+-   [#인생도구: #재발견 #창조적행위 #존재의방식 (2024-03-24)]({{< relref "/notes/20240324T074730.md" >}})
+-   [#개인지식관리: #이맥스 #조직모드 그는왜쓰는가 (2024-03-28)]({{< relref "/notes/20240328T144732.md" >}})
 -   [#명상하는글쓰기 #평균의종말 #오디오북 (2024-09-21)]({{< relref "/notes/20240921T062312.md" >}})
 -   [#모닝페이지 #데일리루틴 #저널쓰기 (2024-09-21)]({{< relref "/notes/20240921T063447.md" >}})
 -   [#갈매기의꿈 #상처받지않는영혼 #무지의앎 (2024-09-22)]({{< relref "/notes/20240922T081323.md" >}})
@@ -106,7 +109,7 @@ title: "Welcome to notes@junghanacs"
 -   [#호모오티오수스: 심심 한가 권태 현대인 (2024-12-08)]({{< relref "/notes/20241208T125348.md" >}})
 -   [#일이란 #최선을다한다는것 #어쏠로그 #소명 (2024-12-10)]({{< relref "/notes/20241210T161853.md" >}})
 -   [#흘려보내라 #허락하라 #분노 #카르마 #고통체 (2024-12-13)]({{< relref "/notes/20241213T163033.md" >}})
--   [#랜덤포춘쿠키 #웨이 #도 #인생도구 #깨어남 #필요와암울 (2024-12-14)]({{< relref "/notes/20241214T070506.md" >}})
+-   [#랜덤포춘쿠키 #웨이 #도 #인생도구 #깨어남 #암울한시대 #운명애 (2024-12-14)]({{< relref "/notes/20241214T070506.md" >}})
 
 
 ## #텍사노미: 영어태그 {#텍사노미-영어태그}
@@ -126,7 +129,7 @@ title: "Welcome to notes@junghanacs"
 -   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : LLM대화포함
 
 
-## <span class="org-todo todo TODO">TODO</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
+## <span class="org-todo done DONE">DONE</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
 
 용어 사용의 체계와 통일성 중요하다. 텍스트 편집기가 잘 해줘야 한다.
 
@@ -176,8 +179,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-14 07:40:01 +0900
--   Statistics: notes 1802 notes (5 attachments), keywords 987 distinct keywords
+-   Last revised and exported on 2024-12-14 20:14:33 +0900
+-   Statistics: notes 1805 notes (5 attachments), keywords 988 distinct keywords
 
 ## References
 
