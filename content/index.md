@@ -94,7 +94,10 @@ title: "Welcome to notes@junghanacs"
 
 전체적인 그의 앎의 틀을 다룹니다. 모닝페이지가 대부분 입니다. 끄적인 흔적들.
 
--   [창의적 인간의 시대 - 미래 인간상 (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
+[#어쏠로그]({{< relref "/tags/autholog" >}})라는 단어를 만든터라 이전 노트 중에 천천히 발굴 할 예정 입니다. 다 같은 내용 입니다. 할 말은 하나 뿐 입니다.
+
+-   [#어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}})
+-   [#창의 #인간 #시대 - #미래 #인간상 #ADHD (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
 -   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
 -   [#인생도구: #재발견 #창조적행위 #존재의방식 (2024-03-24)]({{< relref "/notes/20240324T074730.md" >}})
 -   [#개인지식관리: #이맥스 #조직모드 그는왜쓰는가 (2024-03-28)]({{< relref "/notes/20240328T144732.md" >}})
@@ -131,7 +134,7 @@ title: "Welcome to notes@junghanacs"
 
 ## <span class="org-todo done DONE">DONE</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
 
-용어 사용의 체계와 통일성 중요하다. 텍스트 편집기가 잘 해줘야 한다.
+용어 사용의 체계와 통일성 중요하다. 텍스트 편집기가 잘 해줘야 한다. [#모음: #애매한 #용어]({{< relref "/notes/20241215T121847.md" >}}) 단어 사용 중요하더군요.
 
 
 ## <span class="org-todo todo TODO">TODO</span> #NowPage: 나우 인박스 통합 {#nowpage-나우-인박스-통합}
@@ -179,8 +182,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-14 20:14:33 +0900
--   Statistics: notes 1805 notes (5 attachments), keywords 988 distinct keywords
+-   Last revised and exported on 2024-12-15 12:55:40 +0900
+-   Statistics: notes 1809 notes (5 attachments), keywords 989 distinct keywords
 
 ## References
 
