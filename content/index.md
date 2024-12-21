@@ -94,6 +94,7 @@ title: "Welcome to notes@junghanacs"
 
 [#어쏠로그]({{< relref "/tags/autholog" >}})라는 단어를 만든터라 이전 노트 중에 천천히 발굴 할 예정 입니다. 다 같은 내용 입니다. 할 말은 하나 뿐 입니다.
 
+-   [한집에남편둘 꿈이야기 보편도구 폴리매스 내주변엑스맨 (2024-12-21)]({{< relref "/notes/20241221T112215.md" >}})
 -   [#모국어 #거북이 #지식도구 #REPL도구 #쉽다는것 (2024-12-16)]({{< relref "/notes/20241216T134714.md" >}})
 -   [#랜덤포춘쿠키 #웨이 #도 #인생도구 #깨어남 #암울한시대 #운명애 (2024-12-14)]({{< relref "/notes/20241214T070506.md" >}})
 -   [#흘려보내라 #허락하라 #분노 #카르마 #고통체 (2024-12-13)]({{< relref "/notes/20241213T163033.md" >}})
@@ -184,8 +185,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-19 18:16:30 +0900
--   Statistics: notes 1838 notes (5 attachments), keywords 1001 distinct keywords
+-   Last revised and exported on 2024-12-21 12:39:59 +0900
+-   Statistics: notes 1850 notes (5 attachments), keywords 1006 distinct keywords
 
 ## References
 
