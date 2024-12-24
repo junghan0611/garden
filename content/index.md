@@ -10,11 +10,11 @@ title: "Welcome to notes@junghanacs"
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
--   [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든🏡(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
--   [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 이기도 하구요.
--   \#지식의지식, #정보의정보 담는 공간 입니다.
+이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든🏡(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
+
+-   \#지식의지식, #정보의정보 담습니다. 모든 것은 [#앎]({{< relref "/meta/20241126T061144.md" >}})을 향한다.
 -   현재 가든에는 1000 여개의 노트가 있습니다.
--   노트들을 잘 묶어서 [홈페이지](https://junghanacs.com/)에 올릴 예정
+-   노트들은 묶어서 [홈페이지](https://junghanacs.com/)에 올리곤 합니다.
 
 
 ## #대화: #디지털브레인 {#대화-디지털브레인}
@@ -144,7 +144,7 @@ title: "Welcome to notes@junghanacs"
 
 ## <span class="org-todo todo TODO">TODO</span> #NowPage: 나우 인박스 통합 {#nowpage-나우-인박스-통합}
 
-[#데릭시버스]({{< relref "/bib/20240326T223142.md" >}}) 따라서 [#nownownow]({{< relref "/notes/20240618T125104.md" >}}) 해보려는데 잘 안되더라. [#올리버버크먼]({{< relref "/bib/20241022T145747.md" >}})을 알고 나서는 자연스러운 방식을 선호한다.
+[@데릭시버스]({{< relref "/bib/20240326T223142.md" >}}) 따라서 [#nownownow]({{< relref "/notes/20240618T125104.md" >}}) 해보려는데 잘 안되더라. [@올리버버크먼]({{< relref "/bib/20241022T145747.md" >}})을 알고 나서는 자연스러운 방식을 선호한다.
 
 -   [now]({{< relref "/now" >}})
 
@@ -187,8 +187,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-23 23:51:24 +0900
--   Statistics: notes 1862 notes (5 attachments), keywords 1009 distinct keywords
+-   Last revised and exported on 2024-12-24 10:59:23 +0900
+-   Statistics: notes 1867 notes (5 attachments), keywords 1009 distinct keywords
 
 ## References
 
