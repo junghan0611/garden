@@ -11,14 +11,15 @@ const config: QuartzConfig = {
     pageTitle: "#junghanacs",
     pageTitleSuffix: "",
     enableSPA: true,
-    enablePopovers: false,
+    enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "google",
+      tagId: "G-9CNFFWK1YX"
     },
     locale: "en-US",
     baseUrl: "notes.junghanacs.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "created", // "modified"
+    defaultDateType: "modified", // "created"
     generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
