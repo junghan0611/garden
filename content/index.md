@@ -94,6 +94,7 @@ title: "Welcome to notes@junghanacs"
 
 [#어쏠로그]({{< relref "/tags/autholog" >}})라는 단어를 만든터라 이전 노트 중에 천천히 발굴 할 예정 입니다. 다 같은 내용 입니다. 할 말은 하나 뿐 입니다.
 
+-   [롯데월드 다녀와서 - 어쏠로그 #홀드 (2024-12-28)]({{< relref "/notes/20241228T114639.md" >}})
 -   [그의 이름의 기원 #칼융 #한글 #어린이 #초인 (2024-12-23)]({{< relref "/notes/20241223T233230.md" >}})
 -   [지식의 커리큘럼과 다빈치의 체계 이론 보편학 #홀드 (2024-12-22)]({{< relref "/notes/20241222T114848.md" >}})
 -   [#원형: 꿈 스승 보편도구 폴리매스 극소수 엑스맨 연결 (2024-12-21)]({{< relref "/notes/20241221T112215.md" >}})
@@ -189,8 +190,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-25 20:40:16 +0900
--   Statistics: notes 1875 notes (5 attachments), keywords 1014 distinct keywords
+-   Last revised and exported on 2024-12-28 20:16:42 +0900
+-   Statistics: notes 1888 notes (5 attachments), keywords 1017 distinct keywords
 
 ## References
 
