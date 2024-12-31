@@ -105,6 +105,7 @@ title: "Welcome to notes@junghanacs"
 -   [#호모오티오수스: 심심 한가 권태 현대인 (2024-12-08)]({{< relref "/notes/20241208T125348.md" >}})
 -   [#모닝페이지 #포춘쿠키 #삶과죽음 #삶으로서일 #도서목록 (2024-12-07)]({{< relref "/notes/20241207T071748.md" >}})
 -   [#낮잠 #브레인워시 #에너지 #회복 (2024-12-07)]({{< relref "/notes/20241207T065515.md" >}})
+-   [맹세 각서 조건부허락 통제 → 내맡기기 (2024-12-05)]({{< relref "/notes/20241205T165437.md" >}})
 -   [#ADHD #AI 인공지능 활용 의미 #예시 (2024-12-03)]({{< relref "/notes/20241203T114414.md" >}})
 -   [#삶은언제나여여하다 (2024-11-26)]({{< relref "/notes/20241126T182143.md" >}})
 -   [#영감: #상처받지않는영혼 #슬로우워크 #모바일워크플로우 (2024-09-28)]({{< relref "/notes/20240928T141333.md" >}})
@@ -190,8 +191,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-28 20:16:42 +0900
--   Statistics: notes 1888 notes (5 attachments), keywords 1017 distinct keywords
+-   Last revised and exported on 2024-12-31 16:42:28 +0900
+-   Statistics: notes 1897 notes (5 attachments), keywords 1021 distinct keywords
 
 ## References
 
