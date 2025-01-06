@@ -118,6 +118,7 @@ title: "Welcome to notes@junghanacs"
 -   [#인생도구: #재발견 #창조적행위 #존재의방식 (2024-03-24)]({{< relref "/notes/20240324T074730.md" >}})
 -   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
 -   [#영성: #알아차림 #마음챙김 #훈련 #도구 - 창조적 인간론 (2023-01-28)]({{< relref "/notes/20230128T084100.md" >}})
+-   [#집중력: 듀얼 모니터가 필요한가 (2022-10-22)]({{< relref "/notes/20221022T074800.md" >}})
 -   [#창의 #인간 #시대 - #미래 #인간상 #ADHD (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
 -   [#어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}})
 
@@ -191,8 +192,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2024-12-31 16:42:28 +0900
--   Statistics: notes 1897 notes (5 attachments), keywords 1021 distinct keywords
+-   Last revised and exported on 2025-01-06 17:52:21 +0900
+-   Statistics: notes 1905 notes (5 attachments), keywords 4596 used keywords (1025 distinct keywords)
 
 ## References
 
