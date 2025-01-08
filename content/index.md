@@ -127,7 +127,7 @@ title: "Welcome to notes@junghanacs"
 
 태그에는 영어만 사용한다. 스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
 
-추가로 [#노트테이킹: #유니코드: § † ‡ № ¶ #기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
+추가로 [다양한 유니코드 기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
 
 -   [tags]({{< relref "/tags" >}})
 
@@ -192,8 +192,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.11
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-01-06 17:52:21 +0900
--   Statistics: notes 1905 notes (5 attachments), keywords 4596 used keywords (1025 distinct keywords)
+-   Last revised and exported on 2025-01-08 13:11:27 +0900
+-   Statistics: notes 1908 notes (5 attachments), keywords 4601 used keywords (1022 distinct keywords)
 
 ## References
 
