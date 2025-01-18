@@ -6,19 +6,20 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
-     Component.Comments({
-       provider: 'giscus',
-       options: {
-         // from data-repo
-         repo: 'junghanacs/notes.junghanacs.com',
-         // from data-repo-id
-         repoId: 'R_kgDONUSf5Q',
-         // from data-category
-         category: 'Announcements',
-         // from data-category-id
-         categoryId: 'DIC_kwDONUSf5c4Ckkzb',
-       }
-    }),
+    //  Component.Comments({
+    //    provider: 'giscus',
+    //    options: {
+    //      // from data-repo
+    //      repo: 'junghanacs/notes.junghanacs.com',
+    //      // from data-repo-id
+    //      repoId: 'R_kgDONUSf5Q',
+    //      // from data-category
+    //      category: 'Announcements',
+    //      // from data-category-id
+    //      categoryId: 'DIC_kwDONUSf5c4Ckkzb',
+    //      reactionsEnabled: false,
+    //    }
+    // }),
   ],
   footer: Component.Footer({
     links: {
@@ -40,9 +41,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.Darkmode(),
+    // Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer()),
-    // Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
+    Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
   ],
   right: [
     Component.Graph(),
@@ -58,7 +59,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.Darkmode(),
+    // Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer()),
   ],
   right: [],

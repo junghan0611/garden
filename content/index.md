@@ -5,7 +5,8 @@ date: 2024-09-06T15:48:00+09:00
 lastmod: 2024-12-10T16:52:00+09:00
 keywords: ["homepage"]
 draft: false
-title: "Welcome to notes@junghanacs"
+title: "Welcome to Digital Garden"
+comments: false
 ---
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
@@ -202,8 +203,8 @@ title: "Welcome to notes@junghanacs"
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-01-15 20:50:41 +0900
--   Statistics: notes 1934 notes (5 attachments), keywords 4629 used keywords (1031 distinct keywords)
+-   Last revised and exported on 2025-01-18 19:52:41 +0900
+-   Statistics: notes 1939 notes (5 attachments), keywords 4648 used keywords (1030 distinct keywords)
 
 ## References
 
