@@ -5,7 +5,7 @@ date: 2024-09-06T15:48:00+09:00
 lastmod: 2024-12-10T16:52:00+09:00
 keywords: ["homepage"]
 draft: false
-title: "Welcome to Digital Garden"
+title: "Welcome to notes@junghanacs"
 comments: false
 ---
 
@@ -53,12 +53,16 @@ comments: false
 
 하나 더. 창조와 영감이 어디로 이끄는 지 그는 모른다. 맥락이 맞는 연결은 아는 그 맛일 뿐이다. 왜 지난 주에 몇 시간 동안 삼천포로 빠졌는지 아는가? 무의미와 의미는 하나다. 모른 다는 것을 받아드리는 것, 내맡기는 것이 곧 지혜일지도 모른다. 의미는 드러나기 마련이다.
 
--   [전체데일리저널: journal]({{< relref "/journal" >}})
+-   <span class="timestamp-wrapper"><span class="timestamp">[2025-01-24 Fri 18:37] </span></span> 데일리 -&gt; 위클리 저널 변경
+
+<!--listend-->
+
+-   [journal]({{< relref "/journal" >}})
 
 
 ## #메타노트: 이상한고리 {#메타노트-이상한고리}
 
-[#호프스태터 #GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
+[@호프스태터]({{< relref "/bib/20240713T204705.md" >}})의 이상한고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
 
 -   [meta]({{< relref "/meta" >}})
 
@@ -154,7 +158,7 @@ comments: false
 -   [#용어사전: #조직모드 #스프레스시트 #변환 (2024-06-13)]({{< relref "/notes/20240613T121834.md" >}})
 -   [#용어사전: #이맥스 #패키지 (2024-09-15)]({{< relref "/notes/20240915T235240.md" >}})
 -   [#모음: #애매한 #용어 (2024-12-15)]({{< relref "/notes/20241215T121847.md" >}})
--   [#활용법 #가이드 #매뉴얼 #튜토리얼 #용어 #차이 (2024-12-15)]({{< relref "/notes/20241215T123917.md" >}})
+-   [#용어사전: 활용법 가이드 매뉴얼 튜토리얼 - 비교 (2024-12-15)]({{< relref "/notes/20241215T123917.md" >}})
 -   [#LLM: #이맥스 #용어집 #정규식 변경 (2024-12-22)]({{< relref "/notes/20241222T201226.md" >}})
 
 
@@ -200,11 +204,11 @@ comments: false
 
 ## #추가정보 {#추가정보}
 
--   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.92, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
+-   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-01-18 19:52:41 +0900
--   Statistics: notes 1939 notes (5 attachments), keywords 4648 used keywords (1030 distinct keywords)
+-   Last revised and exported on 2025-01-24 18:39:13 +0900
+-   Statistics: notes 1953 notes (5 attachments), keywords 4699 used keywords (1034 distinct keywords)
 
 ## References
 
