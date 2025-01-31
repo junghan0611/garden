@@ -14,7 +14,7 @@ comments: false
 이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든🏡(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
 
 -   \#지식의지식, #정보의정보 담습니다. 모든 것은 [#앎]({{< relref "/meta/20241126T061144.md" >}})을 향한다.
--   현재 가든에는 1000 여개의 노트가 있습니다.
+-   현재 가든에는 1300 여개의 노트가 있습니다.
 -   노트들은 묶어서 [홈페이지](https://junghanacs.com/)에 올리곤 합니다.
 
 
@@ -112,17 +112,19 @@ comments: false
 -   [맹세 각서 조건부허락 통제 → 내맡기기 (2024-12-05)]({{< relref "/notes/20241205T165437.md" >}})
 -   [#ADHD #AI 인공지능 활용 의미 #예시 (2024-12-03)]({{< relref "/notes/20241203T114414.md" >}})
 -   [#삶은언제나여여하다 (2024-11-26)]({{< relref "/notes/20241126T182143.md" >}})
+-   [불편의 편리 - 스마트폰 유튜브 활용법 (2024-10-03)]({{< relref "/notes/20241003T173305.md" >}})
 -   [#영감: #상처받지않는영혼 #슬로우워크 #모바일워크플로우 (2024-09-28)]({{< relref "/notes/20240928T141333.md" >}})
 -   [#어쏠로지: #모두가저자다 #인생은한권의책 #조테로공유그룹 (2024-09-25)]({{< relref "/notes/20240925T200824.md" >}})
 -   [#글쓰기 #구독자 #소통 (2024-09-22)]({{< relref "/notes/20240922T103151.md" >}})
 -   [#갈매기의꿈 #상처받지않는영혼 #무지의앎 (2024-09-22)]({{< relref "/notes/20240922T081323.md" >}})
 -   [#모닝페이지 #데일리루틴 #저널쓰기 (2024-09-21)]({{< relref "/notes/20240921T063447.md" >}})
 -   [#명상하는글쓰기 #평균의종말 #오디오북 (2024-09-21)]({{< relref "/notes/20240921T062312.md" >}})
--   [#개인지식관리: #이맥스 #조직모드 그는왜쓰는가 (2024-03-28)]({{< relref "/notes/20240328T144732.md" >}})
+-   [@ #개인지식관리: #이맥스 #조직모드 그는왜쓰는가 (2024-03-28)]({{< relref "/notes/20240328T144732.md" >}})
 -   [#인생도구: #재발견 #창조적행위 #존재의방식 (2024-03-24)]({{< relref "/notes/20240324T074730.md" >}})
 -   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
 -   [#영성: #알아차림 #마음챙김 #훈련 #도구 - 창조적 인간론 (2023-01-28)]({{< relref "/notes/20230128T084100.md" >}})
 -   [#집중력: 듀얼 모니터가 필요한가 (2022-10-22)]({{< relref "/notes/20221022T074800.md" >}})
+-   [재능 노력 연습 - 의미 차이 (2022-04-22)]({{< relref "/notes/20220422T191029.md" >}})
 -   [#창의 #인간 #시대 - #미래 #인간상 #ADHD (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
 -   [#어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}})
 
@@ -207,8 +209,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-01-24 18:39:13 +0900
--   Statistics: notes 1953 notes (5 attachments), keywords 4699 used keywords (1034 distinct keywords)
+-   Last revised and exported on 2025-01-31 21:56:00 +0900
+-   Statistics: notes 1968 notes (5 attachments), keywords 4776 used keywords (1050 distinct keywords)
 
 ## References
 
