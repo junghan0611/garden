@@ -153,7 +153,7 @@ comments: false
 용어 사용의 체계와 통일성 중요하다. 텍스트 편집기가 잘 해줘야 한다. [#모음: #애매한 #용어]({{< relref "/notes/20241215T121847.md" >}}) 단어 사용 중요하더군요.
 
 -   [#이맥스: #용어사전: #텐 ten (2024-09-11)]({{< relref "/bib/20240911T072002.md" >}})
--   [@이광근: #기계학습 #컴퓨터과학 #SICP #두괄식 #글쓰기 #전문용어 (2024-10-28)]({{< relref "/bib/20241028T052956.md" >}})
+-   [@이광근 #기계학습 #컴퓨터과학 #SICP #두괄식 #글쓰기 #전문용어 (2024-10-28)]({{< relref "/bib/20241028T052956.md" >}})
 -   [#전문용어 (2024-11-12)]({{< relref "/meta/20241112T111935.md" >}})
 -   [#용어사전 (2024-12-15)]({{< relref "/meta/20241215T123245.md" >}})
 -   [#이맥스: #조직모드: #용어사전 #활용법 (2023-06-09)]({{< relref "/notes/20230609T125000.md" >}})
@@ -209,8 +209,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-01-31 21:56:00 +0900
--   Statistics: notes 1968 notes (5 attachments), keywords 4776 used keywords (1050 distinct keywords)
+-   Last revised and exported on 2025-02-04 01:17:58 +0900
+-   Statistics: notes 1978 notes (5 attachments), keywords 4813 used keywords (1065 distinct keywords)
 
 ## References
 
