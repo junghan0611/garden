@@ -124,17 +124,17 @@ comments: false
 -   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
 -   [#영성: #알아차림 #마음챙김 #훈련 #도구 - 창조적 인간론 (2023-01-28)]({{< relref "/notes/20230128T084100.md" >}})
 -   [#집중력: 듀얼 모니터가 필요한가 (2022-10-22)]({{< relref "/notes/20221022T074800.md" >}})
--   [재능 노력 연습 - 의미 차이 (2022-04-22)]({{< relref "/notes/20220422T191029.md" >}})
+-   [재능 노력 그리고 연습 - 지루함에는 익숙한 도구로 따라하기 (2022-04-22)]({{< relref "/notes/20220422T191029.md" >}})
 -   [#창의 #인간 #시대 - #미래 #인간상 #ADHD (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
 -   [#어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}})
 
 
-## #텍사노미: 영어태그 {#텍사노미-영어태그}
+## #텍사노미: 태그, 한글 동의어 {#텍사노미-태그-한글-동의어}
 
-태그에는 영어만 사용한다. 스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
+스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
 
-추가로 [다양한 유니코드 기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
-
+-   추가로 [다양한 유니코드 기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
+-   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-10 Mon 07:35] </span></span> 한글도 사용한다 동의어 활용
 -   [tags]({{< relref "/tags" >}})
 
 예를 들어, 몇 개 태그를 보자면 다음과 같다.
@@ -209,8 +209,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-02-04 01:17:58 +0900
--   Statistics: notes 1978 notes (5 attachments), keywords 4813 used keywords (1065 distinct keywords)
+-   Last revised and exported on 2025-02-10 07:38:16 +0900
+-   Statistics: notes 1998 notes (6 attachments), keywords 4885 used keywords (1083 distinct keywords)
 
 ## References
 
