@@ -55,8 +55,7 @@ comments: false
 
 -   <span class="timestamp-wrapper"><span class="timestamp">[2025-01-24 Fri 18:37] </span></span> 데일리 -&gt; 위클리 저널 변경
 
-<!--listend-->
-
+-   [Weekly today]({{< relref "/journal/today" >}})
 -   [journal]({{< relref "/journal" >}})
 
 
@@ -209,8 +208,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-02-10 07:38:16 +0900
--   Statistics: notes 1998 notes (6 attachments), keywords 4885 used keywords (1083 distinct keywords)
+-   Last revised and exported on 2025-02-13 07:42:54 +0900
+-   Statistics: notes 2015 notes (6 attachments), keywords 4963 used keywords (1096 distinct keywords)
 
 ## References
 
