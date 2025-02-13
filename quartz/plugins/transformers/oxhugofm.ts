@@ -85,7 +85,7 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         src = src.toString()
         src = src.replaceAll(figureTagRegex, (value, ...capture) => {
           const [src] = capture
-          return `![](/static/${src})`
+          return `![](${src})`
         })
       }
 
