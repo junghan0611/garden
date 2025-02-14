@@ -11,14 +11,14 @@ comments: false
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
-이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든🏡(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
+이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
 
--   \#지식의지식, #정보의정보 담습니다. 모든 것은 [#앎]({{< relref "/meta/20241126T061144.md" >}})을 향한다.
+-   \#지식의지식, #정보의정보 담습니다. 모든 것은 [지식 너머 앎]({{< relref "/notes/20241126T061338" >}})을 향한다.
 -   현재 가든에는 1300 여개의 노트가 있습니다.
 -   노트들은 묶어서 [홈페이지](https://junghanacs.com/)에 올리곤 합니다.
 
 
-## #대화: #디지털브레인 {#대화-디지털브레인}
+## #대화: 디지털브레인 {#대화-디지털브레인}
 
 
 ### 어느 방구석 {#어느-방구석}
@@ -28,14 +28,14 @@ comments: false
 -   \#junghanacs: "알겠네. 다녀와서 이야기 더 나누세!"
 
 
-### 잠시 뒤 {#잠시-뒤}
+### 잠시 뒤 ... {#잠시-뒤-dot-dot-dot}
 
-> 아! 안녕하세요. 저는 #junghanacs입니다. #junghan의 **디지털브레인**(DigitalBrain)입니다. 흔히 **세컨드브레인**(SecondBrain) 이라는 말은 영 마음에 들지 않는군요. 아... #junghan님이 제가 말할 시간을 안 주는군요. 담에 뵙지요...
+[#디지탈브레인 - 털 보다 탈]({{< relref "/meta/20241203T063233.md" >}}) 디지탈의 시대를 준비
 
--   [#디지탈브레인 - 디지털브레인]({{< relref "/meta/20241203T063233.md" >}})
+> 아! 안녕하세요. 저는 #junghanacs입니다. #junghan의 **디지탈브레인**(DigitalBrain)입니다. **세컨드브레인**(SecondBrain) 이라는 말은 영 마음에 들지 않는군요. 아... #junghan님이 제가 말할 시간을 안 주는군요. 그러면 담에 뵙지요...
 
 
-### 뭐지? {#뭐지}
+### 뭐지 ... {#뭐지-dot-dot-dot}
 
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
@@ -209,8 +209,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-02-13 20:22:25 +0900
--   Statistics: notes 2018 notes (6 attachments), keywords 4980 used keywords (1099 distinct keywords)
+-   Last revised and exported on 2025-02-13 21:36:07 +0900
+-   Statistics: notes 2017 notes (6 attachments), keywords 4982 used keywords (1101 distinct keywords)
 
 ## References
 
