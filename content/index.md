@@ -88,8 +88,6 @@ comments: false
 
 -   <span class="timestamp-wrapper"><span class="timestamp">[2024-12-11 Wed 13:30] </span></span> llmlog를 폴더구분 안함. notes로 통합.
 
--   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : llmlog 태그분류
-
 
 ## #어쏠로그: 앎의틀 영감노트 {#어쏠로그-앎의틀-영감노트}
 
@@ -135,17 +133,15 @@ comments: false
 
 -   추가로 [다양한 유니코드 기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
 -   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-10 Mon 07:35] </span></span> 한글도 사용한다 동의어 활용
+-   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-15 Sat 09:35] </span></span> 태그 시스템 정리 중
 -   [tags]({{< relref "/tags" >}})
 
 예를 들어, 몇 개 태그를 보자면 다음과 같다.
 
--   [tags: fleeting]({{< relref "/tags/fleeting" >}}) : 최근노트
--   [tags: collection]({{< relref "/tags/collection" >}}) : 모음
--   [tags: lists]({{< relref "/tags/lists" >}}) : 목록
--   [tags: emacs]({{< relref "/tags/emacs" >}}) : 이맥스
--   [tags: orgmode]({{< relref "/tags/orgmode" >}}) : 조직모드
--   [tags: journal]({{< relref "/tags/journal" >}}) : 데일리저널
--   [tags: llmlog]({{< relref "/tags/llmlog" >}}) : LLM대화포함
+-   [tags: journal]({{< relref "/tags/journal" >}}) : journal
+-   [tags: meta]({{< relref "/tags/meta" >}}) : meta
+-   [tags: bib]({{< relref "/tags/bib" >}}) : bib
+-   [tags: notes]({{< relref "/tags/notes" >}}) : notes
 
 
 ## <span class="org-todo done DONE">DONE</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
@@ -209,8 +205,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-02-13 21:36:07 +0900
--   Statistics: notes 2017 notes (6 attachments), keywords 4982 used keywords (1101 distinct keywords)
+-   Last revised and exported on 2025-02-15 09:37:09 +0900
+-   Statistics: notes 2027 notes (6 attachments), keywords 5025 used keywords (1115 distinct keywords)
 
 ## References
 
