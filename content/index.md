@@ -95,6 +95,7 @@ comments: false
 
 [어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}}) 라는 단어를 만든터라, 이전 노트 중에 천천히 발굴 할 예정 입니다. 다 같은 내용 입니다. 할 말은 하나 뿐 입니다.
 
+-   [#지도: 지식 학문 철학 (2025-02-21)]({{< relref "/notes/20250221T175407.md" >}})
 -   [왜 아무도 읽지 않는 블로그를 운영하는가? (2025-02-13)]({{< relref "/notes/20250213T105806.md" >}})
 -   [롯데월드 다녀와서 - 어쏠로그 #홀드 (2024-12-28)]({{< relref "/notes/20241228T114639.md" >}})
 -   [그의 이름의 기원 #칼융 #한글 #어린이 #초인 (2024-12-23)]({{< relref "/notes/20241223T233230.md" >}})
@@ -205,8 +206,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-02-18 17:57:20 +0900
--   Statistics: notes 2041 notes (6 attachments), keywords 5082 used keywords (1124 distinct keywords)
+-   Last revised and exported on 2025-02-22 19:32:17 +0900
+-   Statistics: notes 2057 notes (8 attachments), keywords 5163 used keywords (1137 distinct keywords)
 
 ## References
 
