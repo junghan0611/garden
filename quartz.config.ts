@@ -18,7 +18,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "notes.junghanacs.com",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "temp", "templates", ".obsidian"],
     defaultDateType: "created",
     generateSocialImages: false,
     theme: {

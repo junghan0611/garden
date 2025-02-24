@@ -203,11 +203,11 @@ comments: false
 
 ## #추가정보 {#추가정보}
 
--   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.19
+-   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.0.93, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-02-22 19:32:17 +0900
--   Statistics: notes 2057 notes (8 attachments), keywords 5163 used keywords (1137 distinct keywords)
+-   Last revised and exported on 2025-02-24 13:33:30 +0900
+-   Statistics: notes 2065 notes (7 attachments), keywords 5193 used keywords (1146 distinct keywords)
 
 ## References
 
