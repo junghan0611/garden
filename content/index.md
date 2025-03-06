@@ -9,6 +9,14 @@ title: "Welcome to notes@junghanacs"
 comments: false
 ---
 
+## [#소통]({{< relref "/meta/20241006T081807.md" >}}): [#텍스트힙스터]({{< relref "/meta/20241023T071856.md" >}}) [#서브스텍]({{< relref "/meta/20230716T041900.md" >}}) 오픈! {#소통--relref-meta-20241006t081807-dot-md--텍스트힙스터--relref-meta-20241023t071856-dot-md--서브스텍--relref-meta-20230716t041900-dot-md--오픈}
+
+(Han 2023)
+
+-   [#텍스트힙스터 @junghanacs - junghanacs.substack.com](https://junghanacs.substack.com)
+-   [#글쓰기 #구독자 #소통]({{< relref "/notes/20240922T103151.md" >}})을 위한 공간
+
+
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
 이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
@@ -95,6 +103,7 @@ comments: false
 
 [어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}}) 라는 단어를 만든터라, 이전 노트 중에 천천히 발굴 할 예정 입니다. 다 같은 내용 입니다. 할 말은 하나 뿐 입니다.
 
+-   [#유리알유희 오늘날 바라본다면 (2025-03-05)]({{< relref "/notes/20250305T105307.md" >}})
 -   [#지도: 지식 학문 철학 (2025-02-21)]({{< relref "/notes/20250221T175407.md" >}})
 -   [왜 아무도 읽지 않는 블로그를 운영하는가? (2025-02-13)]({{< relref "/notes/20250213T105806.md" >}})
 -   [롯데월드 다녀와서 - 어쏠로그 #홀드 (2024-12-28)]({{< relref "/notes/20241228T114639.md" >}})
@@ -206,11 +215,12 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-03-04 23:02:00 +0900
--   Statistics: notes 2086 notes (7 attachments), keywords 5248 used keywords (1157 distinct keywords)
+-   Last revised and exported on 2025-03-06 11:30:22 +0900
+-   Statistics: notes 2094 notes (7 attachments), keywords 5272 used keywords (1160 distinct keywords)
 
 ## References
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry">Han, Jung. 2023. “텍스트힙스터 Substack 서브스텍.” July 15, 2023. <a href="https://junghanacs.substack.com">https://junghanacs.substack.com</a>.</div>
   <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
 </div>
