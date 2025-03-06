@@ -142,8 +142,9 @@ comments: false
 스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
 
 -   추가로 [다양한 유니코드 기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
+-   <span class="timestamp-wrapper"><span class="timestamp">[2025-03-06 Thu 21:28] </span></span> 이맥스와 별개로 디지털가든의 태그 갯수 통제 bib meta notes temp llmlog collection autholog ...
 -   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-10 Mon 07:35] </span></span> 한글도 사용한다 동의어 활용
--   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-15 Sat 09:35] </span></span> 태그 시스템 정리 중
+-   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-15 Sat 09:35] </span></span> 태그 시스템 정비
 -   [tags]({{< relref "/tags" >}})
 
 예를 들어, 몇 개 태그를 보자면 다음과 같다.
@@ -152,6 +153,8 @@ comments: false
 -   [tags: meta]({{< relref "/tags/meta" >}}) : meta
 -   [tags: bib]({{< relref "/tags/bib" >}}) : bib
 -   [tags: notes]({{< relref "/tags/notes" >}}) : notes
+-   [tags: notes]({{< relref "/tags/notes" >}}) : notes
+-   [tags: autholog]({{< relref "/tags/autholog" >}})
 
 
 ## <span class="org-todo done DONE">DONE</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
@@ -215,7 +218,7 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-03-06 20:42:38 +0900
+-   Last revised and exported on 2025-03-06 21:31:34 +0900
 -   Statistics: notes 2096 notes (7 attachments), keywords 5280 used keywords (1161 distinct keywords)
 
 ## References
