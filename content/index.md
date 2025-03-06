@@ -9,7 +9,7 @@ title: "Welcome to notes@junghanacs"
 comments: false
 ---
 
-## [#소통]({{< relref "/meta/20241006T081807.md" >}}): [#텍스트힙스터]({{< relref "/meta/20241023T071856.md" >}}) [#서브스텍]({{< relref "/meta/20230716T041900.md" >}}) 오픈! {#소통--relref-meta-20241006t081807-dot-md--텍스트힙스터--relref-meta-20241023t071856-dot-md--서브스텍--relref-meta-20230716t041900-dot-md--오픈}
+## [#소통]({{< relref "/meta/20241006T081807.md" >}}): [#텍스트힙스터]({{< relref "/meta/20241023T071856.md" >}}) [#서브스택]({{< relref "/meta/20230716T041900.md" >}}) 오픈! {#소통--relref-meta-20241006t081807-dot-md--텍스트힙스터--relref-meta-20241023t071856-dot-md--서브스택--relref-meta-20230716t041900-dot-md--오픈}
 
 (Han 2023)
 
@@ -165,7 +165,7 @@ comments: false
 -   [#이맥스: #조직모드: #용어사전 #활용법 (2023-06-09)]({{< relref "/notes/20230609T125000.md" >}})
 -   [#용어사전: #조직모드 #스프레스시트 #변환 (2024-06-13)]({{< relref "/notes/20240613T121834.md" >}})
 -   [#용어사전: #이맥스 #패키지 (2024-09-15)]({{< relref "/notes/20240915T235240.md" >}})
--   [#모음: #애매한 #용어 (2024-12-15)]({{< relref "/notes/20241215T121847.md" >}})
+-   [#모음: #애매한 #용어 #사전 (2024-12-15)]({{< relref "/notes/20241215T121847.md" >}})
 -   [#용어사전: 활용법 가이드 매뉴얼 튜토리얼 - 비교 (2024-12-15)]({{< relref "/notes/20241215T123917.md" >}})
 -   [#LLM: #이맥스 #용어집 #정규식 변경 (2024-12-22)]({{< relref "/notes/20241222T201226.md" >}})
 
@@ -215,8 +215,8 @@ comments: false
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-03-06 11:30:22 +0900
--   Statistics: notes 2094 notes (7 attachments), keywords 5272 used keywords (1160 distinct keywords)
+-   Last revised and exported on 2025-03-06 20:42:38 +0900
+-   Statistics: notes 2096 notes (7 attachments), keywords 5280 used keywords (1161 distinct keywords)
 
 ## References
 
