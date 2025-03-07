@@ -16,7 +16,7 @@ export const sharedPageComponents: SharedLayout = {
          category: 'Announcements',
          // from data-category-id
          categoryId: 'DIC_kwDONUSf5c4Ckkzb',
-         reactionsEnabled: false,
+         reactionsEnabled: true,
        }
     }),
   ],
@@ -40,13 +40,34 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    // Component.Darkmode(),
+    Component.Darkmode(),
+    // Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
+    // Component.DesktopOnly(
+    //   Component.RecentNotes({
+    //     title: "Recent Update",
+    //     limit: 4,
+    //     showTags: false,
+    //     filter: (f) =>
+    //       f.slug!.startsWith("notes/") && f.slug! !== "notes/index" && !f.frontmatter?.noindex,
+    //     linkToMore: "notes/" as SimpleSlug,
+    //   }),
+    // ),
+    Component.DesktopOnly(Component.TableOfContents()),
     Component.DesktopOnly(Component.Explorer()),
-    Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
   ],
   right: [
     // Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Graph({
+      localGraph: {
+        showTags: false,
+      },
+      globalGraph: {
+        showTags: false,
+        drag: false,
+        zoom: false,
+      },
+    }),
+    // Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
 }
@@ -58,8 +79,8 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    // Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.Darkmode(),
+    // Component.DesktopOnly(Component.Explorer()),
   ],
   right: [],
 }

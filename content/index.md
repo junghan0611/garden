@@ -6,49 +6,19 @@ lastmod: 2025-02-13T00:00:00+09:00
 keywords: ["homepage"]
 draft: false
 title: "Welcome to notes@junghanacs"
-comments: false
+comments: true
 ---
-
-## [#소통]({{< relref "/meta/20241006T081807.md" >}}): [#텍스트힙스터]({{< relref "/meta/20241023T071856.md" >}}) [#서브스택]({{< relref "/meta/20230716T041900.md" >}}) 오픈! {#소통--relref-meta-20241006t081807-dot-md--텍스트힙스터--relref-meta-20241023t071856-dot-md--서브스택--relref-meta-20230716t041900-dot-md--오픈}
-
-(Han 2023)
-
--   [#텍스트힙스터 @junghanacs - junghanacs.substack.com](https://junghanacs.substack.com)
--   [#글쓰기 #구독자 #소통]({{< relref "/notes/20240922T103151.md" >}})을 위한 공간
-
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
-이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다.
-
--   \#지식의지식, #정보의정보 담습니다. 모든 것은 [지식 너머 앎]({{< relref "/notes/20241126T061338" >}})을 향한다.
--   현재 가든에는 1300 여개의 노트가 있습니다.
--   노트들은 묶어서 [홈페이지](https://junghanacs.com/)에 올리곤 합니다.
-
-
-## #대화: 디지털브레인 {#대화-디지털브레인}
-
-
-### 어느 방구석 {#어느-방구석}
-
--   \#junghanacs: "어이. 자네 있는가?"
--   \#junghan: "있다네. 잠시만 뭐라도 먹고 오겠네"
--   \#junghanacs: "알겠네. 다녀와서 이야기 더 나누세!"
-
-
-### 잠시 뒤 ... {#잠시-뒤-dot-dot-dot}
-
-[#디지탈브레인 - 털 보다 탈]({{< relref "/meta/20241203T063233.md" >}}) 디지탈의 시대를 준비
-
-> 아! 안녕하세요. 저는 #junghanacs입니다. #junghan의 **디지탈브레인**(DigitalBrain)입니다. **세컨드브레인**(SecondBrain) 이라는 말은 영 마음에 들지 않는군요. 아... #junghan님이 제가 말할 시간을 안 주는군요. 그러면 담에 뵙지요...
-
-
-### 뭐지 ... {#뭐지-dot-dot-dot}
+이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다. [#지식 너머의 #앎]({{< relref "/notes/20241126T061338" >}})을 향한 #지식의지식, #정보의정보 담고자 합니다.
 
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
 -   [#그는요즘뭐하는가]({{< relref "/20230202T020200.md" >}})
 -   [#그의생각들 #어쏠로그]({{< relref "/tags/autholog" >}})
+-   [서브스택 # 텍스트힙스터 @junghanacs](https://junghanacs.substack.com) (Han 2023)
+-   노트들은 묶어서 [홈페이지](https://junghanacs.com/)에 올리곤 합니다.
 
 
 ## #저널노트: 데일리노트 중복환영 {#저널노트-데일리노트-중복환영}
@@ -103,39 +73,6 @@ comments: false
 
 [어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}}) 라는 단어를 만든터라, 이전 노트 중에 천천히 발굴 할 예정 입니다. 다 같은 내용 입니다. 할 말은 하나 뿐 입니다.
 
--   [#유리알유희 오늘날 바라본다면 (2025-03-05)]({{< relref "/notes/20250305T105307.md" >}})
--   [#지도: 지식 학문 철학 (2025-02-21)]({{< relref "/notes/20250221T175407.md" >}})
--   [왜 아무도 읽지 않는 블로그를 운영하는가? (2025-02-13)]({{< relref "/notes/20250213T105806.md" >}})
--   [롯데월드 다녀와서 - 어쏠로그 #홀드 (2024-12-28)]({{< relref "/notes/20241228T114639.md" >}})
--   [그의 이름의 기원 #칼융 #한글 #어린이 #초인 (2024-12-23)]({{< relref "/notes/20241223T233230.md" >}})
--   [지식의 커리큘럼과 다빈치의 체계 이론 보편학 #홀드 (2024-12-22)]({{< relref "/notes/20241222T114848.md" >}})
--   [#원형: 꿈 스승 보편도구 폴리매스 극소수 엑스맨 연결 (2024-12-21)]({{< relref "/notes/20241221T112215.md" >}})
--   [#모국어 #거북이 #지식도구 #REPL도구 #쉽다는것 (2024-12-16)]({{< relref "/notes/20241216T134714.md" >}})
--   [#랜덤포춘쿠키 #웨이 #도 #인생도구 #깨어남 #암울한시대 #운명애 (2024-12-14)]({{< relref "/notes/20241214T070506.md" >}})
--   [#흘려보내라 #허락하라 #분노 #카르마 #고통체 (2024-12-13)]({{< relref "/notes/20241213T163033.md" >}})
--   [#일이란 #최선을다한다는것 #어쏠로그 #소명 (2024-12-10)]({{< relref "/notes/20241210T161853.md" >}})
--   [#호모오티오수스: 심심 한가 권태 현대인 (2024-12-08)]({{< relref "/notes/20241208T125348.md" >}})
--   [#모닝페이지 #포춘쿠키 #삶과죽음 #삶으로서일 #도서목록 (2024-12-07)]({{< relref "/notes/20241207T071748.md" >}})
--   [#낮잠 #브레인워시 #에너지 #회복 (2024-12-07)]({{< relref "/notes/20241207T065515.md" >}})
--   [맹세 각서 조건부허락 통제 → 내맡기기 (2024-12-05)]({{< relref "/notes/20241205T165437.md" >}})
--   [#ADHD #AI 인공지능 활용 의미 #예시 (2024-12-03)]({{< relref "/notes/20241203T114414.md" >}})
--   [#삶은언제나여여하다 (2024-11-26)]({{< relref "/notes/20241126T182143.md" >}})
--   [불편의 편리 - 스마트폰 유튜브 활용법 (2024-10-03)]({{< relref "/notes/20241003T173305.md" >}})
--   [#영감: #상처받지않는영혼 #슬로우워크 #모바일워크플로우 (2024-09-28)]({{< relref "/notes/20240928T141333.md" >}})
--   [#어쏠로지: #모두가저자다 #인생은한권의책 #조테로공유그룹 (2024-09-25)]({{< relref "/notes/20240925T200824.md" >}})
--   [#글쓰기 #구독자 #소통 (2024-09-22)]({{< relref "/notes/20240922T103151.md" >}})
--   [#갈매기의꿈 #상처받지않는영혼 #무지의앎 (2024-09-22)]({{< relref "/notes/20240922T081323.md" >}})
--   [#모닝페이지 #데일리루틴 #저널쓰기 (2024-09-21)]({{< relref "/notes/20240921T063447.md" >}})
--   [#명상하는글쓰기 #평균의종말 #오디오북 (2024-09-21)]({{< relref "/notes/20240921T062312.md" >}})
--   [@ #개인지식관리: #이맥스 #조직모드 그는왜쓰는가 (2024-03-28)]({{< relref "/notes/20240328T144732.md" >}})
--   [#인생도구: #재발견 #창조적행위 #존재의방식 (2024-03-24)]({{< relref "/notes/20240324T074730.md" >}})
--   [#인생도구: #앎 #지식 #몰입 #행복 #자기목적성 #운명애 (2024-03-21)]({{< relref "/notes/20240321T160911.md" >}})
--   [#영성: #알아차림 #마음챙김 #훈련 #도구 - 창조적 인간론 (2023-01-28)]({{< relref "/notes/20230128T084100.md" >}})
--   [#집중력: 듀얼 모니터가 필요한가 (2022-10-22)]({{< relref "/notes/20221022T074800.md" >}})
--   [재능 노력 그리고 연습 - 지루함에는 익숙한 도구로 따라하기 (2022-04-22)]({{< relref "/notes/20220422T191029.md" >}})
--   [#창의 #인간 #시대 - #미래 #인간상 #ADHD (2022-04-14)]({{< relref "/notes/20220414T125200.md" >}})
--   [#어쏠로그 (2024-12-06)]({{< relref "/meta/20241206T090648.md" >}})
-
 
 ## #텍사노미: 태그, 한글 동의어 {#텍사노미-태그-한글-동의어}
 
@@ -157,30 +94,19 @@ comments: false
 -   [tags: autholog]({{< relref "/tags/autholog" >}})
 
 
-## <span class="org-todo done DONE">DONE</span> #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
+## #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
 
 용어 사용의 체계와 통일성 중요하다. 텍스트 편집기가 잘 해줘야 한다. [#모음: #애매한 #용어]({{< relref "/notes/20241215T121847.md" >}}) 단어 사용 중요하더군요.
 
--   [#이맥스: #용어사전: #텐 ten (2024-09-11)]({{< relref "/bib/20240911T072002.md" >}})
--   [@이광근 #기계학습 #컴퓨터과학 #SICP #두괄식 #글쓰기 #전문용어 (2024-10-28)]({{< relref "/bib/20241028T052956.md" >}})
--   [#전문용어 (2024-11-12)]({{< relref "/meta/20241112T111935.md" >}})
--   [#용어사전 (2024-12-15)]({{< relref "/meta/20241215T123245.md" >}})
--   [#이맥스: #조직모드: #용어사전 #활용법 (2023-06-09)]({{< relref "/notes/20230609T125000.md" >}})
--   [#용어사전: #조직모드 #스프레스시트 #변환 (2024-06-13)]({{< relref "/notes/20240613T121834.md" >}})
--   [#용어사전: #이맥스 #패키지 (2024-09-15)]({{< relref "/notes/20240915T235240.md" >}})
--   [#모음: #애매한 #용어 #사전 (2024-12-15)]({{< relref "/notes/20241215T121847.md" >}})
--   [#용어사전: 활용법 가이드 매뉴얼 튜토리얼 - 비교 (2024-12-15)]({{< relref "/notes/20241215T123917.md" >}})
--   [#LLM: #이맥스 #용어집 #정규식 변경 (2024-12-22)]({{< relref "/notes/20241222T201226.md" >}})
 
-
-## <span class="org-todo todo TODO">TODO</span> #NowPage: 나우 인박스 통합 {#nowpage-나우-인박스-통합}
+## #NowPage: 나우 인박스 통합 {#nowpage-나우-인박스-통합}
 
 [@데릭시버스]({{< relref "/bib/20240326T223142.md" >}}) 따라서 [#nownownow]({{< relref "/notes/20240618T125104.md" >}}) 해보려는데 잘 안되더라. [@올리버버크먼]({{< relref "/bib/20241022T145747.md" >}})을 알고 나서는 자연스러운 방식을 선호한다.
 
 -   [now]({{< relref "/now" >}})
 
 
-## <span class="org-todo todo TODO">TODO</span> #인생도구: 이맥스 조직모드 {#인생도구-이맥스-조직모드}
+## #인생도구: 이맥스 조직모드 {#인생도구-이맥스-조직모드}
 
 손맛을 즐긴다. 거의 모든 작업은 이맥스로 한다. [#옴니]({{< relref "/meta/20241013T213110.md" >}}) 스타일이라고 해야 할까. LLM 덕분에 브라우저도 별로 쓸 일 없다.
 
@@ -217,8 +143,9 @@ comments: false
 
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
--   Meditations on Technology, Learning, Knowing, and Text-editor for Athological Life (junghanacs 2024)
--   Last revised and exported on 2025-03-06 21:31:34 +0900
+-   [Meditations on Knowledge and Knowing - junghanacs.com](https://junghanacs.com/) (junghanacs 2024)
+-   [Junghanacs's links - allmylinks.com](https://allmylinks.com/junghanacs) (“Junghanacs - Allmylinks” 2025)
+-   Last revised and exported on 2025-03-07 12:00:27 +0900
 -   Statistics: notes 2096 notes (7 attachments), keywords 5280 used keywords (1161 distinct keywords)
 
 ## References
@@ -226,4 +153,5 @@ comments: false
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry">Han, Jung. 2023. “텍스트힙스터 Substack 서브스텍.” July 15, 2023. <a href="https://junghanacs.substack.com">https://junghanacs.substack.com</a>.</div>
   <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
+  <div class="csl-entry">“Junghanacs - Allmylinks.” 2025. 2025. <a href="https://allmylinks.com/junghanacs">https://allmylinks.com/junghanacs</a>.</div>
 </div>

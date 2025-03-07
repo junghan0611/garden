@@ -11,7 +11,7 @@ const config: QuartzConfig = {
     pageTitle: "🪴 junghanacs",
     pageTitleSuffix: "",
     enableSPA: true,
-    enablePopovers: false,
+    enablePopovers: true,
     analytics: {
       provider: "google",
       tagId: "G-9CNFFWK1YX"
@@ -19,8 +19,8 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "notes.junghanacs.com",
     ignorePatterns: ["private", "temp", "templates", ".obsidian"],
-    defaultDateType: "created",
-    generateSocialImages: true,
+    defaultDateType: "modified",
+    generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -61,6 +61,7 @@ const config: QuartzConfig = {
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "filesystem"],
       }),
+      // Plugin.Poetry(),
       Plugin.SyntaxHighlighting({
         theme: {
           light: "github-light",
@@ -85,7 +86,9 @@ const config: QuartzConfig = {
       Plugin.OxHugoFlavouredMarkdown(
         {replaceFigureWithMdImg: true,}),
       Plugin.GitHubFlavoredMarkdown(),
-      Plugin.TableOfContents(),
+      Plugin.TableOfContents({
+        maxDepth: 2
+        }),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
