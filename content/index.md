@@ -11,14 +11,14 @@ comments: true
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
-이 곳은 [@junghanacs]({{< relref "/notes/20240418T124656.md" >}})의 [#디지털가든(DigitalGarden)]({{< relref "/meta/20240918T175053.md" >}})이자, [@junghan]({{< relref "/notes/20230615T121400.md" >}})의 [#브레인덤프🧠(BrainDump)]({{< relref "/meta/20240918T175053.md" >}}) 입니다. [#지식 너머의 #앎]({{< relref "/notes/20241126T061338" >}})을 향한 #지식의지식, #정보의정보 담고자 합니다.
+[#디지털가든 #브레인덤프]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338" >}})을 향한 매일의 기록 입니다.
 
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
 -   [#그는요즘뭐하는가]({{< relref "/20230202T020200.md" >}})
 -   [#그의생각들 #어쏠로그]({{< relref "/tags/autholog" >}})
--   [서브스택 # 텍스트힙스터 @junghanacs](https://junghanacs.substack.com) (Han 2023)
 -   노트들은 묶어서 [홈페이지](https://junghanacs.com/)에 올리곤 합니다.
+-   그의 서브스택은 여기! [Jung Han Substack](https://substack.com/@junghanacs?) (Han 2025)
 
 
 ## #저널노트: 데일리노트 중복환영 {#저널노트-데일리노트-중복환영}
@@ -86,12 +86,11 @@ comments: true
 
 예를 들어, 몇 개 태그를 보자면 다음과 같다.
 
--   [tags: journal]({{< relref "/tags/journal" >}}) : journal
--   [tags: meta]({{< relref "/tags/meta" >}}) : meta
--   [tags: bib]({{< relref "/tags/bib" >}}) : bib
--   [tags: notes]({{< relref "/tags/notes" >}}) : notes
--   [tags: notes]({{< relref "/tags/notes" >}}) : notes
--   [tags: autholog]({{< relref "/tags/autholog" >}})
+-   [tags: journal]({{< relref "/tags/journal" >}}) life log
+-   [tags: meta]({{< relref "/tags/meta" >}}) : meta words
+-   [tags: bib]({{< relref "/tags/bib" >}}) : biblio person
+-   [tags: notes]({{< relref "/tags/notes" >}}) : knowledge
+-   [tags: autholog]({{< relref "/tags/autholog" >}}) knowing
 
 
 ## #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
@@ -127,31 +126,19 @@ comments: true
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
 
 
-## #관련노트 {#관련노트}
-
--   [#LLM노트의예-정보와프롬프트보관]({{< relref "/notes/20241204T054419.md" >}})
--   [#모음: #디지털가든 #브레인덤프]({{< relref "/notes/20241010T061440.md" >}})
--   [#모음: #이맥스 #LLM클라이언트]({{< relref "/notes/20240521T172329.md" >}})
-
-
-## #관련링크 {#관련링크}
-
--   [junghan's allmylinks.com](https://allmylinks.com/junghanacs) #junghan #링크 #모음
-
-
 ## #추가정보 {#추가정보}
 
 -   [Editing]({{< relref "/meta/20240614T090202.md" >}}): [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   [Meditations on Knowledge and Knowing - junghanacs.com](https://junghanacs.com/) (junghanacs 2024)
 -   [Junghanacs's links - allmylinks.com](https://allmylinks.com/junghanacs) (“Junghanacs - Allmylinks” 2025)
--   Last revised and exported on 2025-03-07 12:00:27 +0900
--   Statistics: notes 2096 notes (7 attachments), keywords 5280 used keywords (1161 distinct keywords)
+-   Last revised and exported on 2025-03-07 13:12:30 +0900
+-   Statistics: notes 2097 notes (7 attachments), keywords 5283 used keywords (1162 distinct keywords)
 
 ## References
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry">Han, Jung. 2023. “텍스트힙스터 Substack 서브스텍.” July 15, 2023. <a href="https://junghanacs.substack.com">https://junghanacs.substack.com</a>.</div>
+  <div class="csl-entry">Han, Jung. 2025. “Jung Han’s Substack.” 2025. <a href="https://substack.com/@junghanacs?">https://substack.com/@junghanacs?</a></div>
   <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
   <div class="csl-entry">“Junghanacs - Allmylinks.” 2025. 2025. <a href="https://allmylinks.com/junghanacs">https://allmylinks.com/junghanacs</a>.</div>
 </div>
