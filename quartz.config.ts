@@ -83,6 +83,8 @@ const config: QuartzConfig = {
       //   enableVideoEmbed: false,
       //   enableCheckbox: false,
       // }),
+
+      // Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.OxHugoFlavouredMarkdown(
         {replaceFigureWithMdImg: true,}),
       Plugin.GitHubFlavoredMarkdown(),

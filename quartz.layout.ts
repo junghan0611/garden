@@ -40,7 +40,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.Darkmode(),
+    // Component.Darkmode(),
     // Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
     // Component.DesktopOnly(
     //   Component.RecentNotes({
@@ -53,7 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
     //   }),
     // ),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.Explorer(),
   ],
   right: [
     // Component.Graph(),
@@ -79,8 +79,8 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    // Component.Darkmode(),
+    Component.Explorer(),
   ],
   right: [],
 }

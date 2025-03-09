@@ -11,7 +11,7 @@ comments: true
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
-[#디지털가든 #브레인덤프]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338" >}})을 향한 매일의 기록 입니다.
+[#디지털가든🏡 #브레인덤프🧠]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338" >}})을 향한 매일의 기록 입니다.
 
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
@@ -31,15 +31,12 @@ comments: true
 
 하나 더. 창조와 영감이 어디로 이끄는 지 그는 모른다. 맥락이 맞는 연결은 아는 그 맛일 뿐이다. 왜 지난 주에 몇 시간 동안 삼천포로 빠졌는지 아는가? 무의미와 의미는 하나다. 모른 다는 것을 받아드리는 것, 내맡기는 것이 곧 지혜일지도 모른다. 의미는 드러나기 마련이다.
 
--   <span class="timestamp-wrapper"><span class="timestamp">[2025-01-24 Fri 18:37] </span></span> 데일리 -&gt; 위클리 저널 변경
-
--   [Weekly today]({{< relref "/journal/today" >}})
--   [journal]({{< relref "/journal" >}})
+-   [Weekly Today]({{< relref "/journal/today" >}})
 
 
 ## #메타노트: 이상한고리 {#메타노트-이상한고리}
 
-[@호프스태터]({{< relref "/bib/20240713T204705.md" >}})의 이상한고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
+[GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
 
 -   [meta]({{< relref "/meta" >}})
 
@@ -55,7 +52,7 @@ comments: true
 
 ## #그냥노트: 흔적 단서 임시노트 {#그냥노트-흔적-단서-임시노트}
 
-노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등등 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어 등은 검색하기 어렵게 만든다. 애매하게 여긴 영어를 섞어쓰면 복잡해진다. 스펠링 틀리면 찾기 힘들다. 어짜피 가든에 모든 기록은 임시노트다. 이건 블로그 글도 아니다. 그냥 메모들이다. [제텔카스텐]({{< relref "/meta/20230926T135400.md" >}}) 기준으로 보자면 플리팅노트이다 (그는 [홈페이지](https://junghanacs.com/)에 Docs, Blog 메뉴가 따로 있다).
+노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등등 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어 등은 검색하기 어렵게 만든다. 애매하게 여긴 영어를 섞어쓰면 복잡해진다. 스펠링 틀리면 찾기 힘들다. 어짜피 가든에 모든 기록은 임시노트다. 이건 블로그 글도 아니다. 그냥 메모들이다. [#제텔카스텐]({{< relref "/meta/20230926T135400.md" >}}) 기준으로 보자면 플리팅노트이다 (그는 [홈페이지](https://junghanacs.com/)에 Docs, Blog 메뉴가 따로 있다).
 
 -   [notes]({{< relref "/notes" >}})
 
@@ -63,8 +60,6 @@ comments: true
 ## #LLM노트: 집중 탐구 관계 확장 {#llm노트-집중-탐구-관계-확장}
 
 [이맥스에서 다양한 LLM API 서비스]({{< relref "/notes/20240830T161957.md" >}})를 이용하고 있다. 무엇보다도 집중력을 유지하는데 도움이 된다([#ADHD #AI 인공지능 활용 의미]({{< relref "/notes/20241203T114414.md" >}})). 여기에는 마우스와 웹브라우저를 사용할 필요가 없다는 점에도 이유가 있을 것이다. 대화의 프롬프트와 내용을 자동 저장하기에 다시 대화는 이어 나갈 수 있다. 대화에는 @user, @assistant 자동구분 된다. 컨텍스트는 또한 whole, subheading으로 조율한다.
-
--   <span class="timestamp-wrapper"><span class="timestamp">[2024-12-11 Wed 13:30] </span></span> llmlog를 폴더구분 안함. notes로 통합.
 
 
 ## #어쏠로그: 앎의틀 영감노트 {#어쏠로그-앎의틀-영감노트}
@@ -76,21 +71,18 @@ comments: true
 
 ## #텍사노미: 태그, 한글 동의어 {#텍사노미-태그-한글-동의어}
 
-스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 예를 들어, [세컨드브레인의 PARA]({{< relref "/bib/20240319T110656.md" >}})와 유사할 것이다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
+스펠링 단복수 등을 신경쓰다 보니 태그로써 역할 보다는 카테고리로써 유용한 것 같다. 영어가 모국어가 아닌 이상 꼼꼼한 태깅은 힘들다. 이 밖에도 영어 태그는 한글 단어로 애매한 것들이나 전문용어, 약어 등에 활용 된다. 이에 더해 폭소노미로도 영어는 유용하다.([텍사노미/폭소노미]({{< relref "/notes/20241206T164930.md" >}}))
 
--   추가로 [다양한 유니코드 기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
--   <span class="timestamp-wrapper"><span class="timestamp">[2025-03-06 Thu 21:28] </span></span> 이맥스와 별개로 디지털가든의 태그 갯수 통제 bib meta notes temp llmlog collection autholog ...
--   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-10 Mon 07:35] </span></span> 한글도 사용한다 동의어 활용
--   <span class="timestamp-wrapper"><span class="timestamp">[2025-02-15 Sat 09:35] </span></span> 태그 시스템 정비
--   [tags]({{< relref "/tags" >}})
+-   추가로 [#유니코드 #기호]({{< relref "/notes/20241225T052744.md" >}})를 활용한다.
+-   [all tags]({{< relref "/tags" >}})
 
 예를 들어, 몇 개 태그를 보자면 다음과 같다.
 
--   [tags: journal]({{< relref "/tags/journal" >}}) life log
--   [tags: meta]({{< relref "/tags/meta" >}}) : meta words
--   [tags: bib]({{< relref "/tags/bib" >}}) : biblio person
--   [tags: notes]({{< relref "/tags/notes" >}}) : knowledge
--   [tags: autholog]({{< relref "/tags/autholog" >}}) knowing
+-   [journal - lifelog]({{< relref "/tags/journal" >}})
+-   [meta - keywords]({{< relref "/tags/meta" >}})
+-   [bib - bibliography]({{< relref "/tags/bib" >}})
+-   [notes - knowledge]({{< relref "/tags/notes" >}})
+-   [autholog - knowing]({{< relref "/tags/autholog" >}})
 
 
 ## #용어관리: 전문용어 번역어 통일 {#용어관리-전문용어-번역어-통일}
@@ -132,8 +124,8 @@ comments: true
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   [Meditations on Knowledge and Knowing - junghanacs.com](https://junghanacs.com/) (junghanacs 2024)
 -   [Junghanacs's links - allmylinks.com](https://allmylinks.com/junghanacs) (“Junghanacs - Allmylinks” 2025)
--   Last revised and exported on 2025-03-07 13:12:30 +0900
--   Statistics: notes 2097 notes (7 attachments), keywords 5283 used keywords (1162 distinct keywords)
+-   Last revised and exported on 2025-03-09 15:20:33 +0900
+-   Statistics: notes 2102 notes (7 attachments), keywords 5293 used keywords (1161 distinct keywords)
 
 ## References
 
