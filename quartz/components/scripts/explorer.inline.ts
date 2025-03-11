@@ -21,14 +21,13 @@ type FolderState = {
 
 let currentExplorerState: Array<FolderState>
 function toggleExplorer(this: HTMLElement) {
-  const explorers = document.querySelectorAll(".explorer")
-  for (const explorer of explorers) {
-    explorer.classList.toggle("collapsed")
-    explorer.setAttribute(
-      "aria-expanded",
-      explorer.getAttribute("aria-expanded") === "true" ? "false" : "true",
-    )
-  }
+  const nearestExplorer = this.closest(".explorer") as HTMLElement
+  if (!nearestExplorer) return
+  nearestExplorer.classList.toggle("collapsed")
+  nearestExplorer.setAttribute(
+    "aria-expanded",
+    nearestExplorer.getAttribute("aria-expanded") === "true" ? "false" : "true",
+  )
 }
 
 function toggleFolder(evt: MouseEvent) {
@@ -78,11 +77,11 @@ function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElemen
   const clone = template.content.cloneNode(true) as DocumentFragment
   const li = clone.querySelector("li") as HTMLLIElement
   const a = li.querySelector("a") as HTMLAnchorElement
-  a.href = resolveRelative(currentSlug, node.data?.slug!)
-  a.dataset.for = node.data?.slug
+  a.href = resolveRelative(currentSlug, node.slug)
+  a.dataset.for = node.slug
   a.textContent = node.displayName
 
-  if (currentSlug === node.data?.slug) {
+  if (currentSlug === node.slug) {
     a.classList.add("active")
   }
 
@@ -102,7 +101,7 @@ function createFolderNode(
   const folderOuter = li.querySelector(".folder-outer") as HTMLElement
   const ul = folderOuter.querySelector("ul") as HTMLUListElement
 
-  const folderPath = node.data?.slug!
+  const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
 
   if (opts.folderClickBehavior === "link") {
@@ -110,7 +109,7 @@ function createFolderNode(
     const button = titleContainer.querySelector(".folder-button") as HTMLElement
     const a = document.createElement("a")
     a.href = resolveRelative(currentSlug, folderPath)
-    a.dataset.for = node.data?.slug
+    a.dataset.for = folderPath
     a.className = "folder-title"
     a.textContent = node.displayName
     button.replaceWith(a)
@@ -145,7 +144,7 @@ function createFolderNode(
 }
 
 async function setupExplorer(currentSlug: FullSlug) {
-  const allExplorers = document.querySelectorAll(".explorer") as NodeListOf<HTMLElement>
+  const allExplorers = document.querySelectorAll("div.explorer") as NodeListOf<HTMLElement>
 
   for (const explorer of allExplorers) {
     const dataFns = JSON.parse(explorer.dataset.dataFns || "{}")
@@ -192,7 +191,7 @@ async function setupExplorer(currentSlug: FullSlug) {
       collapsed: oldIndex.get(path) === true,
     }))
 
-    const explorerUl = document.getElementById("explorer-ul")
+    const explorerUl = explorer.querySelector(".explorer-ul")
     if (!explorerUl) continue
 
     // Create and insert new content
@@ -219,14 +218,12 @@ async function setupExplorer(currentSlug: FullSlug) {
     }
 
     // Set up event handlers
-    const explorerButtons = explorer.querySelectorAll(
-      "button.explorer-toggle",
-    ) as NodeListOf<HTMLElement>
-    if (explorerButtons) {
-      window.addCleanup(() =>
-        explorerButtons.forEach((button) => button.removeEventListener("click", toggleExplorer)),
-      )
-      explorerButtons.forEach((button) => button.addEventListener("click", toggleExplorer))
+    const explorerButtons = explorer.getElementsByClassName(
+      "explorer-toggle",
+    ) as HTMLCollectionOf<HTMLElement>
+    for (const button of explorerButtons) {
+      button.addEventListener("click", toggleExplorer)
+      window.addCleanup(() => button.removeEventListener("click", toggleExplorer))
     }
 
     // Set up folder click handlers
@@ -235,8 +232,8 @@ async function setupExplorer(currentSlug: FullSlug) {
         "folder-button",
       ) as HTMLCollectionOf<HTMLElement>
       for (const button of folderButtons) {
-        window.addCleanup(() => button.removeEventListener("click", toggleFolder))
         button.addEventListener("click", toggleFolder)
+        window.addCleanup(() => button.removeEventListener("click", toggleFolder))
       }
     }
 
@@ -244,15 +241,15 @@ async function setupExplorer(currentSlug: FullSlug) {
       "folder-icon",
     ) as HTMLCollectionOf<HTMLElement>
     for (const icon of folderIcons) {
-      window.addCleanup(() => icon.removeEventListener("click", toggleFolder))
       icon.addEventListener("click", toggleFolder)
+      window.addCleanup(() => icon.removeEventListener("click", toggleFolder))
     }
   }
 }
 
-document.addEventListener("prenav", async (e: CustomEventMap["prenav"]) => {
+document.addEventListener("prenav", async () => {
   // save explorer scrollTop position
-  const explorer = document.getElementById("explorer-ul")
+  const explorer = document.querySelector(".explorer-ul")
   if (!explorer) return
   sessionStorage.setItem("explorerScrollTop", explorer.scrollTop.toString())
 })
@@ -262,9 +259,8 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   await setupExplorer(currentSlug)
 
   // if mobile hamburger is visible, collapse by default
-  const mobileExplorer = document.getElementById("mobile-explorer")
-  if (mobileExplorer && mobileExplorer.checkVisibility()) {
-    for (const explorer of document.querySelectorAll(".explorer")) {
+  for (const explorer of document.getElementsByClassName("mobile-explorer")) {
+    if (explorer.checkVisibility()) {
       explorer.classList.add("collapsed")
       explorer.setAttribute("aria-expanded", "false")
     }
