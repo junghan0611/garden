@@ -11,7 +11,7 @@ comments: true
 
 ## #불완전한 #잡다한 #엉성한 그래서 #온전한 {#불완전한-잡다한-엉성한-그래서-온전한}
 
-[#디지털가든🏡 #브레인덤프🧠]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338" >}})을 향한 매일의 기록 입니다.
+[#디지털가든🏡 #브레인덤프🧠]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338.md" >}})을 향한 매일의 기록 입니다.
 
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
@@ -124,8 +124,8 @@ comments: true
 -   [Publishing SSG]({{< relref "/meta/20240616T075251.md" >}}): [Quart]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
 -   [Meditations on Knowledge and Knowing - junghanacs.com](https://junghanacs.com/) (junghanacs 2024)
 -   [Junghanacs's links - allmylinks.com](https://allmylinks.com/junghanacs) (“Junghanacs - Allmylinks” 2025)
--   Last revised and exported on 2025-03-09 15:20:33 +0900
--   Statistics: notes 2102 notes (7 attachments), keywords 5293 used keywords (1161 distinct keywords)
+-   Last revised and exported on 2025-03-12 14:59:53 +0900
+-   Statistics: notes 2114 notes (7 attachments), keywords 5323 used keywords (1163 distinct keywords)
 
 ## References
 
