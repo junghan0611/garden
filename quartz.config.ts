@@ -25,8 +25,11 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "IBM Plex Sans KR",
-        body: "Noto Sans KR",
+        // header: { name: "IBM Plex Sans KR",
+        //           weights: [400, 700],
+        //           includeItalic: false,},
+        header: "Hahmlet",
+        body: "42dot Sans", // "Noto Sans KR"
         code: "Nanum Gothic Coding",
       },
       colors: {
