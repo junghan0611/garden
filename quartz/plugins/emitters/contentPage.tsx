@@ -94,9 +94,8 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
 
       return graph
     },
-    async emit(ctx, content, resources): Promise<FilePath[]> {
+    async *emit(ctx, content, resources) {
       const cfg = ctx.cfg.configuration
-      const fps: FilePath[] = []
       const allFiles = content.map((c) => c[1].data)
 
       let containsIndex = false
@@ -104,6 +103,10 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         const slug = file.data.slug!
         if (slug === "index") {
           containsIndex = true
+        }
+
+        if (file.data.slug?.endsWith("/index")) {
+          continue
         }
 
         const externalResources = pageResources(pathToRoot(slug), file.data, resources)
@@ -118,14 +121,12 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         }
 
         const content = renderPage(cfg, slug, componentData, opts, externalResources)
-        const fp = await write({
+        yield write({
           ctx,
           content,
           slug,
           ext: ".html",
         })
-
-        fps.push(fp)
       }
 
       if (!containsIndex && !ctx.argv.fastRebuild) {
@@ -135,8 +136,6 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           ),
         )
       }
-
-      return fps
     },
   }
 }
