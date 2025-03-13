@@ -70,8 +70,8 @@ export const defaultContentPageLayout: PageLayout = {
       },
       globalGraph: {
         showTags: false,
-        drag: false,
-        zoom: false,
+        drag: true,
+        zoom: true,
       },
     }),
     // Component.DesktopOnly(Component.TableOfContents()),
