@@ -4,8 +4,13 @@
 .csl-bib-body
 .csl-entry
 {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  // font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: var(--bodyFont);
   color: #ffeeff;
+}
+
+blockquote {
+  font-family: var(--headerFont);
 }
 
 .org-todo,
@@ -15,7 +20,7 @@
 .NEXT,
 .DONT,
 .timestamp {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: var(--codeFont);
   font-feature-settings: normal; /* 2 */
   font-variation-settings: normal; /* 3 */
   // font-size: 1em; /* 4 */
