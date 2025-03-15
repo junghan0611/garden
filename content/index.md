@@ -80,15 +80,17 @@ comments: true
 ## 정보 {#정보}
 
 -   \#편집도구: [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
--   \#사이트생성엔진: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) v4.4.0
+-   \#사이트생성엔진: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) v4.4.1
 -   [Meditations on Knowledge and Knowing - junghanacs.com](https://junghanacs.com/) (junghanacs 2024)
 -   [Junghanacs's links - allmylinks.com](https://allmylinks.com/junghanacs) (“Junghanacs - Allmylinks” 2025)
--   Last revised and exported on 2025-03-15 16:52:11 +0900
--   Statistics: notes 2126 notes (7 attachments), keywords 5348 used keywords (1165 distinct keywords)
+-   서브스택 [Jung Han Substack](https://substack.com/@junghanacs?) (Han 2025)
+-   Last revised and exported on 2025-03-16 05:19:16 +0900
+-   Statistics: notes 2129 notes (7 attachments), keywords 5356 used keywords (1165 distinct keywords)
 
 ## References
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry">Han, Jung. 2025. “Jung Han’s Substack.” 2025. <a href="https://substack.com/@junghanacs?">https://substack.com/@junghanacs?</a></div>
   <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
   <div class="csl-entry">“Junghanacs - Allmylinks.” 2025. 2025. <a href="https://allmylinks.com/junghanacs">https://allmylinks.com/junghanacs</a>.</div>
 </div>
