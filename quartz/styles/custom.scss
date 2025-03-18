@@ -46,8 +46,22 @@ blockquote {
   color: --color-fg-muted;
 }
 
+/* *** Org-style Headline Level Prefix / Asterisks */
+.content h2::before,
+.content h3::before,
+.content h4::before,
+.content h5::before,
+.content h6::before {
+    font-family: var(--tertiary-font);
+    color: var(--theme-hl1-color);
+    font-size: 1.5em;
+    vertical-align: -40%;       /* more negative -> goes lower */
+    letter-spacing: -.1em;      /* Squish the asterisks together */
+    margin-right: 0.25em;
+}
 .content h2::before {
     content: "*";
+    color: var(--theme-color);
 }
 .content h3::before {
     content: "**";
