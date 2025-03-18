@@ -5,13 +5,30 @@ date: 2024-09-06T15:48:00+09:00
 lastmod: 2025-02-13T00:00:00+09:00
 keywords: ["homepage"]
 draft: false
-title: "Welcome to notes@junghanacs"
+title: "Junghanacs' Digital Garden 🏡"
 comments: true
 ---
 
-## 잡다한 엉성한 그래서 온전한 {#잡다한-엉성한-그래서-온전한}
+## 힣의 고뇌 {#힣의-고뇌}
 
-힣의 [#디지털가든🏡 #브레인덤프🧠]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338.md" >}})을 향한 매일의 기록 입니다.
+어두운 밤, 힣은 방구석에서 탄식하고 있다.
+
+> 아! 질문 하나로 위대한 성현들의 지식(Knowledge)을 만날 수 있게 되었건만<br /> 나는 여전히 이 꼴 이구나. 아. 천하의 바보.<br /> 나는 조금도 지혜로워지지 않았다.<br /> 더 찬란한 무언가가 나온들 무엇이 달라지겠는가!<br /> 결국 우리가 알 수 없다는 사실만 깨닫게 될 뿐이로구나.<br />
+
+힣은 지식의 단편으로는 어떤 것도 창조할 수 없음을 이제야 깨닫게 되었다. 그토록 갈구해온 것은 불완전함 그 자체로의 앎(Knowing)이었으며, 가야할 길은 온전한 삶(Life) 뿐 이었던 것이다.
+
+그것도 잠시, 힣은 또 말한다.
+
+> 알고 싶다! 그 '앎'에 닿고 싶다.<br />
+>
+> 도대체 어디에 있다는 말인가? 5년 전 그 책에? 올해의 이 책에?<br /> 바로 오늘! '지금'의 것을 담아서 보여 달라<br /> 사유의 '역사'를 보여 달라.<br /> 앎의 '전체상'을 보여 달라.<br />
+>
+> 거기 잠시만... 유명한 지성인이여!<br /> 도대체 무엇을 보라는 말인가? 그냥 하나만 달라!<br /> 당신 인생 삶 전체를 여기에 달라<br /> 여기서 취할 것은 취하리라.<br />
+
+
+## 디지털가든 - 불완전한 창조의 공간 {#디지털가든-불완전한-창조의-공간}
+
+안녕하세요! 힣의 [#디지털가든🏡 #브레인덤프🧠]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다.<br /> [#지식 너머 #앎]({{< relref "/notes/20241126T061338.md" >}})을 향한 매일의 기록 입니다.
 
 -   [#그는누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [#그의도구들]({{< relref "/notes/20241203T065121.md" >}})
@@ -19,14 +36,16 @@ comments: true
 -   [#그를찾아떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [#그의생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 
+Latest-export-date: 2025-03-18 17:17:58 +0900, Count-notes: 2134 notes (7 attachments)<br /> Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}})
+
 
 ## 저널노트: 데일리 노트 {#저널노트-데일리-노트}
 
-> 당신을 알고 싶다. 그 '앎'에 닿고 싶다.<br /> 도대체 어디에 있다는 말인가? 5년 전 그 책에? 올해 나온 이 책에?<br /> '지금'을 담아서 보여 달라. 사유의 '과정'을 보여 달라. 앎의 '전체상'를 보여 달라.<br /> 여기서 취할 것은 취하리라.<br />
+바로 오늘 지금의 것은 여기에 담습니다.
 
-취하라. 여기 있다. 나도 당신이 알고 싶다.
-
--   [Weekly Today]({{< relref "/journal/today" >}})
+-   [Weekly Today]({{< relref "/today" >}})
+-   [Jung Han | Substack - substack.com](https://substack.com/@junghanacs?) : 서브스택
+-   [junghanacs (@junghanacs) - threads.net](https://www.threads.net/@junghanacs)
 
 
 ## 메타노트: 앎의 고리 {#메타노트-앎의-고리}
@@ -74,23 +93,4 @@ comments: true
 
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
 -   [아무도 읽지 않는 공지 - 그를 찾아 떠나자 (2025-03-13)]({{< relref "/notes/20250313T105007.md" >}})
--   그 외 ...
-
-
-## 정보 {#정보}
-
--   \#편집도구: [Emacs]({{< relref "/meta/20230521T215600.md" >}}) 30.1.50, [Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22
--   \#사이트생성엔진: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) v4.4.1
--   [Meditations on Knowledge and Knowing - junghanacs.com](https://junghanacs.com/) (junghanacs 2024)
--   [Junghanacs's links - allmylinks.com](https://allmylinks.com/junghanacs) (“Junghanacs - Allmylinks” 2025)
--   서브스택 [Jung Han Substack](https://substack.com/@junghanacs?) (Han 2025)
--   Last revised and exported on 2025-03-16 05:19:16 +0900
--   Statistics: notes 2129 notes (7 attachments), keywords 5356 used keywords (1165 distinct keywords)
-
-## References
-
-<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry">Han, Jung. 2025. “Jung Han’s Substack.” 2025. <a href="https://substack.com/@junghanacs?">https://substack.com/@junghanacs?</a></div>
-  <div class="csl-entry">junghanacs. 2024. “Authology@Junghanacs.” 2024. <a href="https://www.junghanacs.com/">https://www.junghanacs.com/</a>.</div>
-  <div class="csl-entry">“Junghanacs - Allmylinks.” 2025. 2025. <a href="https://allmylinks.com/junghanacs">https://allmylinks.com/junghanacs</a>.</div>
-</div>
+-   [더보기...]({{< relref "/meta/20241206T090648.md" >}})

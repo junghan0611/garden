@@ -13,3 +13,5 @@ static/ltximg
 .pdf
 bak
 temp
+.aider*
+content.test

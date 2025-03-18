@@ -130,6 +130,51 @@ a {
       font-size: 2rem;
     }
 
+    & > h2::before {
+      content: "* ";
+      font-family: var(--bodyFont);
+      font-size: 1.5em;
+      vertical-align: -25%;       /* more negative -> goes lower */
+      letter-spacing: -.1em;      /* Squish the asterisks together */
+      margin-right: 0.25em;
+    }
+
+    & > h3::before {
+      content: "** ";
+      font-family: var(--bodyFont);
+      font-size: 1.5em;
+      vertical-align: -25%;       /* more negative -> goes lower */
+      letter-spacing: -.1em;      /* Squish the asterisks together */
+      margin-right: 0.25em;
+    }
+
+    & > h4::before {
+      content: "*** ";
+      font-family: var(--bodyFont);
+      font-size: 1.5em;
+      vertical-align: -25%;
+      letter-spacing: -.1em;
+      margin-right: 0.25em;
+    }
+
+    & > h5::before {
+      content: "**** ";
+      font-family: var(--bodyFont);
+      font-size: 1.5em;
+      vertical-align: -25%;
+      letter-spacing: -.1em;
+      margin-right: 0.25em;
+    }
+
+    & > h6::before {
+      content: "***** ";
+      font-family: var(--bodyFont);
+      font-size: 1.5em;
+      vertical-align: -25%;
+      letter-spacing: -.1em;
+      margin-right: 0.25em;
+    }
+
     & li:has(> input[type="checkbox"]) {
       list-style-type: none;
       padding-left: 0;
