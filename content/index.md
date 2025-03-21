@@ -36,7 +36,7 @@ comments: true
 -   [#그를찾아떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [#그의생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 
-Latest-export-date: 2025-03-18 17:17:58 +0900, Count-notes: 2134 notes (7 attachments)<br /> Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}})
+Latest-export-date: 2025-03-21 22:47:26 +0900, Count-notes: 2158 notes (7 attachments)<br /> Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}})
 
 
 ## 저널노트: 데일리 노트 {#저널노트-데일리-노트}

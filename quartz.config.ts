@@ -19,7 +19,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "notes.junghanacs.com",
     ignorePatterns: ["private", "temp", "templates", ".obsidian"],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
@@ -29,6 +29,7 @@ const config: QuartzConfig = {
         //           weights: [400, 700],
         //           includeItalic: false,},
         header: "Hahmlet",
+        title: "Hahmlet",
         body: "Noto Sans KR", //"42dot Sans"
         code: "Nanum Gothic Coding",
       },
