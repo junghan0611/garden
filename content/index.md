@@ -15,7 +15,7 @@ comments: true
 
 > 아! 질문 하나로 위대한 성현들의 지식(Knowledge)을 만날 수 있게 되었건만<br /> 나는 여전히 이 꼴 이구나. 아. 천하의 바보.<br /> 나는 조금도 지혜로워지지 않았다.<br /> 더 찬란한 무언가가 나온들 무엇이 달라지겠는가!<br /> 결국 우리가 알 수 없다는 사실만 깨닫게 될 뿐이로구나.<br />
 
-힣은 지식의 단편으로는 어떤 것도 창조할 수 없음을 이제야 깨닫게 되었다. 그토록 갈구해온 것은 불완전함 그 자체로의 앎(Knowing)이었으며, 가야할 길은 온전한 삶(Life) 뿐 이었던 것이다.
+힣은 지식의 단편으로는 어떤 것도 창조할 수 없음을 이제야 깨닫게 되었다.<br /> 그토록 갈구해온 것은 불완전함 그 자체로의 앎(Knowing)이었으며,<br /> 가야 할 길은 온전한 삶(Life) 뿐 이었던 것이다.<br />
 
 그것도 잠시, 힣은 또 말한다.
 
@@ -36,7 +36,7 @@ comments: true
 -   [#그를찾아떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [#그의생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 
-Latest-export-date: 2025-03-21 22:47:26 +0900, Count-notes: 2158 notes (7 attachments)<br /> Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}})
+Latest-export-date: 2025-03-24 07:12:33 +0900, Count-notes: 2174 notes (7 attachments)<br /> Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.22), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}})
 
 
 ## 저널노트: 데일리 노트 {#저널노트-데일리-노트}
@@ -91,6 +91,7 @@ Latest-export-date: 2025-03-21 22:47:26 +0900, Count-notes: 2158 notes (7 attach
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐.
 
+-   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24]({{< relref "/notes/20250324T070423.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
 -   [아무도 읽지 않는 공지 - 그를 찾아 떠나자 (2025-03-13)]({{< relref "/notes/20250313T105007.md" >}})
 -   [더보기...]({{< relref "/meta/20241206T090648.md" >}})
