@@ -63,18 +63,20 @@ export const defaultContentPageLayout: PageLayout = {
     //   }),
     // ),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Explorer(),
+    // Component.Explorer(), // 2025-03-26 disable
   ],
   right: [
     // Component.Graph(),
     Component.Graph({
       localGraph: {
         showTags: false,
+        drag: false,
+        zoom: false,
       },
       globalGraph: {
         showTags: false,
-        drag: true,
-        zoom: true,
+        drag: false,
+        zoom: false,
       },
     }),
     // Component.DesktopOnly(Component.TableOfContents()),
