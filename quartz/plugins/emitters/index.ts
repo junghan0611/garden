@@ -1,5 +1,6 @@
 export { ContentPage } from "./contentPage"
 export { TagPage } from "./tagPage"
+export { CategoryPage } from "./categoryPage"
 export { FolderPage } from "./folderPage"
 export { ContentIndex as ContentIndex } from "./contentIndex"
 export { AliasRedirects } from "./aliases"

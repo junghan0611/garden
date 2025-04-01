@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 junghanacs",
+    pageTitle: "junghanacs",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -20,7 +20,6 @@ const config: QuartzConfig = {
     baseUrl: "notes.junghanacs.com",
     ignorePatterns: ["private", "temp", "templates", ".obsidian"],
     defaultDateType: "created",
-    generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -106,6 +105,7 @@ const config: QuartzConfig = {
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),
+      Plugin.CategoryPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,

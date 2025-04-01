@@ -38,19 +38,22 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    // Component.CategoryList(),
   ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        // { Component: Component.Darkmode() },
-      ],
-    } ) ,
+    Component.Search(),
+    Component.Darkmode(),
+    // Component.Flex({
+    //   components: [
+    //     {
+    //       Component: Component.Search(),
+    //       // grow: true,
+    //     },
+    //     { Component: Component.Darkmode() },
+    //   ],
+    // }),
     // Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
     // Component.DesktopOnly(
     //   Component.RecentNotes({
@@ -63,23 +66,23 @@ export const defaultContentPageLayout: PageLayout = {
     //   }),
     // ),
     Component.DesktopOnly(Component.TableOfContents()),
+    // Component.Backlinks(),
     // Component.Explorer(), // 2025-03-26 disable
   ],
   right: [
     // Component.Graph(),
-    Component.Graph({
-      localGraph: {
-        showTags: false,
-        drag: false,
-        zoom: false,
-      },
-      globalGraph: {
-        showTags: false,
-        drag: false,
-        zoom: false,
-      },
-    }),
-    // Component.DesktopOnly(Component.TableOfContents()),
+    // Component.Graph({
+    //   localGraph: {
+    //     showTags: false,
+    //     drag: false,
+    //     zoom: false,
+    //   },
+    //   globalGraph: {
+    //     showTags: false,
+    //     drag: false,
+    //     zoom: false,
+    //   },
+    // }),
     Component.Backlinks(),
   ],
 }
@@ -91,8 +94,8 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    // Component.Darkmode(),
-    Component.Explorer(),
+    Component.Darkmode(),
+    // Component.Explorer(),
   ],
   right: [],
 }
