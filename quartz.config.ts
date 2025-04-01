@@ -89,7 +89,10 @@ const config: QuartzConfig = {
 
       // Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.OxHugoFlavouredMarkdown(
-        {replaceFigureWithMdImg: true,}),
+        {
+          wikilinks: true,
+          replaceFigureWithMdImg: true,
+        }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents({
         maxDepth: 3

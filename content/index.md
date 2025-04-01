@@ -33,22 +33,16 @@ comments: true
 -   [그는 요즘 뭐 하는가]({{< relref "/20230202T020200.md" >}})
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
--   [그의생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
+-   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 
 
-### 저널노트: 데일리 워크플로우 {#저널노트-데일리-워크플로우}
+### 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
 
-[오늘 지금 여기! Today]({{< relref "/today" >}}) Daily Update!
-
--   [#최근노트 #모음]({{< relref "/meta/20250327T125948.md" >}}) - Recent Notes (2025~)
+-   [Today's Journal]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리 #루틴 #조직모드 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
--   [POSSE(post on your own site, syndicate everywhere)]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
-
+-   [#POSSE - post on your own site, syndicate everywhere]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [@junghanacs - substack.com](https://substack.com/@junghanacs?)
 -   [@junghanacs - x.com twitter](https://x.com/junghanacs)
--   [@junghanacs - threads.net ](https://www.threads.net/@junghanacs)
--   [@junghanacs.bsky.social - bluesky](https://bsky.app/profile/junghanacs.bsky.social)
--   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
 
 
 ### 메타노트: 앎의 고리 {#메타노트-앎의-고리}
@@ -89,6 +83,7 @@ comments: true
 -   [#닷파일: #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
 -   [#옵시디언: #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
+-   [#최근노트 #모음]({{< relref "/meta/20250327T125948.md" >}}) - Recent Notes (2025~)
 
 
 ### 어쏠로그: '앎의 틀' 모음 {#어쏠로그-앎의-틀-모음}
@@ -103,4 +98,4 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-01 14:34:00, CountNotes: 2238 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-01 17:55:31, CountNotes: 2238 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
