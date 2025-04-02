@@ -40,7 +40,7 @@ comments: true
 
 -   [Today's Journal]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리 #루틴 #조직모드 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
--   [#POSSE - post on your own site, syndicate everywhere]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
+-   [#POSSE:Post on your Own Site, Syndicate Everywhere]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [@junghanacs - substack.com](https://substack.com/@junghanacs?)
 -   [@junghanacs - x.com twitter](https://x.com/junghanacs)
 
@@ -98,4 +98,4 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-01 17:55:31, CountNotes: 2238 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-02 19:39:57, CountNotes: 2251 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
