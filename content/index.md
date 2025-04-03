@@ -39,15 +39,15 @@ comments: true
 ### 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
 
 -   [Today's Journal]({{< relref "/today" >}}) - Daily Lifelog
--   [#데일리 #루틴 #조직모드 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
--   [#POSSE:Post on your Own Site, Syndicate Everywhere]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
+-   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
+-   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [@junghanacs - substack.com](https://substack.com/@junghanacs?)
 -   [@junghanacs - x.com twitter](https://x.com/junghanacs)
 
 
 ### 메타노트: 앎의 고리 {#메타노트-앎의-고리}
 
-[GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한 고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
+[#GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한 고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
 
 -   [Folder: meta]({{< relref "/meta" >}})
 
@@ -71,7 +71,7 @@ comments: true
 
 디지털가든에는 태그, 카테고리 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.<br />
 
--   [Tags Index]({{< relref "/tags" >}})
+-   [All Tags Index]({{< relref "/tags" >}})
 
 
 ### 텍스트 힙스터: 어쏠로지스트 {#텍스트-힙스터-어쏠로지스트}
@@ -80,8 +80,8 @@ comments: true
 
 모든 것이 텍스트 유희라면 여러 도구는 필요 없다. 손맛은 아는 자! [#옴니]({{< relref "/meta/20241013T213110.md" >}}) 스타일을 따르라! 텍스트 힙스터의 본능이 깨어난다. 무릇 도구의 효율성은 배움의 어려움을 능가한다. 사실 어려울 것도 없다. 삶을 담을 그릇을 만드는 데 시간은 넉넉하다.
 
--   [#닷파일: #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
--   [#옵시디언: #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
+-   [#닷파일 #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
+-   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
 -   [#최근노트 #모음]({{< relref "/meta/20250327T125948.md" >}}) - Recent Notes (2025~)
 
@@ -93,9 +93,9 @@ comments: true
 -   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24)]({{< relref "/notes/20250324T070423.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
 -   [아무도 읽지 않는 공지 - 그를 찾아 떠나자 (2025-03-13)]({{< relref "/notes/20250313T105007.md" >}})
--   [More]({{< relref "/tags/autholog" >}})
+-   [More ... ]({{< relref "/tags/autholog" >}})
 
 
 ## Information {#information}
 
-ExportDate: 2025-04-02 19:39:57, CountNotes: 2251 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-03 09:41:27, CountNotes: 2254 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
