@@ -25,11 +25,11 @@ let index = new FlexSearch.Document<Item>({
     index: [
       {
         field: "title",
-        tokenize: "forward",
+        tokenize: "reverse",
       },
       {
-        field: "content",
-        tokenize: "forward",
+        field: "heading",
+        tokenize: "reverse",
       },
       {
         field: "tags",
@@ -408,7 +408,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
           query: query,
           // return at least 10000 documents, so it is enough to filter them by tag (implemented in flexsearch)
           limit: Math.max(numSearchResults, 10000),
-          index: ["title", "content"],
+          index: ["title", "heading"],
           tag: tag,
         })
         for (let searchResult of searchResults) {
@@ -429,7 +429,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
       searchResults = await index.searchAsync({
         query: currentSearchTerm,
         limit: numSearchResults,
-        index: ["title", "content"],
+        index: ["title", "heading"],
       })
     }
 
@@ -441,7 +441,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     // order titles ahead of content
     const allIds: Set<number> = new Set([
       ...getByField("title"),
-      ...getByField("content"),
+      ...getByField("heading"),
       ...getByField("tags"),
     ])
     const finalResults = [...allIds].map((id) => formatForDisplay(currentSearchTerm, id))
