@@ -83,7 +83,7 @@ comments: true
 -   [#닷파일 #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
--   [#최근노트 #모음]({{< relref "/meta/20250327T125948.md" >}}) - Recent Notes (2025~)
+-   [#최근노트 #모음]({{< relref "/meta/20250327T125948.md" >}}) - Recent-Notes
 
 
 ### 어쏠로그: '앎의 틀' 모음 {#어쏠로그-앎의-틀-모음}
@@ -98,4 +98,4 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-03 19:11:09, CountNotes: 2261 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-06 02:49:11, CountNotes: 2278 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})

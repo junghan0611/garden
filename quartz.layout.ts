@@ -70,19 +70,21 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.Explorer(), // 2025-03-26 disable
   ],
   right: [
-    // Component.Graph(),
-    // Component.Graph({
-    //   localGraph: {
-    //     showTags: false,
-    //     drag: false,
-    //     zoom: false,
-    //   },
-    //   globalGraph: {
-    //     showTags: false,
-    //     drag: false,
-    //     zoom: false,
-    //   },
-    // }),
+    Component.DesktopOnly(
+      Component.Graph(),
+      Component.Graph({
+        localGraph: {
+          showTags: false,
+          // drag: false,
+          // zoom: false,
+        },
+        globalGraph: {
+          showTags: false,
+          // drag: false,
+          // zoom: false,
+        },
+      }),
+    ),
     Component.Backlinks(),
   ],
 }
