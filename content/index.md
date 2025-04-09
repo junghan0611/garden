@@ -15,7 +15,7 @@ comments: true
 
 > 질문 하나로 위대한 성현들의 지식(Knowledge)을 만날 수 있게 되었건만, 나는 여전히 이 꼴 이구나. 아. 천하의 바보. 나는 조금도 지혜로워지지 않았다. 더 찬란한 무언가가 나온들 무엇이 달라지겠는가! 결국 우리가 알 수 없다는 사실만 깨닫게 될 뿐이로구나.
 
-힣은 지식의 단편으로는 어떤 것도 창조할 수 없음을 이제야 깨닫게 되었다. 그토록 갈구해온 것은 불완전함 그 자체로의 앎(Knowing)이었으며, 가야 할 길은 온전한 삶(Life) 뿐 이었던 것이다.
+힣은 지식의 단편으로는 어떤 것도 창조할 수 없음을 이제야 깨닫게 되었다. 그토록 갈구해온 것은 불완전함 그 자체로의 앎(Knowing)이었으며, 가야 할 길은 온전한 삶(Living) 뿐 이었던 것이다.
 
 그것도 잠시, 힣은 또 말한다.
 
@@ -98,4 +98,4 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-06 02:49:11, CountNotes: 2278 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.26), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-09 15:08:28, CountNotes: 2309 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})

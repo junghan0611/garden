@@ -97,7 +97,8 @@ const config: QuartzConfig = {
       Plugin.TableOfContents({
         maxDepth: 3
         }),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      Plugin.CrawlLinks({ markdownLinkResolution: "absolute",
+                          prettyLinks: false }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
