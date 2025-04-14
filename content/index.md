@@ -73,9 +73,11 @@ comments: true
 
 ### 텍사노미: 분류 시스템 {#텍사노미-분류-시스템}
 
-디지털가든에는 태그, 카테고리 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.<br />
+디지털가든에는 태그, 카테고리 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [All Tags Index]({{< relref "/tags" >}})
+-   [Tags Index]({{< relref "/tags" >}}) under-construction
+-   [Category Index]({{< relref "/categories" >}}) under-construction
+-   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
 ### 텍스트 힙스터: 어쏠로지스트 {#텍스트-힙스터-어쏠로지스트}
@@ -103,4 +105,4 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-11 18:13, CountNotes: 2328 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-14 19:33, CountNotes: 2340 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
