@@ -96,7 +96,7 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐.
 
--   [#LLM 힣의 접근법 분석: 디지털가든 지식관리 철학]({{< relref "/notes/20250410T172033.md" >}})
+-   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-04-10)]({{< relref "/notes/20250410T172033.md" >}})
 -   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24)]({{< relref "/notes/20250324T070423.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
 -   [아무도 읽지 않는 공지 - 그를 찾아 떠나자 (2025-03-13)]({{< relref "/notes/20250313T105007.md" >}})
@@ -105,4 +105,4 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-14 19:33, CountNotes: 2340 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-16 09:19, CountNotes: 2355 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})

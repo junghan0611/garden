@@ -17,13 +17,24 @@ blockquote {
 .todo,
 .org-done,
 .done,
+.tag,
 .NEXT,
-.DONT,
-.timestamp {
+.DONT, {
   font-family: var(--codeFont);
   font-feature-settings: normal; /* 2 */
   font-variation-settings: normal; /* 3 */
   // font-size: 1em; /* 4 */
+}
+
+.timestamp {
+  font-family: var(--codeFont);
+  background-color: var(--textHighlight);
+  padding: 0 0.1rem;
+  border-radius: 5px;
+}
+
+.tag {
+  color: --color-danger-fg;
 }
 
 .TODO {
@@ -45,3 +56,4 @@ blockquote {
 .timestamp {
   color: --color-fg-muted;
 }
+
