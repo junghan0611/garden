@@ -20,37 +20,38 @@ blockquote {
 .tag,
 .NEXT,
 .DONT, {
-  font-family: var(--codeFont);
-  font-feature-settings: normal; /* 2 */
-  font-variation-settings: normal; /* 3 */
-  // font-size: 1em; /* 4 */
+  font-family: var(--bodyFont);
+  box-sizing: border-box;
+  padding: 0 0.1rem;
+  border-radius: 5px;
+  font-weight: 700;
 }
 
 .timestamp {
   font-family: var(--codeFont);
-  background-color: var(--textHighlight);
+  background-color: var(--lightgray);
   padding: 0 0.1rem;
   border-radius: 5px;
 }
 
 .tag {
-  color: --color-danger-fg;
+  color: -var(--secondary);
 }
 
 .TODO {
-  color: --color-danger-fg;
+  color: #db4242;
 }
 
 .NEXT {
-  color: --color-accent-fg;
+  color: #7a43b5;
 }
 
 .DONT {
-  color: --color-attention-fg;
+  color: #dba642;
 }
 
 .DONE {
-  color: --color-success-fg;
+  color: #00bfa5;
 }
 
 .timestamp {

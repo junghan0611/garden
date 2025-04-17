@@ -2,56 +2,56 @@ import { Translation } from "./definition"
 
 export default {
   propertyDefaults: {
-    title: "제목 없음",
-    description: "설명 없음",
+    title: "Untitled",
+    description: "No description provided",
   },
   components: {
     callout: {
-      note: "노트",
-      abstract: "개요",
-      info: "정보",
-      todo: "할일",
-      tip: "팁",
-      success: "성공",
-      question: "질문",
-      warning: "주의",
-      failure: "실패",
-      danger: "위험",
-      bug: "버그",
-      example: "예시",
-      quote: "인용",
+      note: "Note",
+      abstract: "Abstract",
+      info: "Info",
+      todo: "Todo",
+      tip: "Tip",
+      success: "Success",
+      question: "Question",
+      warning: "Warning",
+      failure: "Failure",
+      danger: "Danger",
+      bug: "Bug",
+      example: "Example",
+      quote: "Quote",
     },
     backlinks: {
-      title: "백링크",
-      noBacklinksFound: "백링크가 없습니다.",
+      title: "Backlinks",
+      noBacklinksFound: "No backlinks found",
     },
     themeToggle: {
-      lightMode: "라이트 모드",
-      darkMode: "다크 모드",
+      lightMode: "Light mode",
+      darkMode: "Dark mode",
     },
     explorer: {
-      title: "탐색기",
+      title: "Explorer",
     },
     footer: {
       createdWith: "Created with",
     },
     graph: {
-      title: "그래프 뷰",
+      title: "Graph View",
     },
     recentNotes: {
-      title: "최근 게시글",
-      seeRemainingMore: ({ remaining }) => `${remaining}건 더보기 →`,
+      title: "Recent Notes",
+      seeRemainingMore: ({ remaining }) => `See ${remaining} more →`,
     },
     transcludes: {
-      transcludeOf: ({ targetSlug }) => `${targetSlug}의 포함`,
-      linkToOriginal: "원본 링크",
+      transcludeOf: ({ targetSlug }) => `Transclude of ${targetSlug}`,
+      linkToOriginal: "Link to original",
     },
     search: {
-      title: "검색",
-      searchBarPlaceholder: "검색어를 입력하세요",
+      title: "Search",
+      searchBarPlaceholder: "Search for something",
     },
     tableOfContents: {
-      title: "목차",
+      title: "Table of Contents",
     },
     contentMeta: {
       readingTime: ({ minutes }) => `${minutes} min read`,
@@ -59,24 +59,34 @@ export default {
   },
   pages: {
     rss: {
-      recentNotes: "최근 게시글",
-      lastFewNotes: ({ count }) => `최근 ${count} 건`,
+      recentNotes: "Recent notes",
+      lastFewNotes: ({ count }) => `Last ${count} notes`,
     },
     error: {
       title: "Not Found",
-      notFound: "페이지가 존재하지 않거나 비공개 설정이 되어 있습니다.",
-      home: "홈페이지로 돌아가기",
+      notFound: "Either this page is private or doesn't exist.",
+      home: "Return to Homepage",
     },
     folderContent: {
-      folder: "폴더",
-      itemsUnderFolder: ({ count }) => `${count}건의 항목`,
+      folder: "Folder",
+      itemsUnderFolder: ({ count }) =>
+        count === 1 ? "1 item under this folder." : `${count} items under this folder.`,
     },
     tagContent: {
-      tag: "태그",
-      tagIndex: "태그 목록",
-      itemsUnderTag: ({ count }) => `${count}건의 항목`,
-      showingFirst: ({ count }) => `처음 ${count}개의 태그`,
-      totalTags: ({ count }) => `총 ${count}개의 태그를 찾았습니다.`,
+      tag: "Tag",
+      tagIndex: "Tag Index",
+      itemsUnderTag: ({ count }) =>
+        count === 1 ? "1 item with this tag." : `${count} items with this tag.`,
+      showingFirst: ({ count }) => `Showing first ${count} tags.`,
+      totalTags: ({ count }) => `Found ${count} total tags.`,
+    },
+    categoryContent: {
+      category: "Category",
+      categoryIndex: "Category Index",
+      itemsUnderCategory: ({ count }) =>
+        count === 1 ? "1 item with this category." : `${count} items with this category.`,
+      showingFirst: ({ count }) => `Showing first ${count} categories.`,
+      totalCategories: ({ count }) => `Found ${count} total categories.`,
     },
   },
 } as const satisfies Translation

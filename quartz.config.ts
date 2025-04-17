@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "junghanacs",
+    pageTitle: "🧠 Junghanacs",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -16,7 +16,8 @@ const config: QuartzConfig = {
       provider: "google",
       tagId: "G-9CNFFWK1YX"
     },
-    locale: "en-US",
+    // locale: "en-US",
+    locale: "ko-KR",
     baseUrl: "notes.junghanacs.com",
     ignorePatterns: ["private", "temp", "templates", ".obsidian"],
     defaultDateType: "created",
@@ -28,8 +29,8 @@ const config: QuartzConfig = {
         //           weights: [400, 700],
         //           includeItalic: false,},
         header: "Hahmlet",
-        title: "Hahmlet",
-        body: "Noto Sans KR", //"42dot Sans"
+        title: "42dot Sans",
+        body:  "42dot Sans", // "Noto Sans KR"
         code: "Nanum Gothic Coding",
       },
       colors: {
@@ -70,12 +71,12 @@ const config: QuartzConfig = {
           light: "github-light",
           dark: "github-dark",
         },
-        keepBackground: false,
+        keepBackground: true,
       }),
       Plugin.ObsidianFlavoredMarkdown({
         comments: false,
         highlight: false,
-        wikilinks: false,
+        wikilinks: true,
         callouts: true,
         mermaid: false,
         parseTags: false,
@@ -95,7 +96,7 @@ const config: QuartzConfig = {
         }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents({
-        maxDepth: 3
+        maxDepth: 2
         }),
       Plugin.CrawlLinks({ markdownLinkResolution: "absolute",
                           prettyLinks: false }),
