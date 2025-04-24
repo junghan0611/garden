@@ -20,7 +20,7 @@ comments: true
 그것도 잠시, 힣은 또 말한다.
 
 > 알고 싶다! 그 '앎'에 닿고 싶다. 도대체 어디에 있다는 말인가? 5년 전 그 책에? 올해의 이 책에? 바로 오늘! '지금'의 것을 담아서 보여 달라. 사유의 '역사'를 보여 달라. 앎의 '전체상'을 보여 달라.
->
+> 
 > 거기 잠시만... 유명한 지성인이여! 도대체 무엇을 보라는 말인가? 그냥 하나만 달라! 당신의 인생, 삶, 그 모두를 여기에 달라. 여기서 취할 것은 취하리라.
 
 
@@ -43,7 +43,6 @@ comments: true
 -   [#데일리저널]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
--   [@junghanacs - substack.com](https://substack.com/@junghanacs?)
 -   [@junghanacs - threads.net ](https://www.threads.net/@junghanacs)
 -   [@junghanacs - x.com twitter](https://x.com/junghanacs)
 -   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
@@ -105,4 +104,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-04-22 21:21, CountNotes: 2397 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-04-24 16:17, CountNotes: 2421 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+
