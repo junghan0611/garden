@@ -1,0 +1,184 @@
+---
+title: "ithink"
+author: ["Junghan Kim"]
+date: 2023-06-17T12:03:00+09:00
+tags: ["glossary"]
+draft: false
+---
+
+-   [@김명석: #두뇌보완계획 #논리철학 #과학방법 #언어철학]({{< relref "/bib/20240610T222619.md" >}})
+
+-   ‘∀x[Man(x)→Mortal(x)]'
+
+논리 온톨로지 관련 CSV 파일 만들어야
+
+
+## 히스토리 {#히스토리}
+
+[2024-06-14]({{< relref "/journal/20240614T000000.md" >}})
+: 단순한 구조로 정리했다. 복합 단어는 굳이 넣을 필요 없다.
+
+[2024-06-27]({{< relref "/journal/20240627T000000.md" >}})
+: 영어 인덱스 반영
+
+[2024-07-10]({{< relref "/journal/20240710T000000.md" >}})
+: 수리 논리 업데이트
+
+[2024-07-17]({{< relref "/journal/20240717T000000.md" >}})
+: [박승억 (2022) 학문이 서로 돕는다는 것: 현상학 학문이론 일반체계이론 보편학]({{< relref "/bib/20240508T112324.md" >}})
+
+[2024-08-06]({{< relref "/journal/20240806T000000.md" >}})
+: [나이절 워버턴 (2020) 논리적 생각의 핵심 개념들 - 개념어]({{< relref "/bib/20240607T165359.md" >}}), [남경태 (2006) 개념어 사전]({{< relref "/bib/20240806T121529.md" >}})
+
+
+## 언어 테이블 영어 {#언어-테이블-영어}
+
+-   [#용어사전: #조직모드 #스프레스쉬트 변환::csv to org-table 변환]({{< relref "/notes/20240613T121834.md" >}})
+-   첫 라인에 헤딩을 넣어 놓아야 함!
+-   CSV 내보내기
+-   컬럼 옴기기
+
+| 영어                                  | 한자말         | 한말          |
+|-------------------------------------|-------------|-------------|
+| strong inference                      | 강한 추론      | 강한 이끌기   |
+| logical equivalence                   | 동치           | 같은 뜻       |
+| logical equivalence                   | 동치           | 같은 말       |
+| equivalence rule                      | 동치규칙       | 같은 말 굴레  |
+| indirect proof                        | 간접증명ㆍ배리법ㆍ귀류법 | 거짓이다 넣기 |
+| double negation rule                  | 이중부정법     | 거짓이다 없애기 |
+| negation                              | 부정문         | 거짓이다글월  |
+| truth table for negation              | 부정의 진리표  | 거짓이다의 참값모눈 |
+| complex sentence                      | 복합문         | 겹글월        |
+| conditional sentence                  | 단순조건문     | 그냥 이면글월 |
+| sentence                              | 문장           | 글월          |
+| sentential logic                      | 문장논리       | 클월 말길     |
+| sentential operator                   | 문장연산자     | 글월 바꾸개   |
+| logical form of sentence              | 문장형식       | 글월 얼개     |
+| sentential connective                 | 문장연결사     | 글월 이음씨   |
+| reason                                | 이유           | 까닭          |
+| inconsistent incompatible             | 비일관된ㆍ양립불가능한 | 나란하지 않은 |
+| consistent compatible                 | 일관된ㆍ양립가능한 | 나란한        |
+| term                                  | 단어 명사 용어 | 낱말          |
+| sufficient condition                  | 충분조건       | 넉넉한 말     |
+| inclusive disjunction                 | 포괄 선언      | 넓은 이거나   |
+| replacement rule                      | 치환규칙       | 달리 쓰기 굴레 |
+| double negation                       | 이중부정       | 두 번 거짓이다 |
+| general sentence                      | 일반문장       | 두루글월      |
+| general term general noun             | 일반어ㆍ보통명사 | 두루이름      |
+| Modus Tollens                         | 부정논법       | 뒤로 이면 없애기 |
+| implication entailment                | 함축           | 따라 나옴     |
+| implication entailment                | 함축           | 따라 나온다   |
+| conclusion                            | 걸론ㆍ귀걸ㆍ논지 | 따름말        |
+| conclusion indicator                  | 결론 표시어    | 따름말        |
+| conclusion indicator                  | 결론 표시어    | 보람말        |
+| conclusion indicator                  | 따름말 보람말  | 결론          |
+| critique                              | 비판           | 따지기        |
+| variable                              | 변항           | 떠돌이 홀이름 |
+| meaning: sense-content                | 의미ㆍ내용     | 뜻            |
+| definition                            | 정의           | 뜻매김        |
+| valid inference                       | 타당한 추론    | 마땅한 이끌기 |
+| logic                                 | 논리           | 말길          |
+| logical form                          | 논리 형식 논리 구조 | 말길 얼개     |
+| logician                              | 논리학자       | 말길꾼        |
+| proposition ‘statement               | 명제ㆍ진술     | 말뜻          |
+| particular affirmative                | 특칭긍정       | 몇몇 그렇다   |
+| existential generalization            | 존재일반화     | 몇몇 넣기     |
+| rule of existential quantifier change | 존재양화사 교환규칙 | 몇몇 모든 바꿈 |
+| particular negative                   | 특칭부정       | 몇몇 아니다   |
+| existential instantiation             | 존재예화       | 몇몇 없애기   |
+| particular sentence                   | 특칭문장       | 몇몇글월      |
+| existential quantifier                | 존재양화사     | 몇몇씨        |
+| universal affirmative                 | 전칭긍정       | 모두 그렇다   |
+| universal negative                    | 전칭부정       | 모두 아니다   |
+| universal generalization              | 보편일반화     | 모든 넣기     |
+| rule of universal quantifier change   | 보편양화사 교환규칙 | 모든 몇몇 바꿈 |
+| universal instantiation               | 보편예화       | 모든 없애기   |
+| universal sentence                    | 전칭문장       | 모든글월      |
+| categorical equivalence               | 정언동치규칙   | 모든몇몇 달리 쓰기 |
+| quantificationa logic                 | 양화논리       | 모든몇몇 말길 |
+| quantificationa logic                 | 모든몇몇 말길  | 양화논리      |
+| categorical sentence                  | 정언문장       | 모든몇몇글월  |
+| quantifier                            | 양화사         | 모든몇몇씨    |
+| universal quantifier                  | 보편양화사     | 모든씨        |
+| invalid inference                     | 부당한 추론    | 못마땅한 이끌기 |
+| belief opinion                        | 의견ㆍ신념     | 믿음          |
+| logical false                         | 항위문장       | 반드시 거짓말 |
+| logical sentence                      | 필연문장       | 반드시 글월   |
+| deductive inference                   | 연역추론       | 반드시 이끌기 |
+| logical truth                         | 항진문장       | 반드시 참말   |
+| premise                               | 전제ㆍ근거ㆍ논거ㆍ가정 | 받침말        |
+| premise                               | 받침말         | 전제          |
+| premise indicator                     | 전제 표시어    | 받침말 보람말 |
+| proof                                 | 증명           | 밝혀 보임     |
+| constant                              | 상항           | 붙박이 홀이름 |
+| thought                               | 사상           | 생각          |
+| mutual entailment                     | 상호함축       | 서로 따라 나옴 |
+| inductive inference                   | 귀납추론       | 아마도 이끌기 |
+| weak inferes                          | 약한 추론      | 약한 이끌기   |
+| contradictory                         | 모순인         | 어긋난        |
+| contradiction                         | 모순문장       | 어긋난 말     |
+| contradiction ?                       | 어긋난 말      | 모순문장      |
+| contingent false                      | 우연허위       | 어쩌다 거짓말 |
+| contingent sentence                   | 우연문장       | 어쩌다 글월   |
+| contingent truth                      | 우연진실       | 어쩌다 참말   |
+| assumption ‘supposition              | 가정           | 여김말        |
+| disjunction                           | 선언           | 이거나        |
+| disjunction                           | 선언문         | 이거나글월    |
+| distributivity of disjunction         | 선언 배분규칙  | 이거나 나눔   |
+| addition rule                         | 첨가논법       | 이거나 넣기   |
+| disjunctive tautology                 | 선언 동어반복  | 이거나 되풀이 |
+| DeMorgan' rule of disjunction         | 선언 드 모르강 규칙 | 이거나 모아 거짓이다 |
+| associativity of disjunction          | 선언 결합규칙  | 이거나 새로 모음 |
+| commutativity of disjunction          | 선언 교환규칙  | 이거나 앞뒤 바꿈 |
+| disjunctive syllogism                 | 선언 삼단논법  | 이거나 없애기 |
+| truth table for disjunction           | 선언의 진리표  | 이거나의 참값모눈 |
+| conjunction                           | 연언           | 이고          |
+| conjunction                           | 연언           | 이고글월      |
+| distributivity of conjunction         | 연언 배분규칙  | 이고 나눔     |
+| conjunction rule                      | 연언논법       | 이고 넣기     |
+| conjunctive tautology                 | 연언 동어반복  | 이고 되풀이   |
+| DeMorgan' rule of conjunction         | 연언 드 모르강 규칙 | 이고 모아 거짓이다 |
+| associativity of conjunction          | 연언 결합규칙  | 이고 새로 모음 |
+| commutativity of conjunction          | 연언 교환규칙  | 이고 앞뒤 바꿈 |
+| simplification rule                   | 단순화논법     | 이고 없애기   |
+| truth table for conjunction           | 연언의 진리표  | 이고의 참값모눈 |
+| truth table for conjunction ?!        | 연언           | 이고의        |
+| inference                             | 추론           | 이끌기        |
+| inference                             | 이끌기         | 추론          |
+| inference indicator                   | 추론 표시어    | 이끌기 보람말 |
+| rule of inference                     | 추론규칙       | 이끌기 틀     |
+| argument                              | 논증           | 이끌어 보임   |
+| argument by cases                     | 경우에 의한 증명ㆍ양도논법 | 이러나저러나  |
+| exportation rule                      | 추출규칙       | 이렇고 저렇다면 |
+| noun                                  | 명사           | 이름          |
+| conditional                           | 조건문         | 이면글월      |
+| conditional                           | 조건문         | 이면          |
+| conditional proof                     | 조건증명법     | 이면 넣기     |
+| transposition rule                    | 대우규칙       | 이면 앞뒤 바꿈 |
+| antecedent                            | 전건           | 이면 앞말     |
+| Modus Ponens                          | 긍정논법       | 이면 없애기   |
+| conditional exchange rule             | 조건규칙       | 이면 이거나 바꿈 |
+| hypothetical syllogism                | 가언 삼단논법ㆍ연쇄논법 | 이면 잇기     |
+| truth table for conditional           | 조건의 진리표  | 이면의 참값모눈 |
+| if and only if                        | 인 경우 오직 그 경우에만 | 일 때 오직 그때만 |
+| necessary condition                   | 필요조건       | 있어야 하는 말 |
+| fallacy                               | 오류           | 잘못 이끌기   |
+| affirming the consequent              | 후건긍정의 오류 | 잘못된 뒤로 이면 없애기 |
+| denying the antecedent                | 전건부정의 오류 | 잘못된 이면 없애기 |
+| exclusive disjunction                 | 배타 선언      | 좁은 이거나   |
+| biconditional                         | 쌍조건         | 짝이면        |
+| biconditional sentence                | 쌍조건문       | 짝이면글월    |
+| natural deduction                     | 자연연역       | 차근차근 이끌기 |
+| truth-functional sentential           | 진리함수 문장연결사 | 참 따른 글월 이음씨 |
+| truth predicate                       | 진리술어       | 참 풀이말     |
+| truth value                           | 진리값         | 참값          |
+| truth table                           | 진리표         | 참값모눈      |
+| sound inference                       | 건전한 추론    | 튼튼한 이끌기 |
+| predicate                             | 술어           | 풀이말        |
+| predicate logic                       | 술어논리       | 풀이말 말길   |
+| singular sentence                     | 단칭문장       | 훌글월        |
+| singular term: proper noun            | 단칭어:고유명사 | 홀이름        |
+| simple sentence                       | 단순문         | 홀글월        |
+| cogent- persuasive inference          | 설득력 있는 추론 | 힘있는 이끌기 |
+| unpersuasive inference                | 설득력 없는 추론 | 힘없는 이끌기 |
+
