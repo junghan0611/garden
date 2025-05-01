@@ -58,6 +58,7 @@ comments: true
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
 -   [그는 요즘 뭐 하는가]({{< relref "/20230202T020200.md" >}})
+-   [그는 오늘 뭐 하는가]({{< relref "/today" >}})
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
@@ -65,7 +66,7 @@ comments: true
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 `데일리저널`에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리저널]({{< relref "/today" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
 -   [#데일리저널]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
@@ -131,5 +132,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-01 00:01, CountNotes: 2543 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-01 15:05, CountNotes: 2552 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
