@@ -62,6 +62,7 @@ comments: true
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
+-   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -132,5 +133,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-01 15:05, CountNotes: 2552 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-03 08:21, CountNotes: 2572 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
