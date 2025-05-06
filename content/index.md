@@ -11,7 +11,7 @@ comments: true
 
 ## **구직중** '힣'의 고뇌 (프리퀄) {#구직중-힣-의-고뇌--프리퀄}
 
--   힣은 연구자(솔로/독립), GEEKS(이맥스), 탐험가(디지털가든), 대장장이(지식도구), 유리알유희자(지식관리), 구도자(명상/글쓰기)로서 ([#개인지식관리#역사]({{< relref "/notes/20240328T144732.md" >}}))
+-   힣은 연구자(솔로/독립), GEEKS(이맥스), 탐험가(디지털가든), 대장장이(지식도구), 유리알유희자(지식관리), 구도자(명상글쓰기)로서 ([#개인지식관리#역사]({{< relref "/notes/20240328T144732.md" >}}))
 -   류비님의 시간기록법, 루만님의 노트작성법을 중심으로 ([#류비셰프#루만#조직저널#워크플로우)]({{< relref "/notes/20240921T115749.md" >}})
 -   나름의 방식으로 이맥스(EMACS)에 통합하여 디지털가든을 공개하였다 ([#LLM 힣의 접근법 분석: 디지털가든 지식관리 철학]({{< relref "/notes/20250410T172033.md" >}})).
 -   이를 남녀노소 누구나 지식도구/인생도구로 활용하도록 널리 보급하는데 헌신하고 있다([#인생도구#평생도구]({{< relref "/meta/20240829T213246.md" >}})).
@@ -133,5 +133,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-03 08:21, CountNotes: 2572 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.27), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-06 12:37, CountNotes: 2578 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
