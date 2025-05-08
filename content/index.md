@@ -19,7 +19,7 @@ comments: true
 -   이미 6살 아이도 [#채티]({{< relref "/notes/20241202T085528.md" >}})와 소통 하고 있다. 다만, 한글이 서툴러서 시간이 필요하다.
 -   모든 것은 **무료**이며, 돈 벌고자 하는 일이 아니다([나 자신이 된 일에 보수를 받다니]({{< relref "/notes/20250316T044013.md" >}})).
 
--   이맥스(EMACS)에 튜닝 된 AI노트 **지식도구**에는 '질문'이 중심이 아니다. '답변'을 버리지 않는 것이 핵심이다.
+-   이맥스(EMACS)에 튜닝 된 AI노트 **지식도구**에는 '질문'이 중심이 아니다. '답변'을 버리지 않는 것이 핵심이다. ([#AI노트 #지식도구 #핵심: 질문 vs. 답변]({{< relref "/notes/notfound39219129.md" >}}))
 -   여기에 '지'와 '앎'의 통합이 있다. 이와 같은 탐구의 과정은 곧 전문가의 길이며 '에피스테메'를 완성하는 탐험의 길이다.
 -   그럼에도 '앎의틀'은 여전히 인간의 '벽'이다. 여기에는 '파이데이아' 공통지식을 메타노트로써 구성했다 ([#교육: 페러다임 구성주의 항존주의]({{< relref "/notes/20241209T235932.md" >}})).
 
@@ -27,13 +27,14 @@ comments: true
 -   물류 창고의 일용직 노동으로는 삶을 유지하기 어려운 상황이다(유리알유희를 당장 관두어야 할지 모른다).
 
 -   참고로 힣은 컴퓨터공학을 사려깊게 탐구한 재원으로서 'SW' 테크늄의 진화와 함께 성장해왔다.
--   이에 더해 전공을 벗어나서 '폴리매스'로 거듭나고 있으며 '기술'을 중심으로 전 분야에 걸쳐서 응용의 준비가 되어 있다.
+-   이에 더해 전공을 벗어나서 '폴리매스(Polymath)'로 거듭나고 있으며 '기술'을 중심으로 전 분야에 걸쳐서 응용의 준비가 되어 있다.
 
 이렇게 힣의 고뇌 프리퀄을 진심을 담아 남긴다. 구직 중입니다. 여러분.
 
--   [#CV#RESUME#이력서 (2025-04-02)]({{< relref "/notes/20250402T191034.md" >}}), [연구실적(컴퓨터공학)]({{< relref "/notes/20250317T150522.md" >}})
--   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/) : 학력
--   [junghan0611 - github.com](https://github.com/junghan0611) : 코드
+-   [#CV#RESUME#이력서 (2025-04-02)]({{< relref "/notes/20250402T191034.md" >}}),
+-   [#연구실적(컴퓨터공학)]({{< relref "/notes/20250317T150522.md" >}})
+-   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/) - #학력
+-   [junghan0611 - github.com](https://github.com/junghan0611) - #깃허브 #코드
 
 
 ## '힣'의 고뇌 {#힣-의-고뇌}
@@ -124,6 +125,7 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐.
 
+-   [#AI노트 #지식도구 #핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/notfound39219129.md" >}})
 -   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-04-10)]({{< relref "/notes/20250410T172033.md" >}})
 -   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24)]({{< relref "/notes/20250324T070423.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
@@ -133,5 +135,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-06 12:37, CountNotes: 2578 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-08 13:59, CountNotes: 2585 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
