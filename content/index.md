@@ -15,28 +15,24 @@ comments: true
 -   류비님의 시간기록법, 루만님의 노트작성법을 중심으로 ([#류비셰프#루만#조직저널#워크플로우)]({{< relref "/notes/20240921T115749.md" >}})
 -   `워크플로우`를 이맥스(EMACS)에 통합하여 `디지털가든`을 공개하였다 ([#LLM 힣의 접근법 분석: 디지털가든 지식관리 철학]({{< relref "/notes/20250410T172033.md" >}})).
 -   이를 남녀노소 누구나 `지식도구`이자 `인생도구`로 만나길 바라며([#인생도구#평생도구]({{< relref "/meta/20240829T213246.md" >}}))
+-   모든 자료를 `공개`하고 있다([나 자신이 된 일에 보수를 받다니]({{< relref "/notes/20250316T044013.md" >}})).
 
 <!--listend-->
-
--   모든 자료를 `공개`하고 있다([나 자신이 된 일에 보수를 받다니]({{< relref "/notes/20250316T044013.md" >}})).
 
 -   AI노트 **지식도구**에는 '질문'이 중심이 아니다. '답변'을 버리지 않는 것이 핵심이다([#AI노트 #지식도구 #핵심: 질문보다 답변]({{< relref "/notes/20250508T134411.md" >}})).
 -   여기에 '지'와 '앎'의 통합이 있다. 이와 같은 탐구의 과정은 곧 전문가의 길이며 에피스테메(Episteme)를 완성하는 탐험의 길이다.
 -   그럼에도 '앎의틀'은 여전히 인간의 '벽'이다. 여기에는 '파이데이아(Paideia)' 공통지식을 `메타노트`로 구성했다([#교육: 페러다임 구성주의 항존주의]({{< relref "/notes/20241209T235932.md" >}})).
 
 -   그럼에도 이렇게 장황하게 떠드는 이유는 무엇인가?! 힣은 `unemployed` 상태이며, 즉 **백수**다.
-
-<!--listend-->
-
 -   참고로 힣은 `컴퓨터공학`을 사려 깊게 탐구한 재원으로서 'SW' [#테크늄]({{< relref "/meta/20250508T154607.md" >}})의 진화와 함께 성장해왔다.
 -   이에 더해 전공을 벗어나서 [#폴리매스(Polymath)]({{< relref "/meta/20240105T171414.md" >}})로 거듭나고 있으며 '기술'을 중심으로 전 분야에 걸쳐서 응용의 준비가 되어 있다.
 
-이렇게 힣의 고뇌 `프리퀄`을 남기며 담당자 여러분의 많은 관심 바랍니다.
+이렇게 힣의 고뇌 `프리퀄`을 남기며 담당자 여러분의 많은 관심바랍니다.
 
--   [#CV#RESUME#이력서 (2025-04-02)]({{< relref "/notes/20250402T191034.md" >}}),
--   [#연구실적(컴퓨터공학)]({{< relref "/notes/20250317T150522.md" >}})
--   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/) - #학력
--   [junghan0611 - github.com](https://github.com/junghan0611) - #깃허브 #코드
+-   [@junghan Resume]({{< relref "/notes/20230814T142800.md" >}})
+-   [@junghan Publications]({{< relref "/notes/20250317T150522.md" >}})
+-   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
+-   [junghan0611 - github.com](https://github.com/junghan0611)
 
 
 ## '힣'의 고뇌 {#힣-의-고뇌}
@@ -127,7 +123,8 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐.
 
--   [#AI노트 #지식도구 #핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/20250508T134411.md" >}})
+-   [비극 속에서의 낙관 (2025-05-15)]({{< relref "/notes/20250515T161418.md" >}})
+-   [AI노트 핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/20250508T134411.md" >}})
 -   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-04-10)]({{< relref "/notes/20250410T172033.md" >}})
 -   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24)]({{< relref "/notes/20250324T070423.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
@@ -137,5 +134,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-12 21:14, CountNotes: 2602 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-15 16:47, CountNotes: 2612 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
