@@ -9,7 +9,12 @@ title: "Home: Digital Garden🏡"
 comments: true
 ---
 
-## '힣'의 고뇌 (프리퀄) - 지식도구 {#힣-의-고뇌--프리퀄--지식도구}
+## #공지 피드백 질문 대환영 {#공지-피드백-질문-대환영}
+
+이 곳은 '정원' 입니다. 넓게 둘러보다 가십시오. [#질문 #피드백]({{< relref "/meta/20240916T061739.md" >}})은 열려 있습니다(댓글, SNS, 이메일). [#응원 #경탄]({{< relref "/notes/20250306T043741.md" >}})의 메시지도 힘이 될 것 입니다.
+
+
+## 곤궁한 '힣'의 고뇌 (프리퀄) {#곤궁한-힣-의-고뇌--프리퀄}
 
 -   힣은 연구자(솔로/독립), GEEKS(이맥스), 탐험가(디지털가든), 대장장이(지식도구), 유리알유희자(지식관리), 구도자(명상글쓰기)로서 ([#개인지식관리#역사]({{< relref "/notes/20240328T144732.md" >}}))
 -   류비님의 시간기록법, 루만님의 노트작성법을 중심으로 ([#류비셰프#루만#조직저널#워크플로우)]({{< relref "/notes/20240921T115749.md" >}})
@@ -29,6 +34,7 @@ comments: true
 -   [@junghan Publications]({{< relref "/notes/20250317T150522.md" >}})
 -   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
 -   [junghan0611 - github.com](https://github.com/junghan0611)
+-   junghanacs dot gmail.com
 
 
 ## '힣'의 고뇌 {#힣-의-고뇌}
@@ -130,5 +136,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-19 12:41, CountNotes: 2626 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-20 08:57, CountNotes: 2629 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
