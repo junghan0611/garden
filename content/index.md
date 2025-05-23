@@ -34,6 +34,8 @@ comments: true
 -   [@junghan Publications]({{< relref "/notes/20250317T150522.md" >}})
 -   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
 -   [junghan0611 - github.com](https://github.com/junghan0611)
+-   [@junghanacs - threads.net ](https://www.threads.net/@junghanacs)
+-   [@junghanacs - x.com twitter](https://x.com/junghanacs)
 -   junghanacs dot gmail.com
 
 
@@ -64,6 +66,7 @@ comments: true
 -   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 -   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
+-   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RSS RecentNotes
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -73,9 +76,6 @@ comments: true
 -   [#데일리저널]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
--   [@junghanacs - threads.net ](https://www.threads.net/@junghanacs)
--   [@junghanacs - x.com twitter](https://x.com/junghanacs)
--   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
 
 
 ## 메타노트: 앎의 고리 {#메타노트-앎의-고리}
@@ -134,7 +134,13 @@ comments: true
 -   [More ... ]({{< relref "/tags/autholog" >}})
 
 
+## 독서모임 - 책과 삶 {#독서모임-책과-삶}
+
+-   [#사락독서모임 - 책과 삶]({{< relref "/notes/20250409T143916.md" >}}) 노트 참고
+-   [바로가기 사락 독서모임 - 책과 삶](https://sarak.yes24.com/book-club/arLDLp5b0nJDFh70)
+
+
 ## Information {#information}
 
-ExportDate: 2025-05-20 08:57, CountNotes: 2629 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-23 05:59, CountNotes: 2638 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
