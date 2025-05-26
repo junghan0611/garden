@@ -121,6 +121,7 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐. 지나치는 짧은 생각들은 [#어쏠리즘 #모음]({{< relref "/notes/20250311T131725.md" >}})에 모아두려고 합니다.
 
+-   [AI 투기/투자 리스크 브랜딩 전사 (2025-05-26)]({{< relref "/notes/20250526T175814.md" >}})
 -   [비극 속에서의 낙관 (2025-05-15)]({{< relref "/notes/20250515T161418.md" >}})
 -   [AI노트 핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/20250508T134411.md" >}})
 -   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-04-10)]({{< relref "/notes/20250410T172033.md" >}})
@@ -138,5 +139,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-26 13:59, CountNotes: 2660 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-26 19:12, CountNotes: 2663 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
