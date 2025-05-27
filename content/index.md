@@ -16,9 +16,9 @@ comments: true
 -   `워크플로우`를 이맥스(Emacs)에 통합하여 `디지털가든`을 공개하였다 ([AI가 말하는 힣의 디지털가든]({{< relref "/notes/20250410T172033.md" >}})).
 -   남녀노소 누구나 `지식도구`, `인생도구`를 만나길 바랄 뿐 ([#인생도구#평생도구]({{< relref "/meta/20240829T213246.md" >}})),
 -   모든 자료는 나눔(공개)이 원칙이다 ([나 자신이 되는 일과 보수]({{< relref "/notes/20250316T044013.md" >}})).
--   데스크톱, 노트북 따로 필요 없다. 구형 안드로이드에서도 기능에 차별이 없다 ([#스크린샷: #범용 #지식도구]({{< relref "/notes/20220928T112300.md" >}})).
+-   데스크톱, 노트북 따로 필요 없다. 모바일(안드로이드)에서도 기능에 차별이 없다 ([#스크린샷: #범용 #지식도구]({{< relref "/notes/20220928T112300.md" >}})).
 
--   이제 불완전한 오늘을 기록하자. AI와 대화도 쌓자, 삭히자. 오! #[영감(inspiration)]({{< relref "/meta/20240522T142745.md" >}})이여 오소서! ([#AI활용 질문 vs 답변]({{< relref "/notes/20250508T134411.md" >}})).
+-   이제 불완전한 오늘을 기록하자. AI와 대화도 쌓자, 삭히자. 오! [#영감(inspiration)]({{< relref "/meta/20240522T142745.md" >}})이여 오소서! ([#AI활용 질문 vs 답변]({{< relref "/notes/20250508T134411.md" >}})).
 
 -   그나저나, 이렇게 장황하게 떠드는 이유는 무엇인가?! 힣은 `unemployed` 상태이며, 즉 **백수** 입니다.
 -   힣은 `컴퓨터공학`을 배웠으며, 이제는 배움의 경계가 없는 '학습자' 입니다 ([#폴리매스]({{< relref "/meta/20240105T171414.md" >}})).
@@ -121,6 +121,7 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐. 지나치는 짧은 생각들은 [#어쏠리즘 #모음]({{< relref "/notes/20250311T131725.md" >}})에 모아두려고 합니다.
 
+-   [휴대용/AI지식도구/가능성/스크린샷(2025-05-26)]({{< relref "/notes/20220928T112300.md" >}})
 -   [AI 투기/투자 리스크 브랜딩 전사 (2025-05-26)]({{< relref "/notes/20250526T175814.md" >}})
 -   [비극 속에서의 낙관 (2025-05-15)]({{< relref "/notes/20250515T161418.md" >}})
 -   [AI노트 핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/20250508T134411.md" >}})
@@ -139,5 +140,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-26 19:12, CountNotes: 2663 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-27 10:57, CountNotes: 2667 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
