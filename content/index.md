@@ -67,9 +67,9 @@ comments: true
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리저널]({{< relref "/today" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/today" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리저널]({{< relref "/today" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 
@@ -121,6 +121,7 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐. 지나치는 짧은 생각들은 [#어쏠리즘 #모음]({{< relref "/notes/20250311T131725.md" >}})에 모아두려고 합니다.
 
+-   [느린 창조 도구 커뮤니티 탄생 - 기업 인간 계층 분화 - 불완전함 수용 자각(2025-05-29)]({{< relref "/notes/20250529T114735.md" >}})
 -   [휴대용/AI지식도구/가능성/스크린샷(2025-05-26)]({{< relref "/notes/20220928T112300.md" >}})
 -   [AI 투기/투자 리스크 브랜딩 전사 (2025-05-26)]({{< relref "/notes/20250526T175814.md" >}})
 -   [비극 속에서의 낙관 (2025-05-15)]({{< relref "/notes/20250515T161418.md" >}})
@@ -140,5 +141,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-27 10:57, CountNotes: 2667 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-05-29 12:27, CountNotes: 2674 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
