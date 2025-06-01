@@ -83,7 +83,7 @@ const config: QuartzConfig = {
         parseArrows: false,
         parseBlockReferences: false,
         enableInHtmlEmbed: false,
-        enableYouTubeEmbed: false,
+        enableYouTubeEmbed: true,
         enableVideoEmbed: false,
         enableCheckbox: false,
       }),

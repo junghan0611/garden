@@ -121,15 +121,15 @@ comments: true
 
 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐. 지나치는 짧은 생각들은 [#어쏠리즘 #모음]({{< relref "/notes/20250311T131725.md" >}})에 모아두려고 합니다.
 
--   [느린 창조 도구 커뮤니티 탄생 - 기업 인간 계층 분화 - 불완전함 수용 자각(2025-05-29)]({{< relref "/notes/20250529T114735.md" >}})
--   [휴대용/AI지식도구/가능성/스크린샷(2025-05-26)]({{< relref "/notes/20220928T112300.md" >}})
--   [AI 투기/투자 리스크 브랜딩 전사 (2025-05-26)]({{< relref "/notes/20250526T175814.md" >}})
+-   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
+-   [아무도 읽지 않는 디지털가든 왜 하는가 (2025-06-02)]({{< relref "/notes/20250213T105806.md" >}})
+-   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-05-30)]({{< relref "/notes/20250410T172033.md" >}})
+-   [느린/창조/도구/커뮤니티 탄생 - 기업/인간 계층분화 - 불완전함 수용 (2025-05-29)]({{< relref "/notes/20250529T114735.md" >}})
+-   [모바일/AI지식도구/미래/스크린샷(2025-05-26)]({{< relref "/notes/20220928T112300.md" >}})
+-   [AI투기/투자 리스크 브랜딩 전사 (2025-05-26)]({{< relref "/notes/20250526T175814.md" >}})
 -   [비극 속에서의 낙관 (2025-05-15)]({{< relref "/notes/20250515T161418.md" >}})
 -   [AI노트 핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/20250508T134411.md" >}})
--   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-04-10)]({{< relref "/notes/20250410T172033.md" >}})
 -   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24)]({{< relref "/notes/20250324T070423.md" >}})
--   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
--   [아무도 읽지 않는 공지 - 그를 찾아 떠나자 (2025-03-13)]({{< relref "/notes/20250313T105007.md" >}})
 -   [More ... ]({{< relref "/tags/autholog" >}})
 
 
@@ -141,5 +141,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-05-29 21:35, CountNotes: 2681 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-01 16:36, CountNotes: 2683 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
