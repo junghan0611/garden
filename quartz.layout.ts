@@ -16,8 +16,11 @@ export const sharedPageComponents: SharedLayout = {
          category: 'Announcements',
          // from data-category-id
          categoryId: 'DIC_kwDONUSf5c4Ckkzb',
-         reactionsEnabled: false,
+         reactionsEnabled: true,
          inputPosition: "top",
+         themeUrl: "https://notes.junghanacs.com/static/giscus", // corresponds to quartz/static/giscus/
+         lightTheme: "light", // corresponds to light-theme.css in quartz/static/giscus/
+         darkTheme: "dark", // corresponds to dark-theme.css quartz/static/giscus/
        }
     }),
   ],
@@ -44,17 +47,17 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
-    // Component.Darkmode(),
-    // Component.Flex({
-    //   components: [
-    //     {
-    //       Component: Component.Search(),
-    //       // grow: true,
-    //     },
-    //     { Component: Component.Darkmode() },
-    //   ],
-    // }),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
+
     // Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
     // Component.DesktopOnly(
     //   Component.RecentNotes({
@@ -66,9 +69,7 @@ export const defaultContentPageLayout: PageLayout = {
     //     linkToMore: "notes/" as SimpleSlug,
     //   }),
     // ),
-    Component.DesktopOnly(Component.TableOfContents()),
-    // Component.Backlinks(),
-    // Component.Explorer(), // 2025-03-26 disable
+    Component.Explorer(),
   ],
   right: [
     Component.DesktopOnly(
@@ -86,6 +87,8 @@ export const defaultContentPageLayout: PageLayout = {
         },
       }),
     ),
+
+    Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
 }
@@ -96,8 +99,15 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
-    // Component.Darkmode(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
     Component.DesktopOnly(Component.Explorer(),),
   ],
   right: [],
