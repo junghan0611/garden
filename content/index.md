@@ -1,7 +1,6 @@
 ---
 today: "#home: notes.junghanacs.com"
 author: ["Junghan Kim"]
-date: 2024-09-06T15:48:00+09:00
 lastmod: 2025-02-13T00:00:00+09:00
 keywords: ["homepage"]
 draft: false
@@ -100,8 +99,7 @@ comments: true
 
 디지털가든에는 태그, 카테고리 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [Tags Index]({{< relref "/tags" >}}) under-construction
--   [Category Index]({{< relref "/categories" >}}) under-construction
+-   [Tags Index]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -141,5 +139,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-06-05 08:25, CountNotes: 2697 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-06 21:12, CountNotes: 2707 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
