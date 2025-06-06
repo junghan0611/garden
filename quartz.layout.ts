@@ -69,7 +69,9 @@ export const defaultContentPageLayout: PageLayout = {
     //     linkToMore: "notes/" as SimpleSlug,
     //   }),
     // ),
-    Component.Explorer(),
+
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.DesktopOnly(Component.Backlinks()),
   ],
   right: [
     Component.DesktopOnly(
@@ -88,8 +90,8 @@ export const defaultContentPageLayout: PageLayout = {
       }),
     ),
 
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.DesktopOnly(Component.Explorer()),
+    Component.MobileOnly(Component.Backlinks()),
   ],
 }
 
@@ -108,7 +110,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.DesktopOnly(Component.Explorer(),),
+    Component.DesktopOnly(Component.Explorer()),
   ],
   right: [],
 }
