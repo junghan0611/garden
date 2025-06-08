@@ -55,7 +55,7 @@ comments: true
 
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
--   [그는 요즘 뭐 하는가]({{< relref "/20230202T020200.md" >}})
+-   [그는 요즘 뭐 하는가]({{< relref "/meta/20230202T020200.md" >}})
 -   [그는 오늘 뭐 하는가]({{< relref "/today" >}})
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -139,5 +139,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-06-07 14:59, CountNotes: 2707 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-08 12:15, CountNotes: 2710 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
