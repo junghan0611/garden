@@ -1,7 +1,8 @@
 ---
 today: "#home: notes.junghanacs.com"
 author: ["Junghan Kim"]
-lastmod: 2025-06-06T00:00:00+09:00
+date: 2025-06-10T15:48:00+09:00
+lastmod: 2025-06-10T00:00:00+09:00
 keywords: ["homepage"]
 draft: false
 title: "Home: Digital Garden🏡"
@@ -139,5 +140,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-06-10 05:37, CountNotes: 2712 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-10 21:41, CountNotes: 2712 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
