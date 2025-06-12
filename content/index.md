@@ -20,9 +20,7 @@ comments: true
 
 -   이제 불완전한 오늘을 기록하자. AI와 대화도 쌓자, 삭히자. 오! [#영감(inspiration)]({{< relref "/meta/20240522T142745.md" >}})이여 오소서! ([#AI활용 질문 vs 답변]({{< relref "/notes/20250508T134411.md" >}})).
 
--   그나저나, 이렇게 장황하게 떠드는 이유는 무엇인가?! 힣은 `unemployed` 상태이며, 즉 **백수** 입니다.
--   힣은 `컴퓨터공학`을 배웠으며, 이제는 배움의 경계가 없는 '학습자' 입니다 ([#폴리매스]({{< relref "/meta/20240105T171414.md" >}})).
--   이렇게 힣의 고뇌 `프리퀄`을 남기며, 여러분의 많은 관심바랍니다. 꾸벅.
+-   그나저나, 이렇게 장황하게 떠드는 이유는 무엇인가? 이제 **취업**도 하지 않았는가?
 
 <!--listend-->
 
@@ -140,5 +138,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-06-10 21:41, CountNotes: 2712 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-12 09:01, CountNotes: 2715 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
