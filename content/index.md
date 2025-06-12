@@ -94,7 +94,7 @@ comments: true
 -   [Folder: notes]({{< relref "/notes" >}})
 
 
-## 텍사노미: 분류 시스템 {#텍사노미-분류-시스템}
+## 택소노미: 분류체계 시스템 {#택소노미-분류체계-시스템}
 
 디지털가든에는 태그, 카테고리 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
@@ -138,5 +138,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-06-12 09:01, CountNotes: 2715 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-12 19:43, CountNotes: 2715 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
