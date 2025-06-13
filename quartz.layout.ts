@@ -16,7 +16,7 @@ export const sharedPageComponents: SharedLayout = {
          category: 'Announcements',
          // from data-category-id
          categoryId: 'DIC_kwDONUSf5c4Ckkzb',
-         reactionsEnabled: true,
+         reactionsEnabled: false,
          inputPosition: "top",
          themeUrl: "https://notes.junghanacs.com/static/giscus", // corresponds to quartz/static/giscus/
          lightTheme: "light", // corresponds to light-theme.css in quartz/static/giscus/
