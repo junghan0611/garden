@@ -60,7 +60,8 @@ comments: true
 -   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 -   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
--   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RSS RecentNotes
+-   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RecentNotes RSS Feed
+-   [@junghanacs.rss fosstodon.org](https://fosstodon.org/@junghanacs.rss) Fediverse RSS Feed
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -138,5 +139,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-06-13 13:45, CountNotes: 2715 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-14 21:31, CountNotes: 2701 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
