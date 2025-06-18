@@ -9,30 +9,6 @@ title: "Home: Digital Garden🏡"
 comments: true
 ---
 
-## '힣'의 고뇌 (프리퀄) {#힣-의-고뇌--프리퀄}
-
--   힣은 연구자(단독자), 긳(이맥스), 탐험가(디지털가든), 대장장이(지식도구), 유리알유희자(지식관리), 내면탐구자(모닝페이지)로서 ([#개인지식관리#역사]({{< relref "/notes/20240328T144732.md" >}})),
--   류비님의 시간기록법, 루만님의 노트작성법을 중심으로 ([#류비셰프#루만#조직저널#워크플로우),]({{< relref "/notes/20240921T115749.md" >}})
--   `워크플로우`를 이맥스(Emacs)에 통합하여 `디지털가든`을 공개하였다 ([AI가 말하는 힣의 디지털가든]({{< relref "/notes/20250410T172033.md" >}})).
--   남녀노소 누구나 `지식도구`, `인생도구`를 만나길 바랄 뿐 ([#인생도구#평생도구]({{< relref "/meta/20240829T213246.md" >}})),
--   모든 자료는 나눔(공개)이 원칙이다 ([나 자신이 되는 일과 보수]({{< relref "/notes/20250316T044013.md" >}})).
--   데스크톱, 노트북 따로 필요 없다. 모바일(안드로이드)에서도 기능에 차별이 없다 ([#스크린샷: #범용 #지식도구]({{< relref "/notes/20220928T112300.md" >}})).
-
--   이제 불완전한 오늘을 기록하자. AI와 대화도 쌓자, 삭히자. 오! [#영감(inspiration)]({{< relref "/meta/20240522T142745.md" >}})이여 오소서! ([#AI활용 질문 vs 답변]({{< relref "/notes/20250508T134411.md" >}})).
-
--   그나저나, 이렇게 장황하게 떠드는 이유는 무엇인가? 이제 **취업**도 하지 않았는가?
-
-<!--listend-->
-
--   [@junghan Resume]({{< relref "/notes/20230814T142800.md" >}})
--   [@junghan Publications]({{< relref "/notes/20250317T150522.md" >}})
--   [Junghan - linkedin](https://www.linkedin.com/in/junghan-kim-1489a4306/)
--   [junghan0611 - github.com](https://github.com/junghan0611)
--   [@junghanacs - threads.net ](https://www.threads.net/@junghanacs)
--   [@junghanacs - x.com twitter](https://x.com/junghanacs)
--   junghanacs dot gmail.com
-
-
 ## '힣'의 고뇌 {#힣-의-고뇌}
 
 어두운 밤, 힣은 방구석에서 탄식하고 있다.
@@ -53,12 +29,11 @@ comments: true
 안녕하세요! 힣의 [#디지털가든🏡 #브레인덤프🧠]({{< relref "/meta/20240918T175053.md" >}})에 오신 것을 환영 합니다. [#지식 너머 #앎]({{< relref "/notes/20241126T061338.md" >}})을 향한 매일의 기록 입니다.
 
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
--   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
--   [그는 요즘 뭐 하는가]({{< relref "/meta/20230202T020200.md" >}})
 -   [그는 오늘 뭐 하는가]({{< relref "/today" >}})
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
--   [왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
+-   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
+-   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
 -   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
 -   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RecentNotes RSS Feed
 -   [@junghanacs.rss fosstodon.org](https://fosstodon.org/@junghanacs.rss) Fediverse RSS Feed
@@ -103,21 +78,9 @@ comments: true
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
-## 텍스트 힙스터: 어쏠로지스트 {#텍스트-힙스터-어쏠로지스트}
+## 어쏠로지: 어쏠로그, 어쏠리즘 {#어쏠로지-어쏠로그-어쏠리즘}
 
-> 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트! 모두는 저자다! '지식'의 단편은 AI에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 이제 용서하리라. 사랑하리라.
-
-모든 것이 텍스트 유희라면 여러 도구는 필요 없다. 손맛은 아는 자! [#옴니(omni)]({{< relref "/meta/20241013T213110.md" >}}) 스타일을 따르라! 텍스트 힙스터의 본능이 깨어난다. 무릇 도구의 효율성은 배움의 어려움을 능가한다. 사실 어려울 것도 없다. 삶을 담을 그릇을 만드는 데 시간은 넉넉하다.
-
--   [#닷파일 #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
--   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
--   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
--   [#최근노트 #모음]({{< relref "/notes/20250327T125948.md" >}}) - Recent-Notes
-
-
-## 어쏠로그: '앎의 틀' 모음 {#어쏠로그-앎의-틀-모음}
-
-[#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})에는 담을 지식은 없다. 주제는 달라도 다 같은 이야기. 앎의 틀이 되길 바랄 뿐. 지나치는 짧은 생각들은 [#어쏠리즘 #모음]({{< relref "/notes/20250311T131725.md" >}})에 모아두려고 합니다.
+[#어쏠로지(Authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무에 가지, 잎, 열매는 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담은 지식은 없다. 주제는 달라도 같은 나무에서 자라온 이야기 하나. 지나치는 작은 잎들은 [#어쏠리즘]({{< relref "/notes/20250311T131725.md" >}})에 담곤 한다. 전체가 곧 힣의 앎의 틀.
 
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
 -   [아무도 읽지 않는 디지털가든 왜 하는가 (2025-06-02)]({{< relref "/notes/20250213T105806.md" >}})
@@ -131,13 +94,19 @@ comments: true
 -   [More ... ]({{< relref "/tags/autholog" >}})
 
 
-## 독서모임 - 책과 삶 {#독서모임-책과-삶}
+## 어쏠로지스트: 텍스트 힙스터 {#어쏠로지스트-텍스트-힙스터}
 
--   [#사락독서모임 - 책과 삶]({{< relref "/notes/20250409T143916.md" >}}) 노트 참고
--   [바로가기 사락 독서모임 - 책과 삶](https://sarak.yes24.com/book-club/arLDLp5b0nJDFh70)
+> 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트! 모두는 저자다! '지식'의 단편은 AI에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 이제 용서하리라. 사랑하리라.
+
+모든 것이 텍스트 유희라면 여러 도구는 필요 없다. 손맛은 아는 자! [#옴니(omni)]({{< relref "/meta/20241013T213110.md" >}}) 스타일을 따르라! 텍스트 힙스터의 본능이 깨어난다. 무릇 도구의 효율성은 배움의 어려움을 능가한다. 사실 어려울 것도 없다. 삶을 담을 그릇을 만드는 데 시간은 넉넉하다.
+
+-   [#닷파일 #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
+-   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
+-   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
+-   [#최근노트 #모음]({{< relref "/notes/20250327T125948.md" >}}) - Recent-Notes
 
 
 ## Information {#information}
 
-ExportDate: 2025-06-16 21:29, CountNotes: 2703 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-06-18 15:26, CountNotes: 2704 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.29), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
