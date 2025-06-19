@@ -32,10 +32,19 @@ blockquote {
   background-color: var(--lightgray);
   padding: 0 0.1rem;
   border-radius: 5px;
+  color: --color-fg-muted;
 }
 
 .tag {
   color: -var(--secondary);
+}
+
+.org-gls {
+  font-family: var(--codeFont);
+  background-color: var(--lightgray);
+  padding: 0 0.1rem;
+  border-radius: 5px;
+  color: --color-fg-muted;
 }
 
 .TODO {
@@ -52,9 +61,5 @@ blockquote {
 
 .DONE {
   color: #00bfa5;
-}
-
-.timestamp {
-  color: --color-fg-muted;
 }
 
