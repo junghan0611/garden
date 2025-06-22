@@ -13,6 +13,7 @@ static/ltximg
 .pdf
 bak
 temp
+content/llmlog
 content/tmp
 content/elisp
 .aider*
