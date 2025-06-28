@@ -16,5 +16,6 @@ temp
 content/llmlog
 content/tmp
 content/elisp
+content/office
 .aider*
 content.test
