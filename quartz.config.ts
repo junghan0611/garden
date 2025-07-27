@@ -78,7 +78,7 @@ const config: QuartzConfig = {
         highlight: false,
         wikilinks: true,
         callouts: true,
-        mermaid: false,
+        mermaid: true,
         parseTags: false,
         parseArrows: false,
         parseBlockReferences: false,
