@@ -418,46 +418,51 @@ thead {
   }
 }
 
-/* h1 제목 */
-article h1 {
-  color: #005f5f; /* 라이트 모드 색상 (진한 파랑) */
-}
-.dark article h1 {
-  color: #6ae4b9; /* 다크 모드 색상 (밝은 파랑) */
-}
+// article h1 {
+//   color: #005f5f; /* 라이트 모드 색상 (진한 파랑) */
+// }
+
+// :root[saved-theme=dark] article h1 {
+//   color: #6ae4b9; /* 다크 모드 색상 (밝은 파랑) */
+// }
 
 article h2 {
   color: #000000;
-  // border-bottom: 1px solid #000000;
-  /* 두께, 스타일, 색상을 모두 지정 */
-}
-.dark article h2 {
-  color: #ffffff;
-  // border-bottom: 1px solid #ffffff;
 }
 
 article h3 {
   color: #624416;
   border-bottom: 1px solid #624416;
 }
-.dark article h3 {
-  color: #d2b580;
-}
 
 article h4 {
   color: #193668;
   border-bottom: 1px solid #193668;
 }
-.dark article h4 {
-  color: #c6daff;
-}
 
 article h5 {
   color: #721045;
-  border-bottom-color: #721045;
+  border-bottom: 1px solid #721045;
 }
-.dark article h5 {
+
+:root[saved-theme=dark] article h3 {
+  color: #d2b580;
+  border-bottom: 1px solid #d2b580;
+}
+
+:root[saved-theme=dark] article h2 {
+  color: #ffffff;
+  // border-bottom: 1px solid #ffffff;
+}
+
+:root[saved-theme=dark] article h4 {
+  color: #c6daff;
+  border-bottom: 1px solid #c6daff;
+}
+
+:root[saved-theme=dark] article h5 {
   color: #feacd0;
+  border-bottom: 1px solid #feacd0;
 }
 
 h1,

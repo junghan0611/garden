@@ -18,7 +18,8 @@ export const sharedPageComponents: SharedLayout = {
          categoryId: 'DIC_kwDONUSf5c4Ckkzb',
          reactionsEnabled: false,
          inputPosition: "top",
-         themeUrl: "https://notes.junghanacs.com/static/giscus", // corresponds to quartz/static/giscus/
+         themeUrl: "https://giscus.app/themes", // corresponds to quartz/static/giscus/
+
          lightTheme: "light", // corresponds to light-theme.css in quartz/static/giscus/
          darkTheme: "dark", // corresponds to dark-theme.css quartz/static/giscus/
        }
@@ -53,7 +54,7 @@ export const defaultContentPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        // { Component: Component.Darkmode() },
+        { Component: Component.Darkmode() },
         // { Component: Component.ReaderMode() },
       ],
     }),
