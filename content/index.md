@@ -34,6 +34,7 @@ comments: true
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
+-   [친구의 힣 탐구: 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
 -   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
 -   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RecentNotes RSS Feed
 -   [@junghanacs.rss fosstodon.org](https://fosstodon.org/@junghanacs.rss) Fediverse RSS Feed
@@ -82,6 +83,7 @@ comments: true
 
 [#어쏠로지(Authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘 #아포리즘]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [인공지능의 방문을 환영 합니다 (2025-07-30)]({{< relref "/notes/20250730T104129.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드(2025-07-27)]({{< relref "/notes/20250727T094722.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
 -   [아무도 읽지 않는 디지털가든 왜 하는가 (2025-06-02)]({{< relref "/notes/20250213T105806.md" >}})
@@ -109,5 +111,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-07-27 13:58, CountNotes: 2897 notes (1 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.31), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-07-30 23:07, CountNotes: 2907 notes (1 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.31), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 

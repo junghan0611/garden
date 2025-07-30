@@ -11,7 +11,7 @@ const config: QuartzConfig = {
     pageTitle: "junghanacs🧠",
     pageTitleSuffix: "",
     enableSPA: true,
-    enablePopovers: true,
+    enablePopovers: false,
     analytics: {
       provider: "google",
       tagId: "G-9CNFFWK1YX"
