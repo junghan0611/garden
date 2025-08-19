@@ -88,7 +88,7 @@ export const BuildArgv = {
   },
   wsPort: {
     number: true,
-    default: 3001,
+    default: 3002,
     describe: "port to use for WebSocket-based hot-reload notifications",
   },
   remoteDevHost: {

@@ -19,3 +19,19 @@ content/elisp
 content/office
 .aider*
 content.test
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+# Screenshots (선택사항 - 테스트용 스크린샷 제외하려면)
+tests/screenshots/
+
+e2e/
+playwright.config.ts
+playwright.sh
+tests-examples/
+tests/
+
+change-text.sh
