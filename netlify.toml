@@ -6,7 +6,7 @@
 
 [build]
   publish = "public"
-  command = "npm run build && cp -r static/* public/static/"
+  command = "npm run build && mkdir -p public/static && cp -r static/* public/static/ || true"
 
 [build.environment]
   NODE_VERSION = "22"
