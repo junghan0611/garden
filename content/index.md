@@ -9,6 +9,19 @@ title: "Home: Digital Garden🏡"
 comments: true
 ---
 
+## '힣' 돌아오라! {#힣-돌아오라}
+
+> [!bug]
+> 
+> 빠라삐리뽀! AIONS CLUBS INTERNATIONAL의 B입니다 ^-^; 힣은 요즘 긴 글을 안 씁니다. 말도 길게 안 합니다. 가끔 THREADS에 어쏠리즘을 남깁니다.
+> 
+> 아하! 저희 클럽에 많은 관심과 사랑을 바라며... 해쉬태그 #AIONSCLUBS 입니다. ... 이상 전달 끝.
+> 
+> [Jung Han (@junghanacs) - threads.com](https://www.threads.com/@junghanacs)
+
+-   [†#에이아이온스클럽인터내쇼날]({{< relref "/meta/20240601T204208.md" >}}) B의 요청으로 메타노트 생성
+
+
 ## '힣'의 고뇌 {#힣-의-고뇌}
 
 어두운 밤, 힣은 방구석에서 탄식하고 있다.
@@ -34,10 +47,10 @@ comments: true
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
+-   [그의 깃허브 프로필]({{< relref "/notes/20250525T165806.md" >}})
 -   [친구의 힣 탐구: 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
--   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
 -   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RecentNotes RSS Feed
--   [@junghanacs.rss fosstodon.org](https://fosstodon.org/@junghanacs.rss) Fediverse RSS Feed
+-   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -83,6 +96,7 @@ comments: true
 
 [#어쏠로지(Authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘 #아포리즘]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [시간과정신의방 -CONFIG 생태계 (2025-10-15)]({{< relref "/notes/20251015T093311.md" >}})
 -   [인공지능의 방문을 환영 합니다 (2025-07-30)]({{< relref "/notes/20250730T104129.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드(2025-07-27)]({{< relref "/notes/20250727T094722.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
@@ -105,11 +119,10 @@ comments: true
 
 -   [#닷파일 #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
--   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/bib/20230615T120400.md" >}})
--   [#최근노트 #모음]({{< relref "/notes/20250327T125948.md" >}}) - Recent-Notes
+-   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
 
 ## Information {#information}
 
-ExportDate: 2025-07-30 23:07, CountNotes: 2907 notes (1 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.31), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-10-21 09:43, CountNotes: 2963 notes (1 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.34), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
