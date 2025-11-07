@@ -88,6 +88,7 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         src = src.replaceAll(figureTagRegex, (_value, ...capture) => {
           const [src] = capture
           // return `![](${src})`
+          // Default 640px width, controlled by CSS max-width in custom.scss
           return `![[${src}|640]]`
         })
       }

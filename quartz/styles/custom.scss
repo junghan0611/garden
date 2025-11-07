@@ -63,3 +63,14 @@ blockquote {
   color: #00bfa5;
 }
 
+// Responsive image sizing
+article img {
+  max-width: min(480px, 100%);  // 480px or container width, whichever is smaller
+  height: auto;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.01);  // Subtle hover effect
+  }
+}
