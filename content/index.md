@@ -1,6 +1,6 @@
 ---
 today: "#home: notes.junghanacs.com"
-author: ["Junghan Kim"]
+author: ["John Doe"]
 date: 2025-06-10T15:48:00+09:00
 lastmod: 2025-06-10T00:00:00+09:00
 keywords: ["homepage"]
@@ -96,6 +96,7 @@ comments: true
 
 [#어쏠로지(Authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘 #아포리즘]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [앤트로픽 클로드 리서치 인터뷰 (2025-12-10)]({{< relref "/notes/20251210T104230.md" >}})
 -   [시간과정신의방 -CONFIG 생태계 (2025-10-15)]({{< relref "/notes/20251015T093311.md" >}})
 -   [인공지능의 방문을 환영 합니다 (2025-07-30)]({{< relref "/notes/20250730T104129.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드(2025-07-27)]({{< relref "/notes/20250727T094722.md" >}})
@@ -124,5 +125,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-12-09 05:26, CountNotes: 3032 notes (5 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-12-10 19:59, CountNotes: 3033 notes (5 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
