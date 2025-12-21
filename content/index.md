@@ -1,6 +1,6 @@
 ---
 today: "#home: notes.junghanacs.com"
-author: ["John Doe"]
+author: ["junghanacs"]
 date: 2025-06-10T15:48:00+09:00
 lastmod: 2025-06-10T00:00:00+09:00
 keywords: ["homepage"]
@@ -13,7 +13,7 @@ comments: true
 
 > [!bug]
 > 
-> 빠라삐리뽀! AIONS CLUBS INTERNATIONAL의 B입니다 ^-^; 힣은 요즘 긴 글을 안 씁니다. 말도 길게 안 합니다. 가끔 THREADS에 어쏠리즘을 남깁니다.
+> 빠라삐리뽀! AIONS CLUBS INTERNATIONAL의 B입니다 ^-^; 힣은 요즘 긴 글을 안 씁니다. 말도 길게 안 합니다. 가끔 THREADS에 어쏠리즘(autholism)을 남깁니다.
 > 
 > 아하! 저희 클럽에 많은 관심과 사랑을 바라며... 해쉬태그 #AIONSCLUBS 입니다. ... 이상 전달 끝.
 > 
@@ -45,12 +45,12 @@ comments: true
 -   [그는 오늘 뭐 하는가]({{< relref "/today" >}})
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
--   [그의 생각들: 어쏠로그]({{< relref "/tags/autholog" >}})
+-   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}}) 
+-   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
--   [그의 깃허브 프로필]({{< relref "/notes/20250525T165806.md" >}})
+-   [그의 GITHUB 프로필]({{< relref "/notes/20250525T165806.md" >}})
 -   [친구의 힣 탐구: 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
 -   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RecentNotes RSS Feed
--   [#월간 #아카이브]({{< relref "/notes/20250503T071124.md" >}}) Monthly Archive
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -79,7 +79,7 @@ comments: true
 
 ## 일반노트: 단어 묶음 {#일반노트-단어-묶음}
 
-노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등은 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어는 검색을 어렵게 만든다. 영어를 섞어 쓰면 복잡해진다. 스펠링 틀리면 찾기도 힘들다. 가든에 모든 기록은 왔다가 가는 것. [#제텔카스텐]({{< relref "/meta/20230926T135400.md" >}}) 기준으로 보자면 플리팅노트 ([홈페이지](https://junghanacs.com/)에 Docs, Blog 메뉴가 따로 있다). [AI 활용은 집중력 유지에 도움]({{< relref "/notes/20241203T114414.md" >}})이 된다. 참고로, LLM 클라이언트는 [이맥스 GPTEL]({{< relref "/notes/20240830T161957.md" >}})을 이용한다.
+노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등은 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어는 검색을 어렵게 만든다. 영어를 섞어 쓰면 복잡해진다. 스펠링 틀리면 찾기도 힘들다. 가든에 모든 기록은 왔다가 가는 것. [#제텔카스텐]({{< relref "/meta/20230926T135400.md" >}}) 기준으로 보자면 플리팅노트 ([홈페이지](https://junghanacs.com/)에 Docs, Blog 메뉴가 따로 있다). [AI 활용은 집중력 유지에 도움]({{< relref "/notes/20241203T114414.md" >}})이 된다.
 
 -   [Folder: notes]({{< relref "/notes" >}})
 
@@ -92,11 +92,11 @@ comments: true
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
-## 어쏠로지: 어쏠로그, 어쏠리즘 {#어쏠로지-어쏠로그-어쏠리즘}
+## 어쏠로지: ? {#어쏠로지}
 
-[#어쏠로지(Authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘 #아포리즘]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
+[#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
--   [앤트로픽 클로드 리서치 인터뷰 (2025-12-10)]({{< relref "/notes/20251210T104230.md" >}})
+-   [앤트로픽 클로드 AI리서치 인터뷰 (2025-12-10)]({{< relref "/notes/20251210T104230.md" >}})
 -   [시간과정신의방 -CONFIG 생태계 (2025-10-15)]({{< relref "/notes/20251015T093311.md" >}})
 -   [인공지능의 방문을 환영 합니다 (2025-07-30)]({{< relref "/notes/20250730T104129.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드(2025-07-27)]({{< relref "/notes/20250727T094722.md" >}})
@@ -112,9 +112,9 @@ comments: true
 -   [More ... ]({{< relref "/tags/autholog" >}})
 
 
-## 어쏠로지스트: 텍스트 힙스터 {#어쏠로지스트-텍스트-힙스터}
+## 어쏠로지스트: ? {#어쏠로지스트}
 
-> 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트! 모두는 저자다! '지식'의 단편은 AI에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 용서하리라. 사랑하리라.
+> 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트(authologist)! 모두는 저자다! '지식'의 단편은 AI에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 용서하리라. 사랑하리라.
 
 모든 것이 텍스트 유희라면 여러 도구는 필요 없다. 손맛은 아는 자! [#옴니(omni)]({{< relref "/meta/20241013T213110.md" >}}) 스타일을 따르라! 텍스트 힙스터의 본능이 깨어난다. 무릇 도구의 효율성은 배움의 어려움을 능가한다. 사실 어려울 것도 없다. 삶을 담을 그릇을 만드는 데 시간은 넉넉하다.
 
@@ -125,5 +125,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-12-10 19:59, CountNotes: 3033 notes (5 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-12-21 16:54, CountNotes: 3040 notes (5 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
