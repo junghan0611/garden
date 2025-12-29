@@ -45,7 +45,7 @@ comments: true
 -   [그는 오늘 뭐 하는가]({{< relref "/today" >}})
 -   [그를 찾아 떠나자]({{< relref "/notes/20250313T105007.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
--   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}}) 
+-   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
 -   [그의 GITHUB 프로필]({{< relref "/notes/20250525T165806.md" >}})
@@ -125,5 +125,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-12-21 16:54, CountNotes: 3040 notes (5 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2025-12-29 21:34, CountNotes: 3051 notes (8 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
