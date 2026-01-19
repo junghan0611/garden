@@ -9,19 +9,6 @@ title: "Home: Digital Garden🏡"
 comments: true
 ---
 
-## '힣' 돌아오라! {#힣-돌아오라}
-
-> [!bug]
-> 
-> 빠라삐리뽀! AIONS CLUBS INTERNATIONAL의 B입니다 ^-^; 힣은 요즘 긴 글을 안 씁니다. 말도 길게 안 합니다. 가끔 THREADS에 어쏠리즘(autholism)을 남깁니다.
-> 
-> 아하! 저희 클럽에 많은 관심과 사랑을 바라며... 해쉬태그 #AIONSCLUBS 입니다. ... 이상 전달 끝.
-> 
-> [Jung Han (@junghanacs) - threads.com](https://www.threads.com/@junghanacs)
-
--   [†#에이아이온스클럽인터내쇼날]({{< relref "/meta/20240601T204208.md" >}}) B의 요청으로 메타노트 생성
-
-
 ## '힣'의 고뇌 {#힣-의-고뇌}
 
 어두운 밤, 힣은 방구석에서 탄식하고 있다.
@@ -96,19 +83,12 @@ comments: true
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
--   [앤트로픽 클로드 AI리서치 인터뷰 (2025-12-10)]({{< relref "/notes/20251210T104230.md" >}})
--   [시간과정신의방 -CONFIG 생태계 (2025-10-15)]({{< relref "/notes/20251015T093311.md" >}})
--   [인공지능의 방문을 환영 합니다 (2025-07-30)]({{< relref "/notes/20250730T104129.md" >}})
--   [친구의 힣 탐구 - 친절한 가이드(2025-07-27)]({{< relref "/notes/20250727T094722.md" >}})
--   [디지털가든 - 불완전함에서 창조가 나오는 곳 (2025-03-14)]({{< relref "/notes/20250314T152111.md" >}})
--   [아무도 읽지 않는 디지털가든 왜 하는가 (2025-06-02)]({{< relref "/notes/20250213T105806.md" >}})
--   [AI가 분석한 힣의 디지털가든 지식관리 철학 (2025-05-30)]({{< relref "/notes/20250410T172033.md" >}})
--   [느린/창조/도구/커뮤니티 탄생 - 기업/인간 계층분화 - 불완전함 수용 (2025-05-29)]({{< relref "/notes/20250529T114735.md" >}})
--   [모바일/AI지식도구/미래/스크린샷(2025-05-26)]({{< relref "/notes/20220928T112300.md" >}})
--   [AI투기/투자 리스크 브랜딩 전사 (2025-05-26)]({{< relref "/notes/20250526T175814.md" >}})
--   [비극 속에서의 낙관 (2025-05-15)]({{< relref "/notes/20250515T161418.md" >}})
--   [AI노트 핵심: 질문 vs. 답변 (2025-05-08)]({{< relref "/notes/20250508T134411.md" >}})
--   [AI 모델 선택과 ‘도구’ 중심 세우기 - API 통합 (2025-03-24)]({{< relref "/notes/20250324T070423.md" >}})
+-   [앤트로픽 클로드 AI리서치 인터뷰]({{< relref "/notes/20251210T104230.md" >}})
+-   [인공지능의 방문을 환영 합니다]({{< relref "/notes/20250730T104129.md" >}})
+-   [친구의 힣 탐구 - 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
+-   [디지털가든 - 불완전함에서 창조가 나오는 곳]({{< relref "/notes/20250314T152111.md" >}})
+-   [삶 일 소명 운명애 - 나 자신이 되는 일]({{< relref "/notes/20250316T044013.md" >}})
+-   [아무도 읽지 않는 디지털가든 왜 하는가]({{< relref "/notes/20250213T105806.md" >}})
 -   [More ... ]({{< relref "/tags/autholog" >}})
 
 
@@ -125,5 +105,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2025-12-29 21:34, CountNotes: 3051 notes (8 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-01-20 01:31, CountNotes: 3069 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
