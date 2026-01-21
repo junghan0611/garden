@@ -38,3 +38,4 @@ change-text.sh
 test/
 .claude
 pnpm-lock.yaml
+.direnv/
