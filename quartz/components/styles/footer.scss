@@ -12,4 +12,19 @@ footer {
     gap: 1rem;
     margin-top: -1rem;
   }
+
+  & ul.footer-actions {
+    margin-top: 1rem;
+    border-top: 1px solid var(--lightgray);
+    padding-top: 1rem;
+
+    a {
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+  }
 }

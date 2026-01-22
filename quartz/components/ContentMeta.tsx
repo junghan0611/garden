@@ -1,4 +1,4 @@
-import { Date, getDate } from "./Date"
+import { Date, getDateCustom } from "./Date"
 import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import readingTime from "reading-time"
 import { classNames } from "../util/lang"
@@ -7,11 +7,10 @@ import { JSX } from "preact"
 import style from "./styles/contentMeta.scss"
 
 interface ContentMetaOptions {
-  /**
-   * Whether to display reading time
-   */
   showReadingTime: boolean
   showComma: boolean
+  repoLink?: string
+  branch?: string
 }
 
 const defaultOptions: ContentMetaOptions = {
@@ -20,39 +19,85 @@ const defaultOptions: ContentMetaOptions = {
 }
 
 export default ((opts?: Partial<ContentMetaOptions>) => {
-  // Merge options with defaults
   const options: ContentMetaOptions = { ...defaultOptions, ...opts }
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
+    const isIndex = fileData.slug === "index"
 
-    if (text) {
-      const segments: (string | JSX.Element)[] = []
+    if (!text) return null
 
-      if (fileData.dates) {
-        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
+    const segments: (string | JSX.Element)[] = []
+
+    // Created / Modified dates
+    if (fileData.dates && !isIndex) {
+      const created = getDateCustom(cfg, fileData, "created")
+      const modified = getDateCustom(cfg, fileData, "modified")
+
+      if (created) {
+        segments.push(
+          <>
+            Created: <Date date={created} locale={cfg.locale} />
+          </>,
+        )
       }
 
-      // Display reading time if enabled
-      if (options.showReadingTime) {
-        const { minutes, words: _words } = readingTime(text)
-        const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
-          minutes: Math.ceil(minutes),
-        })
-        segments.push(<span>{displayedTime}</span>)
+      // Only show modified if different from created
+      if (modified && created && modified.getTime() !== created.getTime()) {
+        segments.push(
+          <>
+            Modified: <Date date={modified} locale={cfg.locale} />
+          </>,
+        )
       }
+    }
 
-      return (
-        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
+    // Reading time
+    if (options.showReadingTime && !isIndex) {
+      const { minutes } = readingTime(text)
+      const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
+        minutes: Math.ceil(minutes),
+      })
+      segments.push(<span>{displayedTime}</span>)
+    }
+
+    // GitHub links
+    const showGitHubLinks = options.repoLink && options.branch && !isIndex
+
+    return (
+      <div class="contentmeta-container">
+        {showGitHubLinks && (
+          <p class="content-meta github-links">
+            <a
+              class="github-link"
+              href={`${options.repoLink}/blob/${options.branch}/${fileData.filePath}`}
+            >
+              ᨒ Source
+            </a>
+            <a
+              class="github-link"
+              href={`${options.repoLink}/blame/${options.branch}/${fileData.filePath}`}
+            >
+              ᨒ Blame
+            </a>
+            <a
+              class="github-link external"
+              href={`${options.repoLink?.replace("github.com", "github.githistory.xyz")}/commits/${options.branch}/${fileData.filePath}`}
+            >
+              ᨒ History ↗
+            </a>
+          </p>
+        )}
+        <p
+          show-comma={options.showComma}
+          class={classNames(displayClass, "content-meta")}
+        >
           {segments}
         </p>
-      )
-    } else {
-      return null
-    }
+      </div>
+    )
   }
 
   ContentMetadata.css = style
-
   return ContentMetadata
 }) satisfies QuartzComponentConstructor

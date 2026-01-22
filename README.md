@@ -77,6 +77,11 @@ http://localhost:8080 에서 확인.
 - **GitHub (Personal)**: https://github.com/junghan0611
 - **Threads**: @junghanacs
 
+## Acknowledgments
+
+- [Quartz](https://quartz.jzhao.xyz/) by Jacky Zhao
+- [eilleeenz's Quartz](https://quartz.eilleeenz.com/) - ContentMeta, Footer 기능 참조
+
 ## License
 
 Content: CC BY-NC-SA 4.0

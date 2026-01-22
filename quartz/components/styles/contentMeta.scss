@@ -1,3 +1,7 @@
+.contentmeta-container {
+  margin-bottom: 0.5rem;
+}
+
 .content-meta {
   margin-top: 0;
   color: var(--darkgray);
@@ -9,6 +13,26 @@
       &::after {
         content: ",";
       }
+    }
+  }
+}
+
+.github-links {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+
+  .github-link {
+    color: var(--gray);
+    text-decoration: none;
+    margin-right: 0.75rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--secondary);
+    }
+
+    &.external::after {
+      content: none;
     }
   }
 }

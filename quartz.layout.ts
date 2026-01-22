@@ -41,7 +41,11 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    Component.ContentMeta({
+      showReadingTime: true,
+      repoLink: "https://github.com/junghanacs/notes.junghanacs.com",
+      branch: "v4",
+    }),
     Component.TagList(),
     // Component.CategoryList(), // bug in explorer
   ],
