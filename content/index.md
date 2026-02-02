@@ -66,7 +66,7 @@ comments: true
 
 ## 일반노트: 단어 묶음 {#일반노트-단어-묶음}
 
-노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등은 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어는 검색을 어렵게 만든다. 영어를 섞어 쓰면 복잡해진다. 스펠링 틀리면 찾기도 힘들다. 가든에 모든 기록은 왔다가 가는 것. [#제텔카스텐]({{< relref "/meta/20230926T135400.md" >}}) 기준으로 보자면 플리팅노트 ([홈페이지](https://junghanacs.com/)에 Docs, Blog 메뉴가 따로 있다). [AI 활용은 집중력 유지에 도움]({{< relref "/notes/20241203T114414.md" >}})이 된다.
+노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등은 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어는 검색을 어렵게 만든다. 영어를 섞어 쓰면 복잡해진다. 스펠링 틀리면 찾기도 힘들다. 가든에 모든 기록은 왔다가 가는 것. [#제텔카스텐]({{< relref "/meta/20230926T135400.md" >}}) 기준으로 보자면 플리팅노트 ([홈페이지](https://junghanacs.com/)에 Docs, Blog 메뉴가 따로 있으나...). 그리고 [AI 활용은 집중력 유지 그 이상이다]({{< relref "/notes/20241203T114414.md" >}}).
 
 -   [Folder: notes]({{< relref "/notes" >}})
 
@@ -105,5 +105,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2026-01-20 01:31, CountNotes: 3069 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-02-02 22:21, CountNotes: 3074 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
