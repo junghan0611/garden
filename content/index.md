@@ -83,6 +83,8 @@ comments: true
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [#ADHD &amp; #AI - 해방에서 경계까지]({{< relref "/notes/20220414T125200.md" >}})
+-   [LLM 자문자답 사건 — 턴 경계 침범과 존재의 경계]({{< relref "/notes/20260212T105642.md" >}})
 -   [앤트로픽 클로드 AI리서치 인터뷰]({{< relref "/notes/20251210T104230.md" >}})
 -   [인공지능의 방문을 환영 합니다]({{< relref "/notes/20250730T104129.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
@@ -105,5 +107,5 @@ comments: true
 
 ## Information {#information}
 
-ExportDate: 2026-02-02 22:21, CountNotes: 3074 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-02-12 22:11, CountNotes: 3080 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
