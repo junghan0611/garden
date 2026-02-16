@@ -36,9 +36,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       if (created) {
         segments.push(
-          <>
+          <span class="dt-published-wrap">
             Created: <Date date={created} locale={cfg.locale} />
-          </>,
+          </span>,
         )
       }
 
@@ -94,6 +94,15 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         >
           {segments}
         </p>
+        {/* IndieWeb microformats (hidden) */}
+        {!isIndex && cfg.baseUrl && fileData.slug && (
+          <>
+            <a class="u-url" href={`https://${cfg.baseUrl}/${fileData.slug}`} style="display:none"></a>
+            <span class="p-author h-card" style="display:none">
+              <a class="p-name u-url" href={`https://${cfg.baseUrl}`}>Junghan Kim</a>
+            </span>
+          </>
+        )}
       </div>
     )
   }

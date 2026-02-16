@@ -26,6 +26,12 @@ export default ((opts?: Options) => {
             </li>
           ))}
         </ul>
+        <div class="h-card footer-hcard" style="display:none">
+          <a class="p-name u-url" rel="me" href={`https://${cfg.baseUrl}`}>Junghan Kim</a>
+          <span class="p-nickname">junghanacs</span>
+          <a class="u-url" rel="me" href="https://bsky.app/profile/junghanacs.bsky.social">Bluesky</a>
+          <a class="u-url" rel="me" href="https://fosstodon.org/@junghanacs">Mastodon</a>
+        </div>
         <ul class="footer-actions">
           <li>
             <a id="scroll-to-top" href="#">

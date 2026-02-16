@@ -83,6 +83,13 @@ export default (() => {
         )}
 
         <link rel="icon" href={iconPath} />
+        {/* IndieWeb: Webmention endpoints */}
+        <link rel="webmention" href={`https://webmention.io/${cfg.baseUrl}/webmention`} />
+        <link rel="pingback" href={`https://webmention.io/${cfg.baseUrl}/xmlrpc`} />
+        {/* IndieWeb: rel="me" for IndieAuth */}
+        <link rel="me" href="https://bsky.app/profile/junghanacs.bsky.social" />
+        <link rel="me" href="https://fosstodon.org/@junghanacs" />
+        <link rel="me" href="https://github.com/junghanacs" />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
