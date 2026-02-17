@@ -121,37 +121,4 @@ document.addEventListener("nav", () => {
 
     mentionsEl.innerHTML = html
   })
-
-  // Handle webmention send form
-  const form = container.querySelector(".wm-send-form") as HTMLFormElement | null
-  if (form) {
-    const handler = async (e: Event) => {
-      e.preventDefault()
-      const btn = form.querySelector("button") as HTMLButtonElement
-      btn.disabled = true
-      btn.textContent = "Sending..."
-
-      try {
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>),
-        })
-        if (res.ok) {
-          btn.textContent = "Sent!"
-          ;(form.querySelector("input[name=source]") as HTMLInputElement).value = ""
-        } else {
-          btn.textContent = "Failed"
-        }
-      } catch {
-        btn.textContent = "Error"
-      }
-
-      setTimeout(() => {
-        btn.disabled = false
-        btn.textContent = "Send"
-      }, 3000)
-    }
-    form.removeEventListener("submit", handler)
-    form.addEventListener("submit", handler)
-  }
 })

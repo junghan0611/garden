@@ -7,6 +7,7 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.Webmentions(),
+    Component.Remark42Comments(),
   ],
   footer: Component.Footer({
     links: {

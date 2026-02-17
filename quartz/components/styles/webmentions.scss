@@ -37,61 +37,6 @@
   }
 }
 
-.wm-send-section {
-  margin-top: 1rem;
-
-  & summary {
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: var(--gray);
-
-    &:hover {
-      color: var(--darkgray);
-    }
-  }
-
-  & .wm-send-form {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-
-    & input[type="url"] {
-      flex: 1;
-      padding: 0.35rem 0.5rem;
-      border: 1px solid var(--lightgray);
-      border-radius: 0.25rem;
-      font-size: 0.85rem;
-      background: var(--light);
-      color: var(--dark);
-    }
-
-    & button {
-      padding: 0.35rem 0.75rem;
-      border: 1px solid var(--lightgray);
-      border-radius: 0.25rem;
-      background: var(--light);
-      color: var(--darkgray);
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: background 0.2s;
-
-      &:hover {
-        background: var(--highlight);
-      }
-
-      &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  & .wm-form-help {
-    font-size: 0.75rem;
-    color: var(--gray);
-    margin-top: 0.35rem;
-  }
-}
 
 .wm-facepile {
   display: flex;
@@ -153,30 +98,6 @@
       font-size: 0.75rem;
       color: var(--gray);
       margin-top: 0.25rem;
-    }
-  }
-}
-
-.wm-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-
-  & a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.35rem 0.75rem;
-    border: 1px solid var(--lightgray);
-    border-radius: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--darkgray);
-    text-decoration: none;
-    transition: background 0.2s;
-
-    &:hover {
-      background: var(--highlight);
     }
   }
 }

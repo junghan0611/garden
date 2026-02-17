@@ -23,6 +23,7 @@ import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Webmentions from "./Webmentions"
+import Remark42Comments from "./Remark42Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 
@@ -52,6 +53,7 @@ export {
   Breadcrumbs,
   Comments,
   Webmentions,
+  Remark42Comments,
   Flex,
   ConditionalRender,
 }

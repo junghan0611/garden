@@ -45,30 +45,6 @@ export default (() => {
           </a>
         </div>
         <div id="wm-mentions"></div>
-        <details class="wm-send-section">
-          <summary>Send a Webmention</summary>
-          <form
-            class="wm-send-form"
-            action={`https://webmention.io/${cfg.baseUrl}/webmention`}
-            method="post"
-          >
-            <input type="hidden" name="target" value={pageUrl} />
-            <input
-              type="url"
-              name="source"
-              placeholder="https://your-site.com/response"
-              required
-            />
-            <button type="submit">Send</button>
-          </form>
-          <p class="wm-form-help">
-            No website? Use{" "}
-            <a href="https://commentpara.de" target="_blank" rel="noopener">
-              commentpara.de
-            </a>{" "}
-            to leave a comment.
-          </p>
-        </details>
       </div>
     )
   }

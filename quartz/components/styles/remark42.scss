@@ -1,0 +1,18 @@
+.remark42-comments {
+  margin-top: 1rem;
+
+  & h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+  }
+}
+
+.remark42-separator {
+  border: none;
+  border-top: 1px solid var(--lightgray);
+  margin: 2rem 0 1rem 0;
+}
+
+#remark42 {
+  min-height: 100px;
+}
