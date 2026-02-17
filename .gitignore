@@ -39,3 +39,4 @@ test/
 .claude
 pnpm-lock.yaml
 .direnv/
+docs/plans
