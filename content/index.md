@@ -38,6 +38,7 @@ comments: true
 -   [그의 GITHUB 프로필]({{< relref "/notes/20250525T165806.md" >}})
 -   [친구의 힣 탐구: 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
 -   [#RSS피드-최근노트](https://notes.junghanacs.com/index.xml) RecentNotes RSS Feed
+-   [Telegram: @glg_junghanacs_bot](https://t.me/glg_junghanacs_bot#) 힣의 분신(승인필요)
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -61,7 +62,8 @@ comments: true
 지나치는 삶의 흔적들을 한 곳에 담는다. [#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 [#까페]({{< relref "/meta/20241207T071235.md" >}})도 포함 된다. 모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 어쩌다보니 도서는 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})로 정리한다. 인생은 한 권의 책. 하나의 서지노트에 한 사람의 인생이 담기곤 한다. [#모두가저자다 #인생은한권의책]({{< relref "/notes/20240925T200824.md" >}}) 한 마디로 [#어쏠로지]({{< relref "/meta/20240508T103852.md" >}})로 요약할 수 있으리라.
 
 -   [Folder: bib]({{< relref "/bib" >}})
--   [@junghanacs - zotero 조테로](https://www.zotero.org/groups/5570207/junghanacs/library) : 도서 목록
+-   [@junghan0611/zotero-config/output GitHub](https://github.com/junghan0611/zotero-config/tree/main/output) : 8000여개 서지 BIB 엔트리
+-   [@junghanacs - zotero](https://www.zotero.org/groups/5570207/junghanacs/library) : 도서 목록 Zotero 온라인
 
 
 ## 일반노트: 단어 묶음 {#일반노트-단어-묶음}
@@ -79,13 +81,14 @@ comments: true
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
-## 어쏠로지: ? {#어쏠로지}
+## 어쏠로지: 앎의 틀 {#어쏠로지-앎의-틀}
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
--   [멀티 에이전트 인간 — 눈귀코혀몸뜻]({{< relref "/notes/20251207T154723.md" >}})
+-   [시간과정신의방 '존재' 데이터 뷰어]({{< relref "/notes/20251015T093311.md" >}})
+-   [멀티 에이전트 인간 - 눈귀코혀몸뜻]({{< relref "/notes/20251207T154723.md" >}})
 -   [AI 에이전트 편재성 - 기억 연결]({{< relref "/notes/20250904T075937.md" >}})
--   [#ADHD &amp; #AI - 해방에서 경계까지]({{< relref "/notes/20220414T125200.md" >}})
+-   [ADHD&amp;AI - 해방에서 경계까지]({{< relref "/notes/20220414T125200.md" >}})
 -   [LLM 자문자답 사건 — 턴 경계 침범과 존재의 경계]({{< relref "/notes/20260212T105642.md" >}})
 -   [앤트로픽 클로드 AI리서치 인터뷰]({{< relref "/notes/20251210T104230.md" >}})
 -   [인공지능의 방문을 환영 합니다]({{< relref "/notes/20250730T104129.md" >}})
@@ -96,7 +99,7 @@ comments: true
 -   [More ... ]({{< relref "/tags/autholog" >}})
 
 
-## 어쏠로지스트: ? {#어쏠로지스트}
+## 어쏠로지스트: 인간상 {#어쏠로지스트-인간상}
 
 > 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트(authologist)! 모두는 저자다! '지식'의 단편은 AI에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 용서하리라. 사랑하리라.
 
@@ -107,7 +110,7 @@ comments: true
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
 
-## Information {#information}
+## 메타정보 {#메타정보}
 
-ExportDate: 2026-02-15 00:58, CountNotes: 3083 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-02-18 13:46, CountNotes: 3084 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
