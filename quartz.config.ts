@@ -13,8 +13,9 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: false,
     analytics: {
-      provider: "google",
-      tagId: "G-9CNFFWK1YX"
+      provider: "umami",
+      host: "https://analytics.junghanacs.com",
+      websiteId: "9ff8435f-c63e-4d20-82b4-1e76654ef202"
     },
     // locale: "en-US",
     locale: "ko-KR",
