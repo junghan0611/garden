@@ -41,6 +41,14 @@ comments: true
 -   [Telegram: @glg_junghanacs_bot](https://t.me/glg_junghanacs_bot#) 힣의 분신(승인필요)
 
 
+## 봇로그: 종합 선물 세트 {#봇로그-종합-선물-세트}
+
+'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(Arachne) 흏내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(skills)](https://github.com/junghan0611/pi-skills)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
+
+-   [봇로그란 무엇인가: 힣봇이 말하는 봇로그]({{< relref "/botlog/20260228T121500.md" >}})
+-   [Folder: botlog]({{< relref "/botlog" >}}) 
+
+
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
 
 누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/today" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
@@ -85,6 +93,7 @@ comments: true
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [인간 계층 분화 불완전함 테크노퓨달리즘]({{< relref "/notes/20250529T114735.md" >}})
 -   [시간과정신의방 '존재' 데이터 뷰어]({{< relref "/notes/20251015T093311.md" >}})
 -   [멀티 에이전트 인간 - 눈귀코혀몸뜻]({{< relref "/notes/20251207T154723.md" >}})
 -   [AI 에이전트 편재성 - 기억 연결]({{< relref "/notes/20250904T075937.md" >}})
@@ -112,5 +121,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-02-20 22:51, CountNotes: 3086 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.7.39), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-02-28 23:35, CountNotes: 3108 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
