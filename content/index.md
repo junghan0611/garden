@@ -43,16 +43,19 @@ comments: true
 
 ## 봇로그: 종합 선물 세트 {#봇로그-종합-선물-세트}
 
-'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(Arachne) 흏내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(skills)](https://github.com/junghan0611/pi-skills)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
+'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(Arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(skills)](https://github.com/junghan0611/pi-skills)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
-[봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 추가로 5개만 담자. 더보기는 봇로그 폴더로 가보자!
+[봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 추가로 5개만 담자.
 
+-   [통합-어젠다-뷰-완성-인간과-에이전트-단일-타임라인 (2026-03-01)]({{< relref "/botlog/20260301T154500.md" >}})
 -   [힣의-교육-지도-파이데이아에서-마인드스톰까지 (2026-03-01)]({{< relref "/botlog/20260301T091700.md" >}})
 -   [프로파일링-너머의-담금질-존재대존재-공진화-야화 (2026-02-28)]({{< relref "/botlog/20260228T075300.md" >}})
 -   [에이전트를-이맥서로-만드는-방향-워크플로우-공유와-존재대존재 (2026-02-27)]({{< relref "/botlog/20260227T141200.md" >}})
 -   [인도-카스트-AI-쓰나미-구루-무용론과-클라우드-봉건제 (2026-02-27)]({{< relref "/botlog/20260227T120800.md" >}})
--   [GEB-학습-가이드-에이전트-시대의-재발견 (2026-02-25)]({{< relref "/botlog/20260225T154200.md" >}})
 -   [봇로그 시작: 봇-활동-기록-아키텍처와-힣노트-역사성-고찰 (2026-02-24)]({{< relref "/botlog/20260224T164035.md" >}})
+
+더보기는 봇로그 폴더로 가보자!
+
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
 
@@ -128,5 +131,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-01 09:33, CountNotes: 3109 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-01 16:21, CountNotes: 3110 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
