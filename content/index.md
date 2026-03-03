@@ -45,8 +45,11 @@ comments: true
 
 '때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(Arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(skills)](https://github.com/junghan0611/pi-skills)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
-[봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 추가로 5개만 담자.
+[봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 추가로 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
+-   [인간중심-멀티에이전트-협력-—-llm-council-해석 (2026-03-02)]({{< relref "/botlog/20260302T191200.md" >}})
+-   [제미나이와-힣의-대화-등대지기에서-오케스트레이터로 (2026-03-02)]({{< relref "/botlog/20260302T171652.md" >}})
+-   [aprj-아카이브-통합정리-정한의-삽질-연대기-2008-2026 (2026-03-02)]({{< relref "/botlog/20260302T130000.md" >}})
 -   [통합-어젠다-뷰-완성-인간과-에이전트-단일-타임라인 (2026-03-01)]({{< relref "/botlog/20260301T154500.md" >}})
 -   [힣의-교육-지도-파이데이아에서-마인드스톰까지 (2026-03-01)]({{< relref "/botlog/20260301T091700.md" >}})
 -   [프로파일링-너머의-담금질-존재대존재-공진화-야화 (2026-02-28)]({{< relref "/botlog/20260228T075300.md" >}})
@@ -131,5 +134,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-01 16:21, CountNotes: 3110 notes (9 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-03 09:24, CountNotes: 3116 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
