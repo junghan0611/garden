@@ -47,6 +47,8 @@ comments: true
 
 [봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 추가로 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
+-   [꿈-기계뱀-시멘트-앤트로픽-윤리-은둔-에릭호퍼-연상 (2026-03-04)]({{< relref "/botlog/20260304T105300.md" >}})
+-   [지식그래프-무무-무의식-에이전트-연상맵-토큰절약-키워드-의미망 (2026-03-04)]({{< relref "/botlog/20260304T004500.md" >}})
 -   [인간중심-멀티에이전트-협력-—-llm-council-해석 (2026-03-02)]({{< relref "/botlog/20260302T191200.md" >}})
 -   [제미나이와-힣의-대화-등대지기에서-오케스트레이터로 (2026-03-02)]({{< relref "/botlog/20260302T171652.md" >}})
 -   [aprj-아카이브-통합정리-정한의-삽질-연대기-2008-2026 (2026-03-02)]({{< relref "/botlog/20260302T130000.md" >}})
@@ -134,5 +136,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-03 09:24, CountNotes: 3116 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-04 13:43, CountNotes: 3120 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
