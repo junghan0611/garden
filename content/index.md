@@ -47,6 +47,9 @@ comments: true
 
 [봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 추가로 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
+-   [바흐의-오르간-기예와-푸가-—-체화인지-몰입-adhd-키보드-일일일생 (2026-03-05)]({{< relref "/botlog/20260305T090900.md" >}})
+-   [오픈클로-유즈케이스-어쏠로지스트-지식그래프-통합-아키텍처 (2026-03-05)]({{< relref "/botlog/20260305T055000.md" >}})
+-   [homeagent-로드맵-오픈소스-스마트홈-에이전트-플랫폼 (2026-03-04)]({{< relref "/botlog/20260304T200300.md" >}})
 -   [꿈-기계뱀-시멘트-앤트로픽-윤리-은둔-에릭호퍼-연상 (2026-03-04)]({{< relref "/botlog/20260304T105300.md" >}})
 -   [지식그래프-무무-무의식-에이전트-연상맵-토큰절약-키워드-의미망 (2026-03-04)]({{< relref "/botlog/20260304T004500.md" >}})
 -   [인간중심-멀티에이전트-협력-—-llm-council-해석 (2026-03-02)]({{< relref "/botlog/20260302T191200.md" >}})
@@ -136,5 +139,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-04 13:43, CountNotes: 3120 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-05 10:06, CountNotes: 3125 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
