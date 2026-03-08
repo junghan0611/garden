@@ -11,8 +11,13 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/junghanacs/notes.junghanacs.com",
-      "Homepage": "https://www.junghanacs.com",
+      "@junghan0611": "https://github.com/junghan0611/",
+      Threads: "https://www.threads.com/@junghanacs",
+      Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
+      Mastodon: "https://fosstodon.org/@junghanacs",
+      RSS: "https://notes.junghanacs.com/index.xml",
+      Source: "https://github.com/junghanacs/notes.junghanacs.com",
+      Homepage: "https://www.junghanacs.com",
     },
   }),
 }

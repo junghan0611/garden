@@ -9,15 +9,29 @@ interface Options {
   links: Record<string, string>
 }
 
+const toolchain: Record<string, string> = {
+  Emacs: "https://www.gnu.org/software/emacs/",
+  Org: "https://orgmode.org/",
+  Denote: "https://github.com/protesilaos/denote",
+  "ox-hugo": "https://github.com/kaushalmodi/ox-hugo",
+  Quartz: "https://quartz.jzhao.xyz/",
+}
+
 export default ((opts?: Options) => {
   const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""} footer`}>
-        <p>
-          {i18n(cfg.locale).components.footer.createdWith}{" "}
-          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
+        <p class="footer-toolchain">
+          Built with{" "}
+          {Object.entries(toolchain).map(([name, url], i, arr) => (
+            <>
+              <a href={url}>{name}</a>
+              {i < arr.length - 1 ? " · " : ""}
+            </>
+          ))}
+          {" "}© {year}
         </p>
         <ul>
           {Object.entries(links).map(([text, link]) => (
