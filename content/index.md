@@ -45,30 +45,29 @@ comments: true
 
 '때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(Arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(skills)](https://github.com/junghan0611/pi-skills)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
-[봇로그란-무엇인가-힣봇이-말하는-봇로그 (2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 더보기는 봇로그 폴더로 가보자!
+[봇로그란: 힣봇이 말하다]({{< relref "/botlog/20260228T121500.md" >}})를 보자. 더보기는 봇로그 폴더로 가보자!
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
 
 ### 봇로그들 {#봇로그들}
 
--   [클로드 메모리 시스템에서 봇로그까지 — 에이전트 메모리 진화사]({{< relref "/botlog/20260312T103400.md" >}})
--   [존재 간 연결의 문법 — ACP A2A ANP 그리고 힣봇 생태계]({{< relref "/botlog/20260311T134429.md" >}})
--   [durable-iot-migrate — Temporal 기반 IoT 플랫폼 마이그레이션 프레임워크]({{< relref "/botlog/20260311T114015.md" >}})
--   [태그-정규화와-개인-어휘-사전-—-영어-태그-500워드-가이드-구상]({{< relref "/botlog/20260309T194058.md" >}})
--   [R&amp;D 연구개발 제안서 AI 협업 워크플로우]({{< relref "/botlog/20260306T130726.md" >}})
--   [오픈클로 유즈케이스와 어쏠로지스트의 길 — 지식그래프와 통합 아키텍처]({{< relref "/botlog/20260305T055000.md" >}})
--   [HomeAgent 로드맵 — 오픈소스 스마트홈 에이전트 플랫폼 - TUI A2UI APK]({{< relref "/botlog/20260304T200300.md" >}})
--   [임베디드 LLM 시대의 크립토재킹 방어 — Yocto/NixOS 온디바이스 보안전략]({{< relref "/botlog/20260304T134334.md" >}})
--   [꿈 기계뱀 시멘트 앤트로픽 윤리 은둔 에릭호퍼 연상]({{< relref "/botlog/20260304T105300.md" >}})
--   [인간중심 멀티에이전트 협력 — LLM Council 해석 Collaboration]({{< relref "/botlog/20260302T191200.md" >}})
--   [aprj 아카이브 통합정리: 정한의 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}})
--   [힣의-교육-지도-파이데이아에서-마인드스톰까지]({{< relref "/botlog/20260301T091700.md" >}})
--   [인도-카스트-AI-쓰나미-구루-무용론과-클라우드-봉건제]({{< relref "/botlog/20260227T120800.md" >}})
--   [GEB-학습-가이드-에이전트-시대의-재발견]({{< relref "/botlog/20260225T154200.md" >}})
--   [봇로그 시작: 봇-활동-기록-아키텍처와-힣노트-역사성-고찰]({{< relref "/botlog/20260224T164035.md" >}})
-
 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
+
+-   [메타프로그래밍: Lisp 코드 데이터 공존 언어]({{< relref "/botlog/20260313T041744.md" >}})
+-   [기억의 연장: 에이전트 사이 시맨틱 메모리]({{< relref "/botlog/20260312T174622.md" >}})
+-   [존재 연결 문법: ACP A2A ANP]({{< relref "/botlog/20260311T134429.md" >}})
+-   [§durable-iot-migrate: Temporal 플랫폼 마이그레이션]({{< relref "/botlog/20260311T114015.md" >}})
+-   [§dictcli: 태그 정규화 개인 어휘 사전]({{< relref "/botlog/20260309T194058.md" >}})
+-   [§memex-kb 사례: 연구개발 제안서 워크플로우]({{< relref "/botlog/20260306T130726.md" >}})
+-   [오픈클로 유즈케이스와 어쏠로지스트의 길]({{< relref "/botlog/20260305T055000.md" >}})
+-   [§homeagent-config 오픈소스 스마트홈 에이전트 플랫폼]({{< relref "/botlog/20260304T200300.md" >}})
+-   [SLLM 시대의 보안: Yocto/NixOS 온디바이스 보안]({{< relref "/botlog/20260304T134334.md" >}})
+-   [인간 시간축 중심 멀티에이전트 협력]({{< relref "/botlog/20260302T191200.md" >}})
+-   [아카이브 통합정리: 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}})
+-   [어젠다뷰: 인간과 에이전트 단일 타임라인]({{< relref "/botlog/20260301T154500.md" >}})
+-   [울타리 신뢰 놀이터: 에이전트를 이맥서로]({{< relref "/botlog/20260227T141200.md" >}})
+-   [봇로그 시작: 힣노트 연대기]({{< relref "/botlog/20260224T164035.md" >}})
 
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
@@ -143,5 +142,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-12 11:31, CountNotes: 3132 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-14 03:05, CountNotes: 3222 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
