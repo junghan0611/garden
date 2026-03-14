@@ -40,3 +40,7 @@ test/
 pnpm-lock.yaml
 .direnv/
 docs/plans
+/.agent-shell/
+
+.beads/.br_history
+.beads/.br_recovery

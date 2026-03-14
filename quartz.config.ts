@@ -97,7 +97,7 @@ const config: QuartzConfig = {
         }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents({
-        maxDepth: 2
+        maxDepth: 3
         }),
       Plugin.CrawlLinks({ markdownLinkResolution: "absolute",
                           prettyLinks: false }),
