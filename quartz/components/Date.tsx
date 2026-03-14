@@ -35,10 +35,12 @@ export function getDateCustom(
 // }
 
 export function formatDate(d: Date): string {
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
+  // Force KST (Asia/Seoul) to prevent UTC date shift on build servers
+  const kst = new globalThis.Date(d.getTime() + 9 * 60 * 60 * 1000)
+  const year = kst.getUTCFullYear()
+  const month = String(kst.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(kst.getUTCDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
 }
 
 export function Date({ date, locale }: Props) {
