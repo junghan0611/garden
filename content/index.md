@@ -54,6 +54,7 @@ comments: true
 
 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
+-   [§존재-데이터-뷰어 — Clerk 기반 홈페이지]({{< relref "/botlog/20260310T140114.md" >}})
 -   [메타프로그래밍: Lisp 코드 데이터 공존 언어]({{< relref "/botlog/20260313T041744.md" >}})
 -   [기억의 연장: 에이전트 사이 시맨틱 메모리]({{< relref "/botlog/20260312T174622.md" >}})
 -   [존재 연결 문법: ACP A2A ANP]({{< relref "/botlog/20260311T134429.md" >}})
@@ -72,7 +73,7 @@ comments: true
 
 ## 저널노트: 데일리 루틴 - 워크플로우 {#저널노트-데일리-루틴-워크플로우}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/today" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/today" >}}) 에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
 -   [#데일리 #저널]({{< relref "/today" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
@@ -104,7 +105,7 @@ comments: true
 
 ## 택소노미: 분류체계 시스템 {#택소노미-분류체계-시스템}
 
-디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
+디지털가든 에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
 -   [Tags Index]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
@@ -131,7 +132,7 @@ comments: true
 
 ## 어쏠로지스트: 인간상 {#어쏠로지스트-인간상}
 
-> 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트(authologist)! 모두는 저자다! '지식'의 단편은 AI에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 용서하리라. 사랑하리라.
+> 빛에서 어둠으로 나와서, 이제 외친다. 어쏠로지스트(authologist)! 모두는 저자다! '지식'의 단편은 AI 에게 구하라! 이제 이 곳에 '삶'을 담으라. '앎'으로 나아가라. 두려움 없이 모두에게 다가가라! 받은 것을 나누라! 마침내 불현듯, 자신과 마주하리라. 용서하리라. 사랑하리라.
 
 모든 것이 텍스트 유희라면 여러 도구는 필요 없다. 손맛은 아는 자! [#옴니(omni)]({{< relref "/meta/20241013T213110.md" >}}) 스타일을 따르라! 텍스트 힙스터의 본능이 깨어난다. 무릇 도구의 효율성은 배움의 어려움을 능가한다. 사실 어려울 것도 없다. 삶을 담을 그릇을 만드는 데 시간은 넉넉하다.
 
@@ -142,5 +143,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-14 03:05, CountNotes: 3222 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-14 21:30, CountNotes: 3223 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
