@@ -42,10 +42,12 @@ export const TableOfContents: QuartzTransformerPlugin<Partial<Options>> = (userO
                 if (node.depth <= opts.maxDepth) {
                   const text = toString(node)
                   highestDepth = Math.min(highestDepth, node.depth)
+                  // Use predefined anchor ID if available (e.g. from ox-hugo {#id})
+                  const customId = (node.data?.hProperties as Record<string, unknown>)?.id as string | undefined
                   toc.push({
                     depth: node.depth,
                     text,
-                    slug: slugAnchor.slug(text),
+                    slug: customId ?? slugAnchor.slug(text),
                   })
                 }
               })

@@ -1,4 +1,6 @@
 import { QuartzTransformerPlugin } from "../types"
+import { Root } from "mdast"
+import { visit } from "unist-util-visit"
 import rehypeRaw from "rehype-raw"
 import { PluggableList } from "unified"
 
@@ -15,6 +17,8 @@ export interface Options {
   replaceCslEntry: boolean
   /** Replace org latex fragments with $ and $$ */
   replaceOrgLatex: boolean
+  /** Remove org-mode TODO/DONE/NEXT keywords from headings */
+  removeOrgTodo: boolean
 }
 
 const defaultOptions: Options = {
@@ -24,10 +28,13 @@ const defaultOptions: Options = {
   replaceFigureWithMdImg: true,
   replaceOrgLatex: true,
   replaceCslEntry: true,
+  removeOrgTodo: true,
 }
 
 const relrefRegex = new RegExp(/\[([^\]]+)\]\(\{\{< relref "([^"]+)" >\}\}\)/, "g")
 const predefinedHeadingIdRegex = new RegExp(/(.*) {#(?:.*)}/, "g")
+// org-mode TODO keywords: <span class="org-todo todo TODO">TODO</span>
+const orgTodoRegex = new RegExp(/<span class="org-todo[^"]*">[A-Z]+<\/span>\s*/g)
 const hugoShortcodeRegex = new RegExp(/{{(.*)}}/, "g")
 // const figureTagRegex = new RegExp(/< ?figure src="(.*)" ?>/, "g")
 const figureTagRegex = new RegExp(/< ?figure src="([^"]+)"/g)
@@ -67,12 +74,12 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         })
       }
 
-      if (opts.removePredefinedAnchor) {
+      // removePredefinedAnchor is now handled in markdownPlugins
+      // to preserve {#id} as heading's actual HTML id
+
+      if (opts.removeOrgTodo) {
         src = src.toString()
-        src = src.replaceAll(predefinedHeadingIdRegex, (_value, ...capture) => {
-          const [headingText] = capture
-          return headingText
-        })
+        src = src.replaceAll(orgTodoRegex, "")
       }
 
       if (opts.removeHugoShortcode) {
@@ -118,6 +125,32 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         })
       }
       return src
+    },
+    markdownPlugins() {
+      const plugins: PluggableList = []
+
+      if (opts.removePredefinedAnchor) {
+        plugins.push(() => {
+          return (tree: Root, _file) => {
+            visit(tree, "heading", (node) => {
+              const lastChild = node.children[node.children.length - 1]
+              if (lastChild && lastChild.type === "text") {
+                const match = lastChild.value.match(/ \{#(.+)\}$/)
+                if (match) {
+                  lastChild.value = lastChild.value.replace(/ \{#.+\}$/, "")
+                  node.data = node.data || {}
+                  node.data.hProperties = {
+                    ...(node.data.hProperties as Record<string, unknown> || {}),
+                    id: match[1],
+                  }
+                }
+              }
+            })
+          }
+        })
+      }
+
+      return plugins
     },
     htmlPlugins() {
       const plugins: PluggableList = [rehypeRaw]
