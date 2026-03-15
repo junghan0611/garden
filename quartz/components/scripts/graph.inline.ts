@@ -69,6 +69,12 @@ type TweenNode = {
 }
 
 async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
+  // Skip rendering if container is not visible (e.g. DesktopOnly on mobile)
+  // Prevents unnecessary D3 simulation, PixiJS WebGL init, and rAF loop
+  if (graph.offsetWidth === 0 || graph.offsetHeight === 0) {
+    return () => {}
+  }
+
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
   removeAllChildren(graph)
