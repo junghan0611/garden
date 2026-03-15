@@ -69,17 +69,15 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.DesktopOnly(
-      Component.Graph(),
       Component.Graph({
         localGraph: {
+          depth: 2,
           showTags: false,
-          // drag: false,
-          // zoom: false,
+          focusOnHover: true,
         },
         globalGraph: {
           showTags: false,
-          // drag: false,
-          // zoom: false,
+          depth: 0, // disabled — 2000+ nodes too heavy for client
         },
       }),
     ),
