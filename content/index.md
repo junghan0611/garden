@@ -54,15 +54,15 @@ comments: true
 
 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
--   [§존재-데이터-뷰어 — Clerk 기반 홈페이지]({{< relref "/botlog/20260310T140114.md" >}})
+-   [§존재-데이터-뷰어 — SF-UIUX 홈페이지]({{< relref "/botlog/20260310T140114.md" >}})
 -   [메타프로그래밍: Lisp 코드 데이터 공존 언어]({{< relref "/botlog/20260313T041744.md" >}})
--   [기억의 연장: 에이전트 사이 시맨틱 메모리]({{< relref "/botlog/20260312T174622.md" >}})
+-   [§agent-config 기억의 연장: 에이전트 시맨틱 메모리]({{< relref "/botlog/20260312T174622.md" >}})
 -   [존재 연결 문법: ACP A2A ANP]({{< relref "/botlog/20260311T134429.md" >}})
--   [§durable-iot-migrate: Temporal 플랫폼 마이그레이션]({{< relref "/botlog/20260311T114015.md" >}})
+-   [§durable-iot-migrate: 플랫폼 마이그레이션]({{< relref "/botlog/20260311T114015.md" >}})
 -   [§dictcli: 태그 정규화 개인 어휘 사전]({{< relref "/botlog/20260309T194058.md" >}})
 -   [§memex-kb 사례: 연구개발 제안서 워크플로우]({{< relref "/botlog/20260306T130726.md" >}})
--   [오픈클로 유즈케이스와 어쏠로지스트의 길]({{< relref "/botlog/20260305T055000.md" >}})
--   [§homeagent-config 오픈소스 스마트홈 에이전트 플랫폼]({{< relref "/botlog/20260304T200300.md" >}})
+-   [Openclaw 유즈케이스와 어쏠로지스트의 길]({{< relref "/botlog/20260305T055000.md" >}})
+-   [§homeagent-config 스마트홈 에이전트 플랫폼]({{< relref "/botlog/20260304T200300.md" >}})
 -   [SLLM 시대의 보안: Yocto/NixOS 온디바이스 보안]({{< relref "/botlog/20260304T134334.md" >}})
 -   [인간 시간축 중심 멀티에이전트 협력]({{< relref "/botlog/20260302T191200.md" >}})
 -   [아카이브 통합정리: 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}})
@@ -143,5 +143,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-14 21:30, CountNotes: 3223 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-16 09:33, CountNotes: 3225 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
