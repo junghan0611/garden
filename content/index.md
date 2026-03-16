@@ -54,7 +54,7 @@ comments: true
 
 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
--   [§존재-데이터-뷰어 — SF-UIUX 홈페이지]({{< relref "/botlog/20260310T140114.md" >}})
+-   [§geworfen 게보르펜 존재-데이터-뷰어]({{< relref "/botlog/20260310T140114.md" >}})
 -   [메타프로그래밍: Lisp 코드 데이터 공존 언어]({{< relref "/botlog/20260313T041744.md" >}})
 -   [§agent-config 기억의 연장: 에이전트 시맨틱 메모리]({{< relref "/botlog/20260312T174622.md" >}})
 -   [존재 연결 문법: ACP A2A ANP]({{< relref "/botlog/20260311T134429.md" >}})
@@ -143,5 +143,5 @@ comments: true
 
 ## INFORMATION {#information}
 
-ExportDate: 2026-03-16 09:33, CountNotes: 3225 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-16 18:01, CountNotes: 3227 notes (10 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
