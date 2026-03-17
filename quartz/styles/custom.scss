@@ -1,6 +1,36 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// GLG-Mono — custom monospace font
+@font-face {
+  font-family: "GLG Mono";
+  src: url("/static/fonts/GLG-Mono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GLG Mono";
+  src: url("/static/fonts/GLG-Mono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GLG Mono";
+  src: url("/static/fonts/GLG-Mono-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GLG Mono";
+  src: url("/static/fonts/GLG-Mono-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 .csl-bib-body
 .csl-entry
 {

@@ -31,8 +31,8 @@ const config: QuartzConfig = {
         //           includeItalic: false,},
         header: "Hahmlet",
         title: "42dot Sans",
-        body:  "42dot Sans", // "Noto Sans KR"
-        code: "Nanum Gothic Coding",
+        body:  "GLG Mono",
+        code: "GLG Mono",
       },
       colors: {
         lightMode: {
