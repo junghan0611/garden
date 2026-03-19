@@ -30,10 +30,10 @@ comments: true
 
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [그는 오늘 뭐 하는가]({{< relref "/today" >}})
--   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}})
+-   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 
 
 ## 힣봇로그: 종합 선물 {#힣봇로그-종합-선물}
@@ -46,6 +46,9 @@ comments: true
 
 5개만 담자. 아니, 더 담으련다. 이유는 비공개.
 
+-   [Harness 하네싱: 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}})
+-   [§junghan0611: GitHub Profile Resume 영문 공개키]({{< relref "/botlog/20260318T183247.md" >}})
+-   [§andenken: 존재의 되새김 - 시맨틱 메모리를 넘어서]({{< relref "/botlog/20260319T110800.md" >}})
 -   [§geworfen 게보르펜 존재-데이터-뷰어]({{< relref "/botlog/20260310T140114.md" >}})
 -   [메타프로그래밍: Lisp 코드 데이터 공존 언어]({{< relref "/botlog/20260313T041744.md" >}})
 -   [§agent-config 기억의 연장: 에이전트 시맨틱 메모리]({{< relref "/botlog/20260312T174622.md" >}})
@@ -132,5 +135,5 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-03-17 23:05, CountNotes: 3230 notes (11 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-20 06:44, CountNotes: 3234 notes (11 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
