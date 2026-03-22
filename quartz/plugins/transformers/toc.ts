@@ -40,10 +40,15 @@ export const TableOfContents: QuartzTransformerPlugin<Partial<Options>> = (userO
               let highestDepth: number = opts.maxDepth
               visit(tree, "heading", (node) => {
                 if (node.depth <= opts.maxDepth) {
-                  const text = toString(node).replace(
-                    /<span class="timestamp-wrapper"><span class="timestamp">.*?<\/span><\/span>\s*/g,
-                    "",
-                  )
+                  const text = toString(node)
+                    .replace(
+                      /<span class="timestamp-wrapper"><span class="timestamp">.*?<\/span><\/span>\s*/g,
+                      "",
+                    )
+                    .replace(
+                      /<span class="gptel-role gptel-(?:user|assistant)">@(?:user|assistant)<\/span>\s*/g,
+                      "",
+                    )
                   highestDepth = Math.min(highestDepth, node.depth)
                   // Use predefined anchor ID if available (e.g. from ox-hugo {#id})
                   const customId = (node.data?.hProperties as Record<string, unknown>)?.id as string | undefined

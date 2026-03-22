@@ -19,6 +19,8 @@ export interface Options {
   replaceOrgLatex: boolean
   /** Remove org-mode TODO/DONE/NEXT keywords from headings */
   removeOrgTodo: boolean
+  /** Wrap gptel @user/@assistant markers with styled spans */
+  wrapGptelRoles: boolean
 }
 
 const defaultOptions: Options = {
@@ -29,6 +31,7 @@ const defaultOptions: Options = {
   replaceOrgLatex: true,
   replaceCslEntry: true,
   removeOrgTodo: true,
+  wrapGptelRoles: true,
 }
 
 const relrefRegex = new RegExp(/\[([^\]]+)\]\(\{\{< relref "([^"]+)" >\}\}\)/, "g")
@@ -39,6 +42,8 @@ const hugoShortcodeRegex = new RegExp(/{{(.*)}}/, "g")
 // const figureTagRegex = new RegExp(/< ?figure src="(.*)" ?>/, "g")
 const figureTagRegex = new RegExp(/< ?figure src="([^"]+)"/g)
 const cslEntryRegex = new RegExp(/<div class="csl-entry">(.*?)<\/div>/g);
+// gptel role markers: @user or @assistant at line start (in headings or plain text)
+const gptelRoleRegex = new RegExp(/^(#{0,6}\s*)@(user|assistant)\b/gm)
 
 // \\\\\( -> matches \\(
 // (.+?) -> Lazy match for capturing the equation
@@ -80,6 +85,13 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
       if (opts.removeOrgTodo) {
         src = src.toString()
         src = src.replaceAll(orgTodoRegex, "")
+      }
+
+      if (opts.wrapGptelRoles) {
+        src = src.toString()
+        src = src.replaceAll(gptelRoleRegex, (_match, prefix, role) => {
+          return `${prefix}<span class="gptel-role gptel-${role}">@${role}</span>`
+        })
       }
 
       if (opts.removeHugoShortcode) {

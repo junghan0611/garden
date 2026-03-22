@@ -93,6 +93,53 @@ blockquote {
   color: #00bfa5;
 }
 
+// gptel role markers — @user (question yellow), @assistant (tip green)
+// Colors from callouts.scss: question=#dba642, tip=#00bfa5
+.gptel-role {
+  font-family: var(--codeFont);
+  font-size: 0.85em;
+  font-weight: 700;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  vertical-align: baseline;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: -0.1em;
+  }
+}
+
+.gptel-user {
+  color: #dba642;
+  background: #dba64218;
+  border: 1px solid #dba64244;
+
+  // person icon (Lucide user)
+  &::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23dba642" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>');
+  }
+}
+
+.gptel-assistant {
+  color: #00bfa5;
+  background: #00bfa518;
+  border: 1px solid #00bfa544;
+
+  // bot icon (Lucide bot)
+  &::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300bfa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>');
+  }
+}
+
 // Responsive image sizing
 article img {
   max-width: min(480px, 100%);  // 480px or container width, whichever is smaller
