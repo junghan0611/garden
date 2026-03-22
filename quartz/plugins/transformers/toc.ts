@@ -49,6 +49,14 @@ export const TableOfContents: QuartzTransformerPlugin<Partial<Options>> = (userO
                       /<span class="gptel-role gptel-(?:user|assistant)">@(?:user|assistant)<\/span>\s*/g,
                       "",
                     )
+                    .replace(
+                      /<span class="org-hashtag">(#[^<]+)<\/span>/g,
+                      "$1",
+                    )
+                    .replace(
+                      /<span class="org-mention">(@[^<]+)<\/span>/g,
+                      "$1",
+                    )
                   highestDepth = Math.min(highestDepth, node.depth)
                   // Use predefined anchor ID if available (e.g. from ox-hugo {#id})
                   const customId = (node.data?.hProperties as Record<string, unknown>)?.id as string | undefined

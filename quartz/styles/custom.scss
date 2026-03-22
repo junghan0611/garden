@@ -140,6 +140,18 @@ blockquote {
   }
 }
 
+// org-mode hashtags (#태그) — example purple, bold only
+.org-hashtag {
+  color: #7a43b5;
+  font-weight: 700;
+}
+
+// org-mode mentions (@junghan) — question yellow, bold only
+.org-mention {
+  color: #dba642;
+  font-weight: 700;
+}
+
 // Responsive image sizing
 article img {
   max-width: min(480px, 100%);  // 480px or container width, whichever is smaller
