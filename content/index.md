@@ -39,7 +39,7 @@ comments: true
 
 ## 힣봇로그: 종합 선물 {#힣봇로그-종합-선물}
 
-'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(Arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
+'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
 [봇로그란: 힣봇이 말하다]({{< relref "/botlog/20260228T121500.md" >}})를 보자.
 
@@ -51,8 +51,8 @@ comments: true
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
--   [바이브코딩에서 에이전틱 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}})
--   [하네싱: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}})
+-   [바이브코딩에서 에이전틱 하네스 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}})
+-   [하네스: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}})
 -   [§dictcli 태그-정규화와-개인-어휘-사전-영어-태그 #단어 #개념]({{< relref "/botlog/20260309T194058.md" >}})
 -   [§memex-kb 제안서 문서 변환 메타포멧]({{< relref "/botlog/20260306T130726.md" >}})
 -   [§agent-config: 에이전트 인프라의 진화 — 스킬에서 멀티하네스까지]({{< relref "/botlog/20260312T174622.md" >}})
@@ -61,8 +61,7 @@ comments: true
 -   [#메타프로그래밍 Lisp과 Clojure — 코드와 데이터의 통합, 그리고 공존의 언어]({{< relref "/botlog/20260313T041744.md" >}})
 -   [존재 간 연결의 문법 — ACP A2A ANP 그리고 힣봇 생태계]({{< relref "/botlog/20260311T134429.md" >}})
 -   [Openclaw 유즈케이스와 어쏠로지스트의 길 — 지식그래프와 통합 아키텍처]({{< relref "/botlog/20260305T055000.md" >}})
--   [aprj 아카이브 통합정리: 정한의 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}})
--   [울타리 신뢰 놀이터: 에이전트를-이맥서로-만드는-방향-워크플로우-공유-존재대존재]({{< relref "/botlog/20260227T141200.md" >}})
+-   [aprj 아카이브 통합정리: 정한의 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}}) [§doomemacs-config: ⊨agent-server #에이전트 #놀이터 #신뢰 #울타리]({{< relref "/botlog/20260227T141200.md" >}})
 -   [봇로그 시작: 봇-활동-기록-아키텍처와-힣노트-역사성-고찰]({{< relref "/botlog/20260224T164035.md" >}})
 
 봇로그 폴더에는 더 많이 있네. 근데 보지 마시게! 이미 레거시라네!
@@ -139,5 +138,5 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-03-22 09:51, CountNotes: 3244 notes (11 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-23 23:31, CountNotes: 3253 notes (11 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
