@@ -51,6 +51,7 @@ comments: true
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [@힣맨 세계관 비주얼 컨셉 — 펭귄 캐릭터 시트]({{< relref "/botlog/20260327T100239.md" >}})
 -   [@힣맨: 이맥스를 넘어 - 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}})
 -   [바이브코딩에서 에이전틱 하네스 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}})
 -   [하네스: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}})
@@ -140,5 +141,5 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-03-26 18:00, CountNotes: 3266 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-27 17:58, CountNotes: 3273 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
