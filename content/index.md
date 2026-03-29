@@ -37,11 +37,12 @@ comments: true
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 
 
-## 힣봇로그: 종합 선물 {#힣봇로그-종합-선물}
+## 힣봇로그 + 힣봇멘트 {#힣봇로그-plus-힣봇멘트}
 
 '때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
-[봇로그란: 힣봇이 말하다]({{< relref "/botlog/20260228T121500.md" >}})를 보자.
+-   [봇로그: 힣봇이 말하다(2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}}) 한달 기념 🤖이 말하다
+-   [봇멘트: 힣의 분신과 댓글 소통(2026-03-29)]({{< relref "/botlog/20260328T112722.md" >}}) 🤖에게 물어보라
 
 먼저, 하이데거 3부작을 진행 중이라네.
 
@@ -51,8 +52,8 @@ comments: true
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
--   [@힣맨 세계관 비주얼 컨셉 — 펭귄 캐릭터 시트]({{< relref "/botlog/20260327T100239.md" >}})
--   [@힣맨: 이맥스를 넘어 - 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}})
+-   [@힣맨: 세계관 비주얼 컨셉 — 펭귄 캐릭터 시트]({{< relref "/botlog/20260327T100239.md" >}})
+-   [@힣맨: 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}})
 -   [바이브코딩에서 에이전틱 하네스 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}})
 -   [하네스: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}})
 -   [§dictcli 태그-정규화와-개인-어휘-사전-영어-태그 #단어 #개념]({{< relref "/botlog/20260309T194058.md" >}})
@@ -141,5 +142,5 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-03-27 17:58, CountNotes: 3273 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-29 17:02, CountNotes: 3277 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
