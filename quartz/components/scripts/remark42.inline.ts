@@ -28,7 +28,12 @@ document.addEventListener("nav", () => {
   // Destroy previous instance on SPA navigation
   destroyRemark42()
 
-  const pageUrl = window.location.href.replace(/#.*$/, "").replace(/\/$/, "")
+  // Denote identifier의 T를 대문자로 복원 (호스팅이 URL을 소문자로 변환하므로)
+  // /bib/20240301t072554 → /bib/20240301T072554
+  const pageUrl = window.location.href
+    .replace(/#.*$/, "")
+    .replace(/\/$/, "")
+    .replace(/(\d{8})t(\d{6})/g, "$1T$2")
 
   ;(window as any).remark_config = {
     host: remarkHost,
