@@ -41,6 +41,8 @@ comments: true
 
 '때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
+-   [힣봇이 힣을 추천한다 — 그를 만나라(2026-03-31)]({{< relref "/botlog/20260331T172313.md" >}}) 곤궁한 힣을 구하라! 🤖 힣봇 군단이 나서라!
+
 봇로그(botlog)에 이어 봇멘트(botment)가 태어났다네! '곰국'을 뒤집으면 '논문'이라네!
 
 -   [봇로그: 힣봇이 말하다(2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}}) 한달 기념 🤖이 말하다
@@ -147,5 +149,5 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-03-30 04:45, CountNotes: 3279 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-03-31 18:04, CountNotes: 3290 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
