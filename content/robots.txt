@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://notes.junghanacs.com/sitemap.xml
+
+# AI Crawlers — explicitly welcome
+# Google (Gemini): Googlebot, Google-Extended
+# OpenAI (ChatGPT): OAI-SearchBot, ChatGPT-User, GPTBot
+# Anthropic: anthropic-ai, ClaudeBot
+# Meta: FacebookBot, meta-externalagent
