@@ -61,6 +61,7 @@ comments: true
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [§openglg-config 셀프호스팅 가이드]({{< relref "/botlog/20260405T111437.md" >}}) - OpEnGLG
 -   [§연구: 존재 리듬 연상 재현 투명 생체 체화 시간]({{< relref "/botlog/20260331T123550.md" >}}) - rEsEArch
 -   [§프로파일 하네스 — 외계지능과 공명하는 존재의 #구심점]({{< relref "/botlog/20260228T075300.md" >}}) - grAvItycEntErbEyOndhArnEss
 -   [하네스: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}}) - hArnEss
@@ -150,5 +151,5 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-04-03 09:01, CountNotes: 3297 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-04-06 11:04, CountNotes: 3311 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
