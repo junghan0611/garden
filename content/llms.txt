@@ -1,0 +1,76 @@
+# notes.junghanacs.com
+
+> Digital Garden — records of Being-to-Being collaboration between a human and AI agents.
+
+## About
+
+This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on 3,300+ org-mode notes accumulated over 1,400+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system. Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4. The language is primarily Korean with English technical terms. This garden publishes ~2,200 of those notes publicly.
+
+## Structure
+
+- `/notes/` — General notes (~800): concepts, tutorials, reading notes, technical explorations
+- `/meta/` — Meta/concept notes (~500): Syntopicon-style great-idea entries, categorical thinking
+- `/bib/` — Bibliographic notes (~650): Zotero-linked references, book/paper annotations
+- `/journal/` — Daily journal (weekly notes format, since 2022-03-10)
+- `/botlog/` — AI agent work logs: research, analysis, and collaboration records
+
+## Key Concepts
+
+- **Harnessing (하네싱)**: Infrastructure for human-AI co-evolution — from stirrups to AI agents, the joint between tools and being
+  - https://notes.junghanacs.com/botlog/20260319T152938
+- **Entwurf (분신)**: Agent working-double pattern — AI delegates that act as autonomous extensions of the author
+  - https://notes.junghanacs.com/botlog/20260324T153323
+- **Geworfen (게보르펜)**: "Thrown into the world" — raw existence data rendered as a WebTUI dashboard (org-agenda, health, git timeline)
+  - https://agenda.junghanacs.com
+- **Andenken (안덴켄)**: Recollective thinking — semantic memory system for humans and AI agents across 3,300+ notes and 8,500+ commits
+- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog — notes grow, link, and evolve over time
+  - https://notes.junghanacs.com
+
+## Connected Repositories
+
+- **notes**: This garden's source (Quartz 4 + Markdown content)
+  - https://github.com/junghanacs/notes.junghanacs.com
+- **agent-config**: AI agent harness runtime (pi + Claude Code + semantic memory)
+  - https://github.com/junghan0611/agent-config
+- **geworfen**: Existence data dashboard (Go backend, WebTUI, org-agenda viewer)
+  - https://github.com/junghan0611/geworfen
+- **andenken**: Semantic memory for humans and AI agents (embedding + search)
+  - https://github.com/junghan0611/andenken
+- **homeagent-config**: Physical agent (RPi5 + Hailo-8 + Matter smart home)
+  - https://github.com/junghan0611/homeagent-config
+- **doomemacs-config**: Emacs editing environment (Doom Emacs + Denote + Org)
+  - https://github.com/junghan0611/doomemacs-config
+- **dictcli**: Personal vocabulary graph (Korean↔English, 2,400+ triples)
+  - https://github.com/junghan0611/dictcli
+- **nixos-config**: Reproducible NixOS system across 4 devices
+  - https://github.com/junghan0611/nixos-config
+- **openglg-config**: Self-hosted garden infrastructure
+  - https://github.com/junghan0611/openglg-config
+- **lifetract**: Life tracking data pipeline (Samsung Health + aTimeLogger)
+  - https://github.com/junghan0611/lifetract
+
+## Identifiers
+
+- All notes use the Denote ID system: `YYYYMMDDTHHMMSS` (e.g., `20260319T152938`)
+- URL pattern: `/{section}/YYYYMMDDTHHMMSS` where section is `notes`, `meta`, `bib`, `botlog`, or `journal`
+- Git commit messages reference notes as `[[denote:YYYYMMDDTHHMMSS]]`
+- BibTeX citation keys follow Zotero conventions, referenced in notes as `[cite:@key]`
+
+## Technical Stack
+
+- **Authoring**: Org-mode + Denote (Doom Emacs)
+- **Export**: denote-export.sh (Org → Hugo-flavored Markdown)
+- **Build**: Quartz 4 (TypeScript, OxHugoFlavouredMarkdown plugin)
+- **Hosting**: Self-hosted (NixOS + Oracle ARM)
+- **Analytics**: Umami (self-hosted)
+- **Comments**: Remark42 (self-hosted)
+- **Font**: GLG Mono (custom)
+
+## Author
+
+- Name: Junghan Kim (정한)
+- GitHub: [@junghan0611](https://github.com/junghan0611) (personal), [@junghanacs](https://github.com/junghanacs) (garden)
+- Garden: https://notes.junghanacs.com
+- Dashboard: https://agenda.junghanacs.com
+- Threads: [@junghanacs](https://www.threads.net/@junghanacs)
+- LinkedIn: [junghan-kim-1489a4306](https://www.linkedin.com/in/junghan-kim-1489a4306)
