@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------------------
 [build]
   publish = "public"
-  command = "npx quartz build && cp -r static/* public/static/ 2>/dev/null || true"
+  command = "npx quartz build && cp -r static/* public/static/ 2>/dev/null || true && echo '104b38a0ed1346238062b5ea70834012' > public/104b38a0ed1346238062b5ea70834012.txt"
 
 [build.environment]
   NODE_VERSION = "22"
