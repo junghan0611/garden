@@ -1,12 +1,137 @@
-[[redirects]]
-  from = "/static/*"
-  to = "/static/:splat"
-  status = 200
-  force = false
+# =============================================================================
+# notes.junghanacs.com — Netlify 설정
+# Quartz 4 디지털가든 (2,200+ 페이지)
+# =============================================================================
 
+# ---------------------------------------------------------------------------
+# 빌드 설정
+# ---------------------------------------------------------------------------
 [build]
   publish = "public"
   command = "npx quartz build && cp -r static/* public/static/ 2>/dev/null || true"
 
 [build.environment]
   NODE_VERSION = "22"
+
+# ---------------------------------------------------------------------------
+# 리다이렉트
+# ---------------------------------------------------------------------------
+
+# .netlify.app 서브도메인 → 커스텀 도메인 (SEO 중복 콘텐츠 방지)
+[[redirects]]
+  from = "https://notes-junghanacs.netlify.app/*"
+  to = "https://notes.junghanacs.com/:splat"
+  status = 301
+  force = true
+
+# static 에셋 rewrite
+[[redirects]]
+  from = "/static/*"
+  to = "/static/:splat"
+  status = 200
+  force = false
+
+# ---------------------------------------------------------------------------
+# 커스텀 헤더 — 보안 + SEO + AI 크롤러 최적화
+# ---------------------------------------------------------------------------
+
+# 전체 사이트 공통 보안 헤더
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # 보안 헤더 (SEO audit 점수 향상)
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # AI 크롤러 허용 (X-Robots-Tag 차단 없음 = Allow 정책 유지)
+    # X-Robots-Tag를 설정하지 않음으로써 robots.txt의 Allow: / 정책과 일치
+
+# llms.txt — AI 크롤러용 사이트 컨텍스트 파일
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+    # noindex 절대 금지 — 제미나이는 구글 인덱스에서만 읽는다
+
+# robots.txt — 항상 최신 버전 서빙
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+# sitemap.xml — 검색엔진이 자주 확인하도록 짧은 캐시
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# 정적 에셋 — 장기 캐시 (이미지, 폰트)
+# Netlify CDN이 deploy마다 cache bust하므로 장기 캐시 안전
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 폰트 파일 — CORS + 장기 캐시
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# CSS/JS — Quartz가 fingerprint 포함하므로 장기 캐시 가능
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 이미지 — Netlify ETag 기본 처리 + 하루 캐시 (Quartz가 파일명에 해시 안 붙임)
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "*.gif"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ---------------------------------------------------------------------------
+# Netlify 플러그인
+# ---------------------------------------------------------------------------
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+    baseUrl = "https://notes.junghanacs.com"
+    sitemapPath = "/sitemap.xml"
+    providers = ["google"]

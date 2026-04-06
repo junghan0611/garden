@@ -1,5 +1,7 @@
 # notes.junghanacs.com
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1cb94a7e-4a42-4661-81c0-5215e6122618/deploy-status)](https://app.netlify.com/projects/notes-junghanacs/deploys)
+
 힣(glg)의 디지털가든 - 불완전한 창조의 공간
 
 > 지식의 단편으로는 어떤 것도 창조할 수 없다.

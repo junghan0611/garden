@@ -98,3 +98,29 @@ denote-export.sh all
 - `content/` 파일들은 직접 편집하지 않음 (Org에서 내보내기)
 - `quartz/` 커스터마이징 시 upstream 업데이트 주의
 - 한글 폰트: 42dot Sans, Hahmlet, Nanum Gothic Coding
+
+## Google Search Console 재크롤링 체크리스트
+
+`robots.txt`, `llms.txt`, `sitemap.xml` 등을 수정하고 배포한 뒤에는 Google에 재크롤링을 요청해야 한다.
+제미나이는 구글 인덱스에서만 읽으므로, 인덱싱 안 되면 제미나이가 영원히 못 읽는다.
+
+### 절차
+
+1. [Google Search Console](https://search.google.com/search-console) 접속 (junghanacs@gmail.com)
+2. 속성(property): `https://notes.junghanacs.com` 선택
+3. **robots.txt 재크롤링**:
+   - 좌측 메뉴 → 설정 → robots.txt → "제출" 또는 "업데이트 확인"
+4. **개별 URL 인덱싱 요청**:
+   - 상단 검색창에 URL 입력 (e.g. `https://notes.junghanacs.com/llms.txt`)
+   - "인덱싱 요청" 클릭
+5. **sitemap 제출**:
+   - 좌측 메뉴 → Sitemaps → `sitemap.xml` 제출
+
+### 배포 후 루프
+
+```
+커밋/푸시 → Netlify 빌드 완료 → Search Console에서 재크롤링 요청
+→ 며칠 후 제미나이 새 세션에서 테스트
+```
+
+주의: 빌드 직후는 아직 인덱싱 전이다. 며칠 기다린 후 확인.

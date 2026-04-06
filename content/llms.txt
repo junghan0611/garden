@@ -61,9 +61,10 @@ This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on
 - **Authoring**: Org-mode + Denote (Doom Emacs)
 - **Export**: denote-export.sh (Org → Hugo-flavored Markdown)
 - **Build**: Quartz 4 (TypeScript, OxHugoFlavouredMarkdown plugin)
-- **Hosting**: Self-hosted (NixOS + Oracle ARM)
-- **Analytics**: Umami (self-hosted)
-- **Comments**: Remark42 (self-hosted)
+- **Hosting**: Netlify (CDN + auto-deploy from GitHub)
+- **Infrastructure**: NixOS + Oracle ARM (for Umami, Remark42, geworfen)
+- **Analytics**: Umami (self-hosted on Oracle ARM)
+- **Comments**: Remark42 (self-hosted on Oracle ARM)
 - **Font**: GLG Mono (custom)
 
 ## Author
