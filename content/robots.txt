@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://notes.junghanacs.com/sitemap.xml
+Sitemap: https://notes.junghanacs.com/llms.txt
 
 # AI Crawlers — explicitly welcome
 # Google (Gemini): Googlebot, Google-Extended
