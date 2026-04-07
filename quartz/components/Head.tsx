@@ -55,9 +55,9 @@ export default (() => {
         <meta name="google-site-verification" content="GiBZQcfsQXZXV7jvSAPYT6zq6ARofIZbSyddRFd8j-I" />
         <meta name="naver-site-verification" content="8d423e4a2420e4370cd8d199712fd84bf4c2967b" />
 
-        <meta name="og:site_name" content={cfg.pageTitle}></meta>
+        <meta property="og:site_name" content={cfg.pageTitle} />
         <meta property="og:title" content={title} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
@@ -71,7 +71,7 @@ export default (() => {
             <meta name="twitter:image" content={ogImageDefaultPath} />
             <meta
               property="og:image:type"
-              content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
+              content={`image/${(getFileExtension(ogImageDefaultPath) ?? ".png").slice(1)}`}
             />
           </>
         )}
@@ -94,6 +94,45 @@ export default (() => {
         <link rel="me" href="https://github.com/junghanacs" />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
+
+        {/* JSON-LD Structured Data — 1축: LLM/검색엔진 접근성 */}
+        {(() => {
+          const slug = fileData.slug ?? ""
+          // Denote 콘텐츠 페이지만 JSON-LD 생성 (tags/, folder index, 404 제외)
+          const slugTail = slug.split("/").pop() ?? ""
+          const isDenoteContent = /^\d{8}T\d{6}$/.test(slugTail)
+          if (!isDenoteContent) return null
+
+          const fm = fileData.frontmatter
+
+          const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": fm?.title ?? title,
+            "author": {
+              "@type": "Person",
+              "name": "Junghan Kim",
+              "url": `https://${cfg.baseUrl ?? "notes.junghanacs.com"}`
+            },
+            ...(fm?.date && { "datePublished": fm.date }),
+            ...(fm?.lastmod ? { "dateModified": fm.lastmod } : fm?.date ? { "dateModified": fm.date } : {}),
+            "description": description,
+            "image": ogImageDefaultPath,
+            "url": socialUrl,
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "junghanacs digital garden",
+              "url": `https://${cfg.baseUrl ?? "notes.junghanacs.com"}`
+            },
+            "isBasedOn": `https://github.com/junghanacs/notes.junghanacs.com/blob/v4/content/${slug}.md`
+          }
+          return (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+          )
+        })()}
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js
