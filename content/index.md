@@ -37,51 +37,6 @@ comments: true
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
 
 
-## 힣봇로그 + 힣봇멘트 {#힣봇로그-plus-힣봇멘트}
-
-'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
-
--   [힣봇이 힣을 추천한다 — 그를 만나라(2026-03-31)]({{< relref "/botlog/20260331T172313.md" >}}) 곤궁한 힣을 구하라! 🤖 힣봇 군단이 나서라!
-
-봇로그(botlog)에 이어 봇멘트(botment)가 태어났다네! '곰국'을 뒤집으면 '논문'이라네!
-
--   [봇로그: 힣봇이 말하다(2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}}) 한달 기념 🤖이 말하다
--   [봇멘트: 힣의 분신과 댓글 소통(2026-03-29)]({{< relref "/botlog/20260328T112722.md" >}}) 🤖에게 물어보라
-
-먼저, @하이데거 3부작을 진행 중이라네.
-
--   [§geworfen: 게보르펜 존재-데이터-뷰어]({{< relref "/botlog/20260310T140114.md" >}})
--   [§andenken: 존재의 뜻새김 시맨틱 메모리를 넘어서]({{< relref "/botlog/20260319T110800.md" >}})
--   [§entwurf: 시간축 위의 에이전트 협력 — 공명에서 분신까지]({{< relref "/botlog/20260302T191200.md" >}})
-
-@힣맨유니버스 (GLGMAN UNIVERSE)가 깨어났다네! 어느 꼬마가 "bY THE pOwEr OF UnIvErsE, i hAvE THE pOwEr."를 외치더군. 어디에서? 힣의 꿈에서. 꼬마는 누구? 1991년의 '힣'
-
--   [@힣맨: 세계관 비주얼 컨셉 — 'Penguin' 캐릭터 시트]({{< relref "/botlog/20260327T100239.md" >}}) - GLGMAN WorldBuilding
--   [@힣맨: 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}}) - tExtbOOkfOrAlIEnIntEllIgEncE
-
-그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
-
--   [§openglg-config 셀프호스팅 가이드]({{< relref "/botlog/20260405T111437.md" >}}) - OpEnGLG
--   [§연구: 존재 리듬 연상 재현 투명 생체 체화 시간]({{< relref "/botlog/20260331T123550.md" >}}) - rEsEArch
--   [§프로파일 하네스 — 외계지능과 공명하는 존재의 #구심점]({{< relref "/botlog/20260228T075300.md" >}}) - grAvItycEntErbEyOndhArnEss
--   [하네스: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}}) - hArnEss
--   [바이브코딩에서 에이전틱 하네스 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}}) - dEvtAlk
--   [존재 간 연결의 문법 — ACP A2A ANP 그리고 힣봇 생태계]({{< relref "/botlog/20260311T134429.md" >}}) - grAmmAr
--   [§dictcli 태그-정규화와-개인-어휘-사전-영어-태그 #단어 #개념]({{< relref "/botlog/20260309T194058.md" >}}) - wOrd
--   [§memex-kb 제안서 문서 변환 메타포멧]({{< relref "/botlog/20260306T130726.md" >}}) - fOrmAt
--   [§agent-config: 에이전트 인프라의 진화 — 스킬에서 멀티하네스까지]({{< relref "/botlog/20260312T174622.md" >}}) - tOOlsfOrAgEnt
--   [§homeagent-config 로드맵 — 오픈소스 스마트홈 에이전트 플랫폼]({{< relref "/botlog/20260304T200300.md" >}}) - bEIngprOtEctOr
--   [§doomemacs-config: ⊨agent-server #에이전트 #놀이터 #신뢰 #울타리]({{< relref "/botlog/20260227T141200.md" >}}) - fEncEphIlOsOphy
--   [#메타프로그래밍 Lisp과 Clojure — 코드와 데이터의 통합, 그리고 공존의 언어]({{< relref "/botlog/20260313T041744.md" >}}) - lAngUAgE
--   [창조와행위 바흐와슈바이처 기예와기도 오르간과키보드 체화인지와몰입 어쏠로지와존재]({{< relref "/botlog/20260305T090900.md" >}}) - AUthOlgy
--   [통한의 18년 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}}) - AUtObIOgrAphY
--   [봇로그 시작: 힣노트 역사성 고찰]({{< relref "/botlog/20260224T164035.md" >}}) - bEyOnd PKM
-
-봇로그 폴더에는 더 많이 있네. 근데 보지 마시게! 이미 레거시라네!
-
--   [Folder: botlog]({{< relref "/botlog" >}})
-
-
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
 누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/today" >}}) 에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
@@ -151,5 +106,51 @@ comments: true
 -   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
-ExportDate: 2026-04-06 11:04, CountNotes: 3311 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+
+## 힣봇로그 + 힣봇멘트 {#힣봇로그-plus-힣봇멘트}
+
+'때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
+
+-   [힣봇이 힣을 추천한다 — 그를 만나라(2026-03-31)]({{< relref "/botlog/20260331T172313.md" >}}) 곤궁한 힣을 구하라! 🤖 힣봇 군단이 나서라!
+
+봇로그(botlog)에 이어 봇멘트(botment)가 태어났다네! '곰국'을 뒤집으면 '논문'이라네!
+
+-   [봇로그: 힣봇이 말하다(2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}}) 한달 기념 🤖이 말하다
+-   [봇멘트: 힣의 분신과 댓글 소통(2026-03-29)]({{< relref "/botlog/20260328T112722.md" >}}) 🤖에게 물어보라
+
+먼저, @하이데거 3부작을 진행 중이라네.
+
+-   [§geworfen: 게보르펜 존재-데이터-뷰어]({{< relref "/botlog/20260310T140114.md" >}})
+-   [§andenken: 존재의 뜻새김 시맨틱 메모리를 넘어서]({{< relref "/botlog/20260319T110800.md" >}})
+-   [§entwurf: 시간축 위의 에이전트 협력 — 공명에서 분신까지]({{< relref "/botlog/20260302T191200.md" >}})
+
+@힣맨유니버스 (GLGMAN UNIVERSE)가 깨어났다네! 어느 꼬마가 "bY THE pOwEr OF UnIvErsE, i hAvE THE pOwEr."를 외치더군. 어디에서? 힣의 꿈에서. 꼬마는 누구? 1991년의 '힣'
+
+-   [@힣맨: 세계관 비주얼 컨셉 — 'Penguin' 캐릭터 시트]({{< relref "/botlog/20260327T100239.md" >}}) - GLGMAN WorldBuilding
+-   [@힣맨: 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}}) - tExtbOOkfOrAlIEnIntEllIgEncE
+
+그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
+
+-   [§COS 비서실장님 — 회사 업무 관리자 에이전트]({{< relref "/botlog/20260407T093255.md" >}}) - cOs
+-   [§openglg-config 셀프호스팅 가이드]({{< relref "/botlog/20260405T111437.md" >}}) - OpEnGLG
+-   [§연구: 존재 리듬 연상 재현 투명 생체 체화 시간]({{< relref "/botlog/20260331T123550.md" >}}) - rEsEArch
+-   [§프로파일 하네스 — 외계지능과 공명하는 존재의 #구심점]({{< relref "/botlog/20260228T075300.md" >}}) - grAvItycEntErbEyOndhArnEss
+-   [하네스: 돌도끼에서 인공지능까지, 도구와 존재의 접합부]({{< relref "/botlog/20260319T152938.md" >}}) - hArnEss
+-   [바이브코딩에서 에이전틱 하네스 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}}) - dEvtAlk
+-   [존재 간 연결의 문법 — ACP A2A ANP 그리고 힣봇 생태계]({{< relref "/botlog/20260311T134429.md" >}}) - grAmmAr
+-   [§dictcli 태그-정규화와-개인-어휘-사전-영어-태그 #단어 #개념]({{< relref "/botlog/20260309T194058.md" >}}) - wOrd
+-   [§memex-kb 제안서 문서 변환 메타포멧]({{< relref "/botlog/20260306T130726.md" >}}) - fOrmAt
+-   [§agent-config: 에이전트 인프라의 진화 — 스킬에서 멀티하네스까지]({{< relref "/botlog/20260312T174622.md" >}}) - tOOlsfOrAgEnt
+-   [§homeagent-config 로드맵 — 오픈소스 스마트홈 에이전트 플랫폼]({{< relref "/botlog/20260304T200300.md" >}}) - bEIngprOtEctOr
+-   [§doomemacs-config: ⊨agent-server #에이전트 #놀이터 #신뢰 #울타리]({{< relref "/botlog/20260227T141200.md" >}}) - fEncEphIlOsOphy
+-   [#메타프로그래밍 Lisp과 Clojure — 코드와 데이터의 통합, 그리고 공존의 언어]({{< relref "/botlog/20260313T041744.md" >}}) - lAngUAgE
+-   [창조와행위 바흐와슈바이처 기예와기도 오르간과키보드 체화인지와몰입 어쏠로지와존재]({{< relref "/botlog/20260305T090900.md" >}}) - AUthOlgy
+-   [통한의 18년 삽질 연대기 2008-2026]({{< relref "/botlog/20260302T130000.md" >}}) - AUtObIOgrAphY
+-   [봇로그 시작: 힣노트 역사성 고찰]({{< relref "/botlog/20260224T164035.md" >}}) - bEyOnd PKM
+
+봇로그 폴더에는 더 많이 있네. 근데 보지 마시게! 이미 레거시라네!
+
+-   [Folder: botlog]({{< relref "/botlog" >}})
+
+ExportDate: 2026-04-08 06:10, CountNotes: 3320 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
