@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------------------
 [build]
   publish = "public"
-  command = "npx quartz build && cp -r static/* public/static/ 2>/dev/null || true && echo '104b38a0ed1346238062b5ea70834012' > public/104b38a0ed1346238062b5ea70834012.txt && echo '8d423e4a2420e4370cd8d199712fd84bf4c2967b' > public/naverfca1456e69b21d0f6b4478da73268117.html"
+  command = "npx quartz build && bash scripts/post-build.sh"
 
 [build.environment]
   NODE_VERSION = "22"
@@ -134,4 +134,4 @@
   [plugins.inputs]
     baseUrl = "https://notes.junghanacs.com"
     sitemapPath = "/sitemap.xml"
-    providers = ["google"]
+    providers = ["google", "yandex"]
