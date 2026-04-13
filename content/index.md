@@ -103,7 +103,7 @@ comments: true
 모든 것이 텍스트 유희라면 여러 도구는 필요 없다. 손맛은 아는 자! [#옴니(omni)]({{< relref "/meta/20241013T213110.md" >}}) 스타일을 따르라! 텍스트 힙스터의 본능이 깨어난다. 무릇 도구의 효율성은 배움의 어려움을 능가한다. 사실 어려울 것도 없다. 삶을 담을 그릇을 만드는 데 시간은 넉넉하다.
 
 -   [#닷파일 #둠이맥스 #스타터]({{< relref "/notes/20240915T235008.md" >}})
--   [#옵시디언 #쿼츠 #디지털가든 #조직모드]({{< relref "/notes/20230811T092200.md" >}})
+-   [#쿼츠: #디지털가든 Org Hugo Quartz 파이프라인]({{< relref "/notes/20230811T092200.md" >}})
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
 
@@ -131,6 +131,7 @@ comments: true
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [터미널 이맥스 하네스 프론트엔드]({{< relref "/botlog/20260413T111237.md" >}}) - EmAcstty
 -   [§COS 비서실장님 — 회사 업무 관리자 에이전트]({{< relref "/botlog/20260407T093255.md" >}}) - cOs
 -   [§openglg-config 셀프호스팅 가이드]({{< relref "/botlog/20260405T111437.md" >}}) - OpEnGLG
 -   [§연구: 존재 리듬 연상 재현 투명 생체 체화 시간]({{< relref "/botlog/20260331T123550.md" >}}) - rEsEArch
@@ -152,5 +153,5 @@ comments: true
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-04-08 06:10, CountNotes: 3320 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-04-14 06:34, CountNotes: 3345 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
