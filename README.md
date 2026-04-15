@@ -10,19 +10,20 @@
 
 ## Overview
 
-[Quartz 4](https://quartz.jzhao.xyz/) 기반 디지털가든. Emacs [Denote](https://protesilaos.com/emacs/denote) + [Org-mode](https://orgmode.org/)로 작성한 3,000+ 노트를 멀티 데몬 병렬 처리로 마크다운 변환 후 정적 사이트로 배포.
+[Quartz 4](https://quartz.jzhao.xyz/) 기반 디지털가든. Emacs [Denote](https://protesilaos.com/emacs/denote) + [Org-mode](https://orgmode.org/)로 작성한 3,300+ 노트를 멀티 데몬 병렬 처리로 마크다운 변환 후 정적 사이트로 배포.
 
 - **Live**: https://notes.junghanacs.com
 - **Author**: Junghan Kim (junghanacs)
 - **Dotfiles**: https://github.com/junghan0611/doomemacs-config
+- **Agent Config**: https://github.com/junghan0611/agent-config
 
 ## Content Structure
 
 ```
 content/
-├── notes/   # 일반노트 (831 files) - 단어 묶음, 플리팅노트
-├── meta/    # 메타노트 (530 files) - 앎의 고리, 태그의 태그
-├── bib/     # 서지노트 (654 files) - 삶의 흔적 (Zotero 연동)
+├── notes/   # 일반노트 (~836 files) - 단어 묶음, 플리팅노트
+├── meta/    # 메타노트 (~534 files) - 앎의 고리, 태그의 태그
+├── bib/     # 서지노트 (~677 files) - 삶의 흔적 (Zotero 연동)
 ├── journal/ # 저널노트 - 데일리 라이프로그
 └── index.md # 홈페이지
 ```
@@ -31,11 +32,12 @@ content/
 
 | Layer | Tool |
 |-------|------|
-| Editor | Doom Emacs + Org-mode 9.7 |
-| Note System | Denote (파일명 기반 메타데이터) |
+| Editor | Doom Emacs + Org-mode 9.8 |
+| Note System | Denote (파일명 기반 메타데이터, sequence 지원) |
 | Export | denote-export.sh (멀티 데몬 병렬 처리) |
 | Generator | Quartz 4 (TypeScript) |
 | Hosting | Netlify + Hostingkr |
+| SEO | gogcli (Search Console 자동화) |
 
 ## Export Pipeline
 
@@ -50,6 +52,21 @@ Netlify (자동 배포)
 ```
 
 멀티 데몬 내보내기 도구는 [doomemacs-config/bin/](https://github.com/junghan0611/doomemacs-config/tree/main/bin) 참조.
+
+## SEO Pipeline
+
+배포 후 Google Search Console에 sitemap을 자동 제출하여 인덱싱을 촉진.
+
+```bash
+# sitemap 제출
+gog sc sitemap submit --site="https://notes.junghanacs.com" \
+  "https://notes.junghanacs.com/sitemap.xml" -a junghanacs@gmail.com
+
+# URL 인덱싱 상태 확인
+gog sc inspect --site="https://notes.junghanacs.com" <URL> -a junghanacs@gmail.com
+```
+
+[gogcli](https://github.com/junghan0611/gogcli) — Google Workspace + Search Console CLI. SC 기능은 `gogcli` 패치로 추가됨.
 
 ## Local Development
 
@@ -77,6 +94,9 @@ http://localhost:8080 에서 확인.
 - **Zotero Library**: https://www.zotero.org/groups/5570207/junghanacs/library
 - **GitHub (Brand)**: https://github.com/junghanacs
 - **GitHub (Personal)**: https://github.com/junghan0611
+- **Dotfiles**: https://github.com/junghan0611/doomemacs-config
+- **Agent Config**: https://github.com/junghan0611/agent-config
+- **gogcli**: https://github.com/junghan0611/gogcli
 - **Threads**: @junghanacs
 
 ## Acknowledgments
