@@ -2,6 +2,13 @@
 
 Project context for AI agents.
 
+## Agent workspace
+
+- **`AGENTS.md`** (this file) — durable, shared instructions for any agent (Claude, GPT, Gemini) working on this repo. Edit when a rule or convention stabilizes.
+- **`MEMORY.md`** — short scratchpad at the repo root. Treat it the way Claude's auto-memory system treats index entries: one line per fact, ~200 characters each, no long writeups. Read it at session start; update or remove stale lines as you go. When a fact grows past a line, promote it into `AGENTS.md` and leave a pointer.
+- **Do NOT create a `memory/` directory.** A single `MEMORY.md` keeps the surface area flat across Claude/GPT/Gemini.
+- **`README.md`** — human- and agent-facing entry point via GitHub. Keep the "How to read this repo" section current when the workspace layout changes.
+
 ## Project Overview
 
 | Field | Value |
@@ -144,3 +151,32 @@ git push → Netlify build → gog sc sitemap submit
 ```
 
 Note: Indexing takes time after build. Wait before testing with Gemini.
+
+## External Agent Environment (Network-Restricted LLMs)
+
+External agents (Claude.ai web, ChatGPT web, Gemini web, etc.) block arbitrary URL fetching by sandbox policy. When they say "file not found," it is usually an **environment constraint**, not actual absence. The garden is designed to work around this constraint.
+
+### Observed Constraints
+
+| Agent | Mechanism | Consequence |
+|---|---|---|
+| Claude.ai web (`web_fetch`) | **Provenance-based gating** — only URLs that appear in the user message or in prior fetch responses are approved. Derived URLs are rejected with `PERMISSIONS_ERROR` | Given only the homepage, it cannot read `/robots.txt`·`/sitemap.xml`·`/llms.txt`. But if the homepage HTML contains those links as `<a href>`, subsequent fetches are approved |
+| Claude.ai web (`bash_tool` curl) | **Host allowlist** — only pypi/npmjs/github/crates/Ubuntu mirrors allowed. Arbitrary domains return `HTTP/2 403 x-deny-reason: host_not_allowed` | Cannot directly verify any external site |
+| Gemini web / ChatGPT web | Similar fetch gating per platform (details not public) | Same design principle applies |
+
+### Response Policy
+
+**Core: expose machine entry points as plaintext body links.** Don't hide them in footer-only — surface them on the homepage and core landing notes too.
+
+1. **Footer exposes 4 machine entry points** (`quartz.layout.ts`)
+   — `robots.txt`, `sitemap.xml`, `llms.txt`, `index.xml` (RSS). Embedded in every page's DOM so the entry-point chain starts no matter which page an agent hits first.
+2. **`content/llms.txt` top block: self-reference + siblings**
+   — so that if `llms.txt` is fetched first, the agent can still reach sitemap/robots.
+3. **`content/robots.txt` comment referring to `llms.txt`**
+   — not a standard field, but LLMs do read comments.
+4. **Core landing notes (welcome pages, etc.) carry an entry-point block in body**
+   — handled on the org source side. Covers single-page entries that don't hit the footer.
+
+### Design Principle
+
+Do not branch by specific LLM (Claude/Gemini/GPT). Target "network-restricted LLMs in general" with a single response: **expose links in body**.

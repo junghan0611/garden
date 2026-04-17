@@ -11,13 +11,29 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
+      // Social / identity
       "@junghan0611": "https://github.com/junghan0611/",
       Threads: "https://www.threads.com/@junghanacs",
       Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
       Mastodon: "https://fosstodon.org/@junghanacs",
-      RSS: "https://notes.junghanacs.com/index.xml",
-      Source: "https://github.com/junghanacs/notes.junghanacs.com",
       Homepage: "https://www.junghanacs.com",
+      Source: "https://github.com/junghanacs/notes.junghanacs.com",
+      // Machine-readable entry points
+      // (네트워크 제약 LLM이 홈 fetch 한 번으로 전부 provenance 승인받도록
+      //  본문 링크로 노출. robots.txt 주석에도 llms.txt 경로 명시됨.)
+      RSS: "https://notes.junghanacs.com/index.xml",
+      "robots.txt": "https://notes.junghanacs.com/robots.txt",
+      "sitemap.xml": "https://notes.junghanacs.com/sitemap.xml",
+      "llms.txt": "https://notes.junghanacs.com/llms.txt",
+      // Bibliography raw data — zotero-config (파사드가 아닌 누적 기록)
+      "Book.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Book.bib",
+      "Article.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Article.bib",
+      "Online.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Online.bib",
+      "Video.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Video.bib",
+      "Misc.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Misc.bib",
+      "Reference.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Reference.bib",
+      "Software.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Software.bib",
+      "github-starred.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/github-starred.bib",
     },
   }),
 }

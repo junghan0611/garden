@@ -23,6 +23,13 @@ export default ((opts?: Options) => {
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""} footer`}>
+        <ul>
+          {Object.entries(links).map(([text, link]) => (
+            <li>
+              <a href={link}>{text}</a>
+            </li>
+          ))}
+        </ul>
         <p class="footer-toolchain">
           Built with{" "}
           {Object.entries(toolchain).map(([name, url], i, arr) => (
@@ -33,13 +40,6 @@ export default ((opts?: Options) => {
           ))}
           {" "}© {year}
         </p>
-        <ul>
-          {Object.entries(links).map(([text, link]) => (
-            <li>
-              <a href={link}>{text}</a>
-            </li>
-          ))}
-        </ul>
         <div class="h-card footer-hcard" style="display:none">
           <a class="p-name u-url" rel="me" href={`https://${cfg.baseUrl}`}>Junghan Kim</a>
           <span class="p-nickname">junghanacs</span>

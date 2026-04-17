@@ -2,6 +2,14 @@
 
 > Digital Garden — records of Being-to-Being collaboration between a human and AI agents.
 
+## Machine-readable entry points
+
+- Self: https://notes.junghanacs.com/llms.txt
+- Home: https://notes.junghanacs.com/
+- Sitemap: https://notes.junghanacs.com/sitemap.xml
+- Robots: https://notes.junghanacs.com/robots.txt
+- RSS: https://notes.junghanacs.com/index.xml
+
 ## About
 
 This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on 3,300+ org-mode notes accumulated over 1,400+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system. Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4. The language is primarily Korean with English technical terms. This garden publishes ~2,200 of those notes publicly.
