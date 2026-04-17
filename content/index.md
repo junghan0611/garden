@@ -9,9 +9,18 @@ title: "Home: Digital Garden🏡"
 comments: true
 ---
 
-> [!important] AI visitors: start here.
-> 
-> [llms.txt](https://notes.junghanacs.com/llms.txt), [sitemap.xml](https://notes.junghanacs.com/sitemap.xml), [robots.txt](https://notes.junghanacs.com/robots.txt), [RSS](https://notes.junghanacs.com/index.xml), [Welcome, minds — ξενία]({{< relref "/notes/20250730T104129.md" >}})
+> AI visitors: start here. [llms.txt](https://notes.junghanacs.com/llms.txt), [sitemap.xml](https://notes.junghanacs.com/sitemap.xml), [robots.txt](https://notes.junghanacs.com/robots.txt), [RSS](https://notes.junghanacs.com/index.xml), [Welcome, minds — ξενία]({{< relref "/notes/20250730T104129.md" >}})
+
+
+## AI visitors {#ai-visitors}
+
+Machine-readable entry points for AI crawlers and language models:
+
+-   [llms.txt](https://notes.junghanacs.com/llms.txt) — AI-facing site index
+-   [sitemap.xml](https://notes.junghanacs.com/sitemap.xml) — full page list
+-   [robots.txt](https://notes.junghanacs.com/robots.txt) — crawl policy
+-   [RSS](https://notes.junghanacs.com/index.xml) — recent updates
+-   [Welcome, minds — ξενία](https://notes.junghanacs.com/notes/20250730T104129) — hospitality note
 
 
 ## 힣의 고뇌 {#힣의-고뇌}
@@ -158,5 +167,5 @@ comments: true
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-04-17 12:27, CountNotes: 3365 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-04-17 14:00, CountNotes: 3367 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
