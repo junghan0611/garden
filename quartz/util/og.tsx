@@ -14,6 +14,34 @@ import { styleText } from "util"
 const defaultHeaderWeight = [700]
 const defaultBodyWeight = [400]
 
+/**
+ * OG-이미지 전용 폰트 로더.
+ *
+ * Theme 폰트(현재 "GLG Mono")는 Google Fonts에 없어 fetchTtf가 실패한다.
+ * 대신 Google Fonts에 있는 "42dot Sans"를 받아오되, satori에게는 theme
+ * 폰트 이름으로 라벨링해 `defaultImage`의 `fontFamily: bodyFont`와 매치되게 한다.
+ * (theme과 사이트 CSS는 GLG Mono 그대로 유지.)
+ */
+export async function getOgSocialFonts(cfg: GlobalConfiguration): Promise<SatoriOptions["fonts"]> {
+  const SOURCE = "42dot Sans"
+  const themeHeaderName = getFontSpecificationName(cfg.theme.typography.header)
+  const themeBodyName = getFontSpecificationName(cfg.theme.typography.body)
+
+  const [headerData, bodyData] = await Promise.all([
+    fetchTtf(SOURCE, 700),
+    fetchTtf(SOURCE, 400),
+  ])
+
+  const fonts: SatoriOptions["fonts"] = []
+  if (headerData) {
+    fonts.push({ name: themeHeaderName, data: headerData, weight: 700, style: "normal" })
+  }
+  if (bodyData) {
+    fonts.push({ name: themeBodyName, data: bodyData, weight: 400, style: "normal" })
+  }
+  return fonts
+}
+
 export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
   // Get all weights for header and body fonts
   const headerWeights: FontWeight[] = (

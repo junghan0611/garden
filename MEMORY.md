@@ -42,3 +42,58 @@ Rules:
 - Add "Welcome, AI agents" section with 4 entry-point links to homepage (`content/index.md` comes from org).
 - Add the same entry-point block to three core landing notes.
 - Remove `#+OPTIONS: toc:1` from long guide notes so Quartz-side TOC doesn't precede the `[!abstract]` block in DOM.
+
+## v4 audit (2026-04-17) — what's solid vs loose
+
+Verified against `public/notes/20250727T094722.html`. Web-based GPT/Claude reviewers called out several items; many were false negatives caused by their fetch sandbox. Listing both so we don't redo work.
+
+### Already solid (don't re-touch)
+
+- `<html lang="ko" dir="ltr">` — correct.
+- `<meta name="description">` — populated from frontmatter description (the 2,107-file bulk injection).
+- Full OG + Twitter Card meta set.
+- **JSON-LD `Article` schema** — present in `Head.tsx:108-134`. Includes author/datePublished/dateModified/description/image/url/isPartOf/isBasedOn. Restricted to Denote-ID pages only.
+- IndieWeb: webmention, pingback, `rel="me"` for Bluesky/Mastodon/GitHub, `h-card` in footer.
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `index.xml` (RSS) all live at 200.
+- URL case: all built files use uppercase `T` (`20250727T094722.html`); no `t` variants in `public/notes/`. The "case-mixing" concern from external reviewers was a misread.
+
+### Loose — prioritized
+
+| # | Pri | Item | Why | Where |
+|---|---|---|---|---|
+| 1 | ⚪️ parked | `<link rel="canonical">` per page | **Not a bug, design decision deferred.** Netlify already 301s uppercase→lowercase (and serves lowercase 200 via case-insensitive match), sitemap carries the canonical signal to Google. Adding canonical now = signal conflict (HTML says uppercase T, response URL says lowercase t, sitemap says lowercase t, remark42 keeps uppercase T). Quartz upstream (jackyzha0, PR #629 closed 2025-06-27) also refuses canonical with the same reasoning. Revisit only after a canary test confirms whether Netlify can be forced to preserve uppercase URLs. | `quartz/components/Head.tsx` |
+| 2 | 🟡 | No `BreadcrumbList` JSON-LD | Helps Google sitelinks and LLM navigation context. Slug is `section/YYYYMMDDTHHMMSS` so breadcrumb is trivially derivable. | `Head.tsx` same block |
+| 3 | 🟡 | `Person` JSON-LD only nested inside `Article.author` | Standalone `Person` on the homepage would let agents dereference "who is Junghan" directly. | `Head.tsx` homepage branch |
+| 4 | 🟡 | `Plugin.CustomOgImages()` disabled | Build-time cost, but default `static/og-image.png` is the same for every page — no per-page preview on social/LLM cards. | `quartz.config.ts:126` |
+
+### Case-sensitivity truth table (2026-04-17 audit)
+
+Verified against live site + `public/` build output.
+
+| Layer | Value | Source |
+|---|---|---|
+| Original Denote ID | uppercase T | `~/org/` |
+| `content/*.md` filename | uppercase T | denote-export.sh |
+| `public/*.html` filename | uppercase T (2,199 files) | Quartz build |
+| Internal `<a href>` links | uppercase T | Quartz CrawlLinks |
+| `og:url`, `twitter:url`, JSON-LD `url` | uppercase T | `Head.tsx` |
+| `sitemap.xml <loc>` | **lowercase t** (lone outlier) | `quartz/plugins/emitters/contentIndex.tsx:45` — explicit `.toLowerCase()` |
+| Netlify response to uppercase request | 301 → lowercase | Netlify auto URL canonicalization (no `netlify.toml` rule) |
+| Netlify response to lowercase request | 200 | Netlify case-insensitive matching |
+| remark42 script | runtime lowercase→uppercase restoration | `quartz/components/scripts/remark42.inline.ts:31-36` (pre-existing workaround) |
+
+**Read**: remark42 restoration is a *workaround for lowercase-leaking URLs*, not proof that "uppercase is the public-URL canonical." Junghan already treated identity (Denote ID) as uppercase, while accepting that public URLs leak to lowercase.
+
+### v4-side backports from v5 research (see llmlog 20260404T124956)
+
+Safe to cherry-pick without migrating to v5:
+- Parallel git handling in `quartz/plugins/transformers/lastmod.ts` — build speedup.
+- SVG rendered as `<object>` in OFM — better SVG compatibility.
+- Search scroll-to-highlight UX in `search.inline.ts`.
+
+### v5 migration (not now)
+
+Per 2026-04-04 llmlog: v5 is architectural rebuild, not upgrade. Strategy = **watch + prepare**, don't migrate yet.
+- Watch `quartz-community/ox-hugo` for our org-mode patches (TODO stripping, gptel wrap, csl-entry, custom anchor IDs).
+- Eventually package `Remark42Comments`, `Webmentions`, `CategoryContent` as standalone plugins that v5 can consume via `npx quartz plugin add`.
+- Trigger for serious v5 evaluation: (a) v5 merged to main, or (b) community ox-hugo reaches parity with our patches.

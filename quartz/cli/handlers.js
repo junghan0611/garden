@@ -251,17 +251,19 @@ export async function handleBuild(argv) {
     jsxImportSource: "preact",
     packages: "external",
     metafile: true,
-    sourcemap: true,
+    sourcemap: argv.serve || argv.watch,
     sourcesContent: false,
     plugins: [
       sassPlugin({
         type: "css-text",
         cssImports: true,
+        sourceMap: argv.serve || argv.watch,
       }),
       sassPlugin({
         filter: /\.inline\.scss$/,
         type: "css",
         cssImports: true,
+        sourceMap: argv.serve || argv.watch,
       }),
       {
         name: "inline-script-loader",

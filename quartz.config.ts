@@ -23,7 +23,7 @@ const config: QuartzConfig = {
     ignorePatterns: ["test", "private", "tmp", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
-      fontOrigin: "googleFonts",
+      fontOrigin: "local",
       cdnCaching: true,
       typography: {
         // header: { name: "IBM Plex Sans KR",
@@ -81,7 +81,7 @@ const config: QuartzConfig = {
         highlight: false,
         wikilinks: true,
         callouts: true,
-        mermaid: true,
+        mermaid: false,
         parseTags: false,
         parseArrows: false,
         parseBlockReferences: false,
@@ -122,7 +122,9 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
+      // CustomOgImages: 폰트 로더는 util/og.tsx의 getOgSocialFonts에
+      // 준비되어 있다(42dot Sans를 theme 이름으로 재라벨링). 디자인이 아직
+      // 매력적이지 않고 풀빌드 +3~5분이라 기본은 꺼둔다. 필요할 때 주석 해제.
       // Plugin.CustomOgImages(),
     ],
   },
