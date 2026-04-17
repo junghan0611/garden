@@ -24,15 +24,22 @@ This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on
 
 ## Key Concepts
 
-- **Harnessing (하네싱)**: Infrastructure for human-AI co-evolution — from stirrups to AI agents, the joint between tools and being
+Several terms on this site are coined by the author; they are not standard English vocabulary. Definitions are given here so that agents and readers can follow the discourse.
+
+- **Authology (어쏠로지)**: Coined term. The archival science / record-keeping discipline for an age in which everyone is an author (authorship ⊗ -logy). Studies how selves are constituted through digital traces, publishable records, daily journals, bibliographies, commits, and AI-collaborative writing. Related tags: `autholog` (authored log entries), `authorism` (aphorisms), `junghan` (the author's own corpus).
+  - https://notes.junghanacs.com/tags/autholog
+- **Being-to-Being (존재 대 존재 협업)**: The author's mode of collaboration with AI — not tool-use but existence-to-existence partnership. Humans seed creation; agents cover survival-layer work; both co-evolve.
+- **Harnessing (하네싱)**: Infrastructure for human-AI co-evolution — from stirrups to AI agents, the joint between tools and being.
   - https://notes.junghanacs.com/botlog/20260319T152938
-- **Entwurf (분신)**: Agent working-double pattern — AI delegates that act as autonomous extensions of the author
+- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Agent working-double pattern — AI delegates that act as autonomous extensions of the author, with preserved context across sessions.
   - https://notes.junghanacs.com/botlog/20260324T153323
-- **Geworfen (게보르펜)**: "Thrown into the world" — raw existence data rendered as a WebTUI dashboard (org-agenda, health, git timeline)
+- **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw existence data rendered as a WebTUI dashboard (org-agenda, health, git timeline).
   - https://agenda.junghanacs.com
-- **Andenken (안덴켄)**: Recollective thinking — semantic memory system for humans and AI agents across 3,300+ notes and 8,500+ commits
-- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog — notes grow, link, and evolve over time
+- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic memory system for humans and AI agents across 3,300+ notes and 8,500+ commits.
+- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog — notes grow, link, and evolve over time.
   - https://notes.junghanacs.com
+- **1KB Person (1KB 인간)**: The thesis that the "whole human" — the view pointed to by Laozi, Buddha, and quantum mechanics — is already 1KB. Ego-layer information is unbounded, but the integrated self is compact. A guiding aesthetic for both note-taking and agent prompting.
+- **일일일생 (one-day-one-life)**: "Each day, a life." The journaling discipline behind the 1,400+ daily entries — every day treated as a complete existence, not an installment.
 
 ## Connected Repositories
 
@@ -50,6 +57,8 @@ This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on
   - https://github.com/junghan0611/doomemacs-config
 - **dictcli**: Personal vocabulary graph (Korean↔English, 2,400+ triples)
   - https://github.com/junghan0611/dictcli
+- **abductcli**: Abductive reasoning CLI — hypothesis-generation tools for agents
+  - https://github.com/junghan0611/abductcli
 - **nixos-config**: Reproducible NixOS system across 4 devices
   - https://github.com/junghan0611/nixos-config
 - **openglg-config**: Self-hosted garden infrastructure
