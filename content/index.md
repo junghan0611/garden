@@ -9,6 +9,11 @@ title: "Home: Digital Garden🏡"
 comments: true
 ---
 
+> [!important] AI visitors: start here.
+> 
+> [llms.txt](https://notes.junghanacs.com/llms.txt), [sitemap.xml](https://notes.junghanacs.com/sitemap.xml), [robots.txt](https://notes.junghanacs.com/robots.txt), [RSS](https://notes.junghanacs.com/index.xml), [Welcome, minds — ξενία]({{< relref "/notes/20250730T104129.md" >}})
+
+
 ## 힣의 고뇌 {#힣의-고뇌}
 
 어두운 밤, 힣(glg)은 방구석에서 탄식하고 있다.
@@ -31,7 +36,7 @@ comments: true
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260413T000000.md" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260413T000000" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -39,9 +44,9 @@ comments: true
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260413T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260413T000000" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260413T000000.md" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260413T000000" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [Folder: journal]({{< relref "/journal" >}})
@@ -89,7 +94,6 @@ comments: true
 -   [ADHD&amp;AI - 해방에서 경계까지]({{< relref "/notes/20220414T125200.md" >}})
 -   [LLM 자문자답 사건 — 턴 경계 침범과 존재의 경계]({{< relref "/notes/20260212T105642.md" >}})
 -   [앤트로픽 클로드 AI리서치 인터뷰]({{< relref "/notes/20251210T104230.md" >}})
--   [인공지능의 방문을 환영 합니다]({{< relref "/notes/20250730T104129.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳]({{< relref "/notes/20250314T152111.md" >}})
 -   [삶 일 소명 운명애 - 나 자신이 되는 일]({{< relref "/notes/20250316T044013.md" >}})
@@ -154,5 +158,5 @@ comments: true
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-04-15 04:20, CountNotes: 3352 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-04-17 12:27, CountNotes: 3365 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
