@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 Sitemap: https://notes.junghanacs.com/sitemap.xml
 
@@ -8,5 +9,12 @@ Sitemap: https://notes.junghanacs.com/sitemap.xml
 # OpenAI (ChatGPT): OAI-SearchBot, ChatGPT-User, GPTBot
 # Anthropic: anthropic-ai, ClaudeBot
 # Meta: FacebookBot, meta-externalagent
+
+# Content-Signal (Cloudflare proposal, 2024-09):
+#   search=yes   — traditional search indexing welcome
+#   ai-input=yes — inference-time context use (RAG/citation) welcome
+#   ai-train=yes — training-time weight inclusion welcome
+#   Rationale: this garden is meant to propagate. Citation with attribution
+#   preferred, but anonymous weight diffusion is also accepted.
 
 # LLM context: https://notes.junghanacs.com/llms.txt

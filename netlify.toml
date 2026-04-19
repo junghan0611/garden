@@ -47,6 +47,9 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     # AI 크롤러 허용 (X-Robots-Tag 차단 없음 = Allow 정책 유지)
     # X-Robots-Tag를 설정하지 않음으로써 robots.txt의 Allow: / 정책과 일치
+    # RFC 8288 Link headers — HEAD-only 에이전트가 HTML 파싱 없이
+    # 핵심 리소스(llms.txt, sitemap)를 발견할 수 있게 한다.
+    Link = '</llms.txt>; rel="service-doc"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml"'
 
 # llms.txt — AI 크롤러용 사이트 컨텍스트 파일
 [[headers]]

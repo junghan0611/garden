@@ -27,12 +27,6 @@ export const sharedPageComponents: SharedLayout = {
       "llms.txt": "https://notes.junghanacs.com/llms.txt",
       // Bibliography raw data — zotero-config (파사드가 아닌 누적 기록)
       "Book.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Book.bib",
-      "Article.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Article.bib",
-      "Online.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Online.bib",
-      "Video.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Video.bib",
-      "Misc.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Misc.bib",
-      "Reference.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Reference.bib",
-      "Software.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Software.bib",
       "github-starred.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/github-starred.bib",
     },
   }),
