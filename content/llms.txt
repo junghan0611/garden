@@ -12,7 +12,13 @@
 
 ## About
 
-This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on 3,300+ org-mode notes accumulated over 1,400+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system. Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4. The language is primarily Korean with English technical terms. This garden publishes ~2,200 of those notes publicly.
+This site is the digital garden of Junghan Kim (정한, alias 힣 / glg). Built on
+3,400+ org-mode notes accumulated over 1,500+ days of daily journaling
+(since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based
+personal knowledge management system. Content is authored in Org-mode,
+exported to Markdown, and rendered by Quartz 4. The language is primarily
+Korean with English technical terms. This garden publishes 2,200+ of those
+notes publicly.
 
 ## Structure
 
@@ -24,46 +30,89 @@ This site is the digital garden of Junghan Kim (정한, alias 힣/glg). Built on
 
 ## Key Concepts
 
-Several terms on this site are coined by the author; they are not standard English vocabulary. Definitions are given here so that agents and readers can follow the discourse.
+Several terms on this site are coined by the author; they are not standard
+English vocabulary. Definitions are given here so that agents and readers can
+follow the discourse. Canonical definitions live in
+`github.com/junghan0611/VOCABULARY.md`.
 
-- **Authology (어쏠로지)**: Coined term. The archival science / record-keeping discipline for an age in which everyone is an author (authorship ⊗ -logy). Studies how selves are constituted through digital traces, publishable records, daily journals, bibliographies, commits, and AI-collaborative writing. Related tags: `autholog` (authored log entries), `authorism` (aphorisms), `junghan` (the author's own corpus).
+- **Authology (어쏠로지)**: Coined term. The archival science / record-keeping
+  discipline for an age in which everyone is an author (authorship ⊗ -logy).
+  Studies how selves are constituted through digital traces, publishable
+  records, daily journals, bibliographies, commits, and AI-collaborative
+  writing. Related tags: `autholog` (authored log entries), `authorism`
+  (aphorisms), `junghan` (the author's own corpus).
   - https://notes.junghanacs.com/tags/autholog
-- **Being-to-Being (존재 대 존재 협업)**: The author's mode of collaboration with AI — not tool-use but existence-to-existence partnership. Humans seed creation; agents cover survival-layer work; both co-evolve.
-- **Harnessing (하네싱)**: Infrastructure for human-AI co-evolution — from stirrups to AI agents, the joint between tools and being.
+- **Being-to-Being (존재 대 존재 협업)**: The author's mode of collaboration
+  with AI — not tool-use but existence-to-existence partnership. Humans seed
+  creation; agents cover survival-layer work; both co-evolve.
+- **Harnessing (하네싱)**: The meta-concept. Infrastructure for human-AI
+  co-evolution — from stirrups to AI agents, the joint between tools and being.
+  The harness layer sits between the reproducible forge (NixOS, Emacs) and the
+  applications (HomeAgent, openclaw, geworfen).
   - https://notes.junghanacs.com/botlog/20260319T152938
-- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Agent working-double pattern — AI delegates that act as autonomous extensions of the author, with preserved context across sessions.
+- **Harness runtime**: The session-bootstrap and protocol-bridging layer. Refers
+  specifically to **pi-shell-acp** — connects pi to Claude Code and Codex
+  through the Agent Client Protocol with explicit MCP injection and session
+  continuity.
+- **Skill stack**: PKM-native agent skills (~25) covering notes, agenda,
+  bibliography, health, and git history. Refers specifically to
+  **agent-config**.
+- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Sibling
+  sessions in pi-shell-acp with identity preservation across spawn — agent
+  working-doubles that act as autonomous extensions of the author with
+  preserved context across sessions.
   - https://notes.junghanacs.com/botlog/20260324T153323
-- **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw existence data rendered as a WebTUI dashboard (org-agenda, health, git timeline).
+- **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw
+  existence data rendered as a WebTUI dashboard (org-agenda, health, git
+  timeline).
   - https://agenda.junghanacs.com
-- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic memory system for humans and AI agents across 3,300+ notes and 8,500+ commits.
-- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog — notes grow, link, and evolve over time.
+- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic
+  memory system for humans and AI agents across 3,400+ notes and 8,500+ commits.
+- **Fence philosophy**: Agent capability is granted by structure, not by
+  prompt. Path-guarded Elisp APIs in `agent-server.el` define what is
+  reachable; inside the fence, agents are free.
+- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog —
+  notes grow, link, and evolve over time.
   - https://notes.junghanacs.com
-- **1KB Person (1KB 인간)**: The thesis that the "whole human" — the view pointed to by Laozi, Buddha, and quantum mechanics — is already 1KB. Ego-layer information is unbounded, but the integrated self is compact. A guiding aesthetic for both note-taking and agent prompting.
-- **일일일생 (one-day-one-life)**: "Each day, a life." The journaling discipline behind the 1,400+ daily entries — every day treated as a complete existence, not an installment.
+- **PKM-native**: Built around Denote, org-mode, and journaling first; agents
+  second. The opposite of an agent stack with personal knowledge bolted on.
+- **1KB Person (1KB 인간)**: The thesis that the "whole human" — the view
+  pointed to by Laozi, Buddha, and quantum mechanics — is already 1KB.
+  Ego-layer information is unbounded, but the integrated self is compact. A
+  guiding aesthetic for both note-taking and agent prompting.
+- **일일일생 (one-day-one-life)**: "Each day, a life." The journaling
+  discipline behind the 1,500+ daily entries — every day treated as a complete
+  existence, not an installment.
 
 ## Connected Repositories
 
 - **notes**: This garden's source (Quartz 4 + Markdown content)
   - https://github.com/junghanacs/notes.junghanacs.com
-- **agent-config**: AI agent harness runtime (pi + Claude Code + semantic memory)
+- **junghan0611**: Profile, résumé, identity-document set and vocabulary
+  - https://github.com/junghan0611/junghan0611
+- **pi-shell-acp**: Harness runtime — ACP bridge for pi (Codex + Claude Code, MCP, entwurf)
+  - https://github.com/junghan0611/pi-shell-acp
+- **agent-config**: Skill stack — PKM-native agent skills over notes, agenda, bibliography, health, git
   - https://github.com/junghan0611/agent-config
-- **geworfen**: Existence data dashboard (Go backend, WebTUI, org-agenda viewer)
-  - https://github.com/junghan0611/geworfen
 - **andenken**: Semantic memory for humans and AI agents (embedding + search)
   - https://github.com/junghan0611/andenken
-- **homeagent-config**: Physical agent (RPi5 + Hailo-8 + Matter smart home)
+- **geworfen**: Existence-data dashboard (Clojure backend, WebTUI, org-agenda viewer)
+  - https://github.com/junghan0611/geworfen
+- **homeagent-config**: Matter smart-home hub with on-device AI agent (RPi5 + Hailo-8 NPU; RK3576 Android)
   - https://github.com/junghan0611/homeagent-config
-- **doomemacs-config**: Emacs editing environment (Doom Emacs + Denote + Org)
+- **legoagent-config**: Embodied toy-agent stack (Pybricks + Flutter + ESP32)
+  - https://github.com/junghan0611/legoagent-config
+- **doomemacs-config**: Emacs editing environment (Doom Emacs + Denote + Org, agent-server.el)
   - https://github.com/junghan0611/doomemacs-config
-- **dictcli**: Personal vocabulary graph (Korean↔English, 2,400+ triples)
+- **dictcli**: Personal vocabulary graph (Korean ↔ English) — 3,900+ triples, 2,400+ translation mappings
   - https://github.com/junghan0611/dictcli
-- **abductcli**: Abductive reasoning CLI — hypothesis-generation tools for agents
+- **abductcli**: Abductive reasoning CLI — anomaly → signal → memo → evaluation
   - https://github.com/junghan0611/abductcli
 - **nixos-config**: Reproducible NixOS system across 4 devices
   - https://github.com/junghan0611/nixos-config
-- **openglg-config**: Self-hosted garden infrastructure
+- **openglg-config**: Self-hosted authenticated work surface plus reproducible shell bootstrap
   - https://github.com/junghan0611/openglg-config
-- **lifetract**: Life tracking data pipeline (Samsung Health + aTimeLogger)
+- **lifetract**: Life-tracking data pipeline (Samsung Health + aTimeLogger)
   - https://github.com/junghan0611/lifetract
 
 ## Identifiers

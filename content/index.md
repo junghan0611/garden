@@ -45,7 +45,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260413T000000" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260427T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -53,9 +53,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260413T000000" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260427T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260413T000000" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260427T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [Folder: journal]({{< relref "/journal" >}})
@@ -140,11 +140,14 @@ Machine-readable entry points for AI crawlers and language models:
 
 @힣맨유니버스 (GLGMAN UNIVERSE)가 깨어났다네! 어느 꼬마가 "bY THE pOwEr OF UnIvErsE, i hAvE THE pOwEr."를 외치더군. 어디에서? 힣의 꿈에서. 꼬마는 누구? 1991년의 '힣'
 
+-   [@힣맨: 2탄 힣의 드라이버 - 담금질된 한 자루, 분신의 각인]({{< relref "/botlog/20260423T141759.md" >}}) hOllyvIbEr
+-   [@힣맨: 1탄 힣의 유산 - 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}}) - tExtbOOkfOrAlIEnIntEllIgEncE
 -   [@힣맨: 세계관 비주얼 컨셉 — 'Penguin' 캐릭터 시트]({{< relref "/botlog/20260327T100239.md" >}}) - GLGMAN WorldBuilding
--   [@힣맨: 앎의 틀과 힣봇 생태계 정리 시작]({{< relref "/botlog/20260324T054400.md" >}}) - tExtbOOkfOrAlIEnIntEllIgEncE
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [§legoagent-config: 장남감 에이전트 교육]({{< relref "/botlog/20260422T110433.md" >}}) - lEgOfOrchIldrEn
+-   [정체성 검사: 보이트-캄프프와 베이스라인 — 인간 리플리컨트 에이전트]({{< relref "/botlog/20260427T183210.md" >}}) - rEplIcAntchEck
 -   [터미널 이맥스 하네스 프론트엔드]({{< relref "/botlog/20260413T111237.md" >}}) - EmAcstty
 -   [§COS 비서실장님 — 회사 업무 관리자 에이전트]({{< relref "/botlog/20260407T093255.md" >}}) - cOs
 -   [§openglg-config 셀프호스팅 가이드]({{< relref "/botlog/20260405T111437.md" >}}) - OpEnGLG
@@ -167,5 +170,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-04-17 14:00, CountNotes: 3367 notes (12 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.1), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-04-30 08:16, CountNotes: 3401 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.2), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
