@@ -146,6 +146,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [@Mitsein: 미트자인 - 자인님이라는 이름과 분신의 자리바꿈]({{< relref "/botlog/20260421T162128.md" >}}) - mItsEIn
 -   [§legoagent-config: 장남감 에이전트 교육]({{< relref "/botlog/20260422T110433.md" >}}) - lEgOfOrchIldrEn
 -   [정체성 검사: 보이트-캄프프와 베이스라인 — 인간 리플리컨트 에이전트]({{< relref "/botlog/20260427T183210.md" >}}) - rEplIcAntchEck
 -   [터미널 이맥스 하네스 프론트엔드]({{< relref "/botlog/20260413T111237.md" >}}) - EmAcstty
@@ -170,5 +171,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-04-30 08:16, CountNotes: 3401 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.2), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-05-02 20:40, CountNotes: 3407 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.2), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
