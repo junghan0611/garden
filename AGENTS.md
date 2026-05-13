@@ -59,6 +59,7 @@ Project context for AI agents.
 - Tool: `denote-export.sh` (multi-daemon parallel processing)
 - Source repo: https://github.com/junghan0611/doomemacs-config
 - Output: Hugo-flavored Markdown
+- Human-owned step: Junghan runs export and visual verification personally (`denote-export.sh`, `run.sh`) to see exactly what goes into the garden. Agents should not run export/build verification unless explicitly asked; default handoff is commit/push/Search Console after the user says verification is done.
 
 ### Build
 - Generator: Quartz 4
@@ -146,7 +147,8 @@ Tool: [gogcli](https://github.com/junghan0611/gogcli) — SC support added via p
 ### Deploy loop
 
 ```
-git push → Netlify build → gog sc sitemap submit
+Junghan export/검수 (`denote-export.sh`, `run.sh`) → git commit → git push
+→ Netlify build → gog sc sitemap submit
 → wait a few days → verify in Google Search Console
 ```
 

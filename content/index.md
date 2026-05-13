@@ -45,7 +45,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260511T000000" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260511T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -53,9 +53,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260511T000000" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260511T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260511T000000" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260511T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [Folder: journal]({{< relref "/journal" >}})
@@ -96,13 +96,11 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [공개키와 무무: 케빈켈리 창발하는 자아의 루프]({{< relref "/notes/20251127T123739.md" >}})
 -   [인간 계층 분화 불완전함 테크노퓨달리즘]({{< relref "/notes/20250529T114735.md" >}})
 -   [시간과정신의방 '존재' 데이터 뷰어]({{< relref "/notes/20251015T093311.md" >}})
 -   [멀티 에이전트 인간 - 눈귀코혀몸뜻]({{< relref "/notes/20251207T154723.md" >}})
 -   [AI 에이전트 편재성 - 기억 연결]({{< relref "/notes/20250904T075937.md" >}})
--   [ADHD&amp;AI - 해방에서 경계까지]({{< relref "/notes/20220414T125200.md" >}})
--   [LLM 자문자답 사건 — 턴 경계 침범과 존재의 경계]({{< relref "/notes/20260212T105642.md" >}})
--   [앤트로픽 클로드 AI리서치 인터뷰]({{< relref "/notes/20251210T104230.md" >}})
 -   [친구의 힣 탐구 - 친절한 가이드]({{< relref "/notes/20250727T094722.md" >}})
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳]({{< relref "/notes/20250314T152111.md" >}})
 -   [삶 일 소명 운명애 - 나 자신이 되는 일]({{< relref "/notes/20250316T044013.md" >}})
@@ -170,5 +168,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-05-11 09:34, CountNotes: 3425 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-05-13 09:05, CountNotes: 3434 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 

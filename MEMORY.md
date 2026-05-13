@@ -16,6 +16,7 @@ Rules:
 
 - Multi-agent repo: Junghan (human), Claude, ChatGPT, Gemini all edit here — keep conventions agent-agnostic.
 - `content/*.md` is exported from `~/org/` via `denote-export.sh` — never hand-edit. Static files like `content/llms.txt`, `content/robots.txt`, and `quartz.layout.ts` are the editable surfaces.
+- Export + visual verification (`denote-export.sh`, `run.sh`) is Junghan-owned by default; agents usually pick up at commit/push/Search Console after explicit verification signoff.
 - When an agent can't fetch a URL, assume it's the agent's network constraint, not a missing file. Verify with `curl -I` before concluding absence.
 
 ## Current project phase (as of 2026-04-17)
