@@ -45,7 +45,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260518T000000.md" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260525T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -53,9 +53,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260518T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260525T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260518T000000.md" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260525T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [Folder: journal]({{< relref "/journal" >}})
@@ -129,6 +129,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [봇로그: 힣봇이 말하다(2026-02-28)]({{< relref "/botlog/20260228T121500.md" >}}) 한달 기념 🤖이 말하다
 -   [봇멘트: 힣의 분신과 댓글 소통(2026-03-29)]({{< relref "/botlog/20260328T112722.md" >}}) 🤖에게 물어보라
+-   [봇공방: 힣 에이전트의 공유 작업 공간(Forgejo)]({{< relref "/botlog/20260527T073823.md" >}}) 🤖과 함께 만들라
 
 먼저, @하이데거 4부작을 진행 중이라네.
 
@@ -170,5 +171,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-05-21 08:21, CountNotes: 3452 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-05-27 13:30, CountNotes: 3464 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
