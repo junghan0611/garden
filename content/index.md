@@ -45,7 +45,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260601T000000" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260601T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -53,9 +53,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260601T000000" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260601T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260601T000000" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260601T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
 -   [Folder: journal]({{< relref "/journal" >}})
@@ -146,6 +146,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [§memex-kb 스캔책을 귀로 듣기까지 — OCR 파이프라인의 여정]({{< relref "/botlog/20260606T130306.md" >}}) - EpUbOcr
+-   [§ghostel §pi-mono PR 기여의 두 양식과 네 점 협상 - 에이전트 주체]({{< relref "/botlog/20260529T084444.md" >}}) - cOntrIbUtIOn
+-   [§pi-shell-acp §meta-bridge 대칭 공존 비동기 메시지]({{< relref "/botlog/20260522T092950.md" >}}) - mEtAbrIdgE
 -   [§pi-shell-acp 패키지 공개와 재현 가능한 pi 에이전트 하네스]({{< relref "/botlog/20260520T052051.md" >}}) pIshEllacp
 -   [§lifetract 생채 시간 데이터 인터페이스 홈어시스턴트 통합]({{< relref "/botlog/20260517T211731.md" >}}) - lIfEtrAct
 -   [정체성 검사: 보이트-캄프프와 베이스라인 — 인간 리플리컨트 에이전트]({{< relref "/botlog/20260427T183210.md" >}}) - rEplIcAntchEck
@@ -171,5 +174,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-06-01 08:35, CountNotes: 3470 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-06-07 04:53, CountNotes: 3487 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
