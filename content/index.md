@@ -96,9 +96,12 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
--   [NEXT.md 핸드오프 패턴 #책갈피]({{< relref "/botlog/20260518T181305.md" >}})
+-   [앎의 틀 — 헤게모니 전환 앞에서 인간이 넘어야 할 벽]({{< relref "/notes/20241126T061338.md" >}})
 -   [개발자는 갷발자로 — 발자와 취향의 자기표현]({{< relref "/notes/20251121T132839.md" >}})
 -   [젛문가의 시대 — 전문을 연결하는 빈그릇]({{< relref "/notes/20251107T082600.md" >}})
+-   [모국어 - 로꾸꺼 - 언어 거북이 지식도구]({{< relref "/notes/20241216T134714.md" >}})
+-   [링크드인 날것 공개면 — AI 크롤러 시대의 손가락]({{< relref "/notes/20250328T090326.md" >}})
+-   [애니악 시동과 영감채널 — 에이전트 시간여행]({{< relref "/notes/20240131T151732.md" >}})
 -   [공개키와 무무: 케빈켈리 창발하는 자아의 루프]({{< relref "/notes/20251127T123739.md" >}})
 -   [인간 계층 분화 불완전함 테크노퓨달리즘]({{< relref "/notes/20250529T114735.md" >}})
 -   [시간과정신의방 '존재' 데이터 뷰어]({{< relref "/notes/20251015T093311.md" >}})
@@ -149,6 +152,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [NEXT.md 핸드오프 패턴 #책갈피]({{< relref "/botlog/20260518T181305.md" >}}) - nExthAndOff
 -   [§memex-kb 스캔책을 귀로 듣기까지 — OCR 파이프라인의 여정]({{< relref "/botlog/20260606T130306.md" >}}) - EpUbOcr
 -   [§ghostel §pi-mono PR 기여의 두 양식과 네 점 협상 - 에이전트 주체]({{< relref "/botlog/20260529T084444.md" >}}) - cOntrIbUtIOn
 -   [§pi-shell-acp §meta-bridge 대칭 공존 비동기 메시지]({{< relref "/botlog/20260522T092950.md" >}}) - mEtAbrIdgE
@@ -177,5 +181,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [Folder: botlog]({{< relref "/botlog" >}})
 
-ExportDate: 2026-06-12 10:23, CountNotes: 3489 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-06-14 05:28, CountNotes: 3489 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
