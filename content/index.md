@@ -58,21 +58,21 @@ Machine-readable entry points for AI crawlers and language models:
 -   [#데일리 #저널]({{< relref "/journal/20260608T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [#POSSE #소유 #공유]({{< relref "/notes/20250324T110312.md" >}}) - Posting Policy
--   [Folder: journal]({{< relref "/journal" >}})
+-   [folder: journal]({{< relref "/journal" >}})
 
 
 ## 메타노트: 앎의 고리 {#메타노트-앎의-고리}
 
 [@호프스태터 #GEB #유추]({{< relref "/bib/20240518T051525.md" >}})의 이상한 고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들.
 
--   [Folder: meta]({{< relref "/meta" >}})
+-   [folder: meta (538)]({{< relref "/meta" >}})
 
 
 ## 서지노트: 삶의 흔적 {#서지노트-삶의-흔적}
 
 지나치는 삶의 흔적들을 한 곳에 담는다. [#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 [#까페]({{< relref "/meta/20241207T071235.md" >}})도 포함 된다. 모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 어쩌다보니 도서는 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})로 정리한다. 인생은 한 권의 책. 하나의 서지노트에 한 사람의 인생이 담기곤 한다. [#모두가저자다 #인생은한권의책]({{< relref "/notes/20240925T200824.md" >}}) 한 마디로 [#어쏠로지]({{< relref "/meta/20240508T103852.md" >}})로 요약할 수 있으리라.
 
--   [Folder: bib]({{< relref "/bib" >}})
+-   [folder: bib (679)]({{< relref "/bib" >}})
 -   [@junghan0611/zotero-config/output GitHub](https://github.com/junghan0611/zotero-config/tree/main/output) : 8000여개 서지 BIB 엔트리
 -   [@junghanacs - zotero](https://www.zotero.org/groups/5570207/junghanacs/library) : 도서 목록 Zotero 온라인
 
@@ -81,14 +81,14 @@ Machine-readable entry points for AI crawlers and language models:
 
 노트 제목은 몇 개의 메타언어, 전문용어의 묶음이다. 제목은 문장이 아니다. 흔적 또는 단서와도 같다. 제목에는 동사 부사 등은 없어도 된다. 본인은 알아 볼 수 있다. 조사 연결어는 검색을 어렵게 만든다. 영어를 섞어 쓰면 복잡해진다. 스펠링 틀리면 찾기도 힘들다. 모든 기록은 왔다가 가는 것. 그리고 [AI 활용은 집중력 유지 그 이상이다]({{< relref "/notes/20241203T114414.md" >}}). 라고 했는데 이제는 [그 이상이다(봇로그 선생)]({{< relref "/botlog/20260228T121500.md" >}}).
 
--   [Folder: notes]({{< relref "/notes" >}})
+-   [folder: notes (837)]({{< relref "/notes" >}})
 
 
 ## 택소노미: 분류 체계 {#택소노미-분류-체계}
 
 디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [Tags Index]({{< relref "/tags" >}}) english keywords
+-   [tags index (2727)]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -96,6 +96,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [에이전트 시대 투두 할일 관리: NEXT.md]({{< relref "/notes/20241219T150824.md" >}})
 -   [앎의 틀 — 헤게모니 전환 앞에서 인간이 넘어야 할 벽]({{< relref "/notes/20241126T061338.md" >}})
 -   [개발자는 갷발자로 — 발자와 취향의 자기표현]({{< relref "/notes/20251121T132839.md" >}})
 -   [젛문가의 시대 — 전문을 연결하는 빈그릇]({{< relref "/notes/20251107T082600.md" >}})
@@ -111,7 +112,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [디지털가든 - 불완전함에서 창조가 나오는 곳]({{< relref "/notes/20250314T152111.md" >}})
 -   [삶 일 소명 운명애 - 나 자신이 되는 일]({{< relref "/notes/20250316T044013.md" >}})
 -   [아무도 읽지 않는 디지털가든 왜 하는가]({{< relref "/notes/20250213T105806.md" >}})
--   [More ... ]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (143)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -179,7 +180,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 봇로그 폴더에는 더 많이 있네. 근데 보지 마시게! 이미 레거시라네!
 
--   [Folder: botlog]({{< relref "/botlog" >}})
+-   [folder: botlog (77)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-06-14 05:28, CountNotes: 3489 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-06-14 12:17, CountNotes: 3489 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
