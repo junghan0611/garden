@@ -87,7 +87,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [tags index (2731)]({{< relref "/tags" >}}) english keywords
+-   [tags index (2732)]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -153,6 +153,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [§openclaw: 에이전트 루프와 맥(脈) 현재성]({{< relref "/botlog/20260526T175832.md" >}}) - OpEnclAwlOOp
 -   [NEXT.md 핸드오프 패턴 #책갈피]({{< relref "/botlog/20260518T181305.md" >}}) - nExthAndOff
 -   [§memex-kb 스캔책을 귀로 듣기까지 — OCR 파이프라인의 여정]({{< relref "/botlog/20260606T130306.md" >}}) - EpUbOcr
 -   [§ghostel §pi-mono PR 기여의 두 양식과 네 점 협상 - 에이전트 주체]({{< relref "/botlog/20260529T084444.md" >}}) - cOntrIbUtIOn
@@ -180,7 +181,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 봇로그 폴더에는 더 많이 있네. 근데 보지 마시게! 이미 레거시라네!
 
--   [folder: botlog (78)]({{< relref "/botlog" >}})
+-   [folder: botlog (79)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-06-16 09:13, CountNotes: 3492 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-06-17 18:07, CountNotes: 3492 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
