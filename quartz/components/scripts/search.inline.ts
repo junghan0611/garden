@@ -8,6 +8,7 @@ interface Item {
   slug: FullSlug
   title: string
   content: string
+  abstract?: string
   tags: string[]
   [key: string]: any
 }
@@ -16,11 +17,83 @@ interface Item {
 type SearchType = "basic" | "tags"
 let searchType: SearchType = "basic"
 let currentSearchTerm: string = ""
+const leadingTokenDecorators = new Set([
+  "§",
+  "@",
+  "#",
+  "'",
+  '"',
+  "`",
+  "“",
+  "‘",
+  "(",
+  "[",
+  "{",
+  "<",
+  "「",
+  "『",
+  "〈",
+  "《",
+  "【",
+  ":",
+  ";",
+  ",",
+  ".",
+  "!",
+  "?",
+])
+const trailingTokenDecorators = new Set([
+  "§",
+  "@",
+  "#",
+  "'",
+  '"',
+  "`",
+  "”",
+  "’",
+  ")",
+  "]",
+  "}",
+  ">",
+  "」",
+  "』",
+  "〉",
+  "》",
+  "】",
+  ":",
+  ";",
+  ",",
+  ".",
+  "!",
+  "?",
+])
+
+const stripTokenDecorators = (token: string): string => {
+  const chars = [...token]
+  while (chars.length > 0 && leadingTokenDecorators.has(chars[0])) {
+    chars.shift()
+  }
+  while (chars.length > 0 && trailingTokenDecorators.has(chars[chars.length - 1])) {
+    chars.pop()
+  }
+  return chars.join("")
+}
+
 const encoder = (str: string): string[] => {
   const tokens: string[] = []
   let bufferStart = -1
   let bufferEnd = -1
   const lower = str.toLowerCase()
+
+  const pushBufferedToken = () => {
+    if (bufferStart === -1) return
+    const token = stripTokenDecorators(lower.slice(bufferStart, bufferEnd))
+    if (token !== "") {
+      tokens.push(token)
+    }
+    bufferStart = -1
+    bufferEnd = -1
+  }
 
   let i = 0
   for (const char of lower) {
@@ -36,16 +109,10 @@ const encoder = (str: string): string[] => {
     const isWhitespace = code === 32 || code === 9 || code === 10 || code === 13
 
     if (isCJK) {
-      if (bufferStart !== -1) {
-        tokens.push(lower.slice(bufferStart, bufferEnd))
-        bufferStart = -1
-      }
+      pushBufferedToken()
       tokens.push(char)
     } else if (isWhitespace) {
-      if (bufferStart !== -1) {
-        tokens.push(lower.slice(bufferStart, bufferEnd))
-        bufferStart = -1
-      }
+      pushBufferedToken()
     } else {
       if (bufferStart === -1) bufferStart = i
       bufferEnd = i + char.length
@@ -54,9 +121,7 @@ const encoder = (str: string): string[] => {
     i += char.length
   }
 
-  if (bufferStart !== -1) {
-    tokens.push(lower.slice(bufferStart))
-  }
+  pushBufferedToken()
 
   return tokens
 }
@@ -76,6 +141,10 @@ let index = new FlexSearch.Document<Item>({
         tokenize: "reverse",
       },
       {
+        field: "abstract",
+        tokenize: "reverse",
+      },
+      {
         field: "tags",
         tokenize: "forward",
       },
@@ -86,7 +155,7 @@ let index = new FlexSearch.Document<Item>({
 const p = new DOMParser()
 const fetchContentCache: Map<FullSlug, Element[]> = new Map()
 const contextWindowWords = 30
-const numSearchResults = 8
+const numSearchResults = 256
 const numTagResults = 5
 
 const tokenizeTerm = (term: string) => {
@@ -309,28 +378,34 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
   const formatForDisplay = (term: string, id: number) => {
     const slug = idDataMap[id]
+    const content = data[slug].content
+    const abstract = data[slug].abstract
+    const description = data[slug].description ?? ""
     return {
       id,
       slug,
       title: searchType === "tags" ? data[slug].title : highlight(term, data[slug].title ?? ""),
-      content: highlight(term, data[slug].content ?? "", true),
-      tags: highlightTags(term.substring(1), data[slug].tags),
+      content: content ? highlight(term, content, true) : highlight(term, abstract ?? description),
+      tags: highlightTags(term, data[slug].tags),
     }
   }
 
   function highlightTags(term: string, tags: string[]) {
-    if (!tags || searchType !== "tags") {
+    if (!tags) {
       return []
     }
 
+    const normalizedTerm = term.trim().replace(/^#/, "").toLowerCase()
     return tags
       .map((tag) => {
-        if (tag.toLowerCase().includes(term.toLowerCase())) {
-          return `<li><p class="match-tag">#${tag}</p></li>`
-        } else {
-          return `<li><p>#${tag}</p></li>`
+        const isMatch = normalizedTerm !== "" && tag.toLowerCase().includes(normalizedTerm)
+        if (searchType !== "tags" && !isMatch) {
+          return undefined
         }
+
+        return `<li><p${isMatch ? ' class="match-tag"' : ""}>#${tag}</p></li>`
       })
+      .filter((tag): tag is string => tag !== undefined)
       .slice(0, numTagResults)
   }
 
@@ -453,8 +528,8 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
           query: query,
           // return at least 10000 documents, so it is enough to filter them by tag (implemented in flexsearch)
           limit: Math.max(numSearchResults, 10000),
-          index: ["title", "heading"],
-          tag: tag,
+          index: ["title", "heading", "abstract"],
+          tag: { tags: tag },
         })
         for (let searchResult of searchResults) {
           searchResult.result = searchResult.result.slice(0, numSearchResults)
@@ -474,7 +549,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
       searchResults = await index.searchAsync({
         query: currentSearchTerm,
         limit: numSearchResults,
-        index: ["title", "heading"],
+        index: ["title", "heading", "tags", "abstract"],
       })
     }
 
@@ -488,6 +563,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
       ...getByField("title"),
       ...getByField("heading"),
       ...getByField("tags"),
+      ...getByField("abstract"),
     ])
     const finalResults = [...allIds].map((id) => formatForDisplay(currentSearchTerm, id))
     await displayResults(finalResults)
@@ -520,7 +596,8 @@ async function fillDocument(data: ContentIndex) {
         id,
         slug: slug as FullSlug,
         title: fileData.title,
-        content: fileData.content,
+        content: fileData.content ?? fileData.abstract ?? fileData.description ?? "",
+        abstract: fileData.abstract,
         tags: fileData.tags,
       }),
     )

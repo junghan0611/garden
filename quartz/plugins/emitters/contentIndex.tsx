@@ -1,10 +1,11 @@
-import { Root } from "hast"
+import { Element, Root } from "hast"
 import { GlobalConfiguration } from "../../cfg"
 import { getDate } from "../../components/Date"
 import { escapeHTML } from "../../util/escape"
 import { FilePath, FullSlug, SimpleSlug, joinSegments, simplifySlug } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
 import { toHtml } from "hast-util-to-html"
+import { toString } from "hast-util-to-string"
 import { write } from "./helpers"
 import { i18n } from "../../i18n"
 
@@ -15,7 +16,8 @@ export type ContentDetails = {
   title: string
   links: SimpleSlug[]
   tags: string[]
-  content: string
+  content?: string
+  abstract?: string
   richContent?: string
   date?: Date
   description?: string
@@ -28,6 +30,9 @@ interface Options {
   rssFullHtml: boolean
   rssSlug: string
   includeEmptyFiles: boolean
+  includeContent: boolean
+  includeDescription: boolean
+  includeAbstract: boolean
 }
 
 const defaultOptions: Options = {
@@ -37,6 +42,42 @@ const defaultOptions: Options = {
   rssFullHtml: false,
   rssSlug: "index",
   includeEmptyFiles: true,
+  includeContent: true,
+  includeDescription: false,
+  includeAbstract: false,
+}
+
+function extractAbstract(tree: Root): string | undefined {
+  const isElement = (node: Root | Element): node is Element => node.type === "element"
+  const stack: Array<Root | Element> = [tree]
+
+  while (stack.length > 0) {
+    const node = stack.pop()!
+    if (isElement(node)) {
+      const classes = node.properties.className
+      const classNames = Array.isArray(classes) ? classes : []
+      if (node.tagName === "blockquote" && classNames.includes("callout")) {
+        const callout = node.properties["data-callout"]
+        if (callout === "abstract" || classNames.includes("abstract")) {
+          const abstract = escapeHTML(toString(node))
+            .replace(/^이 노트에 대하여\s*/, "")
+            .replace(/^About this note\s*/i, "")
+            .replace(/\s+/g, " ")
+            .trim()
+          return abstract === "" ? undefined : abstract
+        }
+      }
+    }
+
+    if ("children" in node) {
+      for (let i = node.children.length - 1; i >= 0; i--) {
+        const child = node.children[i]
+        if (child.type === "element") {
+          stack.push(child)
+        }
+      }
+    }
+  }
 }
 
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string {
@@ -110,6 +151,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
             links: file.data.links ?? [],
             tags: file.data.frontmatter?.tags ?? [],
             content: file.data.text ?? "",
+            abstract: extractAbstract(tree as Root),
             richContent: opts?.rssFullHtml
               ? escapeHTML(toHtml(tree as Root, { allowDangerousHtml: true }))
               : undefined,
@@ -140,10 +182,18 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
       const fp = joinSegments("static", "contentIndex") as FullSlug
       const simplifiedIndex = Object.fromEntries(
         Array.from(linkIndex).map(([slug, content]) => {
-          // remove description and from content index as nothing downstream
-          // actually uses it. we only keep it in the index as we need it
-          // for the RSS feed
-          delete content.description
+          // Keep the browser-side content index small. Search, graph, and explorer
+          // only need structural metadata by default; RSS still uses the full
+          // linkIndex above before these client-payload fields are removed.
+          if (!opts.includeContent) {
+            delete content.content
+          }
+          if (!opts.includeDescription) {
+            delete content.description
+          }
+          if (!opts.includeAbstract) {
+            delete content.abstract
+          }
           delete content.date
           return [slug, content]
         }),

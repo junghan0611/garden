@@ -19,6 +19,9 @@ This plugin accepts the following configuration options:
 - `rssFullHtml`: If `true`, the RSS feed includes full HTML content. Otherwise it includes just summaries.
 - `rssSlug`: Slug to the generated RSS feed XML file. Defaults to `"index"`.
 - `includeEmptyFiles`: If `true` (default), content files with no body text are included in the generated index and resources.
+- `includeContent`: If `true` (default), includes full page text in `contentIndex.json` for browser-side snippets. Set to `false` to keep the client payload small.
+- `includeDescription`: If `true`, includes page descriptions in `contentIndex.json`. Useful with `includeContent: false` so search result cards can show summaries.
+- `includeAbstract`: If `true`, includes the first `[!abstract]` callout in `contentIndex.json`. Useful as a lightweight search field between title/tags and full body text.
 
 ## API
 
