@@ -72,12 +72,15 @@
   [headers.values]
     Cache-Control = "public, max-age=3600"
 
-# 정적 에셋 — 장기 캐시 (이미지, 폰트)
-# Netlify CDN이 deploy마다 cache bust하므로 장기 캐시 안전
+# 검색 데이터 — 고정 파일명(contentIndex.json)이므로 브라우저 재검증 필수.
+# Netlify edge deploy invalidation + ETag/304가 신선도를 보장한다.
+# (과거 `/static/*` blanket immutable이 이 mutable JSON까지 1년 캐시해
+#  "코드는 새로운데 검색 데이터가 stale" 사고를 냈다. blanket 규칙 제거함.
+#  static 하위 이미지는 아래 *.png/jpg/... 규칙이, 폰트는 *.woff2 규칙이 잡는다.)
 [[headers]]
-  for = "/static/*"
+  for = "/static/contentIndex.json"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # 폰트 파일 — CORS + 장기 캐시
 [[headers]]
@@ -92,16 +95,19 @@
     Cache-Control = "public, max-age=31536000, immutable"
     Access-Control-Allow-Origin = "*"
 
-# CSS/JS — Quartz가 fingerprint 포함하므로 장기 캐시 가능
+# CSS/JS — Quartz v4는 index.css/prescript.js/postscript.js를 fingerprint 없는
+# 고정 파일명으로 emit한다. 따라서 브라우저 재검증을 켜둬야 배포가 즉시 반영된다.
+# Netlify edge deploy invalidation + ETag/304가 신선도를 처리한다. 값은 Netlify
+# 기본과 동일하지만 "고정 파일명 → 재검증 필수" 정책을 명시해 재발을 막는다.
 [[headers]]
   for = "*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # 이미지 — Netlify ETag 기본 처리 + 하루 캐시 (Quartz가 파일명에 해시 안 붙임)
 [[headers]]
