@@ -47,37 +47,62 @@ const defaultOptions: Options = {
   includeAbstract: false,
 }
 
+const hasClass = (node: Element, name: string): boolean => {
+  const classes = node.properties?.className
+  return Array.isArray(classes) && classes.includes(name)
+}
+
 function extractAbstract(tree: Root): string | undefined {
   const isElement = (node: Root | Element): node is Element => node.type === "element"
-  const stack: Array<Root | Element> = [tree]
 
-  while (stack.length > 0) {
-    const node = stack.pop()!
-    if (isElement(node)) {
-      const classes = node.properties.className
-      const classNames = Array.isArray(classes) ? classes : []
-      if (node.tagName === "blockquote" && classNames.includes("callout")) {
+  // Locate the `[!abstract]` callout blockquote.
+  const findAbstractCallout = (root: Root | Element): Element | undefined => {
+    const stack: Array<Root | Element> = [root]
+    while (stack.length > 0) {
+      const node = stack.pop()!
+      if (isElement(node) && node.tagName === "blockquote" && hasClass(node, "callout")) {
         const callout = node.properties["data-callout"]
-        if (callout === "abstract" || classNames.includes("abstract")) {
-          const abstract = escapeHTML(toString(node))
-            .replace(/^이 노트에 대하여\s*/, "")
-            .replace(/^About this note\s*/i, "")
-            .replace(/\s+/g, " ")
-            .trim()
-          return abstract === "" ? undefined : abstract
+        if (callout === "abstract" || hasClass(node, "abstract")) {
+          return node
+        }
+      }
+      if ("children" in node) {
+        for (let i = node.children.length - 1; i >= 0; i--) {
+          const child = node.children[i]
+          if (child.type === "element") stack.push(child)
         }
       }
     }
+    return undefined
+  }
 
-    if ("children" in node) {
+  // The abstract body lives in `.callout-content`; the title (`이 노트에 대하여`)
+  // sits in a separate `.callout-title` and must be excluded. Pull only the
+  // content div so the title never leaks into the search snippet.
+  const findContent = (callout: Element): Element | undefined => {
+    const stack: Element[] = [callout]
+    while (stack.length > 0) {
+      const node = stack.pop()!
+      if (hasClass(node, "callout-content")) return node
       for (let i = node.children.length - 1; i >= 0; i--) {
         const child = node.children[i]
-        if (child.type === "element") {
-          stack.push(child)
-        }
+        if (child.type === "element") stack.push(child)
       }
     }
+    return undefined
   }
+
+  const callout = findAbstractCallout(tree)
+  if (!callout) return undefined
+
+  // A callout with no `.callout-content` is malformed at the org source: the
+  // `[!abstract] 이 노트에 대하여` title line must be followed by a blank `>` line
+  // and then the body. Return undefined rather than emitting the title as body.
+  const content = findContent(callout)
+  if (!content) return undefined
+
+  const abstract = escapeHTML(toString(content)).replace(/\s+/g, " ").trim()
+  return abstract === "" ? undefined : abstract
 }
 
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string {

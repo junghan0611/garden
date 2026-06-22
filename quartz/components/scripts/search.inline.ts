@@ -9,6 +9,7 @@ interface Item {
   title: string
   content: string
   abstract?: string
+  description?: string
   tags: string[]
   [key: string]: any
 }
@@ -17,6 +18,17 @@ interface Item {
 type SearchType = "basic" | "tags"
 let searchType: SearchType = "basic"
 let currentSearchTerm: string = ""
+
+const isCJKCodePoint = (code: number): boolean =>
+  (code >= 0x3040 && code <= 0x309f) ||
+  (code >= 0x30a0 && code <= 0x30ff) ||
+  (code >= 0x4e00 && code <= 0x9fff) ||
+  (code >= 0xac00 && code <= 0xd7af) ||
+  (code >= 0x20000 && code <= 0x2a6df)
+
+const hasCJK = (str: string): boolean =>
+  [...str].some((ch) => isCJKCodePoint(ch.codePointAt(0)!))
+
 const leadingTokenDecorators = new Set([
   "§",
   "@",
@@ -99,12 +111,7 @@ const encoder = (str: string): string[] => {
   for (const char of lower) {
     const code = char.codePointAt(0)!
 
-    const isCJK =
-      (code >= 0x3040 && code <= 0x309f) ||
-      (code >= 0x30a0 && code <= 0x30ff) ||
-      (code >= 0x4e00 && code <= 0x9fff) ||
-      (code >= 0xac00 && code <= 0xd7af) ||
-      (code >= 0x20000 && code <= 0x2a6df)
+    const isCJK = isCJKCodePoint(code)
 
     const isWhitespace = code === 32 || code === 9 || code === 10 || code === 13
 
@@ -142,6 +149,10 @@ let index = new FlexSearch.Document<Item>({
       },
       {
         field: "abstract",
+        tokenize: "reverse",
+      },
+      {
+        field: "description",
         tokenize: "reverse",
       },
       {
@@ -528,7 +539,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
           query: query,
           // return at least 10000 documents, so it is enough to filter them by tag (implemented in flexsearch)
           limit: Math.max(numSearchResults, 10000),
-          index: ["title", "heading", "abstract"],
+          index: ["title", "heading", "abstract", "description"],
           tag: { tags: tag },
         })
         for (let searchResult of searchResults) {
@@ -549,7 +560,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
       searchResults = await index.searchAsync({
         query: currentSearchTerm,
         limit: numSearchResults,
-        index: ["title", "heading", "tags", "abstract"],
+        index: ["title", "heading", "tags", "abstract", "description"],
       })
     }
 
@@ -564,8 +575,38 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
       ...getByField("heading"),
       ...getByField("tags"),
       ...getByField("abstract"),
+      ...getByField("description"),
     ])
-    const finalResults = [...allIds].map((id) => formatForDisplay(currentSearchTerm, id))
+
+    // The CJK encoder tokenizes Hangul/Kana/Han one character at a time, so a
+    // multi-character query like "갈매기" recalls every note that merely shares a
+    // single character ("기" → 튜토리얼, 포매터…). Re-check candidates against the
+    // searched fields and require each CJK term to appear as an exact substring;
+    // latin terms keep flexsearch's prefix behaviour.
+    const matchesQuery = (id: number, term: string): boolean => {
+      const parts = term
+        .trim()
+        .toLowerCase()
+        .split(/\s+/)
+        .filter((p) => p !== "")
+      if (parts.length === 0) return true
+      const details = data[idDataMap[id]]
+      const haystack = [
+        details.title ?? "",
+        (details.tags ?? []).join(" "),
+        details.description ?? "",
+        details.abstract ?? "",
+      ]
+        .join(" ")
+        .toLowerCase()
+      return parts.every((part) => (hasCJK(part) ? haystack.includes(part) : true))
+    }
+
+    const orderedIds =
+      searchType === "tags"
+        ? [...allIds]
+        : [...allIds].filter((id) => matchesQuery(id, currentSearchTerm))
+    const finalResults = orderedIds.map((id) => formatForDisplay(currentSearchTerm, id))
     await displayResults(finalResults)
   }
 
@@ -598,6 +639,7 @@ async function fillDocument(data: ContentIndex) {
         title: fileData.title,
         content: fileData.content ?? fileData.abstract ?? fileData.description ?? "",
         abstract: fileData.abstract,
+        description: fileData.description,
         tags: fileData.tags,
       }),
     )
