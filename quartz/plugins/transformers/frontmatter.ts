@@ -1,4 +1,3 @@
-import matter from "gray-matter"
 import remarkFrontmatter from "remark-frontmatter"
 import { QuartzTransformerPlugin } from "../types"
 import yaml from "js-yaml"
@@ -52,6 +51,32 @@ function getAliasSlugs(aliases: string[]): FullSlug[] {
   return res
 }
 
+function parseFrontmatter(fileData: string, opts: Options): { [key: string]: any } {
+  const delimiters = Array.isArray(opts.delimiters)
+    ? opts.delimiters
+    : opts.language === "toml"
+      ? ["+++", "+++"]
+      : [opts.delimiters, opts.delimiters]
+  const [open, close] = delimiters
+  const normalized = fileData.replace(/^\uFEFF/, "")
+  const firstLineEnd = normalized.indexOf("\n")
+  const firstLine = (firstLineEnd === -1 ? normalized : normalized.slice(0, firstLineEnd)).trimEnd()
+  if (firstLine !== open) return {}
+
+  const bodyStart = firstLineEnd + 1
+  const closePattern = new RegExp(`(^|\\n)${close.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*(\\n|$)`)
+  const closeMatch = closePattern.exec(normalized.slice(bodyStart))
+  if (!closeMatch || closeMatch.index === undefined) return {}
+
+  const raw = normalized.slice(bodyStart, bodyStart + closeMatch.index + closeMatch[1].length)
+  const data =
+    opts.language === "toml"
+      ? toml.parse(raw)
+      : yaml.load(raw, { schema: yaml.JSON_SCHEMA, json: true })
+
+  return data && typeof data === "object" && !Array.isArray(data) ? data : {}
+}
+
 export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   return {
@@ -62,14 +87,8 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
         [remarkFrontmatter, ["yaml", "toml"]],
         () => {
           return (_, file) => {
-            const fileData = Buffer.from(file.value as Uint8Array)
-            const { data } = matter(fileData, {
-              ...opts,
-              engines: {
-                yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
-                toml: (s) => toml.parse(s) as object,
-              },
-            })
+            const fileData = Buffer.from(file.value as Uint8Array).toString("utf8")
+            const data = parseFrontmatter(fileData, opts)
 
             if (data.title != null && data.title.toString() !== "") {
               data.title = data.title.toString()
