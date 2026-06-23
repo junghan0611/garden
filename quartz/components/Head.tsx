@@ -114,7 +114,7 @@ export default (() => {
             "name": "Junghan Kim",
             "givenName": "Junghan",
             "familyName": "Kim",
-            "alternateName": ["GLG", "GLGMAN"],
+            "alternateName": ["GLG", "GLGMAN", "힣", "힣맨", "정한"],
             "url": origin,
             "image": `${origin}/static/profile.jpg`,
             "jobTitle": "Software Engineer",
