@@ -15,7 +15,7 @@ If you landed here (human or AI agent) and want to understand this garden:
 - **The garden itself** — read at https://notes.junghanacs.com, not in this repo. Content in `content/` is auto-generated from Org-mode sources and not meant to be browsed as source.
 - **Machine-readable entry points** — https://notes.junghanacs.com/llms.txt (structured index), https://notes.junghanacs.com/sitemap.xml, https://notes.junghanacs.com/robots.txt, https://notes.junghanacs.com/index.xml (RSS). Every page's footer links to all four.
 - **Agent instructions** — see [`AGENTS.md`](AGENTS.md) for durable conventions (build pipeline, editing rules, external-agent environment notes). Any AI agent working in this repo should read it first.
-- **Working memory** — see [`MEMORY.md`](MEMORY.md) for short-term facts the current agent needs (current project phase, recent decisions, handoff items). Treated as a scratchpad, not a changelog.
+- **Session handoff** — see [`NEXT.md`](NEXT.md) for the next concrete move, its verification, and current blockers. A boot sector, not a changelog; durable facts graduate into `AGENTS.md`.
 - **What to edit** — `quartz.layout.ts`, `quartz.config.ts`, `quartz/` components, `content/llms.txt`, `content/robots.txt`, `static/`, `scripts/`, `netlify.toml`. **Do not edit** `content/notes/`, `content/meta/`, `content/bib/`, `content/journal/`, `content/botlog/`, or `content/index.md` — those are exported from `~/org/` and will be overwritten on the next export.
 
 ## Overview
