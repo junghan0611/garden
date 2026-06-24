@@ -5,17 +5,38 @@ live plan and the next concrete move.
 
 ## NOW — the next concrete move
 
-**Phase 1: prove vanilla v5 builds with our content.**
-Copy a representative `content/` subset from the notes repo, enable `ox-hugo`, and run
-`npx quartz build`. Goal is to **measure the porting delta empirically**, not to ship.
+**Phase 1 DONE: vanilla v5 builds with full v4 content (2237 files, 45s).** Site serves at
+`localhost:1231`. The next move is **catch the breakages**, comparing each against the live
+`notes.junghanacs.com` page (GET + diff).
+
+Run locally — content is **not** copied into this repo (it stays in the frozen notes repo;
+`content/` is gitignored). Point `-d` at it:
 
 ```bash
-npx quartz plugin install        # pull community plugins per quartz.config.yaml
-npx quartz build --serve         # local preview
+NODE_OPTIONS="--max-old-space-size=8192" \
+  npx quartz build --serve --port 1231 --concurrency 8 -d ~/repos/gh/notes/content
 ```
 
-Verify: does our ox-hugo Markdown render? Where do anchors / bib / figures break? Those
-breakages are exactly Bucket C item 2.
+### Breakages to fix (compare vs live notes.junghanacs.com)
+
+1. **Front matter leaks into body** *(highest)* — e.g. `content/index.md`: its `---` YAML
+   header (`today:`, long `description` with em-dash + Greek `ξενία`, `comments:`) renders
+   as plain body text. v5 core `FrontMatter` ↔ community `ox-hugo` header handling clash.
+   Suspect the non-standard `today:` field and/or ox-hugo not stripping Hugo front matter.
+   Diagnose: does it leak on notes *without* `today:`? Is ox-hugo's own front-matter parse
+   fighting core's?
+2. **LaTeX: Korean in math mode** — `$결$`-style warnings (`unicodeTextInMathMode`). ox-hugo
+   exports inline `$…$` around Korean that isn't math. Bucket C ox-hugo delta.
+3. **Reading time** — ContentMeta shows "15 min read" on the home index; check against v4
+   layout (v4 `showReadingTime: true` only on content pages, list pages plain).
+4. **Identify the real OOM culprit** — disabled 6 plugins at once to clear OOM
+   (encrypted-pages / bases-page / canvas-page / unlisted-pages / note-properties /
+   reader-mode). `encrypted-pages` (full-content encrypted index, 600k iters) is prime
+   suspect; re-enable one at a time to confirm, then keep only what we actually want.
+5. **v4 micro-settings still unmapped**: CrawlLinks `absolute` (v5 default `shortest`),
+   ObsidianFM option set (wikilinks+callouts+youtube only), analytics `umami` self-host
+   (v5 has `plausible`), GLG-Mono local fonts (v5 has Schibsted/Source Sans), footer links
+   (v5 has stock Quartz/Discord).
 
 ## Migration mapping (v4 custom → v5 destination)
 
@@ -62,10 +83,21 @@ breakages are exactly Bucket C item 2.
 - ox-hugo parity: PR our 5 patches upstream, or maintain a `quartz-community/ox-hugo` fork?
 - Does community `search` tokenize CJK adequately, or do we re-port our matcher?
 - remark42 thread re-anchoring: lowercase URL change moves comment keys — verify continuity.
-- Repo visibility: private now → flip public at launch (also re-checks the identity hook).
 
 ## Done
 
 - Repo scaffolded from `upstream/v5` (`9cf87ff`); AGENTS.md + NEXT.md written.
 - Strategy locked: base on v5, attach customizations as plugins; notes repo frozen on v4;
   hosting swap deferred to post-stable.
+- Repo flipped **private → public** (`junghan0611/garden`). Global identity hook now applies
+  to commits here: the AGENTS.md GLG/힣/Junghan Kim block is the intended public persona and
+  passes; the hook blocks employer/device/secret. First-commit block = a real private leak.
+- Handoff received from the strategy/scaffolding session; garden migration now owned here.
+- Branch renamed `v5` → `main` (local). origin push / default-branch flip left to GLG.
+- `quartz.config.yaml` created from default + tuned: `pageTitle: 정한의 디지털가든`,
+  `locale: ko-KR`, `baseUrl: notes.junghanacs.com`, **ox-hugo on**, popovers off.
+- Disabled per GLG "clean HTML, no JS/graph" + OOM fix: graph, og-image, encrypted-pages,
+  bases-page, canvas-page, unlisted-pages, note-properties, reader-mode.
+- **Full build works**: 2237 v4 files → 5552 emitted in 45s, serves at `localhost:1231`.
+- slug collision resolved: merged `talks/talks.md` into `talks/index.md` (notes repo, v4).
+- `content/` gitignored — base config only ships from this repo; content stays in notes repo.
