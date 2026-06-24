@@ -2,6 +2,16 @@
 
 Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
+# STATUS — FROZEN STABLE (v4)
+This repo is the **frozen stable v4 publish source**. Active development moved to the
+**v5 rebuild at [`junghan0611/garden`](https://github.com/junghan0611/garden)** (private,
+default branch `v5`). The garden steward receives all migration work there; see that
+repo's `NEXT.md` for the plan. Here: keep the live site stable on Netlify, ship only small
+v4 SEO patches if needed. Account consolidates `junghanacs` → `junghan0611`; domain
+`notes.junghanacs.com` (hostingkr) and identity are unchanged. Hosting stays Netlify until
+v5 is stable — Oracle self-host is a separate post-stable step. Org-export-side AEO items
+below (e.g. `refs[]`) are version-independent and may ship here or graduate to garden.
+
 # NOW
 - **Current**: JSON-LD identity slice **shipped & live** (Netlify deployed, agenda stamped, sitemap submitted, Google Rich Results ProfilePage valid, schema.org 0/0). Person.image, ProfilePage ImageObject, Authology identity description live. Follow-up: `Person.alternateName` expanded to `[GLG, GLGMAN, 힣, 힣맨, 정한]` (GPT review — Korean glyphs were missing).
 - **Next**: external confirmation — run validator.schema.org and Google Rich Results Test on the live home + one note URL (manual, browser). Then start the AFTER SHIP follow-ups below.
@@ -19,7 +29,7 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 # PARKED
 - `Plugin.CustomOgImages()` disabled (`quartz.config.ts`) — every page shares `/static/og-image.png`. Enable only if per-page social cards become worth the build cost.
-- v5 migration — watch-and-prepare (see AGENTS.md).
+- v5 migration — **moved to `junghan0611/garden`** (was watch-and-prepare; now active dev there). This repo no longer tracks v5 work.
 
 # VERIFY (JSON-LD after any Head.tsx / export change)
 ```bash
