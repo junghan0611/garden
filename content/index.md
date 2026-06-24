@@ -46,7 +46,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260622T000000" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260622T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -54,9 +54,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260622T000000" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260622T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260622T000000" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260622T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [folder: journal]({{< relref "/journal" >}})
 
@@ -88,7 +88,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [tags index (2734)]({{< relref "/tags" >}}) english keywords
+-   [tags index (2735)]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -118,7 +118,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (143)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (144)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -132,7 +132,7 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 -   [#이맥스 #학습 #의미 - #도구 #효율성 #가치]({{< relref "/notes/20230615T120400.md" >}})
 
 
-## 힣봇로그 + 힣봇멘트 {#힣봇로그-plus-힣봇멘트}
+## 힣봇로그 + 힣봇멘트 + 힣봇공방 {#힣봇로그-plus-힣봇멘트-plus-힣봇공방}
 
 '때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣(glg)봇. 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [도구(-configs)](https://github.com/junghan0611/agent-config)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
@@ -159,6 +159,8 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [에이전트 루프: 젛문가 갷발자 앎의틀 공진화]({{< relref "/botlog/20260222T035900.md" >}}) - AgEntlOOp
+-   [§garden 디지털가든 시간축 발자취 JSON-LD 시맨틱 접근성 스키마]({{< relref "/botlog/20260404T145500.md" >}}) - sEmAntIc
 -   [§andenken: PKM-AI 자리로 수렴하는 llm-wiki·OKF·EKG]({{< relref "/botlog/20260406T140411.md" >}}) - OntOlOgy
 -   [바이브코딩에서 에이전틱 하네스 엔지니어링까지 — 개발자 AI 톡]({{< relref "/botlog/20260321T081944.md" >}}) - dEvtAlk
 -   [§openclaw: 에이전트 루프와 맥(脈) 현재성]({{< relref "/botlog/20260526T175832.md" >}}) - OpEnclAwlOOp
@@ -190,5 +192,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-06-23 09:19, CountNotes: 3493 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-06-24 15:10, CountNotes: 3493 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.4), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
