@@ -5,17 +5,22 @@ live plan and the next concrete move.
 
 ## NOW — the next concrete move
 
-**Phase 1 DONE: vanilla v5 builds with full v4 content (2237 files, 45s).** Site serves at
-`localhost:1231`. The next move is **catch the breakages**, comparing each against the live
-`notes.junghanacs.com` page (GET + diff).
+**GLG가 `./run.sh`로 직접 빌드해 v4 패리티를 확인하는 단계.** 목표는 명확하다:
+**태그페이지는 일단 없어도 된다 — 나머지가 v4처럼 동작하는 게 먼저다.**
 
 Run locally — content is **not** copied into this repo (it stays in the frozen notes repo;
-`content/` is gitignored). Point `-d` at it:
+`content/` is gitignored). `run.sh`가 경로를 가리킨다:
 
 ```bash
-NODE_OPTIONS="--max-old-space-size=8192" \
-  npx quartz build --serve --port 1231 --concurrency 8 -d ~/repos/gh/notes/content
+./run.sh                      # 기본: ~/repos/gh/notes/content
+./run.sh /path/to/content     # 다른 콘텐츠 경로
 ```
+
+**기본 heap으로 돈다.** `NODE_OPTIONS=--max-old-space-size` 같은 증상 처방 금지 —
+tag-page OFF 상태면 기본 heap(~2GB)으로 완주하는 게 정상 기준이다(v4 담당자 실험으로 증명).
+
+그다음 move는 **v4와 diff** — 빌드된 페이지를 live `notes.junghanacs.com`과 비교해 breakage
+잡기 (front matter leak / LaTeX 한글 / reading time 등, 아래 목록).
 
 ### Breakages to fix (compare vs live notes.junghanacs.com)
 
@@ -29,10 +34,15 @@ NODE_OPTIONS="--max-old-space-size=8192" \
    exports inline `$…$` around Korean that isn't math. Bucket C ox-hugo delta.
 3. **Reading time** — ContentMeta shows "15 min read" on the home index; check against v4
    layout (v4 `showReadingTime: true` only on content pages, list pages plain).
-4. **Identify the real OOM culprit** — disabled 6 plugins at once to clear OOM
-   (encrypted-pages / bases-page / canvas-page / unlisted-pages / note-properties /
-   reader-mode). `encrypted-pages` (full-content encrypted index, 600k iters) is prime
-   suspect; re-enable one at a time to confirm, then keep only what we actually want.
+4. **OOM 진범 = `tag-page` (확정, v4 담당자 f40c43).** ~~note-properties 의심~~은 **오진**:
+   NP는 결백한 트리거였다. 메커니즘 — NP ON → `tags` 파싱 → virtual 태그페이지 **2735개**
+   생성 → v5 page-type 디스패처(`quartz/plugins/pageTypes/dispatcher.ts:141-142`,
+   `fromHtml → vfile.data.htmlAst`)가 그 2735개 hast 트리를 **emit 내내 동시 보유** → heap
+   폭발. 목적은 transclusion인데 **우리는 안 쓴다**. v4는 emit 때 렌더→파일쓰기→버려서 2GB로
+   완주. 증명: tag-page OFF + NP ON + 기본 heap → `2236 parsed → 5566 emitted → 1m, OOM 없음`.
+   **현 상태: tag-page OFF(임시, 태그링크 깨짐 감수), NP ON(결백), crawl-links absolute.**
+   **고침 정공법(나중에, 가볍게)**: 디스패처/tag-page가 virtual htmlAst를 안 쥐게(끄거나 lazy)
+   — transclusion 안 쓰니까. 차선: 태그 prune(싱글톤 정리, 콘텐츠 이득도 큼). fork는 최후수단.
 5. **v4 micro-settings still unmapped**: CrawlLinks `absolute` (v5 default `shortest`),
    ObsidianFM option set (wikilinks+callouts+youtube only), analytics `umami` self-host
    (v5 has `plausible`), GLG-Mono local fonts (v5 has Schibsted/Source Sans), footer links
@@ -66,6 +76,13 @@ NODE_OPTIONS="--max-old-space-size=8192" \
 - figure → `![[src|640]]` wikilink embed (not plain `![]()`)
 - **anchor: we preserve `{#id}` as the heading's real HTML `id`; community removes it** →
   our intra-page anchor links depend on this. **Decide: PR upstream vs fork.**
+
+## 기조 (GLG 방향성 — 무겁게 가지 마라)
+
+- **가볍게. v4보다 욕심내지 마라.** 목표는 v4 *이관*이지 기능 확장이 아니다. 풀기능은 안 쓴다.
+- v5 업스트림을 계속 받아내면서(머지 가능하게) 풀기능 대신 **플러그인 구조로 GLG가 직접 커스텀**.
+- 우선순위: 에이전트가 **한 번에 쭉 훑기 좋은** 단순함 + 가든이 이후 진화하기 좋은 구조. 화려함 < 가독성/단순성.
+- **heap 16GB 박는 증상 처방 금지.** 기본 heap으로 도는 게 정상 기준이다.
 
 ## Phases
 
@@ -101,3 +118,6 @@ NODE_OPTIONS="--max-old-space-size=8192" \
 - **Full build works**: 2237 v4 files → 5552 emitted in 45s, serves at `localhost:1231`.
 - slug collision resolved: merged `talks/talks.md` into `talks/index.md` (notes repo, v4).
 - `content/` gitignored — base config only ships from this repo; content stays in notes repo.
+- **OOM 진단 종결(f40c43)**: 진범 = tag-page virtual htmlAst 보유. note-properties 결백.
+  tag-page OFF + NP ON + 기본 heap으로 완주 확인. config 정합 상태로 정리됨.
+- **`run.sh` 추가**: 기본 heap + content `-d ~/repos/gh/notes/content`로 직접 빌드/서브.
