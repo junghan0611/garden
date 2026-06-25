@@ -5,21 +5,31 @@ live plan and the next concrete move.
 
 ## NOW — the next concrete move
 
-**GLG가 `./run.sh`로 직접 빌드해 v4 패리티를 확인하는 단계.** 목표는 명확하다:
-**태그페이지는 일단 없어도 된다 — 나머지가 v4처럼 동작하는 게 먼저다.**
+**재현성 게이트는 통과. 다음은 `./run.sh`로 serve를 띄워 v4 패리티를 확인하는 단계.**
+목표는 명확하다: **태그페이지는 일단 없어도 된다 — 나머지가 v4처럼 동작하는 게 먼저다.**
 
-Run locally — content is **not** copied into this repo (it stays in the frozen notes repo;
-`content/` is gitignored). `run.sh`가 경로를 가리킨다:
+Clean checkout 재현 순서:
 
 ```bash
+npm ci
 ./run.sh                      # 기본: ~/repos/gh/notes/content
 ./run.sh /path/to/content     # 다른 콘텐츠 경로
 ```
 
+`run.sh` 안에서 `npx quartz plugin install`을 먼저 실행한다. 이 단계가 lockfile 핀 커밋
+46개를 `.quartz/plugins/`에 설치하고 `.quartz/plugins/index.ts` barrel을 재생성한다.
+
+검증 기록(2026-06-25, local, `NODE_OPTIONS` unset):
+
+- fresh copy: `npm ci` 후 `.quartz/plugins/index.ts` 없음 → `npx quartz plugin install` 후 있음.
+- non-serve build: `2236 parsed → 5566 emitted → 39~50s`, OOM 없음.
+- `./run.sh` serve build: `2236 parsed → 5559 emitted → server localhost:1231`, OOM 없음.
+  `--serve`는 dev asset 이름/개수 차이 때문에 non-serve의 5566과 count가 다르다.
+
 **기본 heap으로 돈다.** `NODE_OPTIONS=--max-old-space-size` 같은 증상 처방 금지 —
 tag-page OFF 상태면 기본 heap(~2GB)으로 완주하는 게 정상 기준이다(v4 담당자 실험으로 증명).
 
-그다음 move는 **v4와 diff** — 빌드된 페이지를 live `notes.junghanacs.com`과 비교해 breakage
+이제 move는 **v4와 diff** — 빌드된 페이지를 live `notes.junghanacs.com`과 비교해 breakage
 잡기 (front matter leak / LaTeX 한글 / reading time 등, 아래 목록).
 
 ### Breakages to fix (compare vs live notes.junghanacs.com)

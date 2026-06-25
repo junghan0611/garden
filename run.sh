@@ -15,4 +15,10 @@ set -e
 
 CONTENT="${1:-$HOME/repos/gh/notes/content}"
 
+# 재현성 단계 (git clean -xfd 후 필수): lockfile 핀 커밋으로 플러그인을 설치하고
+# .quartz/plugins/index.ts barrel을 재생성한다. 빌드 자동 설치(loadQuartzConfig)는
+# 플러그인 디렉토리만 만들고 barrel은 안 만들어서, 이 단계 없이는 Head.tsx의
+# `../../.quartz/plugins` import가 깨진다. 멱등 — 캐시가 따뜻하면 "already installed"로 통과.
+npx quartz plugin install
+
 npx quartz build --serve --port 1231 --concurrency 8 -d "$CONTENT"
