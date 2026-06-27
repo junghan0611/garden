@@ -5,8 +5,21 @@ live plan and the next concrete move.
 
 ## NOW — the next concrete move
 
-**재현성 게이트는 통과. 다음은 `./run.sh`로 serve를 띄워 v4 패리티를 확인하는 단계.**
+**재현성 게이트 통과 + v4 패리티 1차 diff 완료(2026-06-27). 기본 퀄리티는 나온다.**
+다음 move는 **남은 breakage 수정**: #3 reading time(home/list만 off) → #2 LaTeX 한글 → #5 micro-settings.
 목표는 명확하다: **태그페이지는 일단 없어도 된다 — 나머지가 v4처럼 동작하는 게 먼저다.**
+
+### v4 패리티 1차 diff 결과 (2026-06-27, local serve, 기본 heap)
+
+- **#1 front matter 본문 누수 = 재현 안 됨 🟢 (최우선이 해소됨).** `index.md`·content note
+  둘 다 본문 깨끗. `today:`/`comments:`/`lastmod`/`keywords` 등 FM-only 토큰 본문 누수 0건.
+  ox-hugo 활성화가 이미 잡았거나 이전 관측이 stale 빌드였던 듯. **다음 세션: 더 많은 노트로
+  재확인 후 #1을 Done으로 내려라.**
+- **#2 LaTeX 한글 = 재현됨 🔴.** 빌드 로그 `unicodeTextInMathMode` 다수(`$결$`,`$월$`…).
+  strict='warn'이라 빌드는 통과, 렌더만 깨짐.
+- **#3 reading time = 부분 재현 🟡.** home index에 "15 min read" 표시(v4는 list/home plain).
+  content note "18 min read"는 v4도 허용이라 정상. → home/list만 끄면 됨.
+- serve build: `2236 parsed → 5559 emitted → 40s`, OOM 없음. 기준선과 정확히 일치.
 
 Clean checkout 재현 순서:
 
@@ -34,12 +47,9 @@ tag-page OFF 상태면 기본 heap(~2GB)으로 완주하는 게 정상 기준이
 
 ### Breakages to fix (compare vs live notes.junghanacs.com)
 
-1. **Front matter leaks into body** *(highest)* — e.g. `content/index.md`: its `---` YAML
-   header (`today:`, long `description` with em-dash + Greek `ξενία`, `comments:`) renders
-   as plain body text. v5 core `FrontMatter` ↔ community `ox-hugo` header handling clash.
-   Suspect the non-standard `today:` field and/or ox-hugo not stripping Hugo front matter.
-   Diagnose: does it leak on notes *without* `today:`? Is ox-hugo's own front-matter parse
-   fighting core's?
+1. ~~**Front matter leaks into body** *(highest)*~~ — **2026-06-27: 재현 안 됨.** `index.md`·
+   content note 본문 깨끗, FM-only 토큰 누수 0건. ox-hugo 활성화가 이미 잡은 듯. 다음 세션에
+   더 넓게 재확인 후 Done으로 내려라.
 2. **LaTeX: Korean in math mode** — `$결$`-style warnings (`unicodeTextInMathMode`). ox-hugo
    exports inline `$…$` around Korean that isn't math. Bucket C ox-hugo delta.
 3. **Reading time** — ContentMeta shows "15 min read" on the home index; check against v4
