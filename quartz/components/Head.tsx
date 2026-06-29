@@ -27,9 +27,14 @@ export default (() => {
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
     const iconPath = joinSegments(baseDir, "static/icon.png")
 
-    // Url of current page
+    // Url of current page. Home(slug==="index")는 root로 — `/index`가 아니라 `/`가
+    // 정본이라 og:url/twitter:url이 JSON-LD ProfilePage.url(=origin)과 일치한다.
     const socialUrl =
-      fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
+      fileData.slug === "404"
+        ? url.toString()
+        : fileData.slug === "index"
+          ? url.origin
+          : joinSegments(url.toString(), fileData.slug!)
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
@@ -138,8 +143,10 @@ export default (() => {
               "Korean language",
               "Logic",
             ],
-            // junghanacs = 가든/노트(이 사이트 정본), junghan0611 = 개발용.
+            // junghanacs.com = 개인 홈페이지(정본 신원), junghanacs = 가든/노트, junghan0611 = 개발용.
+            // homepage Person.sameAs가 notes를 가리키는 것과 reciprocal → 양방향 KG 병합 신호.
             "sameAs": [
+              "https://junghanacs.com/",
               "https://github.com/junghanacs",
               "https://github.com/junghan0611",
               "https://kr.linkedin.com/in/junghan-kim-1489a4306",
@@ -160,54 +167,92 @@ export default (() => {
           }
 
           const fm = fileData.frontmatter
-          const graph = isHome
-            ? [
-                person,
-                website,
-                {
-                  "@type": "ProfilePage",
-                  "@id": `${origin}/#profilepage`,
-                  "url": origin,
-                  "name": title,
-                  "inLanguage": lang,
-                  ...(fm?.date && { "dateCreated": fm.date }),
-                  ...(fm?.lastmod && { "dateModified": fm.lastmod }),
-                  "isPartOf": { "@id": `${origin}/#website` },
-                  "about": { "@id": `${origin}/#person` },
-                  "mainEntity": { "@id": `${origin}/#person` },
-                  "primaryImageOfPage": {
-                    "@type": "ImageObject",
-                    "url": `${origin}/static/profile.jpg`,
-                    "width": 640,
-                    "height": 640,
-                  },
-                  "description": description,
+
+          let graph
+          if (isHome) {
+            graph = [
+              person,
+              website,
+              {
+                "@type": "ProfilePage",
+                "@id": `${origin}/#profilepage`,
+                "url": origin,
+                "name": title,
+                "inLanguage": lang,
+                ...(fm?.date && { "dateCreated": fm.date }),
+                ...(fm?.lastmod && { "dateModified": fm.lastmod }),
+                "isPartOf": { "@id": `${origin}/#website` },
+                "about": { "@id": `${origin}/#person` },
+                "mainEntity": { "@id": `${origin}/#person` },
+                "primaryImageOfPage": {
+                  "@type": "ImageObject",
+                  "url": `${origin}/static/profile.jpg`,
+                  "width": 640,
+                  "height": 640,
                 },
-              ]
-            : [
-                person,
-                website,
-                {
-                  "@type": "BlogPosting",
-                  "@id": `${socialUrl}#article`,
-                  "headline": fm?.title ?? title,
-                  "name": fm?.title ?? title,
-                  "url": socialUrl,
-                  "mainEntityOfPage": socialUrl,
-                  "author": { "@id": `${origin}/#person` },
-                  "publisher": { "@id": `${origin}/#person` },
-                  "isPartOf": { "@id": `${origin}/#website` },
-                  "inLanguage": lang,
-                  ...(Array.isArray(fm?.tags) && fm.tags.length
-                    ? { "keywords": fm.tags.join(", ") }
-                    : {}),
-                  ...(fm?.date && { "datePublished": fm.date }),
-                  ...(fm?.lastmod ? { "dateModified": fm.lastmod } : fm?.date ? { "dateModified": fm.date } : {}),
-                  "description": description,
-                  "image": ogImageDefaultPath,
-                  "isBasedOn": `https://github.com/junghanacs/notes.junghanacs.com/blob/v4/content/${slug}.md`,
-                },
-              ]
+                "description": description,
+              },
+            ]
+          } else {
+            // 폴더(섹션) → schema 타입. slug = "<section>/<denoteId>".
+            // notes=글, botlog=기술기록, bib/journal=창작물, meta=용어(Article족 속성 유지 + DefinedTerm 다중타입).
+            const section = slug.split("/")[0]
+            const typeBySection: Record<string, string | string[]> = {
+              notes: "Article",
+              botlog: "TechArticle",
+              bib: "CreativeWork",
+              journal: "CreativeWork",
+              meta: ["Article", "DefinedTerm"],
+            }
+            const contentType = typeBySection[section] ?? "BlogPosting"
+            // notes·botlog만 Blog 컬렉션 소속. 참고자료(bib)·용어(meta)·일지(journal)는 사이트 직속(#website).
+            const inBlog = section === "notes" || section === "botlog"
+            const crumbName = section.charAt(0).toUpperCase() + section.slice(1)
+
+            const article = {
+              // 타입이 바뀌어도 @id suffix(#article)는 고정 — 크롤러 노드 병합 안정성(v5에서 #content로 재명명).
+              "@type": contentType,
+              "@id": `${socialUrl}#article`,
+              "headline": fm?.title ?? title,
+              "name": fm?.title ?? title,
+              "url": socialUrl,
+              "mainEntityOfPage": socialUrl,
+              "author": { "@id": `${origin}/#person` },
+              "publisher": { "@id": `${origin}/#person` },
+              "isPartOf": { "@id": inBlog ? `${origin}/#blog` : `${origin}/#website` },
+              "breadcrumb": { "@id": `${socialUrl}#breadcrumb` },
+              "inLanguage": lang,
+              ...(Array.isArray(fm?.tags) && fm.tags.length
+                ? { "keywords": fm.tags.join(", ") }
+                : {}),
+              ...(fm?.date && { "datePublished": fm.date }),
+              ...(fm?.lastmod ? { "dateModified": fm.lastmod } : fm?.date ? { "dateModified": fm.date } : {}),
+              "description": description,
+              "image": ogImageDefaultPath,
+              "isBasedOn": `https://github.com/junghanacs/notes.junghanacs.com/blob/v4/content/${slug}.md`,
+            }
+            const breadcrumb = {
+              "@type": "BreadcrumbList",
+              "@id": `${socialUrl}#breadcrumb`,
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": origin },
+                { "@type": "ListItem", "position": 2, "name": crumbName, "item": `${origin}/${section}/` },
+                { "@type": "ListItem", "position": 3, "name": fm?.title ?? title, "item": socialUrl },
+              ],
+            }
+            const blog = {
+              "@type": "Blog",
+              "@id": `${origin}/#blog`,
+              "name": "junghanacs digital garden",
+              "url": origin,
+              "inLanguage": lang,
+              "isPartOf": { "@id": `${origin}/#website` },
+              "publisher": { "@id": `${origin}/#person` },
+            }
+            graph = inBlog
+              ? [person, website, blog, article, breadcrumb]
+              : [person, website, article, breadcrumb]
+          }
 
           const jsonLd = { "@context": "https://schema.org", "@graph": graph }
           return (
