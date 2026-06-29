@@ -179,8 +179,8 @@ export default (() => {
                 "url": origin,
                 "name": title,
                 "inLanguage": lang,
-                ...(fm?.date && { "dateCreated": fm.date }),
-                ...(fm?.lastmod && { "dateModified": fm.lastmod }),
+                ...(fm?.date ? { "dateCreated": fm.date } : {}),
+                ...(fm?.lastmod ? { "dateModified": fm.lastmod } : {}),
                 "isPartOf": { "@id": `${origin}/#website` },
                 "about": { "@id": `${origin}/#person` },
                 "mainEntity": { "@id": `${origin}/#person` },
@@ -205,8 +205,6 @@ export default (() => {
               meta: ["Article", "DefinedTerm"],
             }
             const contentType = typeBySection[section] ?? "BlogPosting"
-            // notes·botlog만 Blog 컬렉션 소속. 참고자료(bib)·용어(meta)·일지(journal)는 사이트 직속(#website).
-            const inBlog = section === "notes" || section === "botlog"
             const crumbName = section.charAt(0).toUpperCase() + section.slice(1)
 
             const article = {
@@ -219,14 +217,16 @@ export default (() => {
               "mainEntityOfPage": socialUrl,
               "author": { "@id": `${origin}/#person` },
               "publisher": { "@id": `${origin}/#person` },
-              "isPartOf": { "@id": inBlog ? `${origin}/#blog` : `${origin}/#website` },
+              // 가든은 blog가 아니다. 폴더별 의미는 @type이 표현하고, 모든 공개 MD 산출물은
+              // 가든 웹사이트(#website)의 일부로 둔다. 섹션별 컬렉션 엔티티는 v5에서 설계한다.
+              "isPartOf": { "@id": `${origin}/#website` },
               // breadcrumb는 schema.org에서 WebPage 전용 속성 → Article/CreativeWork에 붙이면
               // validator 경고. BreadcrumbList는 graph에 standalone 노드로 둔다(Google 공식 패턴).
               "inLanguage": lang,
               ...(Array.isArray(fm?.tags) && fm.tags.length
                 ? { "keywords": fm.tags.join(", ") }
                 : {}),
-              ...(fm?.date && { "datePublished": fm.date }),
+              ...(fm?.date ? { "datePublished": fm.date } : {}),
               ...(fm?.lastmod ? { "dateModified": fm.lastmod } : fm?.date ? { "dateModified": fm.date } : {}),
               "description": description,
               "image": ogImageDefaultPath,
@@ -241,18 +241,7 @@ export default (() => {
                 { "@type": "ListItem", "position": 3, "name": fm?.title ?? title, "item": socialUrl },
               ],
             }
-            const blog = {
-              "@type": "Blog",
-              "@id": `${origin}/#blog`,
-              "name": "junghanacs digital garden",
-              "url": origin,
-              "inLanguage": lang,
-              "isPartOf": { "@id": `${origin}/#website` },
-              "publisher": { "@id": `${origin}/#person` },
-            }
-            graph = inBlog
-              ? [person, website, blog, article, breadcrumb]
-              : [person, website, article, breadcrumb]
+            graph = [person, website, article, breadcrumb]
           }
 
           const jsonLd = { "@context": "https://schema.org", "@graph": graph }

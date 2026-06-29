@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------------------
 [build]
   publish = "public"
-  command = "npx quartz build && bash scripts/post-build.sh"
+  command = "npx quartz build && node scripts/validate-jsonld.mjs && bash scripts/post-build.sh"
 
 [build.environment]
   NODE_VERSION = "22"
