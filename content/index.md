@@ -46,7 +46,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260622T000000.md" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260629T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -54,9 +54,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260622T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260629T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260622T000000.md" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260629T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [folder: journal]({{< relref "/journal" >}})
 
@@ -72,7 +72,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 지나치는 삶의 흔적들을 한 곳에 담는다. [#조테로]({{< relref "/meta/20240320T110018.md" >}})에는 책 뿐만 아니라 어제 본 영상, 오늘 나를 감동하게 한 음악, 어제 다녀온 멋진 [#까페]({{< relref "/meta/20241207T071235.md" >}})도 포함 된다. 모든 것을 노트로 만들 필요는 없다. 때가 되면 노트가 되는 것 뿐이다. 어쩌다보니 도서는 [한국십진분류]({{< relref "/meta/20240312T142358.md" >}})로 정리한다. 인생은 한 권의 책. 하나의 서지노트에 한 사람의 인생이 담기곤 한다. [#모두가저자다 #인생은한권의책]({{< relref "/notes/20240925T200824.md" >}}) 한 마디로 [#어쏠로지]({{< relref "/meta/20240508T103852.md" >}})로 요약할 수 있으리라.
 
--   [folder: bib (679)]({{< relref "/bib" >}})
+-   [folder: bib (680)]({{< relref "/bib" >}})
 -   [@junghan0611/zotero-config/output GitHub](https://github.com/junghan0611/zotero-config/tree/main/output) : 8000여개 서지 BIB 엔트리
 -   [@junghanacs - zotero](https://www.zotero.org/groups/5570207/junghanacs/library) : 도서 목록 Zotero 온라인
 
@@ -88,7 +88,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [tags index (2743)]({{< relref "/tags" >}}) english keywords
+-   [tags index (2750)]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -193,5 +193,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-06-25 13:25, CountNotes: 3493 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.6), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-06-29 10:39, CountNotes: 3495 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.6), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
