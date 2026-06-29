@@ -220,7 +220,8 @@ export default (() => {
               "author": { "@id": `${origin}/#person` },
               "publisher": { "@id": `${origin}/#person` },
               "isPartOf": { "@id": inBlog ? `${origin}/#blog` : `${origin}/#website` },
-              "breadcrumb": { "@id": `${socialUrl}#breadcrumb` },
+              // breadcrumb는 schema.org에서 WebPage 전용 속성 → Article/CreativeWork에 붙이면
+              // validator 경고. BreadcrumbList는 graph에 standalone 노드로 둔다(Google 공식 패턴).
               "inLanguage": lang,
               ...(Array.isArray(fm?.tags) && fm.tags.length
                 ? { "keywords": fm.tags.join(", ") }
