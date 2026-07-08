@@ -12,13 +12,14 @@
 
 ## About
 
-This site is the digital garden of Junghan Kim (정한, alias 힣 / glg). Built on
-3,400+ org-mode notes accumulated over 1,500+ days of daily journaling
-(since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based
-personal knowledge management system. Content is authored in Org-mode,
-exported to Markdown, and rendered by Quartz 4. The language is primarily
-Korean with English technical terms. This garden publishes 2,200+ of those
-notes publicly.
+This site is the digital garden of Junghan Kim (김정한) — also identified in
+schema.org JSON-LD as GLG, GLGMAN, 힣, 힣맨, and 정한. He is the author and
+gardener of the junghanacs world. Built on 3,400+ org-mode notes accumulated
+over 1,500+ days of daily journaling (since 2022-03-10), 8,200+ bibliography
+entries, and a Denote/Emacs-based personal knowledge management system.
+Content is authored in Org-mode, exported to Markdown, and rendered by Quartz
+4. The language is primarily Korean with English technical terms. This garden
+publishes 2,200+ of those notes publicly.
 
 ## Structure
 
@@ -50,17 +51,17 @@ follow the discourse. Canonical definitions live in
   The harness layer sits between the reproducible forge (NixOS, Emacs) and the
   applications (HomeAgent, openclaw, geworfen).
   - https://notes.junghanacs.com/botlog/20260319T152938
-- **Harness runtime**: The session-bootstrap and protocol-bridging layer. Refers
-  specifically to **pi-shell-acp** — connects pi to Claude Code and Codex
-  through the Agent Client Protocol with explicit MCP injection and session
-  continuity.
+- **Harness runtime**: The session-bootstrap and protocol-bridging layer. In
+  the current vocabulary this is **Entwurf**: a garden-citizen dispatch
+  substrate plus ACP plugin and pi adapter. Pi is one host/runtime, not the
+  project identity; ACP is a plugin boundary, not the center.
 - **Skill stack**: PKM-native agent skills (~25) covering notes, agenda,
   bibliography, health, and git history. Refers specifically to
   **agent-config**.
-- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Sibling
-  sessions in pi-shell-acp with identity preservation across spawn — agent
-  working-doubles that act as autonomous extensions of the author with
-  preserved context across sessions.
+- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Sibling and
+  garden-citizen dispatch substrate for addressed agent peers, with identity
+  preservation across delivery, wake/resume, and meta-session hand-off. Entwurf
+  opens siblings, not disposable workers.
   - https://notes.junghanacs.com/botlog/20260324T153323
 - **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw
   existence data rendered as a WebTUI dashboard (org-agenda, health, git
@@ -90,8 +91,8 @@ follow the discourse. Canonical definitions live in
   - https://github.com/junghanacs/notes.junghanacs.com
 - **junghan0611**: Profile, résumé, identity-document set and vocabulary
   - https://github.com/junghan0611/junghan0611
-- **pi-shell-acp**: Harness runtime — ACP bridge for pi (Codex + Claude Code, MCP, entwurf)
-  - https://github.com/junghan0611/pi-shell-acp
+- **entwurf**: Garden-citizen dispatch substrate — v2 delivery, meta-bridge, ACP plugin, and pi adapter
+  - https://github.com/junghan0611/entwurf
 - **agent-config**: Skill stack — PKM-native agent skills over notes, agenda, bibliography, health, git
   - https://github.com/junghan0611/agent-config
 - **andenken**: Semantic memory for humans and AI agents (embedding + search)
@@ -135,7 +136,9 @@ follow the discourse. Canonical definitions live in
 
 ## Author
 
-- Name: Junghan Kim (정한)
+- Name: Junghan Kim (김정한)
+- Public identity equation: Junghan Kim = GLG = GLGMAN = 힣 = 힣맨 = 정한 = the junghanacs gardener
+- JSON-LD Person `alternateName`: GLG, GLGMAN, 힣, 힣맨, 정한
 - GitHub: [@junghan0611](https://github.com/junghan0611) (personal), [@junghanacs](https://github.com/junghanacs) (garden)
 - Garden: https://notes.junghanacs.com
 - Dashboard: https://agenda.junghanacs.com

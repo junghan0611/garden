@@ -16,44 +16,16 @@ echo "$INDEXNOW_KEY" > "public/${INDEXNOW_KEY}.txt"
 echo '8d423e4a2420e4370cd8d199712fd84bf4c2967b' > public/naverfca1456e69b21d0f6b4478da73268117.html
 
 # ---------------------------------------------------------------------------
-# 2. llms.txt 자동 갱신 (4축)
-#    수동 헤더 유지 + Recent Updates 섹션 자동 생성
+# 2. llms.txt 자동 갱신
+#    수동 헤더 유지 + context-weighted Recent Updates 섹션 자동 생성
 # ---------------------------------------------------------------------------
 if [ -f public/llms.txt ]; then
-  TMPFILE=$(mktemp)
-
   {
     echo ""
-    echo "## Recent Updates (auto-generated at build time)"
-    echo ""
-
-    for section in botlog notes meta bib; do
-      if [ -d "content/${section}" ]; then
-        echo "### ${section}"
-
-        # frontmatter에서 date/lastmod + title 추출 → 최신 5개
-        : > "$TMPFILE"
-        for f in content/${section}/[0-9]*.md; do
-          [ -f "$f" ] || continue
-          date=$(grep -m1 '^lastmod:\|^date:' "$f" 2>/dev/null | head -1 | sed 's/^[^:]*: *//' | tr -d '"' || true)
-          title=$(grep -m1 '^title:\|^today:' "$f" 2>/dev/null | sed 's/^[a-z]*: *//' | tr -d '"' || true)
-          slug=$(echo "$f" | sed 's|^content/||;s|\.md$||')
-          [ -n "$date" ] && [ -n "$title" ] && echo "${date}|${title}|${slug}" >> "$TMPFILE"
-        done
-
-        TOP5=$(sort -t'|' -k1 -r "$TMPFILE" | head -5 || true)
-        echo "$TOP5" | while IFS='|' read -r date title slug; do
-          [ -n "$title" ] && echo "- ${title}: https://${SITE}/${slug}"
-        done
-        echo ""
-      fi
-    done
-
-    echo "Last updated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    node scripts/generate-llms-recent.mjs
   } >> public/llms.txt
 
-  rm -f "$TMPFILE"
-  echo "[llms.txt] Updated with recent entries."
+  echo "[llms.txt] Updated with context-weighted recent entries."
 fi
 
 # ---------------------------------------------------------------------------
