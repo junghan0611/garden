@@ -61,12 +61,20 @@ li.section-li {
 }
 
 // The tag index repeats one heading per tag — 2,436 of them, over half with a
-// single note underneath. At h2 scale the tag name dwarfs its own listing.
+// single note underneath. At h2 scale the tag name dwarfs its own listing, but
+// shrinking it alone leaves the tag and the note titles nearly the same size, so
+// a note reads as a sibling of its tag rather than a child. Carry the hierarchy
+// on a rail instead of on font size: the heading sits outside the rail, and every
+// note it owns sits inside it.
 .tag-index > div {
+  margin-bottom: 1.75rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--lightgray);
+
   & > h2 {
-    font-size: 1.1rem;
-    margin-top: 1.6rem;
-    margin-bottom: 0.2rem;
+    margin: 0 0 0.15rem -1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
   }
 
   & > p {
@@ -83,5 +91,10 @@ li.section-li {
 
   & ul.section-ul {
     margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  & li.section-li:last-child {
+    margin-bottom: 0;
   }
 }

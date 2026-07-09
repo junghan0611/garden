@@ -81,7 +81,7 @@ export default {
       tagIndex: "Tag Index",
       itemsUnderTag: ({ count }) =>
         count === 1 ? "1 item with this tag." : `${count} items with this tag.`,
-      showingFirst: ({ count }) => `Showing first ${count} tags.`,
+      showingFirst: ({ count }) => `Showing first ${count} notes.`,
       totalTags: ({ count }) => `Found ${count} total tags.`,
       sortedByModified: "Sorted by last modified date (newest first).",
       previewsSortedByModified: "Each tag preview is sorted by last modified date.",
