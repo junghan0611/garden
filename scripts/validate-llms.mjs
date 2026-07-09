@@ -86,8 +86,7 @@ function checkSource(file) {
 
 function checkBuilt(file) {
   if (!fs.existsSync(file)) {
-    console.log(`[llms] ${file} absent — run 'npx quartz build' to check the built artifact`)
-    return
+    return `${file} absent — run 'npx quartz build' to check the built artifact`
   }
   const text = fs.readFileSync(file, "utf8")
   const recent = text
@@ -96,18 +95,24 @@ function checkBuilt(file) {
       (line) => line.trim() === "## Recent Updates" || line.trim().startsWith("## Recent Updates "),
     ).length
 
-  // post-build.sh appends with '>>', so running it twice silently duplicates the block.
+  // A bare `npx quartz build` — what run.sh does to serve locally — rewrites
+  // public/llms.txt from source without the block. That is a normal state, not a
+  // regression. Duplication cannot happen by accident: post-build.sh appends with
+  // '>>', so a second run against one build silently stacks the block.
   if (recent === 0) {
-    fail(`${file}: '## Recent Updates' block missing — did scripts/post-build.sh run?`)
-  } else if (recent > 1) {
+    return `${file} carries no Recent Updates block — post-build.sh has not run against this build`
+  }
+  if (recent > 1) {
     fail(
       `${file}: '## Recent Updates' appears ${recent} times — post-build.sh ran more than once against the same build`,
     )
+    return null
   }
+  return `${file} has exactly one Recent Updates block`
 }
 
 checkSource(SOURCE)
-checkBuilt(BUILT)
+const builtState = checkBuilt(BUILT)
 
 if (failures.length > 0) {
   console.error(`[llms] ${failures.length} failure(s):\n`)
@@ -115,4 +120,4 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-console.log(`[llms] OK — ${SOURCE} shape valid, ${BUILT} has exactly one Recent Updates block`)
+console.log(`[llms] OK — ${SOURCE} shape valid, ${builtState}`)

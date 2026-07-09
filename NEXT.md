@@ -17,12 +17,20 @@ below (e.g. `refs[]`) are version-independent and may ship here or graduate to g
   line breaks, dead `VOCABULARY.md` link repaired, `Navigation and Identifier Schema` + `Interpretation Rules`
   added, unused `.beads/` dropped. Now guarded by `scripts/validate-llms.mjs`.
 
-## Detour 2026-07-09 (b): Folder/Tag lists are now temporal reading indexes — IN WORKING TREE, unpushed
-Implemented by Opus, verified below; **awaiting GLG visual check (`run.sh`) → commit → push**. Reviewed by GPT/pi next.
-Folder and tag listings dropped the garden's time axis and rendered tags as a vertical `<ul class="tags">`,
-so a note ate many screen lines. Each row is now `modified-date + title` / `created: … ; tags: a, b, c`
-(inline links) / `description` — the same shape `scripts/generate-llms-recent.mjs` `renderItem()` emits for LLMs.
-Listings announce `Sorted by last modified date (newest first).` (`defaultDateType: "modified"` is deliberate).
+## Detour 2026-07-09 (b): Folder/Tag lists are temporal reading indexes — COMMITTED, unpushed
+Four commits, GLG visually approved each round via `run.sh`. **Awaiting GPT/pi review → GLG push → agenda stamp.**
+
+| Commit | What |
+|---|---|
+| `9d89bc82` | `docs(llms)` — llms.txt semantic line breaks, dead VOCABULARY link, nav/interpretation sections, `.beads/` drop |
+| `07d82fa9` | `feat(listing)` — the time axis in folder/tag rows + `scripts/validate-llms.mjs` |
+| `9534d363` | `style(listing)` — bold date, smaller title/tags, shrink tag-index headings |
+| `f61e0cab` | `style(tags)` — tag-index hierarchy on a rail; `Showing first N tags.` → `notes.` |
+
+Each row is `modified-date + title` / `created: … ; tags: a, b, c` (inline links) / `description` — the same
+shape `scripts/generate-llms-recent.mjs` `renderItem()` emits for LLMs. Listings announce
+`Sorted by last modified date (newest first).` (`defaultDateType: "modified"` is deliberate; folders sorting
+first is ordinary and goes unexplained).
 
 `PageList` gained `showCreated` / `showDescription`, both defaulting **false**, so Category and the tag index
 required no call-site change and could not regress. The inline-tag markup applies everywhere unconditionally.
@@ -35,30 +43,54 @@ required no call-site change and could not regress. The inline-tag markup applie
 | `categories/index.html` | ❌ | ❌ | untouched: 56 rows, `created:` 0, `section-desc` 0 |
 
 Dropping the `<ul>/<li>` tag wrappers shrank `tags/index.html` even while every other listing grew.
-Turning description on there would have added ~1.4MB and, worse, buried 2,437 tag headings under
-6,537 three-line summaries — `/tags/` is an index *of tags*, not of notes.
+Turning description on there would have added ~1.4MB and buried 2,436 tag headings under 6,537 three-line
+summaries — `/tags/` is an index *of tags*, not of notes.
 
-**Correction to the earlier plan**: `content/talks/sample/` is *not* a live subfolder-row instance —
-it holds no `.md`, so the trie never makes a folder node and no synthetic row renders anywhere today.
-The suppression still ships (a folder's `dates.created` is `getMostRecentDates()`, i.e. its newest child's
-created date, which describes no folder) and was verified against an isolated fixture built with
-`npx quartz build -d <fixture>`: folder row = date + title only; file row = created + description.
+### Typography, and why the tag index needed a rail
+Round 2 (GLG): bold the modified date, shrink title `h3` 1.25rem → 1.05rem with `flex:1 1 auto; min-width:0`
+so a long title wraps inside its own box instead of dropping below the date; tags line 0.85em → 0.75em;
+description 0.9em → 0.85em. Tag-index headings dropped `h2` 1.5rem → 1.1rem.
 
-### Verified 2026-07-09
-- `npx quartz build` clean; `./scripts/post-build.sh`; `node scripts/validate-jsonld.mjs` → `html=4696 ld=2238
-  content=2237`, types `Article 837 / TechArticle 80 / CreativeWork 782 / Article+DefinedTerm 538`, parse-fail 0
-  (JSON-LD contract unchanged).
+Round 3 (GLG): that shrink *created* a hierarchy bug. At 1.1rem the tag name sat next to 1.05rem note titles
+in the same link colour, so a note read as its tag's **sibling**, not its child; by the third note you had lost
+the owner. Re-enlarging the heading would undo round 2. So hierarchy moved off font size and onto space:
+a 2px `--lightgray` rail runs down each `.tag-index > div`, the `h2` hangs outside it (`margin-left: -1rem`),
+and every note the tag owns sits inside it. Zero markup, zero bytes — the wrapper class already existed.
+
+### Two bugs found and fixed on the way
+- `Showing first ${count} tags.` counts **notes**, not tags. Rendered 130× on the tag index (156 tags own more
+  than `numPages: 10` notes). Fixed in `ko-KR` + `en-US` only.
+- Synthetic folder rows: a folder's `dates.created` is `getMostRecentDates()` — its *newest child's* created
+  date, describing no folder. Suppressed. **Correction to the earlier plan**: `content/talks/sample/` is *not*
+  a live instance (it holds no `.md`, so the trie never makes a folder node and no synthetic row renders
+  anywhere today). Verified instead against an isolated fixture via `npx quartz build -d <fixture>`:
+  folder row = date + title only; file row = created + description.
+
+### Verified 2026-07-09 (every round)
+- `npx quartz build` clean → `./scripts/post-build.sh` → `node scripts/validate-jsonld.mjs` → `html=4696
+  ld=2238 content=2237`, types `Article 837 / TechArticle 80 / CreativeWork 782 / Article+DefinedTerm 538`,
+  parse-fail 0. JSON-LD contract unchanged throughout.
 - `node scripts/validate-llms.mjs` → OK. **New validator**; `validate-jsonld.mjs` stays JSON-LD-only.
-  Five rules, each proven to fire by injecting the regression it guards: mid-sentence hard wrap in a paragraph,
-  the same in a bullet, the dead bare `github.com/junghan0611/VOCABULARY.md` path, a missing required heading,
-  and a duplicated `## Recent Updates` (because `post-build.sh` appends with `>>`, so two local runs stack it).
-  A new list item never counts as a continuation line — that distinction is what makes the wrap check usable.
-- `grep -c 'class="tags"' public/tags/index.html` → 0. `npx tsc --noEmit`: **23 errors before, 23 after** — the
-  pre-existing red baseline (incl. `Date.tsx:47` `formatDate` arity, CategoryContent's missing i18n key) is
-  untouched and no new type error entered. tsc is not a gate here; builds go through esbuild.
-- Sort-notice strings are optional keys (`sortedByModified?`) in `i18n/locales/definition.ts`, filled only in
-  `ko-KR` + `en-US`. The other 29 locales stay untouched and silently omit the sentence. `ko-KR` strings are
-  intentionally English.
+  Five rules, each **proven to fire by injecting the regression it guards**: mid-sentence hard wrap in a
+  paragraph, the same in a bullet, the dead bare `github.com/junghan0611/VOCABULARY.md` path, a missing
+  required heading, and a duplicated `## Recent Updates` (`post-build.sh` appends with `>>`, so two local runs
+  stack it). A new list item never counts as a continuation line — that distinction makes the wrap check usable.
+  A **missing** Recent Updates block is *not* a failure: a bare `npx quartz build` (what `run.sh` does to serve
+  locally) rewrites `public/llms.txt` from source without it. The validator says which of the three built states
+  it saw rather than claiming "exactly one block" in all of them — an early version did, and lied.
+- `grep -c 'class="tags"' public/tags/index.html` → 0. CSS asserted against the **compiled** `public/index.css`,
+  not the SCSS source, so a mis-nested rule cannot pass unnoticed.
+- `npx tsc --noEmit`: **23 errors before, 23 after** — the pre-existing red baseline (incl. `Date.tsx:47`
+  `formatDate` arity, CategoryContent's missing i18n key) is untouched and no new type error entered. tsc is not
+  a gate here; builds go through esbuild. `npx prettier --check` clean on every changed file.
+- Sort-notice strings are optional keys (`sortedByModified?`, `previewsSortedByModified?`) in
+  `i18n/locales/definition.ts`, filled only in `ko-KR` + `en-US`. The other 29 locales stay untouched and
+  silently omit the sentence. `ko-KR` strings are intentionally English (GLG: Korean translation reads badly).
+
+### Open, deliberately not done
+Over half the tag-index blocks (1,207 of 2,436) own exactly one note, so the rail keeps stopping after one row.
+Special-casing them in CSS would be premature: that shape is a symptom of the orphan-tag problem below, and it
+should shrink once tag hygiene lands. Revisit only if it still reads badly after the org-side cleanup.
 
 ### Do not touch
 `content/*.md` (org export output) · per-page canonical (see AGENTS.md URL invariants) · the JSON-LD contract ·
