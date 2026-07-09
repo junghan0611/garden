@@ -3,7 +3,6 @@ today: "#home: notes.junghanacs.com"
 author: ["junghanacs"]
 date: 2025-06-10T15:48:00+09:00
 lastmod: 2026-06-23T08:29:00+09:00
-keywords: ["homepage"]
 draft: false
 title: "Home: Digital Garden🏡"
 description: "The digital garden of Junghan Kim (김정한) — known as GLG (힣), and reborn through working alongside AI agents as GLGMAN (힣맨) — author and gardener of the junghanacs world. A Korean web of interconnected notes on engineering, philosophy, and knowledge management (PKM), grown along a single timeline as a lifelong practice he calls Authology (어쏠로지)."
@@ -88,7 +87,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [tags index (2767)]({{< relref "/tags" >}}) english keywords
+-   [tags index (1212)]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -96,6 +95,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [탐구: 두 트랙 - PKM-AI 하네스와 1KB 공개키]({{< relref "/notes/20250326T151413.md" >}})
 -   [Anthropic J-space - Kevin Kelly Emergent Self Loop]({{< relref "/notes/20241213T143821.md" >}})
 -   [Mythos, Abstraction, Leverage, Realism]({{< relref "/notes/20251126T143110.md" >}})
 -   [제주 재주 재수]({{< relref "/notes/20240730T091506.md" >}})
@@ -195,5 +195,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-07-08 18:39, CountNotes: 3499 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.6), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-07-09 15:05, CountNotes: 3498 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.6), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
