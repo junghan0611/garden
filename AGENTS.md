@@ -95,6 +95,7 @@ Every note has two SEO layers added via the export pipeline:
 - **Frontmatter**: YAML (title, date, tags, draft, description)
 - **Internal links**: Hugo relref or Wikilinks
 - **Do not edit** `content/` files directly — export from Org source
+- **Exception**: `content/llms.txt` is a hand-maintained machine entry point. Keep prose with semantic line breaks (one sentence or bullet per physical line); do not Emacs-fill paragraphs mid-sentence, because translators and simple LLM parsers degrade on arbitrary `fill-column` wraps.
 
 ### Code Style
 - TypeScript: follows Quartz default style

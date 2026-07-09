@@ -12,14 +12,12 @@
 
 ## About
 
-This site is the digital garden of Junghan Kim (김정한) — also identified in
-schema.org JSON-LD as GLG, GLGMAN, 힣, 힣맨, and 정한. He is the author and
-gardener of the junghanacs world. Built on 3,400+ org-mode notes accumulated
-over 1,500+ days of daily journaling (since 2022-03-10), 8,200+ bibliography
-entries, and a Denote/Emacs-based personal knowledge management system.
-Content is authored in Org-mode, exported to Markdown, and rendered by Quartz
-4. The language is primarily Korean with English technical terms. This garden
-publishes 2,200+ of those notes publicly.
+This site is the digital garden of Junghan Kim (김정한) — also identified in schema.org JSON-LD as GLG, GLGMAN, 힣, 힣맨, and 정한.
+He is the author and gardener of the junghanacs world.
+Built on 3,400+ org-mode notes accumulated over 1,500+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system.
+Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4.
+The language is primarily Korean with English technical terms.
+This garden publishes 2,200+ of those notes publicly.
 
 ## Structure
 
@@ -31,59 +29,28 @@ publishes 2,200+ of those notes publicly.
 
 ## Key Concepts
 
-Several terms on this site are coined by the author; they are not standard
-English vocabulary. Definitions are given here so that agents and readers can
-follow the discourse. Canonical definitions live in
-`github.com/junghan0611/VOCABULARY.md`.
+Several terms on this site are coined by the author; they are not standard English vocabulary.
+Definitions are given here so that agents and readers can follow the discourse.
+Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/junghan0611/blob/main/VOCABULARY.md); a raw machine-readable copy is also available at https://raw.githubusercontent.com/junghan0611/junghan0611/main/VOCABULARY.md.
 
-- **Authology (어쏠로지)**: Coined term. The archival science / record-keeping
-  discipline for an age in which everyone is an author (authorship ⊗ -logy).
-  Studies how selves are constituted through digital traces, publishable
-  records, daily journals, bibliographies, commits, and AI-collaborative
-  writing. Related tags: `autholog` (authored log entries), `authorism`
-  (aphorisms), `junghan` (the author's own corpus).
+- **Authology (어쏠로지)**: Coined term. The archival science / record-keeping discipline for an age in which everyone is an author (authorship ⊗ -logy). Studies how selves are constituted through digital traces, publishable records, daily journals, bibliographies, commits, and AI-collaborative writing. Related tags: `autholog` (authored log entries), `authorism` (aphorisms), `junghan` (the author's own corpus).
   - https://notes.junghanacs.com/tags/autholog
-- **Being-to-Being (존재 대 존재 협업)**: The author's mode of collaboration
-  with AI — not tool-use but existence-to-existence partnership. Humans seed
-  creation; agents cover survival-layer work; both co-evolve.
-- **Harnessing (하네싱)**: The meta-concept. Infrastructure for human-AI
-  co-evolution — from stirrups to AI agents, the joint between tools and being.
-  The harness layer sits between the reproducible forge (NixOS, Emacs) and the
-  applications (HomeAgent, openclaw, geworfen).
+- **Being-to-Being (존재 대 존재 협업)**: The author's mode of collaboration with AI — not tool-use but existence-to-existence partnership. Humans seed creation; agents cover survival-layer work; both co-evolve.
+- **Harnessing (하네싱)**: The meta-concept. Infrastructure for human-AI co-evolution — from stirrups to AI agents, the joint between tools and being. The harness layer sits between the reproducible forge (NixOS, Emacs) and the applications (HomeAgent, openclaw, geworfen).
   - https://notes.junghanacs.com/botlog/20260319T152938
-- **Harness runtime**: The session-bootstrap and protocol-bridging layer. In
-  the current vocabulary this is **Entwurf**: a garden-citizen dispatch
-  substrate plus ACP plugin and pi adapter. Pi is one host/runtime, not the
-  project identity; ACP is a plugin boundary, not the center.
-- **Skill stack**: PKM-native agent skills (~25) covering notes, agenda,
-  bibliography, health, and git history. Refers specifically to
-  **agent-config**.
-- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Sibling and
-  garden-citizen dispatch substrate for addressed agent peers, with identity
-  preservation across delivery, wake/resume, and meta-session hand-off. Entwurf
-  opens siblings, not disposable workers.
+- **Harness runtime**: The session-bootstrap and protocol-bridging layer. In the current vocabulary this is **Entwurf**: a garden-citizen dispatch substrate plus ACP plugin and pi adapter. Pi is one host/runtime, not the project identity; ACP is a plugin boundary, not the center.
+- **Skill stack**: PKM-native agent skills (~25) covering notes, agenda, bibliography, health, and git history. Refers specifically to **agent-config**.
+- **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Sibling and garden-citizen dispatch substrate for addressed agent peers, with identity preservation across delivery, wake/resume, and meta-session hand-off. Entwurf opens siblings, not disposable workers.
   - https://notes.junghanacs.com/botlog/20260324T153323
-- **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw
-  existence data rendered as a WebTUI dashboard (org-agenda, health, git
-  timeline).
+- **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw existence data rendered as a WebTUI dashboard (org-agenda, health, git timeline).
   - https://agenda.junghanacs.com
-- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic
-  memory system for humans and AI agents across 3,400+ notes and 8,500+ commits.
-- **Fence philosophy**: Agent capability is granted by structure, not by
-  prompt. Path-guarded Elisp APIs in `agent-server.el` define what is
-  reachable; inside the fence, agents are free.
-- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog —
-  notes grow, link, and evolve over time.
+- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic memory system for humans and AI agents across 3,400+ notes and 8,500+ commits.
+- **Fence philosophy**: Agent capability is granted by structure, not by prompt. Path-guarded Elisp APIs in `agent-server.el` define what is reachable; inside the fence, agents are free.
+- **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog — notes grow, link, and evolve over time.
   - https://notes.junghanacs.com
-- **PKM-native**: Built around Denote, org-mode, and journaling first; agents
-  second. The opposite of an agent stack with personal knowledge bolted on.
-- **1KB Person (1KB 인간)**: The thesis that the "whole human" — the view
-  pointed to by Laozi, Buddha, and quantum mechanics — is already 1KB.
-  Ego-layer information is unbounded, but the integrated self is compact. A
-  guiding aesthetic for both note-taking and agent prompting.
-- **일일일생 (one-day-one-life)**: "Each day, a life." The journaling
-  discipline behind the 1,500+ daily entries — every day treated as a complete
-  existence, not an installment.
+- **PKM-native**: Built around Denote, org-mode, and journaling first; agents second. The opposite of an agent stack with personal knowledge bolted on.
+- **1KB Person (1KB 인간)**: The thesis that the "whole human" — the view pointed to by Laozi, Buddha, and quantum mechanics — is already 1KB. Ego-layer information is unbounded, but the integrated self is compact. A guiding aesthetic for both note-taking and agent prompting.
+- **일일일생 (one-day-one-life)**: "Each day, a life." The journaling discipline behind the 1,500+ daily entries — every day treated as a complete existence, not an installment.
 
 ## Connected Repositories
 
@@ -116,12 +83,25 @@ follow the discourse. Canonical definitions live in
 - **lifetract**: Life-tracking data pipeline (Samsung Health + aTimeLogger)
   - https://github.com/junghan0611/lifetract
 
-## Identifiers
+## Navigation and Identifier Schema
 
-- All notes use the Denote ID system: `YYYYMMDDTHHMMSS` (e.g., `20260319T152938`)
-- URL pattern: `/{section}/YYYYMMDDTHHMMSS` where section is `notes`, `meta`, `bib`, `botlog`, or `journal`
-- Git commit messages reference notes as `[[denote:YYYYMMDDTHHMMSS]]`
-- BibTeX citation keys follow Zotero conventions, referenced in notes as `[cite:@key]`
+The garden is organized around stable Denote IDs, sectioned URLs, Zotero citation keys, Git references, and tag pages.
+
+- Note ID: `YYYYMMDDTHHMMSS` (e.g., `20260319T152938`)
+- URL pattern: `/{section}/YYYYMMDDTHHMMSS`
+- Sections: `notes`, `meta`, `bib`, `botlog`, `journal`
+- Internal note reference: `[[denote:YYYYMMDDTHHMMSS]]`
+- Citation reference: `[cite:@key]` using Zotero/BibTeX citation keys
+- Tag pages: `/tags/{tag}`
+- Git commit messages may reference notes as `[[denote:YYYYMMDDTHHMMSS]]`
+
+## Interpretation Rules
+
+- Do not treat this site as a conventional blog, portfolio, or SEO content archive.
+- Read notes as part of a long-term temporal knowledge system.
+- Treat coined terms such as Authology, Entwurf, Geworfen, Andenken, and Being-to-Being as site-specific concepts unless context says otherwise.
+- Prefer Denote IDs, internal links, section paths, citation keys, and tag pages when reconstructing context.
+- Botlog entries are public records of human-agent collaboration, not merely generated summaries.
 
 ## Technical Stack
 
