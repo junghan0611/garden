@@ -61,7 +61,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
             {i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}{" "}
             {i18n(cfg.locale).pages.tagContent.previewsSortedByModified}
           </p>
-          <div>
+          <div class="tag-index">
             {tags.map((tag) => {
               const pages = tagItemMap.get(tag)!
               const listProps = {

@@ -7,23 +7,32 @@ ul.section-ul {
 }
 
 li.section-li {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.1em;
 
   & > .section {
     & > .section-head {
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
-      column-gap: 0.75em;
+      column-gap: 0.6em;
 
       & > time {
         flex: 0 0 auto;
-        opacity: 0.6;
+        white-space: nowrap;
+        font-weight: 700;
+        opacity: 0.75;
         font-variant-numeric: tabular-nums;
       }
 
+      // let a long title wrap inside its own box instead of dropping whole
+      // below the date
       & > h3 {
+        flex: 1 1 auto;
+        min-width: 0;
         margin: 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        line-height: 1.4;
 
         & > a {
           background-color: transparent;
@@ -32,10 +41,10 @@ li.section-li {
     }
 
     & > .section-meta {
-      margin: 0.15em 0 0 0;
-      font-size: 0.85em;
+      margin: 0.1em 0 0 0;
+      font-size: 0.75em;
       line-height: 1.5;
-      opacity: 0.75;
+      opacity: 0.7;
 
       & > time {
         font-variant-numeric: tabular-nums;
@@ -44,9 +53,35 @@ li.section-li {
 
     & > .section-desc {
       margin: 0.2em 0 0 0;
-      font-size: 0.9em;
+      font-size: 0.85em;
       line-height: 1.5;
       opacity: 0.85;
     }
+  }
+}
+
+// The tag index repeats one heading per tag — 2,436 of them, over half with a
+// single note underneath. At h2 scale the tag name dwarfs its own listing.
+.tag-index > div {
+  & > h2 {
+    font-size: 1.1rem;
+    margin-top: 1.6rem;
+    margin-bottom: 0.2rem;
+  }
+
+  & > p {
+    margin: 0.2em 0;
+    font-size: 0.85em;
+    opacity: 0.8;
+  }
+
+  & .page-listing > p {
+    margin: 0.2em 0;
+    font-size: 0.8em;
+    opacity: 0.7;
+  }
+
+  & ul.section-ul {
+    margin-top: 0.5em;
   }
 }
