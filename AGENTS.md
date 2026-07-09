@@ -33,7 +33,7 @@ Junghan Kim = GLG (힣) = GLGMAN (힣맨) = the junghanacs gardener. Use this eq
 |------|---------|
 | [doomemacs-config](https://github.com/junghan0611/doomemacs-config) | Doom Emacs config — denote-export.sh, agent-server.el |
 | [agent-config](https://github.com/junghan0611/agent-config) | AI agent harness — AGENTS.md, skills, pi config |
-| [gogcli](https://github.com/junghan0611/gogcli) | Google Workspace + Search Console CLI |
+| [gogcli](https://github.com/steipete/gogcli) | Google Workspace + Search Console CLI (`gog`) — upstream; the `junghan0611` fork is retired |
 
 ## Directory Structure
 
@@ -138,25 +138,35 @@ Gemini only reads pages indexed by Google — unindexed pages are invisible to i
 
 ### Post-deploy workflow
 
+The command is `gog searchconsole` (aliases `gsc`, `search-console`, `webmasters`) — **not `gog sc`**, which
+upstream does not have. `siteUrl` is a positional argument and must carry its trailing slash exactly as
+`gog gsc sites list` prints it; there is no `--site` flag. Verified against gogcli v0.31.1 on 2026-07-09.
+
 ```bash
-# Submit sitemap
-gog sc sitemap submit --site="https://notes.junghanacs.com" \
+# Submit sitemap: gog gsc sitemaps submit <siteUrl> <feedpath>
+gog gsc sitemaps submit "https://notes.junghanacs.com/" \
   "https://notes.junghanacs.com/sitemap.xml" -a junghanacs@gmail.com
 
-# Check sitemap status
-gog sc sitemap list --site="https://notes.junghanacs.com" -a junghanacs@gmail.com
+# Check sitemap status (expect errors 0, and contents web:0/<pagecount>)
+gog gsc sitemaps list "https://notes.junghanacs.com/" -a junghanacs@gmail.com
 
-# Inspect a specific URL
-gog sc inspect --site="https://notes.junghanacs.com" <URL> -a junghanacs@gmail.com
+# Which pages Google actually serves. --from/--to are required.
+gog gsc query "https://notes.junghanacs.com/" --dimensions=PAGE \
+  --from=2026-06-01 --to=2026-07-08 -a junghanacs@gmail.com
 ```
 
-Tool: [gogcli](https://github.com/junghan0611/gogcli) — SC support added via patch.
+There is **no URL Inspection command** upstream, so a single URL's index status has to be read in the Search
+Console web UI. `gsc query` answers a different question — whether a page is being served in results — which is
+usually the question worth asking anyway.
+
+Tool: upstream [steipete/gogcli](https://github.com/steipete/gogcli) on PATH via nixos-config
+`scripts/external-packages.sh`. The `junghan0611/gogcli` fork that carried the old `gog sc` patch is retired.
 
 ### Deploy loop
 
 ```
 Junghan export/검수 (`denote-export.sh`, `run.sh`) → git commit → git push
-→ Netlify build → gog sc sitemap submit
+→ Netlify build → gog gsc sitemaps submit
 → wait a few days → verify in Google Search Console
 ```
 
