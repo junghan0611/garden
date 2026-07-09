@@ -10,9 +10,12 @@ li.section-li {
   margin-bottom: 1.1em;
 
   & > .section {
+    // nowrap keeps the date and title on one line. min-width alone does not:
+    // with flex-basis auto the title's max-content size decides line breaking,
+    // so a long title drops whole below the date no matter how far it may shrink.
     & > .section-head {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: baseline;
       column-gap: 0.6em;
 
@@ -24,8 +27,6 @@ li.section-li {
         font-variant-numeric: tabular-nums;
       }
 
-      // let a long title wrap inside its own box instead of dropping whole
-      // below the date
       & > h3 {
         flex: 1 1 auto;
         min-width: 0;
@@ -64,15 +65,13 @@ li.section-li {
 // single note underneath. At h2 scale the tag name dwarfs its own listing, but
 // shrinking it alone leaves the tag and the note titles nearly the same size, so
 // a note reads as a sibling of its tag rather than a child. Carry the hierarchy
-// on a rail instead of on font size: the heading sits outside the rail, and every
-// note it owns sits inside it.
+// on a rail instead of on font size: the tag keeps the body's left edge, and the
+// notes it owns hang off a rail beneath it.
 .tag-index > div {
   margin-bottom: 1.75rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--lightgray);
 
   & > h2 {
-    margin: 0 0 0.15rem -1rem;
+    margin: 0 0 0.15rem 0;
     font-size: 1.15rem;
     font-weight: 700;
   }
@@ -83,18 +82,30 @@ li.section-li {
     opacity: 0.8;
   }
 
-  & .page-listing > p {
-    margin: 0.2em 0;
-    font-size: 0.8em;
-    opacity: 0.7;
+  // --lightgray is #393639 on a #161618 dark page: 1.52:1, invisible. --gray at
+  // full strength reads 3.05:1 on dark but 5.59:1 on light, too heavy for a hair
+  // rule. Split it so both themes land near 3:1.
+  & > .page-listing {
+    padding-left: 0.9rem;
+    border-left: 2px solid color-mix(in srgb, var(--gray) 70%, transparent);
+
+    & > p {
+      margin: 0.2em 0;
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
   }
 
   & ul.section-ul {
-    margin-top: 0.5em;
+    margin-top: 0.4em;
     margin-bottom: 0;
   }
 
   & li.section-li:last-child {
     margin-bottom: 0;
   }
+}
+
+:root[saved-theme="dark"] .tag-index > div > .page-listing {
+  border-left-color: var(--gray);
 }
