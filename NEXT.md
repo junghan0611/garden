@@ -13,12 +13,13 @@ v5 is stable — Oracle self-host is a separate post-stable step. Org-export-sid
 below (e.g. `refs[]`) are version-independent and may ship here or graduate to garden.
 
 # NOW
-- **Detour 2026-07-09 (a) — committed, unpushed** (`9d89bc82`): `/llms.txt` manual header unfilled into semantic
-  line breaks, dead `VOCABULARY.md` link repaired, `Navigation and Identifier Schema` + `Interpretation Rules`
-  added, unused `.beads/` dropped. Now guarded by `scripts/validate-llms.mjs`.
+- **Detour 2026-07-09 (a) — shipped** (`9d89bc82`): `/llms.txt` manual header unfilled into semantic line breaks,
+  dead `VOCABULARY.md` link repaired, `Navigation and Identifier Schema` + `Interpretation Rules` added, unused
+  `.beads/` dropped. Now guarded by `scripts/validate-llms.mjs`.
 
-## Detour 2026-07-09 (b): Folder/Tag lists are temporal reading indexes — COMMITTED, unpushed
-Four commits, GLG visually approved each round via `run.sh`. **Awaiting GPT/pi review → GLG push → agenda stamp.**
+## Detour 2026-07-09 (b): Folder/Tag lists are temporal reading indexes — SHIPPED
+Six commits, GLG visually approved each round via `run.sh`; final round verified by driving the live dev server
+in a browser, which is what caught the last two bugs. Pushed 2026-07-09.
 
 | Commit | What |
 |---|---|
@@ -26,6 +27,8 @@ Four commits, GLG visually approved each round via `run.sh`. **Awaiting GPT/pi r
 | `07d82fa9` | `feat(listing)` — the time axis in folder/tag rows + `scripts/validate-llms.mjs` |
 | `9534d363` | `style(listing)` — bold date, smaller title/tags, shrink tag-index headings |
 | `f61e0cab` | `style(tags)` — tag-index hierarchy on a rail; `Showing first N tags.` → `notes.` |
+| `7e5b1a8d` | `fix(validate-llms)` — stop failing on a build that skipped post-build.sh |
+| `14139a40` | `fix(listing)` — one-line date+title; visible rail; rail moved onto the note listing |
 
 Each row is `modified-date + title` / `created: … ; tags: a, b, c` (inline links) / `description` — the same
 shape `scripts/generate-llms-recent.mjs` `renderItem()` emits for LLMs. Listings announce
@@ -46,25 +49,51 @@ Dropping the `<ul>/<li>` tag wrappers shrank `tags/index.html` even while every 
 Turning description on there would have added ~1.4MB and buried 2,436 tag headings under 6,537 three-line
 summaries — `/tags/` is an index *of tags*, not of notes.
 
-### Typography, and why the tag index needed a rail
-Round 2 (GLG): bold the modified date, shrink title `h3` 1.25rem → 1.05rem with `flex:1 1 auto; min-width:0`
-so a long title wraps inside its own box instead of dropping below the date; tags line 0.85em → 0.75em;
-description 0.9em → 0.85em. Tag-index headings dropped `h2` 1.5rem → 1.1rem.
+### CSS invariants — don't undo these
+- **`.section-head` must stay `flex-wrap: nowrap`.** With `wrap`, the title's `flex-basis: auto` (max-content)
+  decides line breaking, so a long title drops whole below the date. `min-width: 0` does **not** prevent this —
+  it only permits shrinking. 8 of the first 12 tag-index rows were broken this way and static HTML checks
+  could not see it.
+- **The rail belongs to `.tag-index > div > .page-listing`, not to the tag block.** A negative margin on the
+  `h2` can never push it past its parent's border — measured `h2.left === block.left + border` — so hanging the
+  heading "outside" the rail was impossible; it only indented the whole group by 16px, which is the crowding
+  GLG saw. The tag now keeps the body's left edge and the rail starts beneath it.
+- **Rail colour is theme-split.** `--lightgray` is `#393639` on dark mode's `#161618` page: **1.52:1**,
+  invisible. `--gray` at full strength is 3.05:1 on dark but 5.59:1 on light. So: 70% mix for light,
+  full `--gray` under `[saved-theme="dark"]`. Both land near 3:1.
+
+### Typography rounds
+Round 2 (GLG): bold the modified date, title `h3` 1.25rem → 1.05rem, tags line 0.85em → 0.75em, description
+0.9em → 0.85em, tag-index `h2` 1.5rem → 1.1rem.
 
 Round 3 (GLG): that shrink *created* a hierarchy bug. At 1.1rem the tag name sat next to 1.05rem note titles
 in the same link colour, so a note read as its tag's **sibling**, not its child; by the third note you had lost
-the owner. Re-enlarging the heading would undo round 2. So hierarchy moved off font size and onto space:
-a 2px `--lightgray` rail runs down each `.tag-index > div`, the `h2` hangs outside it (`margin-left: -1rem`),
-and every note the tag owns sits inside it. Zero markup, zero bytes — the wrapper class already existed.
+the owner. Re-enlarging the heading would undo round 2, so hierarchy moved off font size and onto space — the
+rail. Zero markup, zero bytes: the `.tag-index` wrapper class already existed.
 
-### Two bugs found and fixed on the way
+### Three bugs found and fixed on the way
 - `Showing first ${count} tags.` counts **notes**, not tags. Rendered 130× on the tag index (156 tags own more
   than `numPages: 10` notes). Fixed in `ko-KR` + `en-US` only.
+- `validate-llms.mjs` failed on a build that skipped `post-build.sh` — which is exactly what `run.sh` produces.
+  A validator that cries wolf on the normal development state trains you to ignore it. Now it reports which of
+  the three built states it saw; only a **duplicated** block fails, since only `post-build.sh` running twice
+  against one build can create one.
 - Synthetic folder rows: a folder's `dates.created` is `getMostRecentDates()` — its *newest child's* created
   date, describing no folder. Suppressed. **Correction to the earlier plan**: `content/talks/sample/` is *not*
   a live instance (it holds no `.md`, so the trie never makes a folder node and no synthetic row renders
   anywhere today). Verified instead against an isolated fixture via `npx quartz build -d <fixture>`:
   folder row = date + title only; file row = created + description.
+
+### Observed, not acted on
+- `/tags/` freezes the renderer: two `Page.captureScreenshot` calls timed out at 30s against the live server.
+  5.0MB and 6,537 rows will do that. Real visitors feel this too. A `numPages` cut or pagination is the lever,
+  but that is a separate decision.
+- **`#+filetags` sorts first on `/tags/`** — `+` precedes every letter — so the garbage tag from an org header
+  typo occupies the first screen of the tag index. Fix is org-side (see tag hygiene below); it is just more
+  visible than expected.
+- Over half the tag-index blocks (1,207 of 2,436) own exactly one note, so the rail keeps stopping after one
+  row. Special-casing that in CSS would be premature: it is a symptom of the orphan-tag problem, and should
+  shrink once tag hygiene lands.
 
 ### Verified 2026-07-09 (every round)
 - `npx quartz build` clean → `./scripts/post-build.sh` → `node scripts/validate-jsonld.mjs` → `html=4696
@@ -79,7 +108,12 @@ and every note the tag owns sits inside it. Zero markup, zero bytes — the wrap
   locally) rewrites `public/llms.txt` from source without it. The validator says which of the three built states
   it saw rather than claiming "exactly one block" in all of them — an early version did, and lied.
 - `grep -c 'class="tags"' public/tags/index.html` → 0. CSS asserted against the **compiled** `public/index.css`,
-  not the SCSS source, so a mis-nested rule cannot pass unnoticed.
+  not the SCSS source, so a mis-nested rule cannot pass unnoticed — one edit did mis-nest and the compiled
+  output caught it.
+- **Driven in a real browser** against `run.sh` (port 1231), which is the only reason the last two bugs surfaced:
+  measured `time`/`h3` bounding boxes across rows (8 of 12 broken), measured `h2.left` vs `block.left` to prove
+  the negative margin could never escape the border, and computed rail contrast per theme. Neither the built
+  HTML nor the compiled CSS could have shown these.
 - `npx tsc --noEmit`: **23 errors before, 23 after** — the pre-existing red baseline (incl. `Date.tsx:47`
   `formatDate` arity, CategoryContent's missing i18n key) is untouched and no new type error entered. tsc is not
   a gate here; builds go through esbuild. `npx prettier --check` clean on every changed file.
@@ -87,14 +121,10 @@ and every note the tag owns sits inside it. Zero markup, zero bytes — the wrap
   `i18n/locales/definition.ts`, filled only in `ko-KR` + `en-US`. The other 29 locales stay untouched and
   silently omit the sentence. `ko-KR` strings are intentionally English (GLG: Korean translation reads badly).
 
-### Open, deliberately not done
-Over half the tag-index blocks (1,207 of 2,436) own exactly one note, so the rail keeps stopping after one row.
-Special-casing them in CSS would be premature: that shape is a symptom of the orphan-tag problem below, and it
-should shrink once tag hygiene lands. Revisit only if it still reads badly after the org-side cleanup.
-
 ### Do not touch
 `content/*.md` (org export output) · per-page canonical (see AGENTS.md URL invariants) · the JSON-LD contract ·
-`CategoryContent.tsx` call sites · `tags/index` payload · `defaultDateType: "modified"` · the red tsc baseline.
+`CategoryContent.tsx` call sites · `tags/index` payload · `defaultDateType: "modified"` · the red tsc baseline ·
+the three CSS invariants above.
 
 ## Queued after this detour: tag hygiene (org-source side, not notes/)
 Tags are **public URLs** (`/tags/{tag}`), so tag naming is a URL-stability decision, not a cosmetic one.
@@ -165,7 +195,12 @@ node scripts/validate-jsonld.mjs
 node scripts/validate-llms.mjs
 node -e 'const fs=require("fs");const ex=f=>fs.readFileSync(f,"utf8").match(/ld\+json">([\s\S]*?)<\/script>/)[1];console.log(JSON.stringify(JSON.parse(ex("public/index.html")),null,1))'
 # expect: validate-jsonld OK; parse failures 0; Person.image consistent; ProfilePage ImageObject on home; no Blog node; content isPartOf #website
-# expect: validate-llms OK; content/llms.txt free of mid-sentence wraps; exactly one '## Recent Updates'
+# expect: validate-llms OK; content/llms.txt free of mid-sentence wraps; one '## Recent Updates' (none if post-build skipped)
 ```
+A dev server is already writing `public/`, so verify a clean tree elsewhere rather than fighting it:
+`npx quartz build -o /tmp/verifyout && node scripts/validate-jsonld.mjs /tmp/verifyout`.
+
 Listing changes additionally: `grep -c 'class="tags"' public/tags/index.html` → 0, and
 `du -h public/tags/index.html public/notes/index.html` → tags/index must not grow (5.0M), notes/index ≈ 696K.
+CSS must be asserted against compiled `public/index.css`, and layout against a real browser — see the CSS
+invariants in the detour above for what static checks cannot see.
