@@ -76,6 +76,7 @@ export interface Translation {
     folderContent: {
       folder: string
       itemsUnderFolder: (variables: { count: number }) => string
+      sortedByModified?: string
     }
     tagContent: {
       tag: string
@@ -83,6 +84,8 @@ export interface Translation {
       itemsUnderTag: (variables: { count: number }) => string
       showingFirst: (variables: { count: number }) => string
       totalTags: (variables: { count: number }) => string
+      sortedByModified?: string
+      previewsSortedByModified?: string
     }
   }
 }

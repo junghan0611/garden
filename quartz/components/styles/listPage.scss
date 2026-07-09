@@ -7,34 +7,46 @@ ul.section-ul {
 }
 
 li.section-li {
-  margin-bottom: 1em;
+  margin-bottom: 1.2em;
 
   & > .section {
-    display: grid;
-    grid-template-columns: fit-content(8em) 3fr 1fr;
+    & > .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 0.75em;
 
-    @media all and ($mobile) {
-      & > .tags {
-        display: none;
+      & > time {
+        flex: 0 0 auto;
+        opacity: 0.6;
+        font-variant-numeric: tabular-nums;
+      }
+
+      & > h3 {
+        margin: 0;
+
+        & > a {
+          background-color: transparent;
+        }
       }
     }
 
-    & > .desc > h3 > a {
-      background-color: transparent;
+    & > .section-meta {
+      margin: 0.15em 0 0 0;
+      font-size: 0.85em;
+      line-height: 1.5;
+      opacity: 0.75;
+
+      & > time {
+        font-variant-numeric: tabular-nums;
+      }
     }
 
-    & .meta {
-      margin: 0 1em 0 0;
-      opacity: 0.6;
+    & > .section-desc {
+      margin: 0.2em 0 0 0;
+      font-size: 0.9em;
+      line-height: 1.5;
+      opacity: 0.85;
     }
-  }
-}
-
-// modifications in popover context
-.popover .section {
-  grid-template-columns: fit-content(8em) 1fr !important;
-
-  & > .tags {
-    display: none;
   }
 }

@@ -1,6 +1,6 @@
 import { FullSlug, isFolderPath, resolveRelative } from "../util/path"
 import { QuartzPluginData } from "../plugins/vfile"
-import { Date, getDate } from "./Date"
+import { Date, getDate, getDateCustom } from "./Date"
 import { QuartzComponent, QuartzComponentProps } from "./types"
 import { GlobalConfiguration } from "../cfg"
 
@@ -55,9 +55,19 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
 type Props = {
   limit?: number
   sort?: SortFn
+  showCreated?: boolean
+  showDescription?: boolean
 } & QuartzComponentProps
 
-export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
+export const PageList: QuartzComponent = ({
+  cfg,
+  fileData,
+  allFiles,
+  limit,
+  sort,
+  showCreated,
+  showDescription,
+}: Props) => {
   const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg)
   let list = allFiles.sort(sorter)
   if (limit) {
@@ -70,31 +80,51 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
         const title = page.frontmatter?.title
         const tags = page.frontmatter?.tags ?? []
 
+        // synthetic folder rows borrow their newest child's created date, so it describes
+        // no folder; they carry no description either
+        const isFolder = isFolderPath(page.slug ?? "")
+        const created = !isFolder && showCreated ? getDateCustom(cfg, page, "created") : undefined
+        const description = !isFolder && showDescription ? page.description : undefined
+        const hasMeta = created !== undefined || tags.length > 0
+
         return (
           <li class="section-li">
             <div class="section">
-              <p class="meta">
+              <div class="section-head">
                 {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
-              </p>
-              <div class="desc">
                 <h3>
                   <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
                     {title}
                   </a>
                 </h3>
               </div>
-              <ul class="tags">
-                {tags.map((tag) => (
-                  <li>
-                    <a
-                      class="internal tag-link"
-                      href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
-                    >
-                      {tag}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {hasMeta && (
+                <p class="section-meta">
+                  {created && (
+                    <>
+                      created: <Date date={created} locale={cfg.locale} />
+                      {tags.length > 0 && "; "}
+                    </>
+                  )}
+                  {tags.length > 0 && (
+                    <>
+                      tags:{" "}
+                      {tags.map((tag, i) => (
+                        <>
+                          {i > 0 && ", "}
+                          <a
+                            class="internal tag-link"
+                            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
+                          >
+                            {tag}
+                          </a>
+                        </>
+                      ))}
+                    </>
+                  )}
+                </p>
+              )}
+              {description && <p class="section-desc">{description}</p>}
             </div>
           </li>
         )
@@ -105,10 +135,6 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
 
 PageList.css = `
 .section h3 {
-  margin: 0;
-}
-
-.section > .tags {
   margin: 0;
 }
 `

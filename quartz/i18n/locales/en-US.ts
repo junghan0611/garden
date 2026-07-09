@@ -74,6 +74,7 @@ export default {
       folder: "Folder",
       itemsUnderFolder: ({ count }) =>
         count === 1 ? "1 item under this folder." : `${count} items under this folder.`,
+      sortedByModified: "Sorted by last modified date (newest first).",
     },
     tagContent: {
       tag: "Tag",
@@ -82,6 +83,8 @@ export default {
         count === 1 ? "1 item with this tag." : `${count} items with this tag.`,
       showingFirst: ({ count }) => `Showing first ${count} tags.`,
       totalTags: ({ count }) => `Found ${count} total tags.`,
+      sortedByModified: "Sorted by last modified date (newest first).",
+      previewsSortedByModified: "Each tag preview is sorted by last modified date.",
     },
     categoryContent: {
       category: "Category",

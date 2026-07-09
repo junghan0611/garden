@@ -57,7 +57,10 @@ export default ((opts?: Partial<TagContentOptions>) => {
           <article class={classes}>
             <p>{content}</p>
           </article>
-          <p>{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
+          <p>
+            {i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}{" "}
+            {i18n(cfg.locale).pages.tagContent.previewsSortedByModified}
+          </p>
           <div>
             {tags.map((tag) => {
               const pages = tagItemMap.get(tag)!
@@ -118,9 +121,12 @@ export default ((opts?: Partial<TagContentOptions>) => {
         <div class="popover-hint">
           <article class={classes}>{content}</article>
           <div class="page-listing">
-            <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
+            <p>
+              {i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}{" "}
+              {i18n(cfg.locale).pages.tagContent.sortedByModified}
+            </p>
             <div>
-              <PageList {...listProps} sort={options?.sort} />
+              <PageList {...listProps} sort={options?.sort} showCreated showDescription />
             </div>
           </div>
         </div>
