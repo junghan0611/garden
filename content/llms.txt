@@ -14,7 +14,7 @@
 
 This site is the digital garden of Junghan Kim (김정한) — also identified in schema.org JSON-LD as GLG, GLGMAN, 힣, 힣맨, and 정한.
 He is the author and gardener of the junghanacs world.
-Built on 3,400+ org-mode notes accumulated over 1,500+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system.
+Built on 3,500+ org-mode notes accumulated over 1,500+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system.
 Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4.
 The language is primarily Korean with English technical terms.
 This garden publishes 2,200+ of those notes publicly.
@@ -39,16 +39,19 @@ Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/jun
 - **Harnessing (하네싱)**: The meta-concept. Infrastructure for human-AI co-evolution — from stirrups to AI agents, the joint between tools and being. The harness layer sits between the reproducible forge (NixOS, Emacs) and the applications (HomeAgent, openclaw, geworfen).
   - https://notes.junghanacs.com/botlog/20260319T152938
 - **Harness runtime**: The session-bootstrap and protocol-bridging layer. In the current vocabulary this is **Entwurf**: a garden-citizen dispatch substrate plus ACP plugin and pi adapter. Pi is one host/runtime, not the project identity; ACP is a plugin boundary, not the center.
-- **Skill stack**: PKM-native agent skills (~25) covering notes, agenda, bibliography, health, and git history. Refers specifically to **agent-config**.
+- **Skill stack**: PKM-native agent skills (40+) covering notes, agenda, bibliography, health, and git history. Refers specifically to **agent-config**.
 - **Entwurf (분신)**: Coined usage (German *Entwurf* repurposed). Sibling and garden-citizen dispatch substrate for addressed agent peers, with identity preservation across delivery, wake/resume, and meta-session hand-off. Entwurf opens siblings, not disposable workers.
   - https://notes.junghanacs.com/botlog/20260324T153323
 - **Geworfen (게보르펜)**: "Thrown into the world" (Heidegger). Here: raw existence data rendered as a WebTUI dashboard (org-agenda, health, git timeline).
   - https://agenda.junghanacs.com
-- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic memory system for humans and AI agents across 3,400+ notes and 8,500+ commits.
+- **Andenken (안덴켄)**: Recollective thinking (Heidegger). Here: a semantic memory system for humans and AI agents across 3,500+ notes and 8,500+ commits.
 - **Fence philosophy**: Agent capability is granted by structure, not by prompt. Path-guarded Elisp APIs in `agent-server.el` define what is reachable; inside the fence, agents are free.
 - **Digital Garden (디지털가든)**: Interconnected knowledge graph, not a blog — notes grow, link, and evolve over time.
   - https://notes.junghanacs.com
 - **PKM-native**: Built around Denote, org-mode, and journaling first; agents second. The opposite of an agent stack with personal knowledge bolted on.
+- **Track 1 / Track 2**: The author keeps two inquiries separate. Track 1 is reproducible PKM-AI harness research; Track 2 is the non-reproducible encounter between a creating human and an agent.
+- **ROSSE**: Recover on your Own Site, Syndicate Elsewhere — the author's inversion of POSSE. Raw writing is struck outside, recovered into the garden, then syndicated back out.
+- **Domain-owner agent**: An agent attached to the person who owns a domain, so work returns as evidence, decisions, and next actions rather than a dashboard.
 - **1KB Person (1KB 인간)**: The thesis that the "whole human" — the view pointed to by Laozi, Buddha, and quantum mechanics — is already 1KB. Ego-layer information is unbounded, but the integrated self is compact. A guiding aesthetic for both note-taking and agent prompting.
 - **일일일생 (one-day-one-life)**: "Each day, a life." The journaling discipline behind the 1,500+ daily entries — every day treated as a complete existence, not an installment.
 
@@ -76,6 +79,10 @@ Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/jun
   - https://github.com/junghan0611/dictcli
 - **abductcli**: Abductive reasoning CLI — anomaly → signal → memo → evaluation
   - https://github.com/junghan0611/abductcli
+- **forge-config**: Forgejo connector — agents leave durable traces on code work items
+  - https://github.com/junghan0611/forge-config
+- **memex-kb**: Korean document toolchain — HWPX, scanned PDF, EPUB → Org as meta-document → office formats
+  - https://github.com/junghan0611/memex-kb
 - **nixos-config**: Reproducible NixOS system across 4 devices
   - https://github.com/junghan0611/nixos-config
 - **openglg-config**: Self-hosted authenticated work surface plus reproducible shell bootstrap
