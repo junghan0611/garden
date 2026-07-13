@@ -57,8 +57,8 @@ Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/jun
 
 ## Connected Repositories
 
-- **notes**: This garden's source (Quartz 4 + Markdown content)
-  - https://github.com/junghanacs/notes.junghanacs.com
+- **garden**: This garden's source (Quartz 4 + Markdown content)
+  - https://github.com/junghan0611/garden
 - **junghan0611**: Profile, résumé, identity-document set and vocabulary
   - https://github.com/junghan0611/junghan0611
 - **entwurf**: Garden-citizen dispatch substrate — v2 delivery, meta-bridge, ACP plugin, and pi adapter
@@ -126,7 +126,7 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - Name: Junghan Kim (김정한)
 - Public identity equation: Junghan Kim = GLG = GLGMAN = 힣 = 힣맨 = 정한 = the junghanacs gardener
 - JSON-LD Person `alternateName`: GLG, GLGMAN, 힣, 힣맨, 정한
-- GitHub: [@junghan0611](https://github.com/junghan0611) (personal), [@junghanacs](https://github.com/junghanacs) (garden)
+- GitHub: [@junghan0611](https://github.com/junghan0611) (personal), [@junghanacs](https://github.com/junghanacs) (garden identity)
 - Garden: https://notes.junghanacs.com
 - Dashboard: https://agenda.junghanacs.com
 - Threads: [@junghanacs](https://www.threads.net/@junghanacs)

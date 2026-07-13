@@ -28,7 +28,7 @@ Netlify site.
 | origin | `git@github.com:junghanacs/notes.junghanacs.com.git` |
 | upstream | `https://github.com/jackyzha0/quartz.git` — must remain |
 | old GitHub repo | public, default `v4`, HEAD `e43ad1c0` before this NEXT commit |
-| target | new public `junghan0611/garden`, default/production branch `v4` |
+| target | new public `junghan0611/garden`, default/production branch **`main`** |
 | v5 workspace | existing `junghan0611/garden_v5`, default `main`; do not merge or rename it |
 | deploy | existing Netlify site + `notes.junghanacs.com`; source currently old org repo |
 | `.git` size | **481MB** (history carries an 18MB PDF, 15MB `emojimap.json`, 10MB+ screenshots) |
@@ -77,6 +77,45 @@ repo** instead.
      Quartz release tags belong on the new canonical repo.
    - Expect a slow first push — measured pack size **490,331,321 bytes**. **Do not rewrite history to shrink it**:
      new SHAs would break every cross-reference to the old repo and destroy the rollback/diff path.
+### Branch is `main` on the new repo, not `v4` — decided 2026-07-13 (GLG)
+
+`v4` is Quartz **upstream's** default branch name; in a repo called `garden` it carries no meaning and goes
+actively wrong the moment v5 lands. `garden_v5` and `homepage` are both `main` already. GLG confirmed upstream
+Quartz v4 will not be pulled again, and even if it were, `git fetch upstream v4 && git merge upstream/v4` into
+`main` works — branch names need not match.
+
+Doing this *now* is nearly free: the branch name is encoded in exactly the three files the canonical-URL commit
+already rewrites (`Head.tsx` `isBasedOn`, `validate-jsonld.mjs` prefix, `quartz.layout.ts` `branch`), plus the
+`repo.txt` snapshot. Deferring it would cost a second cutover-grade commit and full rebuild.
+
+Consequences to carry: local `git branch -m v4 main` at cutover; GitHub default = `main`; **Netlify production
+branch = `main`**. The old repo keeps `v4`, so **rollback is `oldorg` + branch `v4`** — that asymmetry is
+deliberate; do not "fix" it. Old `…/notes.junghanacs.com/blob/v4/…` links keep resolving because the old repo
+is retained.
+
+### Step 2 is prepared and gated — branch `cutover/canonical-url`, 2026-07-13
+
+The canonical-URL + `main` change is **already committed on the local branch `cutover/canonical-url`** (cut from
+`v4`), deliberately **not** on `v4`: while `v4` still points at the old repo, a routine `git push` would ship the
+live site links to a `junghan0611/garden` that does not exist yet — and `validate-jsonld` only checks the prefix,
+so it would pass silently. Merge this branch onto `main` and push it to `neworigin` **only after** the new repo
+exists.
+
+Gate already run green on that branch (this is the check the hard-pair rule exists for):
+
+```
+npx quartz build -o /tmp/cutover        → 2,240 files, exit 0
+node scripts/validate-jsonld.mjs /tmp/cutover
+                                        → OK html=3486 ld=2239 content=2238
+node scripts/validate-llms.mjs content/llms.txt /tmp/cutover/llms.txt → OK
+emitted isBasedOn: …/junghan0611/garden/blob/main/content/notes/20241203T064647.md
+footer Source:     …/junghan0611/garden
+```
+
+Five files changed, and **the four identity URLs were left alone** (`Head.tsx:99` `rel="me"`, `Head.tsx:150`
+`sameAs`, `README.md:105`, and the `@junghanacs` link in `llms.txt:129` — only its parenthetical became
+`(garden identity)`).
+
 2. **Switch canonical repository references in one code/docs commit on the new repo**
    - `quartz.layout.ts`: Footer `Source` and `ContentMeta.repoLink`.
    - `quartz/components/Head.tsx`: JSON-LD `isBasedOn`.

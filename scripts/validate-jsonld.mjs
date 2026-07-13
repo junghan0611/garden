@@ -137,7 +137,7 @@ function validateContent(file, graph) {
   if (content.publisher?.["@id"] !== `${ORIGIN}/#person`) fail(file, "content.publisher must point to #person")
   if (content.isPartOf?.["@id"] !== `${ORIGIN}/#website`) fail(file, "content.isPartOf must point to #website")
   if ("breadcrumb" in content) fail(file, "content node must not carry breadcrumb property; keep BreadcrumbList standalone")
-  if (!content.isBasedOn?.startsWith("https://github.com/junghanacs/notes.junghanacs.com/blob/v4/content/")) {
+  if (!content.isBasedOn?.startsWith("https://github.com/junghan0611/garden/blob/main/content/")) {
     fail(file, "content.isBasedOn missing GitHub source URL")
   }
 

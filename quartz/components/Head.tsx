@@ -230,7 +230,7 @@ export default (() => {
               ...(fm?.lastmod ? { "dateModified": fm.lastmod } : fm?.date ? { "dateModified": fm.date } : {}),
               "description": description,
               "image": ogImageDefaultPath,
-              "isBasedOn": `https://github.com/junghanacs/notes.junghanacs.com/blob/v4/content/${slug}.md`,
+              "isBasedOn": `https://github.com/junghan0611/garden/blob/main/content/${slug}.md`,
             }
             const breadcrumb = {
               "@type": "BreadcrumbList",

@@ -17,7 +17,7 @@ export const sharedPageComponents: SharedLayout = {
       Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
       Mastodon: "https://fosstodon.org/@junghanacs",
       Homepage: "https://www.junghanacs.com",
-      Source: "https://github.com/junghanacs/notes.junghanacs.com",
+      Source: "https://github.com/junghan0611/garden",
       // Machine-readable entry points
       // (네트워크 제약 LLM이 홈 fetch 한 번으로 전부 provenance 승인받도록
       //  본문 링크로 노출. robots.txt 주석에도 llms.txt 경로 명시됨.)
@@ -42,8 +42,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta({
       showReadingTime: true,
-      repoLink: "https://github.com/junghanacs/notes.junghanacs.com",
-      branch: "v4",
+      repoLink: "https://github.com/junghan0611/garden",
+      branch: "main",
     }),
     Component.TagList(),
     // Component.CategoryList(), // bug in explorer
