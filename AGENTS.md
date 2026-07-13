@@ -34,6 +34,8 @@ never touched.
   every `…/notes.junghanacs.com/blob/v4/…` permalink resolving, and rollback means pointing the same Netlify
   site back at `oldorg` + branch `v4`. Do not "fix" the mismatch and do not delete the old repo.
 - Local remotes: `origin` = `junghan0611/garden`, `oldorg` = the old repo, `upstream` = `jackyzha0/quartz`.
+- This repository's release line is CalVer, beginning with `v2026.7.13`. Quartz upstream tags are historical
+  artifacts, not garden releases, and must never be pushed to `origin`.
 - `junghanacs` is a **separate user account** (not an org), and `junghan0611` is only a *collaborator* there —
   push works, but repo settings and archiving require logging in as `junghanacs`.
 
@@ -49,7 +51,7 @@ Junghan Kim = GLG (힣) = GLGMAN (힣맨) = the junghanacs gardener. Use this eq
 
 | Repo | Purpose |
 |------|---------|
-| [garden_v5](https://github.com/junghan0611/garden_v5) | Quartz **v5** rebuild workspace (branch `main`) — separate from this live v4 garden; do not merge |
+| [garden_v5](https://github.com/junghan0611/garden_v5) | Quartz **v5** rebuild workspace (branch `main`) — separate from this live garden; do not merge or port |
 | [notes.junghanacs.com](https://github.com/junghanacs/notes.junghanacs.com) | **Retired source** — read-only history on `v4`, keeps old `blob/v4/…` permalinks alive, rollback target |
 | [GLG-Mono](https://github.com/junghan0611/GLG-Mono) | The garden's single typeface (header/title/body/code). Web subsetting SSOT: `docs/WEBFONT_SUBSET.md` |
 | [doomemacs-config](https://github.com/junghan0611/doomemacs-config) | Doom Emacs config — denote-export.sh, agent-server.el |
@@ -149,7 +151,10 @@ denote-export.sh all
 ## Notes
 
 - Do not edit `content/` files directly — they are exported from Org-mode source
-- Be careful with `quartz/` customizations — upstream updates may conflict
+- This garden is developed independently. Never pull, rebase onto, or reconcile with Quartz upstream; the
+  `upstream` remote is code-reading reference only, never a merge source.
+- `npm run check` is not a release gate: `tsc --noEmit` has a documented 23-error red baseline while the
+  production build uses esbuild. Use the repository's explicit verification chain instead.
 - Korean fonts: 42dot Sans, Hahmlet, Nanum Gothic Coding
 
 ## Google Search Console (SEO)
@@ -209,7 +214,25 @@ IndexNow: `scripts/post-build.sh` appends a "Recent Updates" block to `public/ll
 
 Denote IDs and all built URLs use **uppercase `T`** (`20250727T094722`). The lone lowercase outlier is `sitemap.xml <loc>` (explicit `.toLowerCase()` in `quartz/plugins/emitters/contentIndex.tsx`). Netlify 301s uppercase→lowercase and serves lowercase `200`; `remark42.inline.ts` restores uppercase at runtime for comments. There is **no per-page `<link rel="canonical">`** — a deliberate decision: adding one would conflict the uppercase-HTML / lowercase-response / lowercase-sitemap signals (Quartz upstream refuses canonical for the same reason). Don't "fix" this without a canary confirming Netlify can preserve uppercase.
 
-v5 is **watch-and-prepare, not migrating now** — track community ox-hugo for our org-mode patches; revisit only when v5 merges to main or that fork reaches parity.
+Quartz v5 is deferred indefinitely. Its rebuild remains in `junghan0611/garden_v5` as a strictly separate
+lane; do not merge or port it into this garden.
+
+## UI and listing invariants
+
+These constraints survived real browser failures that static HTML and compiled-CSS checks did not reveal.
+Do not undo them without reproducing the affected layouts in a browser.
+
+- **`.section-head` must stay `flex-wrap: nowrap`.** With `wrap`, the title's `flex-basis: auto` (max-content)
+  decides line breaking, so a long title drops whole below the date. `min-width: 0` only permits shrinking; it
+  does not prevent that break.
+- **The rail belongs to `.tag-index > div > .page-listing`, not to the tag block.** A negative margin on the
+  `h2` cannot push it past its parent's border; it only indents the whole group and crowds the listing.
+- **Rail colour is theme-split.** Use a 70% `--gray` mix in light mode and full `--gray` under
+  `[saved-theme="dark"]`; `--lightgray` is effectively invisible against the dark page.
+- Keep `CategoryContent.tsx` call sites and the `tags/index` payload unchanged unless a task explicitly owns
+  that surface.
+- Keep `defaultDateType: "modified"`; journal ordering is its own explicit exception.
+- Preserve the JSON-LD contract and the uppercase-`T` URL behavior documented above.
 
 ## External Agent Environment (Network-Restricted LLMs)
 

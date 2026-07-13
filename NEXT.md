@@ -224,37 +224,12 @@ node scripts/validate-llms.mjs content/llms.txt /tmp/psi-verify/llms.txt
 
 Then browser-test the acceptance cases above. After Netlify deploy, run mobile and desktop PSI three times and
 record the median (lab scores vary). Keep SEO at 100 and the JSON-LD/llms contracts unchanged. Font-owner work
-lands and is measured separately; only then reassess CLS/payload targets.
+lands and is measured separately; only then reassess CLS/payload targets. Preserve the UI/CSS invariants in
+`AGENTS.md` during every implementation pass.
 
 - **Detour 2026-07-09 (a) — shipped** (`9d89bc82`): `/llms.txt` manual header unfilled into semantic line breaks,
   dead `VOCABULARY.md` link repaired, `Navigation and Identifier Schema` + `Interpretation Rules` added, unused
   `.beads/` dropped. Now guarded by `scripts/validate-llms.mjs`.
-
-## INVARIANTS — proven the hard way; do not undo
-
-Shipped work moved to `CHANGELOG.md` (v2026.7.13). What survives here are the **constraints** that work
-left behind — none of these are visible to a static HTML or compiled-CSS check, and each one cost a real
-bug to find. Candidates to graduate into `AGENTS.md`.
-
-### CSS invariants
-
-- **`.section-head` must stay `flex-wrap: nowrap`.** With `wrap`, the title's `flex-basis: auto` (max-content)
-  decides line breaking, so a long title drops whole below the date. `min-width: 0` does **not** prevent this —
-  it only permits shrinking. 8 of the first 12 tag-index rows were broken this way and static HTML checks
-  could not see it.
-- **The rail belongs to `.tag-index > div > .page-listing`, not to the tag block.** A negative margin on the
-  `h2` can never push it past its parent's border — measured `h2.left === block.left + border` — so hanging the
-  heading "outside" the rail was impossible; it only indented the whole group by 16px, which is the crowding
-  GLG saw. The tag now keeps the body's left edge and the rail starts beneath it.
-- **Rail colour is theme-split.** `--lightgray` is `#393639` on dark mode's `#161618` page: **1.52:1**,
-  invisible. `--gray` at full strength is 3.05:1 on dark but 5.59:1 on light. So: 70% mix for light,
-  full `--gray` under `[saved-theme="dark"]`. Both land near 3:1.
-
-### Do not touch
-
-`content/*.md` (org export output) · per-page canonical (see AGENTS.md URL invariants) · the JSON-LD contract ·
-`CategoryContent.tsx` call sites · `tags/index` payload · `defaultDateType: "modified"` · the red tsc baseline ·
-the three CSS invariants above.
 
 ## Queued after this detour: tag hygiene (org-source side, not notes/)
 
@@ -329,5 +304,5 @@ A dev server is already writing `public/`, so verify a clean tree elsewhere rath
 
 Listing changes additionally: `grep -c 'class="tags"' public/tags/index.html` → 0, and
 `du -h public/tags/index.html public/notes/index.html` → tags/index must not grow (5.0M), notes/index ≈ 696K.
-CSS must be asserted against compiled `public/index.css`, and layout against a real browser — see the CSS
-invariants in the detour above for what static checks cannot see.
+CSS must be asserted against compiled `public/index.css`, and layout against a real browser — see the UI/CSS
+invariants in `AGENTS.md` for what static checks cannot reveal.
