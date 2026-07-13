@@ -2,17 +2,249 @@
 
 Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
-# STATUS — FROZEN STABLE (v4)
-This repo is the **frozen stable v4 publish source**. Active development moved to the
-**v5 rebuild at [`junghan0611/garden`](https://github.com/junghan0611/garden)** (private,
-default branch `v5`). The garden steward receives all migration work there; see that
-repo's `NEXT.md` for the plan. Here: keep the live site stable on Netlify, ship only small
-v4 SEO patches if needed. Account consolidates `junghanacs` → `junghan0611`; domain
-`notes.junghanacs.com` (hostingkr) and identity are unchanged. Hosting stays Netlify until
-v5 is stable — Oracle self-host is a separate post-stable step. Org-export-side AEO items
-below (e.g. `refs[]`) are version-independent and may ship here or graduate to garden.
+# STATUS — LIVE v4; REPOSITORY CUTOVER NEXT
+This repo is the live v4 publish source for `notes.junghanacs.com`. Before font or PageSpeed work, move its
+GitHub/Netlify source from `junghanacs/notes.junghanacs.com` to the new canonical public repo
+`junghan0611/garden`. The separate Quartz v5 rebuild is actually
+[`junghan0611/garden_v5`](https://github.com/junghan0611/garden_v5) (public, default `main`); the old
+`junghan0611/garden` URL currently redirects there because that repo used to carry the shorter name.
+Creating the new live-v4 `garden` repo will intentionally retire that redirect. Domain and public identity
+remain unchanged. Hosting stays Netlify until v5 is stable; Oracle self-host remains post-stable.
 
 # NOW
+
+## P0 — migrate live garden repo + Netlify source to `junghan0611/garden`
+
+This is the next move **before GLG-Mono delivery and before the PageSpeed detour below**. Follow the proven
+`junghan0611/homepage` cutover pattern: create a new canonical repo, keep the old org repo as a read-only rollback
+surface, then relink the existing Netlify site. Do not transfer/delete the old repo and do not create a new
+Netlify site.
+
+### Current facts (verified 2026-07-13)
+
+| Item | Current |
+|---|---|
+| local repo | `~/repos/gh/notes`, branch `v4` |
+| origin | `git@github.com:junghanacs/notes.junghanacs.com.git` |
+| upstream | `https://github.com/jackyzha0/quartz.git` — must remain |
+| old GitHub repo | public, default `v4`, HEAD `e43ad1c0` before this NEXT commit |
+| target | new public `junghan0611/garden`, default/production branch `v4` |
+| v5 workspace | existing `junghan0611/garden_v5`, default `main`; do not merge or rename it |
+| deploy | existing Netlify site + `notes.junghanacs.com`; source currently old org repo |
+
+`gh repo view junghan0611/garden` currently follows GitHub's rename redirect and reports
+`nameWithOwner=junghan0611/garden_v5`; that does **not** mean a real `garden` repo exists. Creating the new repo
+will claim the old slug and stop that redirect, which is exactly the desired split: `garden` = live site,
+`garden_v5` = rebuild workspace.
+
+### Cutover sequence — keep this order
+
+1. **Preflight and create target**
+   - Confirm old `v4` is clean/pushed and record its full SHA.
+   - Create **public** `junghan0611/garden` without README/license initialization; set description and homepage
+     to the digital garden / `https://notes.junghanacs.com`.
+   - Add it temporarily as `neworigin`; keep current `origin` untouched until the first push verifies.
+   - Push `v4` explicitly and set it as GitHub default. Do **not** use `git push --mirror`: this checkout carries
+     many `upstream/*` Quartz refs and stale Dependabot refs that must not become target branches. The merged
+     local `feat/indieweb-webmention` needs no branch; review the unmerged `feat/jsonld-identity` and `origin/ko`
+     separately rather than copying them blindly. Push tags only after deciding whether upstream Quartz release
+     tags belong on the new canonical repo.
+2. **Switch canonical repository references in one code/docs commit on the new repo**
+   - `quartz.layout.ts`: Footer `Source` and `ContentMeta.repoLink`.
+   - `quartz/components/Head.tsx`: JSON-LD `isBasedOn`.
+   - `scripts/validate-jsonld.mjs`: expected `isBasedOn` prefix.
+   - `content/llms.txt`: canonical source URL (this file is the hand-maintained content exception).
+   - `README.md`, `AGENTS.md`, `repo.txt`, and current NEXT/verification commands where applicable.
+   - Do **not** mass-edit exported `content/**/*.md`: old historical links remain valid because the old public
+     repo is retained. Fix current Org-source links only when they are meant to name the canonical repo.
+3. **Rewire local remotes only after target push succeeds**
+   - Rename old `origin` → `oldorg`.
+   - Rename `neworigin` → `origin`; verify `origin=junghan0611/garden`, `oldorg=junghanacs/notes.junghanacs.com`,
+     and `upstream=jackyzha0/quartz`.
+   - Push the canonical-reference commit to new `origin/v4`; do not push new work to `oldorg`.
+4. **Relink the existing Netlify site**
+   - In the existing site serving `notes.junghanacs.com`, change repository source only:
+     `junghanacs/notes.junghanacs.com` → `junghan0611/garden`, production branch `v4`.
+   - Preserve site ID, custom domain/DNS, environment variables, deploy hooks, build command, and publish dir.
+     The successful `junghan0611/homepage` relink proves the personal GitHub account is already authorized.
+   - Trigger a fresh deploy from a commit unique to the new repo. Verify the live footer Source link and one
+     page's JSON-LD `isBasedOn` both say `junghan0611/garden`; this is the cutover canary.
+5. **Post-cutover verification and cleanup**
+   - Build + JSON-LD + llms validators; check `robots.txt`, sitemap, RSS, comments, Search, and a Denote page's
+     edit/blame/history links.
+   - Confirm Netlify deploy metadata names `junghan0611/garden@v4`, then submit the unchanged sitemap to Search
+     Console. DNS must not change.
+   - Keep `junghanacs/notes.junghanacs.com` public as rollback at first; archive it only after the new source has
+     served cleanly for a confidence window. Keep the local `oldorg` remote even after archive.
+   - Rename local directory `~/repos/gh/notes` → `~/repos/gh/garden` last, when no session/tool still holds the
+     old CWD. Update homepage's “migration in progress” note after cutover.
+
+### Migration acceptance gate
+
+```bash
+git remote -v
+# origin  = git@github.com:junghan0611/garden.git
+# oldorg = git@github.com:junghanacs/notes.junghanacs.com.git
+# upstream unchanged
+
+git status --short --branch          # v4...origin/v4, clean
+curl -s https://notes.junghanacs.com/ | grep 'github.com/junghan0611/garden'
+curl -s https://notes.junghanacs.com/notes/20241203T064647 \
+  | grep 'github.com/junghan0611/garden/blob/v4/content/'
+```
+
+Rollback is repository-source relink only: point the same Netlify site back to `oldorg/v4`. Never alter the
+custom domain or DNS during this migration.
+
+## Detour 2026-07-13: PageSpeed mobile/desktop — non-font performance + accessibility
+
+GLG ran PageSpeed Insights against the homepage and asked for an implementation-ready handoff. These are
+**Lighthouse lab results, not CrUX field data** (the report says real-user data is absent), captured 2026-07-13
+12:34 KST with Lighthouse 13.4.0.
+
+- Desktop report: <https://pagespeed.web.dev/analysis/https-notes-junghanacs-com/ket92hixxz?utm_source=search_console&form_factor=desktop&hl=ko>
+- Mobile report: <https://pagespeed.web.dev/analysis/https-notes-junghanacs-com/ket92hixxz?utm_source=search_console&form_factor=mobile&hl=ko>
+
+| Surface | Perf | A11y | Best | SEO | Agentic | FCP | LCP | TBT | CLS | SI |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| desktop | 77 | 89 | 96 | 100 | 1/3 | 1.0s | 1.0s | 210ms | .222 | 1.8s |
+| mobile | 74 | 95 | 96 | 100 | 2/3 | 1.8s | 1.8s | 510ms | .214 | 3.5s |
+
+### Ownership boundary: font lane is already active elsewhere
+
+GLG is working with the GLG-Mono font steward. Do **not** concurrently edit `@font-face`, font files,
+`font-display`, fallback metrics, or subsetting here. The two WOFF2 files are 2.58MB + 2.57MB, account for
+~5.15MB of the 6.04MB transfer, and explain almost all CLS (`.207/.214` mobile, `.211/.222` desktop).
+Re-run both reports after that lane lands; do not duplicate its work in this detour.
+
+The work below is the independent **non-font lane**. Preferred owner: an Opus implementation pass, one
+measured commit per item; GLG retains the visual/interaction gate.
+
+### P0 — stop eager search indexing (largest non-font CPU win)
+
+Evidence:
+- Mobile: `postscript.js` CPU 2,442ms, JS execution 2.3s, main-thread work 3.2s, TBT 510ms.
+- Desktop: `postscript.js` CPU 1,336ms, JS execution 1.2s, main-thread work 1.9s, TBT 210ms.
+- `quartz/components/renderPage.tsx` eagerly starts `fetch("static/contentIndex.json")` on every page.
+- `quartz/components/scripts/search.inline.ts` handles `nav` by awaiting it and immediately calls
+  `fillDocument(data)`, adding all ~2,239 documents to FlexSearch before the user opens Search.
+- The content index is ~1.81MB raw / 464KB transferred.
+
+Fix contract:
+1. Replace the eager global Promise with a memoized loader function (`fetchData()` starts once, on demand).
+   Update every consumer (`search.inline.ts`, `explorer.inline.ts`, `graph.inline.ts`) together; do not leave a
+   mixed Promise/function API.
+2. On `nav`, Search should install only lightweight click/keyboard handlers. Fetch + `fillDocument` on the
+   first Search button click or Cmd/Ctrl-K, cache the result, and show a loading state while it initializes.
+3. Preserve the global populated index across SPA navigation, but refresh the current slug used to resolve
+   result/preview URLs. Fix handler cleanup while there: `removeEventListener` must receive the same function
+   reference, not a new lambda.
+
+Acceptance:
+- Initial homepage load does not request `contentIndex.json` solely because Search exists and does not populate
+  FlexSearch before interaction.
+- First Search open works by button and Cmd/Ctrl-K; CJK exact-substring behavior, `#tag` search, previews, and
+  Search after two SPA navigations all still work.
+- Mobile TBT materially falls; target `<300ms` before font work, with no search regression.
+
+### P0 — lazy-load Remark42; do not execute comments during initial page load
+
+Evidence:
+- Initial load downloads Remark42 `remark.mjs` 253KB + `embed.js` 46KB + `remark.css` 45KB.
+- Lighthouse estimates 121KB + 22KB unused JS and 38KB unused CSS.
+- Guest startup probes `/api/v1/user?site=notes` and gets expected 401, which is the visible Best Practices
+  failure. `quartz/components/scripts/remark42.inline.ts` currently injects `embed.js` immediately on `nav`.
+
+Fix contract:
+- Render the comments shell, but load Remark42 only when the shell approaches the viewport (IntersectionObserver,
+  generous root margin such as 600px) or when an explicit accessible “Load comments” button is pressed.
+- Do not use `requestIdleCallback` as the only gate: Lighthouse will still load it and the initial-page cost
+  remains. Preserve SPA destroy/re-init, theme switching, and uppercase Denote-ID URL restoration.
+- Apply the same footer-near-viewport policy to Webmentions as a smaller follow-up; it is not a score blocker.
+
+Acceptance:
+- No `comments.junghanacs.com/web/*` or guest `/api/v1/user` request on an untouched homepage load.
+- Scroll/click loads comments; login, theme change, and comment continuity across SPA navigation work.
+- Best Practices target: 100, unless a new independent failure appears.
+
+### P1 — Explorer must not materialize the entire garden on load
+
+Evidence:
+- Lighthouse sees 5,001 DOM elements; `ul.content` has 837 children and depth 12.
+- `explorer.inline.ts:createFolderNode()` recursively creates every descendant even for collapsed folders.
+- `DesktopOnly` is CSS-only and forwards the wrapped script, so the hidden Explorer still builds on mobile.
+
+Preferred garden-scale design:
+- Explorer is **folder navigation**, Search is the note finder, and folder pages are the complete indexes.
+  Initially render folders only (plus the active note/path if needed), not all ~2,239 note links.
+- If GLG wants file browsing inside Explorer, use lazy subtree materialization with a hard cap and an
+  “Open folder index (N)” link. Never append 837 siblings merely to show one active note.
+- At minimum, skip Explorer setup while a `desktop-only` root is not visible and initialize on the first valid
+  desktop display. Pair this with memoized `fetchData()`; otherwise mobile still downloads the index.
+
+Acceptance:
+- Initial homepage DOM target `<1,500` elements; mobile hidden Explorer adds no tree and no CPU work.
+- Folder links, active path, saved collapse state, resize, and SPA navigation are browser-tested.
+- Do not trade the DOM problem for a 5MB `/tags/`-style client renderer.
+
+### P1 — accessibility/agentic quick wins (small, deterministic)
+
+1. **TOC broken `aria-controls` (desktop only).** `TableOfContents.tsx` points at `toc-*`, but
+   `OverflowListFactory` overwrites the supplied ID with `list-*`; the controlled target therefore does not
+   exist. Expose/reuse the factory's actual ID (or make it preserve a supplied ID), and ensure the overflow
+   observer uses that same ID. This should move desktop agentic accessibility from fail to pass.
+2. **Main landmark.** In `renderPage.tsx`, change the central content wrapper from `<div class="center">` to
+   one `<main class="center">` (sidebars/footer remain outside). Verify CSS selectors and SPA replacement.
+3. **Contrast.** `search.scss` uses low-contrast `var(--gray)` for “Search”; use a passing token such as
+   `var(--darkgray)`. `footer.scss` applies `opacity: .7` to the entire footer; remove inherited opacity and use
+   explicit passing colors so links/text remain legible in both themes.
+4. **Same text, different destination.** Rename the external footer toolchain link `Emacs` to `GNU Emacs` so it
+   is not confused with the internal garden note link named `Emacs`.
+
+Acceptance:
+- Every `aria-controls` resolves to an existing element after first load and after SPA navigation.
+- axe/Lighthouse: no invalid ARIA, missing main landmark, contrast, or identical-link-purpose failure.
+- A11y target 100 desktop/mobile. Agentic target 2/3 on desktop/mobile. Do **not** add fake WebMCP forms merely
+  to chase 3/3; mobile already passes accessibility-tree + `llms.txt`, and this site has no actionable form.
+
+### P2 — remove homepage-only resource waste
+
+- **KaTeX:** homepage has no math, yet global `Latex.externalResources()` loads render-blocking jsDelivr
+  `katex.min.css` and `copy-tex.min.js` (mobile third-party latency ~750ms each; render-blocking estimate 600ms
+  total). Preferred: emit KaTeX CSS/copy support only on pages whose rendered HAST contains KaTeX. Safe fallback
+  for v4: self-host/bundle the small CSS and remove or lazy-load nonessential copy-tex JS. Verify a math-heavy
+  note before shipping.
+- **Unused preconnect:** `Head.tsx` always preconnects `cdnjs.cloudflare.com`, but Mermaid is disabled and PSI
+  marks it unused. Remove it. Do not replace it with speculative preconnects.
+- Keep `index.css` and `prescript.js` blocking until proven otherwise; dark-mode bootstrap must not flash. Measure
+  before attempting critical CSS or script reshuffling.
+
+### P3 — security diagnostics: verify, then harden separately
+
+Live `curl -I` already confirms `X-Frame-Options: SAMEORIGIN`, HSTS, nosniff, Referrer-Policy, and
+Permissions-Policy from `netlify.toml`. Do not churn these because Lighthouse lists related informational audits.
+CSP/Trusted Types/COOP are real hardening opportunities but not a casual score patch:
+
+1. Inventory inline Quartz scripts, JSON-LD, Umami, Remark42, Webmention, and KaTeX origins.
+2. Start with CSP Report-Only and test Search, SPA, comments login, analytics, JSON-LD, and external embeds.
+3. Consider `Cross-Origin-Opener-Policy: same-origin` only after testing Remark42 auth/popups and share links.
+4. Enforce CSP/Trusted Types in a separate commit after violations are zero; never add broad `unsafe-*` merely
+   to satisfy an audit label.
+
+### Measurement/ship loop
+
+One concern per commit: Search → comments → Explorer → a11y → KaTeX/head cleanup. After each:
+
+```bash
+npx quartz build -o /tmp/psi-verify
+node scripts/validate-jsonld.mjs /tmp/psi-verify
+node scripts/validate-llms.mjs content/llms.txt /tmp/psi-verify/llms.txt
+```
+
+Then browser-test the acceptance cases above. After Netlify deploy, run mobile and desktop PSI three times and
+record the median (lab scores vary). Keep SEO at 100 and the JSON-LD/llms contracts unchanged. Font-owner work
+lands and is measured separately; only then reassess CLS/payload targets.
+
 - **Detour 2026-07-09 (a) — shipped** (`9d89bc82`): `/llms.txt` manual header unfilled into semantic line breaks,
   dead `VOCABULARY.md` link repaired, `Navigation and Identifier Schema` + `Interpretation Rules` added, unused
   `.beads/` dropped. Now guarded by `scripts/validate-llms.mjs`.
@@ -185,7 +417,7 @@ Handed to the org-side agent (`20260709T111627-d16ea1`, cwd `~/sync/org`) on 202
 
 # PARKED
 - `Plugin.CustomOgImages()` disabled (`quartz.config.ts`) — every page shares `/static/og-image.png`. Enable only if per-page social cards become worth the build cost.
-- v5 migration — **moved to `junghan0611/garden`** (was watch-and-prepare; now active dev there). This repo no longer tracks v5 work.
+- v5 rebuild — **moved to `junghan0611/garden_v5`** (public, default `main`). Keep it separate from the live-v4 `junghan0611/garden` cutover above.
 
 # VERIFY (after any Head.tsx / listing / llms.txt / export change)
 ```bash
