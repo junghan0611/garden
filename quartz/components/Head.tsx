@@ -96,7 +96,7 @@ export default (() => {
         {/* IndieWeb: rel="me" for IndieAuth */}
         <link rel="me" href="https://bsky.app/profile/junghanacs.bsky.social" />
         <link rel="me" href="https://fosstodon.org/@junghanacs" />
-        <link rel="me" href="https://github.com/junghanacs" />
+        <link rel="me" href="https://github.com/junghan0611" />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
@@ -143,11 +143,10 @@ export default (() => {
               "Korean language",
               "Logic",
             ],
-            // junghanacs.com = 개인 홈페이지(정본 신원), junghanacs = 가든/노트, junghan0611 = 개발용.
+            // junghanacs.com = 개인 홈페이지(정본 신원), junghan0611 = 통합 GitHub 계정.
             // homepage Person.sameAs가 notes를 가리키는 것과 reciprocal → 양방향 KG 병합 신호.
             "sameAs": [
               "https://junghanacs.com/",
-              "https://github.com/junghanacs",
               "https://github.com/junghan0611",
               "https://kr.linkedin.com/in/junghan-kim-1489a4306",
               "https://bsky.app/profile/junghanacs.bsky.social",

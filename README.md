@@ -102,8 +102,7 @@ http://localhost:8080 에서 확인.
 - **Digital Garden**: https://notes.junghanacs.com
 - **Homepage**: https://junghanacs.com
 - **Zotero Library**: https://www.zotero.org/groups/5570207/junghanacs/library
-- **GitHub (Brand)**: https://github.com/junghanacs
-- **GitHub (Personal)**: https://github.com/junghan0611
+- **GitHub**: https://github.com/junghan0611
 - **Dotfiles**: https://github.com/junghan0611/doomemacs-config
 - **Agent Config**: https://github.com/junghan0611/agent-config
 - **gogcli**: https://github.com/junghan0611/gogcli

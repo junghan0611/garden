@@ -126,7 +126,7 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - Name: Junghan Kim (김정한)
 - Public identity equation: Junghan Kim = GLG = GLGMAN = 힣 = 힣맨 = 정한 = the junghanacs gardener
 - JSON-LD Person `alternateName`: GLG, GLGMAN, 힣, 힣맨, 정한
-- GitHub: [@junghan0611](https://github.com/junghan0611) (personal), [@junghanacs](https://github.com/junghanacs) (garden identity)
+- GitHub: [@junghan0611](https://github.com/junghan0611)
 - Garden: https://notes.junghanacs.com
 - Dashboard: https://agenda.junghanacs.com
 - Threads: [@junghanacs](https://www.threads.net/@junghanacs)

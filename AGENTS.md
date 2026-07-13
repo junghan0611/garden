@@ -15,7 +15,7 @@ Project context for AI agents.
 | Name | notes.junghanacs.com |
 | Type | Quartz 4 Digital Garden |
 | Language | Korean (ko-KR) |
-| Author | Junghan Kim (@junghanacs) |
+| Author | Junghan Kim (@junghan0611 on GitHub) |
 | Live URL | https://notes.junghanacs.com |
 | **Repo** | **[junghan0611/garden](https://github.com/junghan0611/garden)**, branch **`main`** |
 | Scale | ~3,352 notes (836 notes / 534 meta / 677 bib / journal) |
@@ -204,7 +204,7 @@ IndexNow: `scripts/post-build.sh` appends a "Recent Updates" block to `public/ll
 
 `quartz/components/Head.tsx` emits a single `@graph` with stable `@id`s so crawlers and LLMs merge node properties across pages. Restricted to the homepage and Denote-ID pages (tags/folder-index/404 excluded).
 
-- **Person** (`@id …/#person`) on every page — `name`, `alternateName: [GLG, GLGMAN]`, `jobTitle`, `description`, `knowsAbout`, `knowsLanguage`, `sameAs` (5: two GitHub, LinkedIn, Bluesky, Mastodon), `image`.
+- **Person** (`@id …/#person`) on every page — `name`, `alternateName: [GLG, GLGMAN]`, `jobTitle`, `description`, `knowsAbout`, `knowsLanguage`, `sameAs` (GitHub, LinkedIn, Bluesky, Mastodon, homepage), `image`.
 - **WebSite** (`#website`), **ProfilePage** (homepage only, `mainEntity → #person`, `primaryImageOfPage` as `ImageObject`), **BlogPosting** (notes, `author/publisher → #person`, `isBasedOn → GitHub source`).
 - Profile photo: `quartz/static/profile.jpg` (640×640 grayscale) → served at `/static/profile.jpg`. Separate channel from `og:image` (`/static/og-image.png`); the face photo never overrides link-preview cards.
 - **Standard schema.org only.** No invented properties (e.g. `temporalStatus`) — crawlers drop non-standard terms. Synthesize at build time; never mutate the org source. No content `license` field until a content licence (CC-*) is actually chosen — `LICENSE.txt` is Quartz's MIT, not a content licence.
