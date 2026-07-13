@@ -31,30 +31,59 @@ Netlify site.
 | target | new public `junghan0611/garden`, default/production branch `v4` |
 | v5 workspace | existing `junghan0611/garden_v5`, default `main`; do not merge or rename it |
 | deploy | existing Netlify site + `notes.junghanacs.com`; source currently old org repo |
+| `.git` size | **481MB** (history carries an 18MB PDF, 15MB `emojimap.json`, 10MB+ screenshots) |
 
 `gh repo view junghan0611/garden` currently follows GitHub's rename redirect and reports
 `nameWithOwner=junghan0611/garden_v5`; that does **not** mean a real `garden` repo exists. Creating the new repo
 will claim the old slug and stop that redirect, which is exactly the desired split: `garden` = live site,
 `garden_v5` = rebuild workspace.
 
+**Redirect-death sweep — done 2026-07-13, clean.** The moment `junghan0611/garden` exists, the
+`garden → garden_v5` redirect dies and any consumer still using the old slug silently resolves to the **live v4
+repo** instead. Verified safe: `junghan0611/garden` appears in **no code or config** (only in this NEXT.md), and
+`~/repos/gh/garden_v5`'s `origin` is the explicit `https://github.com/junghan0611/garden_v5.git`, not the old
+slug. **One item remains manual**: confirm no Netlify site (a v5 preview) is linked to the `garden` slug before
+creating the repo.
+
 ### Cutover sequence — keep this order
 
 1. **Preflight and create target**
    - Confirm old `v4` is clean/pushed and record its full SHA.
+   - Confirm no Netlify site is linked to the `junghan0611/garden` slug (last open item of the sweep above).
+   - Decide the fate of the four inherited `.github/workflows/`. `ci.yaml` and `docker-build-push.yaml` only use
+     the auto-provided `GITHUB_TOKEN`, but **`deploy-preview.yaml` needs `CLOUDFLARE_ACCOUNT_ID` +
+     `CLOUDFLARE_API_TOKEN`** — repo secrets do **not** follow a new repo, so it will fail red from the first
+     push. These are upstream Quartz's Cloudflare Pages preview, not ours; deleting them is the clean move.
    - Create **public** `junghan0611/garden` without README/license initialization; set description and homepage
      to the digital garden / `https://notes.junghanacs.com`.
    - Add it temporarily as `neworigin`; keep current `origin` untouched until the first push verifies.
    - Push `v4` explicitly and set it as GitHub default. Do **not** use `git push --mirror`: this checkout carries
      many `upstream/*` Quartz refs and stale Dependabot refs that must not become target branches. The merged
-     local `feat/indieweb-webmention` needs no branch; review the unmerged `feat/jsonld-identity` and `origin/ko`
-     separately rather than copying them blindly. Push tags only after deciding whether upstream Quartz release
-     tags belong on the new canonical repo.
+     local `feat/indieweb-webmention` needs no branch; review the unmerged `feat/jsonld-identity` (2 commits ahead
+     of `v4`) and `origin/ko` separately rather than copying them blindly. Push tags only after deciding whether
+     upstream Quartz release tags belong on the new canonical repo.
+   - Expect a slow first push (481MB). **Do not rewrite history to shrink it**: new SHAs would break every
+     cross-reference to the old repo and destroy the rollback/diff path. Boring beats small here.
 2. **Switch canonical repository references in one code/docs commit on the new repo**
    - `quartz.layout.ts`: Footer `Source` and `ContentMeta.repoLink`.
    - `quartz/components/Head.tsx`: JSON-LD `isBasedOn`.
    - `scripts/validate-jsonld.mjs`: expected `isBasedOn` prefix.
    - `content/llms.txt`: canonical source URL (this file is the hand-maintained content exception).
    - `README.md`, `AGENTS.md`, `repo.txt`, and current NEXT/verification commands where applicable.
+   - **`Head.tsx` and `validate-jsonld.mjs` are a hard pair.** Netlify's build command is an `&&` chain
+     (`npx quartz build && node scripts/validate-jsonld.mjs && bash scripts/post-build.sh`), and the validator
+     hardcodes the expected `isBasedOn` prefix. Changing either one alone fails **every** page and aborts the
+     deploy. Hence: one commit, and **gate it locally before pushing**:
+     ```bash
+     npx quartz build -o /tmp/cutover && node scripts/validate-jsonld.mjs /tmp/cutover
+     ```
+   - **Do not touch the identity links while doing this.** `Head.tsx` `rel="me"` and JSON-LD `sameAs` point at
+     `github.com/junghanacs` — that is the **org profile**, not the repository, and AGENTS.md pins the identity
+     graph. A blind `sed s|junghanacs|junghan0611|` would silently rewrite it and destabilize the `@id` graph.
+     Only the three repo-URL sites above change.
+   - Open decision: `content/llms.txt:129` reads `@junghanacs (garden)`. After the cutover the garden repo lives
+     under `@junghan0611`, so that attribution line becomes false. It is an identity statement, not a repo URL —
+     decide it deliberately rather than folding it into the mechanical rename.
    - Do **not** mass-edit exported `content/**/*.md`: old historical links remain valid because the old public
      repo is retained. Fix current Org-source links only when they are meant to name the canonical repo.
 3. **Rewire local remotes only after target push succeeds**
@@ -110,12 +139,58 @@ GLG ran PageSpeed Insights against the homepage and asked for an implementation-
 | desktop | 77 | 89 | 96 | 100 | 1/3 | 1.0s | 1.0s | 210ms | .222 | 1.8s |
 | mobile | 74 | 95 | 96 | 100 | 2/3 | 1.8s | 1.8s | 510ms | .214 | 3.5s |
 
+**Decided 2026-07-13: do not install the Netlify Lighthouse build plugin** (the UI keeps advertising it, so this
+will get re-asked). It serves `public/` from a *local static server* inside the build container, so Netlify's
+brotli, cache headers, redirects and CDN are all out of the loop — `server-response-time` and
+`uses-text-compression` become fiction. It measures rather than fixes, spends build minutes on every push, and a
+threshold would let a ±5–10 point lab wobble block a note publish. Everything in this detour was obtained for
+free by running Lighthouse locally against the **live** site (`CHROME_PATH=$(which google-chrome) npx
+lighthouse@12 https://notes.junghanacs.com/ --only-categories=…`); PSI's anonymous API quota is exhausted, so
+use the local CLI or the web UI. Separately: the sole SEO deduction is `robots.txt` `Content-Signal:` flagged as
+an "Unknown directive" — **keep it**. The AI-crawler policy signal is deliberate, real crawlers ignore unknown
+directives harmlessly, and Lighthouse's SEO score is not a ranking factor.
+
 ### Ownership boundary: font lane is already active elsewhere
 
-GLG is working with the GLG-Mono font steward. Do **not** concurrently edit `@font-face`, font files,
-`font-display`, fallback metrics, or subsetting here. The two WOFF2 files are 2.58MB + 2.57MB, account for
-~5.15MB of the 6.04MB transfer, and explain almost all CLS (`.207/.214` mobile, `.211/.222` desktop).
-Re-run both reports after that lane lands; do not duplicate its work in this detour.
+GLG is working with the GLG-Mono font steward (`~/repos/gh/GLG-Mono`). Do **not** concurrently edit
+`@font-face`, font files, `font-display`, fallback metrics, or subsetting here. The two WOFF2 files are
+2.58MB + 2.57MB, account for ~5.15MB of the 6.04MB transfer, and explain almost all CLS (`.207/.214` mobile,
+`.211/.222` desktop). Re-run both reports after that lane lands; do not duplicate its work in this detour.
+
+**Root cause found 2026-07-13 (font steward, cross-verified here).** The bloat is not a skipped optimization —
+it is fork inheritance. GLG-Mono is a PlemolJP fork and `fontforge_script.py` still opens **IBM Plex Sans JP as
+the base font**, then merges Hangul on top; the Japanese base was never removed, and there is no web-font
+subsetting task at all. Anatomy of `GLG-Mono-Regular.woff2`: 27,846 codepoints, of which **13,022 are CJK
+Hanja (~48%)** — while the whole garden (2,245 md) uses only **3,665 distinct codepoints** and Hanja appears
+2,499 times in 18.6M characters (**0.0134%**). Both sides measured the subsets independently and agreed within
+2KB.
+
+| Option (per weight) | Size | vs 2,644KB |
+|---|---:|---:|
+| drop Hanja/Kana, keep all 11,172 Hangul | 501KB | −81% |
+| garden's actual 3,665 chars only | 267KB | −90% |
+| **`unicode-range` chunks (agreed spec)** | **136KB** | **−95%** |
+
+Chunks: latin 47KB / Hangul-common 90KB / Hangul-rest 367KB / **Hanja 1.7MB** / Kana 119KB. With
+`unicode-range` the Hanja chunk downloads only on the rare note that contains Hanja — zero glyph loss.
+Homepage (Regular+Bold) goes **5,280KB → ~272KB**.
+
+**Italic decision — answered with garden data, sent to the steward.** Theme CSS applies `font-style: italic`
+**nowhere**; the only occurrences are the two `@font-face` blocks themselves, so all italic demand comes from
+body `*em*`. `*em*`: **363/2,245 files (16.2%)**, 2,750 occurrences → keep Italic, chunk it (latin 29KB /
+Hangul-common 101KB). `***bold-italic***`: **4 files (0.18%)**, 29 occurrences, and every instance is a Latin/
+Greek word (`Notes`, `R`, `εὐδαιμονία`, `local first`) → **drop BoldItalic from the web build** (2,850KB → 0)
+and let the browser synthesize; keep it in the desktop TTF.
+
+**Google Fonts fallback is worse — do not retreat to it.** Measured, not assumed: IBM Plex Sans KR served
+through Google's own 94-chunk `unicode-range` split pulls **365KB average per real garden note** (22–32 chunks
+across 400+700), because generic frequency-ordered chunks scatter across the syllable space — while a
+garden-tuned chunk (our actual 1,755 syllables) needs one 90KB block. A fixed GLG-Mono (**272KB**) beats it.
+Worse, **IBM Plex Sans KR is not monospace** (Plex has no Korean mono — that absence is precisely why
+PlemolJP/GLG-Mono exists), so Korean would go proportional and break code-block alignment; and it **has no
+italic at all** (`ital,wght@1,400` → HTTP 400), meaning Korean italic would be browser-synthesized anyway.
+Fixing GLG-Mono is not merely the nicest outcome, it is the only one that is smaller, monospace, and italic-
+capable.
 
 The work below is the independent **non-font lane**. Preferred owner: an Opus implementation pass, one
 measured commit per item; GLG retains the visual/interaction gate.
