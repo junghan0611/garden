@@ -5,7 +5,7 @@ Project context for AI agents.
 ## Agent workspace
 
 - **`AGENTS.md`** (this file) — durable, shared baseline for any agent (Claude, GPT, Gemini) working on this repo. Edit when a rule or convention stabilizes. Durable facts live here.
-- **`NEXT.md`** — disposable session handoff: the next concrete move, its verification, and blockers. A boot sector, not a knowledge base. Read it at session start; when a NEXT item turns into a stable fact, graduate it into `AGENTS.md` and drop it from NEXT. Branch work uses `NEXT--<branch>.md`, deleted before merging to `v4`.
+- **`NEXT.md`** — disposable session handoff: the next concrete move, its verification, and blockers. A boot sector, not a knowledge base. Read it at session start; when a NEXT item turns into a stable fact, graduate it into `AGENTS.md` and drop it from NEXT. Branch work uses `NEXT--<branch>.md`, deleted before merging to `main`.
 - **`README.md`** — human- and agent-facing entry point via GitHub. Keep the "How to read this repo" section current when the workspace layout changes.
 
 ## Project Overview
@@ -17,7 +17,25 @@ Project context for AI agents.
 | Language | Korean (ko-KR) |
 | Author | Junghan Kim (@junghanacs) |
 | Live URL | https://notes.junghanacs.com |
+| **Repo** | **[junghan0611/garden](https://github.com/junghan0611/garden)**, branch **`main`** |
 | Scale | ~3,352 notes (836 notes / 534 meta / 677 bib / journal) |
+
+### Repository cutover — 2026-07-13, done
+
+The garden moved from `junghanacs/notes.junghanacs.com@v4` to **`junghan0611/garden@main`**. Same Netlify site,
+same domain, same Search Console property — only the source repository was relinked, so DNS/SSL/sitemap were
+never touched.
+
+- **`v4` is gone as a branch name here.** It was Quartz *upstream's* default, meaningless in a repo called
+  `garden`, and actively wrong once v5 lands. The branch name is encoded in exactly three places — `Head.tsx`
+  `isBasedOn`, `scripts/validate-jsonld.mjs`'s expected prefix, and `quartz.layout.ts`'s `branch` — keep them in
+  lockstep.
+- **The old repo is retained, public, read-only, and still on `v4`.** That asymmetry is deliberate: it keeps
+  every `…/notes.junghanacs.com/blob/v4/…` permalink resolving, and rollback means pointing the same Netlify
+  site back at `oldorg` + branch `v4`. Do not "fix" the mismatch and do not delete the old repo.
+- Local remotes: `origin` = `junghan0611/garden`, `oldorg` = the old repo, `upstream` = `jackyzha0/quartz`.
+- `junghanacs` is a **separate user account** (not an org), and `junghan0611` is only a *collaborator* there —
+  push works, but repo settings and archiving require logging in as `junghanacs`.
 
 ## Identity
 
@@ -31,6 +49,9 @@ Junghan Kim = GLG (힣) = GLGMAN (힣맨) = the junghanacs gardener. Use this eq
 
 | Repo | Purpose |
 |------|---------|
+| [garden_v5](https://github.com/junghan0611/garden_v5) | Quartz **v5** rebuild workspace (branch `main`) — separate from this live v4 garden; do not merge |
+| [notes.junghanacs.com](https://github.com/junghanacs/notes.junghanacs.com) | **Retired source** — read-only history on `v4`, keeps old `blob/v4/…` permalinks alive, rollback target |
+| [GLG-Mono](https://github.com/junghan0611/GLG-Mono) | The garden's single typeface (header/title/body/code). Web subsetting SSOT: `docs/WEBFONT_SUBSET.md` |
 | [doomemacs-config](https://github.com/junghan0611/doomemacs-config) | Doom Emacs config — denote-export.sh, agent-server.el |
 | [agent-config](https://github.com/junghan0611/agent-config) | AI agent harness — AGENTS.md, skills, pi config |
 | [gogcli](https://github.com/steipete/gogcli) | Google Workspace + Search Console CLI (`gog`) — upstream; the `junghan0611` fork is retired |

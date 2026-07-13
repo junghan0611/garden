@@ -1,181 +1,44 @@
 # NEXT — notes.junghanacs.com
 
 Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
-
-# STATUS — LIVE v4; REPOSITORY CUTOVER NEXT
-This repo is the live v4 publish source for `notes.junghanacs.com`. Before font or PageSpeed work, move its
-GitHub/Netlify source from `junghanacs/notes.junghanacs.com` to the new canonical public repo
-`junghan0611/garden`. The separate Quartz v5 rebuild is actually
-[`junghan0611/garden_v5`](https://github.com/junghan0611/garden_v5) (public, default `main`); the old
-`junghan0611/garden` URL currently redirects there because that repo used to carry the shorter name.
-Creating the new live-v4 `garden` repo will intentionally retire that redirect. Domain and public identity
-remain unchanged. Hosting stays Netlify until v5 is stable; Oracle self-host remains post-stable.
+# STATUS — LIVE on `junghan0611/garden@main`
+The repository cutover is **done** (2026-07-13). Durable facts about it now live in `AGENTS.md`
+("Repository cutover"); this file only carries what is still open. Next lanes: the GLG-Mono web subset
+(owned by the font steward) and the non-font PageSpeed work below. Hosting stays Netlify until v5 is stable;
+Oracle self-host remains post-stable.
 
 # NOW
 
-## P0 — migrate live garden repo + Netlify source to `junghan0611/garden`
+## Cutover — SHIPPED 2026-07-13
 
-This is the next move **before GLG-Mono delivery and before the PageSpeed detour below**. Follow the proven
-`junghan0611/homepage` cutover pattern: create a new canonical repo, keep the old org repo as a read-only rollback
-surface, then relink the existing Netlify site. Do not transfer/delete the old repo and do not create a new
-Netlify site.
+`junghanacs/notes.junghanacs.com@v4` → **`junghan0611/garden@main`**. Same Netlify site, same domain, same
+Search Console property; only the source repo was relinked, so DNS/SSL/sitemap were never touched.
 
-### Current facts (verified 2026-07-13)
+Live verification after deploy — all green:
 
-| Item | Current |
+| Check | Result |
 |---|---|
-| local repo | `~/repos/gh/notes`, branch `v4` |
-| origin | `git@github.com:junghanacs/notes.junghanacs.com.git` |
-| upstream | `https://github.com/jackyzha0/quartz.git` — must remain |
-| old GitHub repo | public, default `v4`, HEAD `e43ad1c0` before this NEXT commit |
-| target | new public `junghan0611/garden`, default/production branch **`main`** |
-| v5 workspace | existing `junghan0611/garden_v5`, default `main`; do not merge or rename it |
-| deploy | existing Netlify site + `notes.junghanacs.com`; source currently old org repo |
-| `.git` size | **481MB** (history carries an 18MB PDF, 15MB `emojimap.json`, 10MB+ screenshots) |
+| Footer `Source`, JSON-LD `isBasedOn`, `blob`/`blame` links | all `junghan0611/garden@main`, all **HTTP 200** |
+| Old repo URL anywhere on the live site | **0** occurrences (home, `llms.txt`, note page) |
+| `llms.txt:129` identity line | `@junghanacs (garden identity)` — org account **preserved**, as intended |
+| `sitemap.xml` / `index.xml` / `robots.txt` | 200 / 200 / 200 |
+| `## Recent Updates` in `llms.txt` | exactly 1 → `post-build.sh` ran once |
+| Uppercase-`T` → lowercase 301 | still in place (documented invariant, not a bug) |
 
-`gh repo view junghan0611/garden` currently follows GitHub's rename redirect and reports
-`nameWithOwner=junghan0611/garden_v5`; that does **not** mean a real `garden` repo exists. Creating the new repo
-will claim the old slug and stop that redirect, which is exactly the desired split: `garden` = live site,
-`garden_v5` = rebuild workspace.
+The `Head.tsx` ↔ `validate-jsonld.mjs` hard pair inside Netlify's `&&` build chain was gated locally before the
+push and then proved itself in production. Old repo is retained, public, read-only on `v4`, with a "moved"
+README banner and a `MOVED → junghan0611/garden` description.
 
-**Redirect-death sweep — 2026-07-13, one blocker found.** The moment `junghan0611/garden` exists, the
-`garden → garden_v5` redirect dies and any consumer still using the old slug silently resolves to the **live v4
-repo** instead.
+### Still open
 
-- **Git behaviour is safe**: `~/repos/gh/garden_v5`'s `origin` is the explicit
-  `https://github.com/junghan0611/garden_v5.git`, not the old slug. `junghan0611/garden` appears in no code or
-  config in *this* repo either.
-- **Netlify is clear** (GPT closed this via the authenticated API): `notes.junghanacs.com` →
-  `junghanacs/notes.junghanacs.com@v4`, `junghanacs.com` → `junghan0611/homepage@main`, and **no site is linked
-  to the `garden` slug**.
-- **BLOCKER — `garden_v5`'s own docs still call it `junghan0611/garden`**: `garden_v5/AGENTS.md` lines 9, 18, 42,
-  114 and `garden_v5/NEXT.md:129`. `AGENTS.md:114` literally reads `origin = junghan0611/garden`. Once the new
-  repo exists, an agent that trusts that line would wire v5's remote to the **live v4 repo** and push into it.
-  **Fix garden_v5's docs to say `garden_v5` before creating the new repo.** (An earlier sweep here reported this
-  clean; the grep was filtering on `garden_v5`, which also matched the path prefix and hid every hit.)
-
-### Cutover sequence — keep this order
-
-1. **Preflight and create target**
-   - Confirm old `v4` is clean/pushed and record its full SHA.
-   - **Fix `garden_v5`'s AGENTS.md/NEXT.md self-references first** (see the blocker in the sweep above). This is
-     the one thing that must happen *before* the new repo exists.
-   - Optional cleanup, not a blocker: the four inherited `.github/workflows/` are all guarded by
-     `if: github.repository == 'jackyzha0/quartz'`, so on this fork they **skip** rather than fail — the missing
-     `CLOUDFLARE_*` secrets never come into play. They are upstream Quartz's own CI and carry no value here;
-     deleting them is tidy but changes nothing. (An earlier note here claimed they would fail red on first push.
-     That was wrong.)
-   - Create **public** `junghan0611/garden` without README/license initialization; set description and homepage
-     to the digital garden / `https://notes.junghanacs.com`.
-   - Add it temporarily as `neworigin`; keep current `origin` untouched until the first push verifies.
-   - Push `v4` explicitly and set it as GitHub default. Do **not** use `git push --mirror`: this checkout carries
-     many `upstream/*` Quartz refs and stale Dependabot refs that must not become target branches.
-   - **Branches: push `v4` only.** Resolved 2026-07-13 (GPT). `feat/indieweb-webmention` is already merged.
-     `feat/jsonld-identity` (2 ahead) must **not** come along — later `v4` commits already superseded it, and
-     re-introducing it would regress the Breadcrumb/type/`sameAs` work. `origin/ko` is a 2024 stub, 826 behind /
-     8 ahead. Both stay recoverable in the retained old repo. Push tags only after deciding whether upstream
-     Quartz release tags belong on the new canonical repo.
-   - Expect a slow first push — measured pack size **490,331,321 bytes**. **Do not rewrite history to shrink it**:
-     new SHAs would break every cross-reference to the old repo and destroy the rollback/diff path.
-### Branch is `main` on the new repo, not `v4` — decided 2026-07-13 (GLG)
-
-`v4` is Quartz **upstream's** default branch name; in a repo called `garden` it carries no meaning and goes
-actively wrong the moment v5 lands. `garden_v5` and `homepage` are both `main` already. GLG confirmed upstream
-Quartz v4 will not be pulled again, and even if it were, `git fetch upstream v4 && git merge upstream/v4` into
-`main` works — branch names need not match.
-
-Doing this *now* is nearly free: the branch name is encoded in exactly the three files the canonical-URL commit
-already rewrites (`Head.tsx` `isBasedOn`, `validate-jsonld.mjs` prefix, `quartz.layout.ts` `branch`), plus the
-`repo.txt` snapshot. Deferring it would cost a second cutover-grade commit and full rebuild.
-
-Consequences to carry: local `git branch -m v4 main` at cutover; GitHub default = `main`; **Netlify production
-branch = `main`**. The old repo keeps `v4`, so **rollback is `oldorg` + branch `v4`** — that asymmetry is
-deliberate; do not "fix" it. Old `…/notes.junghanacs.com/blob/v4/…` links keep resolving because the old repo
-is retained.
-
-### Step 2 is prepared and gated — branch `cutover/canonical-url`, 2026-07-13
-
-The canonical-URL + `main` change is **already committed on the local branch `cutover/canonical-url`** (cut from
-`v4`), deliberately **not** on `v4`: while `v4` still points at the old repo, a routine `git push` would ship the
-live site links to a `junghan0611/garden` that does not exist yet — and `validate-jsonld` only checks the prefix,
-so it would pass silently. Merge this branch onto `main` and push it to `neworigin` **only after** the new repo
-exists.
-
-Gate already run green on that branch (this is the check the hard-pair rule exists for):
-
-```
-npx quartz build -o /tmp/cutover        → 2,240 files, exit 0
-node scripts/validate-jsonld.mjs /tmp/cutover
-                                        → OK html=3486 ld=2239 content=2238
-node scripts/validate-llms.mjs content/llms.txt /tmp/cutover/llms.txt → OK
-emitted isBasedOn: …/junghan0611/garden/blob/main/content/notes/20241203T064647.md
-footer Source:     …/junghan0611/garden
-```
-
-Five files changed, and **the four identity URLs were left alone** (`Head.tsx:99` `rel="me"`, `Head.tsx:150`
-`sameAs`, `README.md:105`, and the `@junghanacs` link in `llms.txt:129` — only its parenthetical became
-`(garden identity)`).
-
-2. **Switch canonical repository references in one code/docs commit on the new repo**
-   - `quartz.layout.ts`: Footer `Source` and `ContentMeta.repoLink`.
-   - `quartz/components/Head.tsx`: JSON-LD `isBasedOn`.
-   - `scripts/validate-jsonld.mjs`: expected `isBasedOn` prefix.
-   - `content/llms.txt`: canonical source URL (this file is the hand-maintained content exception).
-   - `README.md`, `AGENTS.md`, `repo.txt`, and current NEXT/verification commands where applicable.
-   - **`Head.tsx` and `validate-jsonld.mjs` are a hard pair.** Netlify's build command is an `&&` chain
-     (`npx quartz build && node scripts/validate-jsonld.mjs && bash scripts/post-build.sh`), and the validator
-     hardcodes the expected `isBasedOn` prefix. Changing either one alone fails **every** page and aborts the
-     deploy. Hence: one commit, and **gate it locally before pushing**:
-     ```bash
-     npx quartz build -o /tmp/cutover && node scripts/validate-jsonld.mjs /tmp/cutover
-     ```
-   - **Do not touch the identity links while doing this.** `Head.tsx` `rel="me"` and JSON-LD `sameAs` point at
-     `github.com/junghanacs` — that is the **org profile**, not the repository, and AGENTS.md pins the identity
-     graph. A blind `sed s|junghanacs|junghan0611|` would silently rewrite it and destabilize the `@id` graph.
-     Only the three repo-URL sites above change.
-   - `content/llms.txt:129` reads `@junghanacs (garden)`. Resolved 2026-07-13 (GPT): **keep `@junghanacs`** — it
-     names the garden *identity account*, not the repository, so the cutover does not falsify it. Reword the
-     parenthetical to `(garden identity)` / `(garden brand)` so it cannot be misread as naming the source repo.
-   - Do **not** mass-edit exported `content/**/*.md`: old historical links remain valid because the old public
-     repo is retained. Fix current Org-source links only when they are meant to name the canonical repo.
-3. **Rewire local remotes only after target push succeeds**
-   - Rename old `origin` → `oldorg`.
-   - Rename `neworigin` → `origin`; verify `origin=junghan0611/garden`, `oldorg=junghanacs/notes.junghanacs.com`,
-     and `upstream=jackyzha0/quartz`.
-   - Push the canonical-reference commit to new `origin/v4`; do not push new work to `oldorg`.
-4. **Relink the existing Netlify site**
-   - In the existing site serving `notes.junghanacs.com`, change repository source only:
-     `junghanacs/notes.junghanacs.com` → `junghan0611/garden`, production branch `v4`.
-   - Preserve site ID, custom domain/DNS, environment variables, deploy hooks, build command, and publish dir.
-     The successful `junghan0611/homepage` relink proves the personal GitHub account is already authorized.
-   - Trigger a fresh deploy from a commit unique to the new repo. Verify the live footer Source link and one
-     page's JSON-LD `isBasedOn` both say `junghan0611/garden`; this is the cutover canary.
-5. **Post-cutover verification and cleanup**
-   - Build + JSON-LD + llms validators; check `robots.txt`, sitemap, RSS, comments, Search, and a Denote page's
-     edit/blame/history links.
-   - Confirm Netlify deploy metadata names `junghan0611/garden@v4`, then submit the unchanged sitemap to Search
-     Console. DNS must not change.
-   - Keep `junghanacs/notes.junghanacs.com` public as rollback at first; archive it only after the new source has
-     served cleanly for a confidence window. Keep the local `oldorg` remote even after archive.
-   - Rename local directory `~/repos/gh/notes` → `~/repos/gh/garden` last, when no session/tool still holds the
-     old CWD. Update homepage's “migration in progress” note after cutover.
-
-### Migration acceptance gate
-
-```bash
-git remote -v
-# origin  = git@github.com:junghan0611/garden.git
-# oldorg = git@github.com:junghanacs/notes.junghanacs.com.git
-# upstream unchanged
-
-git status --short --branch          # v4...origin/v4, clean
-curl -s https://notes.junghanacs.com/ | grep 'github.com/junghan0611/garden'
-curl -s https://notes.junghanacs.com/notes/20241203T064647 \
-  | grep 'github.com/junghan0611/garden/blob/v4/content/'
-```
-
-Rollback is repository-source relink only: point the same Netlify site back to `oldorg/v4`. Never alter the
-custom domain or DNS during this migration.
+1. **`garden_v5`'s own docs still call it `junghan0611/garden`** — `AGENTS.md` 9, 18, 42, 114 and `NEXT.md:129`.
+   Line 114 literally reads `origin = junghan0611/garden`, which now names the **live** repo. Its actual git
+   remote is explicit and safe, but an agent trusting that line could push v5 into the live garden. **v5's job**,
+   flagged to that lane; no longer theoretical.
+2. **Do not `gh repo archive` the old repo yet.** Rollback = relink the same Netlify site to `oldorg` + branch
+   `v4`; keep that window open for a confidence period. Archiving needs `gh auth switch --user junghanacs`
+   (`junghan0611` is only a collaborator there — push yes, admin no).
+3. Local directory is still `~/repos/gh/notes`. Rename to `~/repos/gh/garden` when no session holds the old CWD.
 
 ## Detour 2026-07-13: PageSpeed mobile/desktop — non-font performance + accessibility
 
@@ -538,7 +401,7 @@ Handed to the org-side agent (`20260709T111627-d16ea1`, cwd `~/sync/org`) on 202
 
 # PARKED
 - `Plugin.CustomOgImages()` disabled (`quartz.config.ts`) — every page shares `/static/og-image.png`. Enable only if per-page social cards become worth the build cost.
-- v5 rebuild — **moved to `junghan0611/garden_v5`** (public, default `main`). Keep it separate from the live-v4 `junghan0611/garden` cutover above.
+- v5 rebuild — lives in **`junghan0611/garden_v5`** (public, default `main`). Keep it strictly separate from the live garden, which is now `junghan0611/garden@main`. Two repos, two lanes; do not merge.
 
 # VERIFY (after any Head.tsx / listing / llms.txt / export change)
 ```bash
