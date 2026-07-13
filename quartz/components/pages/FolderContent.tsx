@@ -1,7 +1,7 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
 
 import style from "../styles/listPage.scss"
-import { PageList, SortFn } from "../PageList"
+import { PageList, SortFn, byDateAndAlphabeticalFolderFirst } from "../PageList"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
@@ -90,10 +90,14 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         .filter((page) => page !== undefined) ?? []
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")
+    const isJournalFolder =
+      fileData.slug === "journal" || fileData.slug?.startsWith("journal/") === true
+    const listDateType = isJournalFolder ? "created" : undefined
     const listProps = {
       ...props,
-      sort: options.sort,
+      sort: isJournalFolder ? byDateAndAlphabeticalFolderFirst(cfg, "created") : options.sort,
       allFiles: allPagesInFolder,
+      dateType: listDateType,
     }
 
     const content = (
@@ -111,11 +115,13 @@ export default ((opts?: Partial<FolderContentOptions>) => {
               {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
                 count: allPagesInFolder.length,
               })}{" "}
-              {i18n(cfg.locale).pages.folderContent.sortedByModified}
+              {isJournalFolder
+                ? i18n(cfg.locale).pages.folderContent.sortedByCreated
+                : i18n(cfg.locale).pages.folderContent.sortedByModified}
             </p>
           )}
           <div>
-            <PageList {...listProps} showCreated showDescription />
+            <PageList {...listProps} showCreated={!isJournalFolder} showDescription />
           </div>
         </div>
       </div>

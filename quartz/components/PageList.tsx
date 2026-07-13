@@ -5,17 +5,31 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import { GlobalConfiguration } from "../cfg"
 
 export type SortFn = (f1: QuartzPluginData, f2: QuartzPluginData) => number
+export type ListingDateType = "created" | "modified"
 
-export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
+function getListingDate(
+  cfg: GlobalConfiguration,
+  data: QuartzPluginData,
+  dateType?: ListingDateType,
+): globalThis.Date | undefined {
+  return dateType ? getDateCustom(cfg, data, dateType) : getDate(cfg, data)
+}
+
+export function byDateAndAlphabetical(
+  cfg: GlobalConfiguration,
+  dateType?: ListingDateType,
+): SortFn {
   return (f1, f2) => {
     // Sort by date/alphabetical
-    if (f1.dates && f2.dates) {
+    const f1Date = getListingDate(cfg, f1, dateType)
+    const f2Date = getListingDate(cfg, f2, dateType)
+    if (f1Date && f2Date) {
       // sort descending
-      return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
-    } else if (f1.dates && !f2.dates) {
+      return f2Date.getTime() - f1Date.getTime()
+    } else if (f1Date && !f2Date) {
       // prioritize files with dates
       return -1
-    } else if (!f1.dates && f2.dates) {
+    } else if (!f1Date && f2Date) {
       return 1
     }
 
@@ -26,7 +40,10 @@ export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
   }
 }
 
-export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): SortFn {
+export function byDateAndAlphabeticalFolderFirst(
+  cfg: GlobalConfiguration,
+  dateType?: ListingDateType,
+): SortFn {
   return (f1, f2) => {
     // Sort folders first
     const f1IsFolder = isFolderPath(f1.slug ?? "")
@@ -35,13 +52,15 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
     if (!f1IsFolder && f2IsFolder) return 1
 
     // If both are folders or both are files, sort by date/alphabetical
-    if (f1.dates && f2.dates) {
+    const f1Date = getListingDate(cfg, f1, dateType)
+    const f2Date = getListingDate(cfg, f2, dateType)
+    if (f1Date && f2Date) {
       // sort descending
-      return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
-    } else if (f1.dates && !f2.dates) {
+      return f2Date.getTime() - f1Date.getTime()
+    } else if (f1Date && !f2Date) {
       // prioritize files with dates
       return -1
-    } else if (!f1.dates && f2.dates) {
+    } else if (!f1Date && f2Date) {
       return 1
     }
 
@@ -57,6 +76,7 @@ type Props = {
   sort?: SortFn
   showCreated?: boolean
   showDescription?: boolean
+  dateType?: ListingDateType
 } & QuartzComponentProps
 
 export const PageList: QuartzComponent = ({
@@ -67,8 +87,9 @@ export const PageList: QuartzComponent = ({
   sort,
   showCreated,
   showDescription,
+  dateType,
 }: Props) => {
-  const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg)
+  const sorter = sort ?? byDateAndAlphabeticalFolderFirst(cfg, dateType)
   let list = allFiles.sort(sorter)
   if (limit) {
     list = list.slice(0, limit)
@@ -83,7 +104,11 @@ export const PageList: QuartzComponent = ({
         // synthetic folder rows borrow their newest child's created date, so it describes
         // no folder; they carry no description either
         const isFolder = isFolderPath(page.slug ?? "")
-        const created = !isFolder && showCreated ? getDateCustom(cfg, page, "created") : undefined
+        const primaryDate = getListingDate(cfg, page, dateType)
+        const created =
+          !isFolder && showCreated && dateType !== "created"
+            ? getDateCustom(cfg, page, "created")
+            : undefined
         const description = !isFolder && showDescription ? page.description : undefined
         const hasMeta = created !== undefined || tags.length > 0
 
@@ -91,7 +116,7 @@ export const PageList: QuartzComponent = ({
           <li class="section-li">
             <div class="section">
               <div class="section-head">
-                {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
+                {primaryDate && <Date date={primaryDate} locale={cfg.locale} />}
                 <h3>
                   <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
                     {title}
