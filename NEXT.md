@@ -38,32 +38,45 @@ Netlify site.
 will claim the old slug and stop that redirect, which is exactly the desired split: `garden` = live site,
 `garden_v5` = rebuild workspace.
 
-**Redirect-death sweep — done 2026-07-13, clean.** The moment `junghan0611/garden` exists, the
+**Redirect-death sweep — 2026-07-13, one blocker found.** The moment `junghan0611/garden` exists, the
 `garden → garden_v5` redirect dies and any consumer still using the old slug silently resolves to the **live v4
-repo** instead. Verified safe: `junghan0611/garden` appears in **no code or config** (only in this NEXT.md), and
-`~/repos/gh/garden_v5`'s `origin` is the explicit `https://github.com/junghan0611/garden_v5.git`, not the old
-slug. **One item remains manual**: confirm no Netlify site (a v5 preview) is linked to the `garden` slug before
-creating the repo.
+repo** instead.
+
+- **Git behaviour is safe**: `~/repos/gh/garden_v5`'s `origin` is the explicit
+  `https://github.com/junghan0611/garden_v5.git`, not the old slug. `junghan0611/garden` appears in no code or
+  config in *this* repo either.
+- **Netlify is clear** (GPT closed this via the authenticated API): `notes.junghanacs.com` →
+  `junghanacs/notes.junghanacs.com@v4`, `junghanacs.com` → `junghan0611/homepage@main`, and **no site is linked
+  to the `garden` slug**.
+- **BLOCKER — `garden_v5`'s own docs still call it `junghan0611/garden`**: `garden_v5/AGENTS.md` lines 9, 18, 42,
+  114 and `garden_v5/NEXT.md:129`. `AGENTS.md:114` literally reads `origin = junghan0611/garden`. Once the new
+  repo exists, an agent that trusts that line would wire v5's remote to the **live v4 repo** and push into it.
+  **Fix garden_v5's docs to say `garden_v5` before creating the new repo.** (An earlier sweep here reported this
+  clean; the grep was filtering on `garden_v5`, which also matched the path prefix and hid every hit.)
 
 ### Cutover sequence — keep this order
 
 1. **Preflight and create target**
    - Confirm old `v4` is clean/pushed and record its full SHA.
-   - Confirm no Netlify site is linked to the `junghan0611/garden` slug (last open item of the sweep above).
-   - Decide the fate of the four inherited `.github/workflows/`. `ci.yaml` and `docker-build-push.yaml` only use
-     the auto-provided `GITHUB_TOKEN`, but **`deploy-preview.yaml` needs `CLOUDFLARE_ACCOUNT_ID` +
-     `CLOUDFLARE_API_TOKEN`** — repo secrets do **not** follow a new repo, so it will fail red from the first
-     push. These are upstream Quartz's Cloudflare Pages preview, not ours; deleting them is the clean move.
+   - **Fix `garden_v5`'s AGENTS.md/NEXT.md self-references first** (see the blocker in the sweep above). This is
+     the one thing that must happen *before* the new repo exists.
+   - Optional cleanup, not a blocker: the four inherited `.github/workflows/` are all guarded by
+     `if: github.repository == 'jackyzha0/quartz'`, so on this fork they **skip** rather than fail — the missing
+     `CLOUDFLARE_*` secrets never come into play. They are upstream Quartz's own CI and carry no value here;
+     deleting them is tidy but changes nothing. (An earlier note here claimed they would fail red on first push.
+     That was wrong.)
    - Create **public** `junghan0611/garden` without README/license initialization; set description and homepage
      to the digital garden / `https://notes.junghanacs.com`.
    - Add it temporarily as `neworigin`; keep current `origin` untouched until the first push verifies.
    - Push `v4` explicitly and set it as GitHub default. Do **not** use `git push --mirror`: this checkout carries
-     many `upstream/*` Quartz refs and stale Dependabot refs that must not become target branches. The merged
-     local `feat/indieweb-webmention` needs no branch; review the unmerged `feat/jsonld-identity` (2 commits ahead
-     of `v4`) and `origin/ko` separately rather than copying them blindly. Push tags only after deciding whether
-     upstream Quartz release tags belong on the new canonical repo.
-   - Expect a slow first push (481MB). **Do not rewrite history to shrink it**: new SHAs would break every
-     cross-reference to the old repo and destroy the rollback/diff path. Boring beats small here.
+     many `upstream/*` Quartz refs and stale Dependabot refs that must not become target branches.
+   - **Branches: push `v4` only.** Resolved 2026-07-13 (GPT). `feat/indieweb-webmention` is already merged.
+     `feat/jsonld-identity` (2 ahead) must **not** come along — later `v4` commits already superseded it, and
+     re-introducing it would regress the Breadcrumb/type/`sameAs` work. `origin/ko` is a 2024 stub, 826 behind /
+     8 ahead. Both stay recoverable in the retained old repo. Push tags only after deciding whether upstream
+     Quartz release tags belong on the new canonical repo.
+   - Expect a slow first push — measured pack size **490,331,321 bytes**. **Do not rewrite history to shrink it**:
+     new SHAs would break every cross-reference to the old repo and destroy the rollback/diff path.
 2. **Switch canonical repository references in one code/docs commit on the new repo**
    - `quartz.layout.ts`: Footer `Source` and `ContentMeta.repoLink`.
    - `quartz/components/Head.tsx`: JSON-LD `isBasedOn`.
@@ -81,9 +94,9 @@ creating the repo.
      `github.com/junghanacs` — that is the **org profile**, not the repository, and AGENTS.md pins the identity
      graph. A blind `sed s|junghanacs|junghan0611|` would silently rewrite it and destabilize the `@id` graph.
      Only the three repo-URL sites above change.
-   - Open decision: `content/llms.txt:129` reads `@junghanacs (garden)`. After the cutover the garden repo lives
-     under `@junghan0611`, so that attribution line becomes false. It is an identity statement, not a repo URL —
-     decide it deliberately rather than folding it into the mechanical rename.
+   - `content/llms.txt:129` reads `@junghanacs (garden)`. Resolved 2026-07-13 (GPT): **keep `@junghanacs`** — it
+     names the garden *identity account*, not the repository, so the cutover does not falsify it. Reword the
+     parenthetical to `(garden identity)` / `(garden brand)` so it cannot be misread as naming the source repo.
    - Do **not** mass-edit exported `content/**/*.md`: old historical links remain valid because the old public
      repo is retained. Fix current Org-source links only when they are meant to name the canonical repo.
 3. **Rewire local remotes only after target push succeeds**
@@ -157,40 +170,34 @@ GLG is working with the GLG-Mono font steward (`~/repos/gh/GLG-Mono`). Do **not*
 2.58MB + 2.57MB, account for ~5.15MB of the 6.04MB transfer, and explain almost all CLS (`.207/.214` mobile,
 `.211/.222` desktop). Re-run both reports after that lane lands; do not duplicate its work in this detour.
 
-**Root cause found 2026-07-13 (font steward, cross-verified here).** The bloat is not a skipped optimization —
-it is fork inheritance. GLG-Mono is a PlemolJP fork and `fontforge_script.py` still opens **IBM Plex Sans JP as
-the base font**, then merges Hangul on top; the Japanese base was never removed, and there is no web-font
-subsetting task at all. Anatomy of `GLG-Mono-Regular.woff2`: 27,846 codepoints, of which **13,022 are CJK
-Hanja (~48%)** — while the whole garden (2,245 md) uses only **3,665 distinct codepoints** and Hanja appears
-2,499 times in 18.6M characters (**0.0134%**). Both sides measured the subsets independently and agreed within
-2KB.
+**SSOT is `~/repos/gh/GLG-Mono/docs/WEBFONT_SUBSET.md`** (status: design approved, not implemented). Chunk
+counts, the frequency partition, and the italic policy live there and are still moving — **do not copy its
+numbers into this file**. Only the root cause and the notes-side consequences belong here:
 
-| Option (per weight) | Size | vs 2,644KB |
-|---|---:|---:|
-| drop Hanja/Kana, keep all 11,172 Hangul | 501KB | −81% |
-| garden's actual 3,665 chars only | 267KB | −90% |
-| **`unicode-range` chunks (agreed spec)** | **136KB** | **−95%** |
+- **Root cause is fork inheritance, not a skipped optimization.** GLG-Mono is a PlemolJP fork;
+  `fontforge_script.py:214` still opens IBM Plex Sans JP as the base font and merges Hangul onto it. Half the
+  cmap (13,412 of 27,846 codepoints) is Han the garden almost never renders. The real fault is that **no web
+  font pipeline exists** — the desktop face was Brotli-compressed whole and uploaded. The fix lives entirely in
+  the web deliverable; the source build does not change.
+- **Corrected here 2026-07-13**: an earlier version of this section recommended dropping BoldItalic and letting
+  the browser synthesize. **Wrong, and withdrawn.** Under `unicode-range` an unused chunk costs *zero network*,
+  so the size argument that motivated it does not survive chunking. GLG-Mono's CJK italic is a defined
+  `skew(9°) + translate(-40, 0)` with advance held, while synthesis is engine-defined — at GLG's pixel-parity
+  bar, synthesis is out. The SSOT ships **physical italic chunks for all CJK**. A corpus-trained subset (ship
+  only the garden's 3,665 characters) was likewise rejected there: a release font must not be cut against one
+  private corpus.
 
-Chunks: latin 47KB / Hangul-common 90KB / Hangul-rest 367KB / **Hanja 1.7MB** / Kana 119KB. With
-`unicode-range` the Hanja chunk downloads only on the rare note that contains Hanja — zero glyph loss.
-Homepage (Regular+Bold) goes **5,280KB → ~272KB**.
+**Do not retreat to Google Fonts.** Measured 2026-07-13, so it does not get re-litigated: IBM Plex Sans KR
+through Google's own 94-chunk `unicode-range` split pulls **365 KB average per real garden note** (22–32 chunks
+across 400+700), because generic frequency-ordered chunks scatter across the syllable space — a garden-trained
+partition beats it by a wide margin. And two disqualifiers no size argument can fix: **IBM Plex Sans KR is not
+monospace** (Plex has no Korean mono at all — that absence is exactly why PlemolJP/GLG-Mono exists), so Korean
+would go proportional and break code-block alignment; and it **has no italic whatsoever**
+(`ital,wght@1,400` → HTTP 400).
 
-**Italic decision — answered with garden data, sent to the steward.** Theme CSS applies `font-style: italic`
-**nowhere**; the only occurrences are the two `@font-face` blocks themselves, so all italic demand comes from
-body `*em*`. `*em*`: **363/2,245 files (16.2%)**, 2,750 occurrences → keep Italic, chunk it (latin 29KB /
-Hangul-common 101KB). `***bold-italic***`: **4 files (0.18%)**, 29 occurrences, and every instance is a Latin/
-Greek word (`Notes`, `R`, `εὐδαιμονία`, `local first`) → **drop BoldItalic from the web build** (2,850KB → 0)
-and let the browser synthesize; keep it in the desktop TTF.
-
-**Google Fonts fallback is worse — do not retreat to it.** Measured, not assumed: IBM Plex Sans KR served
-through Google's own 94-chunk `unicode-range` split pulls **365KB average per real garden note** (22–32 chunks
-across 400+700), because generic frequency-ordered chunks scatter across the syllable space — while a
-garden-tuned chunk (our actual 1,755 syllables) needs one 90KB block. A fixed GLG-Mono (**272KB**) beats it.
-Worse, **IBM Plex Sans KR is not monospace** (Plex has no Korean mono — that absence is precisely why
-PlemolJP/GLG-Mono exists), so Korean would go proportional and break code-block alignment; and it **has no
-italic at all** (`ital,wght@1,400` → HTTP 400), meaning Korean italic would be browser-synthesized anyway.
-Fixing GLG-Mono is not merely the nicest outcome, it is the only one that is smaller, monospace, and italic-
-capable.
+**Notes-side work when the font lands**: swap the four `@font-face` blocks in `quartz/styles/custom.scss` for
+the steward's shipped `unicode-range` CSS, drop the old WOFF2s from `quartz/static/fonts/`, then re-measure.
+Nothing here changes before that delivery.
 
 The work below is the independent **non-font lane**. Preferred owner: an Opus implementation pass, one
 measured commit per item; GLG retains the visual/interaction gate.
