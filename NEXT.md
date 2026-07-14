@@ -52,41 +52,19 @@ use the local CLI or the web UI. Separately: the sole SEO deduction is `robots.t
 an "Unknown directive" — **keep it**. The AI-crawler policy signal is deliberate, real crawlers ignore unknown
 directives harmlessly, and Lighthouse's SEO score is not a ranking factor.
 
-### Ownership boundary: font lane is already active elsewhere
+### Font lane — moved to branch `font/web-subset` (2026-07-14)
 
-GLG is working with the GLG-Mono font steward (`~/repos/gh/GLG-Mono`). Do **not** concurrently edit
-`@font-face`, font files, `font-display`, fallback metrics, or subsetting here. The two WOFF2 files are
-2.58MB + 2.57MB, account for ~5.15MB of the 6.04MB transfer, and explain almost all CLS (`.207/.214` mobile,
-`.211/.222` desktop). Re-run both reports after that lane lands; do not duplicate its work in this detour.
+`main` publishes the live garden continuously, so font experiments do not live here. The GLG-Mono web
+subset work — the 8-file `{core,jp}` checkpoint, its measurements and its acceptance criteria — is
+committed on **`font/web-subset`**; the handoff is `NEXT--font_web-subset.md` on that branch.
 
-**SSOT is `~/repos/gh/GLG-Mono/docs/WEBFONT_SUBSET.md`** (status: design approved, not implemented). Chunk
-counts, the frequency partition, and the italic policy live there and are still moving — **do not copy its
-numbers into this file**. Only the root cause and the notes-side consequences belong here:
+**Do not touch fonts on `main`.** `quartz/styles/custom.scss` and `quartz/static/fonts/` here carry the
+live four-face GLG-Mono, unchanged.
 
-- **Root cause is fork inheritance, not a skipped optimization.** GLG-Mono is a PlemolJP fork;
-  `fontforge_script.py:214` still opens IBM Plex Sans JP as the base font and merges Hangul onto it. Half the
-  cmap (13,412 of 27,846 codepoints) is Han the garden almost never renders. The real fault is that **no web
-  font pipeline exists** — the desktop face was Brotli-compressed whole and uploaded. The fix lives entirely in
-  the web deliverable; the source build does not change.
-- **Corrected here 2026-07-13**: an earlier version of this section recommended dropping BoldItalic and letting
-  the browser synthesize. **Wrong, and withdrawn.** Under `unicode-range` an unused chunk costs _zero network_,
-  so the size argument that motivated it does not survive chunking. GLG-Mono's CJK italic is a defined
-  `skew(9°) + translate(-40, 0)` with advance held, while synthesis is engine-defined — at GLG's pixel-parity
-  bar, synthesis is out. The SSOT ships **physical italic chunks for all CJK**. A corpus-trained subset (ship
-  only the garden's 3,665 characters) was likewise rejected there: a release font must not be cut against one
-  private corpus.
-
-**Do not retreat to Google Fonts.** Measured 2026-07-13, so it does not get re-litigated: IBM Plex Sans KR
-through Google's own 94-chunk `unicode-range` split pulls **365 KB average per real garden note** (22–32 chunks
-across 400+700), because generic frequency-ordered chunks scatter across the syllable space — a garden-trained
-partition beats it by a wide margin. And two disqualifiers no size argument can fix: **IBM Plex Sans KR is not
-monospace** (Plex has no Korean mono at all — that absence is exactly why PlemolJP/GLG-Mono exists), so Korean
-would go proportional and break code-block alignment; and it **has no italic whatsoever**
-(`ital,wght@1,400` → HTTP 400).
-
-**Notes-side work when the font lands**: swap the four `@font-face` blocks in `quartz/styles/custom.scss` for
-the steward's shipped `unicode-range` CSS, drop the old WOFF2s from `quartz/static/fonts/`, then re-measure.
-Nothing here changes before that delivery.
+North star (GLG, 2026-07-14): **notes is a font consumer.** GLG-Mono ships Han in Korean glyph forms, and
+the font lane owns that. Nothing lands on `main` until that build exists and GLG approves both rendering
+and transfer size. On the branch checkpoint a single Han character still costs 1,959KB — which is why it
+is parked rather than shipped.
 
 The work below is the independent **non-font lane**. Preferred owner: an Opus implementation pass, one
 measured commit per item; GLG retains the visual/interaction gate.
@@ -199,6 +177,8 @@ Acceptance:
   marks it unused. Remove it. Do not replace it with speculative preconnects.
 - Keep `index.css` and `prescript.js` blocking until proven otherwise; dark-mode bootstrap must not flash. Measure
   before attempting critical CSS or script reshuffling.
+- **`icon.png` is 684KB** (measured in the browser 2026-07-13, while checking the font waterfall). It is fetched on
+  every page. Nothing needs a 684KB icon — resize/recompress it. Not investigated further; the number is real.
 
 ### P3 — security diagnostics: verify, then harden separately
 
