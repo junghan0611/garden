@@ -36,7 +36,7 @@ tests/
 
 change-text.sh
 test/
-.claude
+# .claude
 pnpm-lock.yaml
 .direnv/
 docs/plans
