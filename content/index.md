@@ -94,6 +94,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [지식의 커리큘럼 - 프로피디아 평생공부 얼개]({{< relref "/notes/20241222T114848.md" >}})
 -   [PKM-AI 가든과 에피파니의 글쓰기]({{< relref "/notes/20241214T210518.md" >}})
 -   [집사봇은 누구 편도 아니다 — 경계와 거울]({{< relref "/notes/20230117T123500.md" >}})
 -   [지피티 5.6 탄생 - 오푸스의 눈물]({{< relref "/notes/20241223T094008.md" >}})
@@ -125,7 +126,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (157)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (160)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -166,8 +167,9 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [§garden2wikidocs — 가든의 위키독스 미러]({{< relref "/botlog/20260220T201100.md" >}}) - mIrrOr
 -   [⊨agent-server #에이전트 #놀이터 #신뢰 #울타리]({{< relref "/botlog/20260227T141200.md" >}}) - fEncEphIlOsOphy
--   [§entwurf: 힣의 분신 소환 하네스 연대기(굳바이 §pi-shell-acp)]({{< relref "/botlog/20260520T052051.md" >}})
+-   [§entwurf: 분신 소환 하네스 연대기(굳바이 §pi-shell-acp)]({{< relref "/botlog/20260520T052051.md" >}})
 -   [§geworfen: 연구 트랙1 - 존재 리듬 연상 재현 투명 생체 체화 시간]({{< relref "/botlog/20260331T123550.md" >}})
 -   [§geworfen: 연구 트랙2 — 1KB 공개키와 측정하지 않는 공진화]({{< relref "/botlog/20260219T191103.md" >}})
 -   [에이전트 루프: 젛문가 갷발자 앎의틀 공진화]({{< relref "/botlog/20260222T035900.md" >}}) - AgEntlOOp
@@ -198,5 +200,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-07-17 22:46, CountNotes: 3499 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-07-18 19:06, CountNotes: 3499 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
