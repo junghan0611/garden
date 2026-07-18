@@ -14,6 +14,126 @@ longer waits on "v5 stable".
 
 # NOW
 
+## P0 — in-article outline
+
+GLG saw this reading affordance on the WikiDocs mirror and wants the canonical garden to match or exceed it.
+**The reading-progress rail that was originally paired with it is dropped — GLG decided 2026-07-18 not to
+build it.** Do not reintroduce it as a follow-up; the outline is the whole lane.
+
+### Placement is decided, not open
+
+GLG's ruling from the WikiDocs screenshot: the outline sits **after the `[!abstract] 이 노트에 대하여` callout,
+never above it.** The abstract is the note's own opening; a navigation block must not displace it.
+
+That rules out `beforeBody` in `quartz.layout.ts` — anything there lands above the article entirely. The outline
+belongs **inside** `article.h-entry.popover-hint > div.e-content`, between the abstract callout and the first
+heading.
+
+### IMPLEMENTED 2026-07-18, awaiting GLG's visual gate
+
+Implemented in `quartz/components/ArticleOutline.tsx`,
+`quartz/components/styles/articleOutline.scss`, a split-render in `quartz/components/pages/Content.tsx`,
+and a new `minDepth` option in `quartz/plugins/transformers/toc.ts`. 2,219 pages carry an outline; JSON-LD
+and llms validators pass; description/RSS/sitemap byte-identical. Zero added JS, zero CLS.
+
+Decisions taken with GLG this session:
+
+- **Headings listed are H2 and H3** (`quartz.config.ts` `minDepth: 2, maxDepth: 3`). These are markdown
+  heading *numbers*, not level counts — an earlier `maxDepth: 2` silently excluded H3 from the 1,502 notes
+  that have one, and included body H1 from the 134 notes that have one. This is shared state: the desktop
+  sidebar TOC reads the same `fileData.toc`, so it lists H2-H3 too. Distribution: median 8, p90 27, p99 90,
+  max 163.
+- **Collapse threshold 40** (`COLLAPSE_ABOVE` in `ArticleOutline.tsx`). WikiDocs never folds, so the bar is
+  deliberately high — 124 of 2,219 pages fold; the rest stay open. Those 124 are journal 65 / bib 32 /
+  notes 14 / botlog 12 / meta 1, and they are genuinely long documents (weekly journals, classification
+  tables, collections) rather than stale exports — checked against the org sources.
+- **`ox-hugo-toc` notes are skipped** so the same headings never appear twice.
+- A stack-built tree preserves hierarchy when a note opens with H3 and introduces H2 later (2 such notes),
+  or skips a heading depth. Verified: outline entry count equals rendered H2+H3 count on all 2,219 pages.
+
+Remaining:
+
+- `content/notes/20250203T221636.md` and `content/notes/20250515T161418.md` still carry the old
+  `ox-hugo-toc` block. GLG removed `#+OPTIONS: toc:2` from both org sources, so a re-export clears them.
+  Until then the Quartz gate suppresses the duplicate.
+- Mobile was checked at 390×844: the outline wraps without horizontal overflow. Recheck after deploy as part
+  of GLG's final visual gate.
+- Search/hover preview suppression was verified by computed style, not by a live preview: the local
+  static server cannot serve Quartz's pretty URLs, so the preview fetch never resolves. Confirm after deploy.
+
+**Original implementation reasoning, kept because it explains why this cannot move to a transformer:**
+
+**Insert at render time in `quartz/components/pages/Content.tsx`, not in a transformer.**
+
+`Content.tsx` currently does one `htmlToJsx(fileData.filePath!, tree)` over the whole tree. Split it: find the
+index after the first `blockquote.callout[data-callout="abstract"]` in `tree.children`, render
+`{type:"root", children: before}` and `{type:"root", children: after}` separately, and put a Preact
+`ArticleOutline` component between them. `renderPage.tsx:167` already uses the `htmlAst.children.slice(...)`
+pattern for transclusion — follow it. Do not mutate `tree`.
+
+Why render time and not `htmlPlugins`:
+
+- `Plugin.Description` runs `toString(tree)` in `htmlPlugins`, so a transformer-inserted outline would leak
+  every heading into `<meta name="description">` and RSS.
+- `CrawlLinks` would tag the anchors `a.internal`, which makes `popover.inline.ts` attach hover previews to
+  every outline entry. At render time all transformers have already run, so the anchors stay inert with no
+  `data-no-popover` workaround.
+- Org and exported Markdown stay untouched — this is the non-invasive requirement, satisfied structurally.
+
+Contract:
+
+- Source is `fileData.toc` (already built by `quartz/plugins/transformers/toc.ts`; `minDepth: 2` and
+  `maxDepth: 3` in `quartz.config.ts` select H2–H3). Reuse `entry.slug` verbatim so ox-hugo custom `{#id}`
+  anchors cannot drift.
+- Render nothing when `fileData.toc` is absent. The transformer's gate is `toc.length > minEntries` with
+  `minEntries: 1`, so a one-heading note already has no `toc`. Do **not** add a second independent threshold in
+  the component — it would disagree with the sidebar TOC.
+- **Never reuse `class="toc"`.** `toc.inline.ts:31` reads `if (!button || !content) return` inside its
+  `getElementsByClassName("toc")` loop — a `.toc` element without a `.toc-header` button aborts the whole loop
+  and kills the sidebar TOC toggle. Use a distinct class (`article-outline`).
+- Do not set `data-for` on outline anchors. The sidebar already owns in-view highlighting via
+  `a[data-for=...]`, and the outline scrolls out of view anyway; adding it only grows observer work.
+- Nested `<ol>` to match the WikiDocs numbering, built from the flat `depth` field with a stack.
+
+Measured facts to design against (837 notes in `content/notes/`):
+
+| Fact | Value |
+|---|---|
+| Notes with the abstract callout | 831 / 837 (99.3%) |
+| Headings per note | median 6, p90 17, **max 187** |
+
+- The 6 notes without an abstract need a fallback: insert before the first heading instead. Never skip silently.
+- 187 entries would bury the note. Collapse with `<details>` above a threshold (start at ~20 entries, confirm in
+  the browser) — open by default below it.
+- The first entries are usually export scaffolding (`히스토리`, `관련메타`, `Related-Notes`, `BIBLIOGRAPHY`).
+  WikiDocs shows them too. Decide with GLG whether to render them or filter; **do not filter unilaterally**,
+  it changes what the reader is told the note contains.
+
+Known side effect to fix in the same commit:
+
+- `.e-content` sits inside `popover-hint`, which both `popover.inline.ts:99` and `search.inline.ts:499` harvest.
+  Without a rule the outline appears at the top of every hover preview and search preview. Hide it with CSS in
+  `.popover-inner` and `.preview-container` — no script change needed.
+
+Acceptance:
+
+- Outline renders after the abstract on a normal note, before the first heading on an abstract-less note, and
+  not at all on a one-heading note, home, list pages, or 404.
+- Every anchor jumps correctly, including ox-hugo custom IDs and Korean anchors.
+- Sidebar TOC toggle still works (the `return`-vs-`continue` trap above).
+- Hover preview and search preview show note content, not the outline.
+- `<meta name="description">`, RSS, and `contentIndex` abstract are byte-identical to before.
+- Zero added JS, zero CLS.
+
+### Read first
+
+`quartz/components/pages/Content.tsx`, `quartz/components/renderPage.tsx` (`:167` slice pattern, `:269` layout),
+`quartz/plugins/transformers/toc.ts`, `quartz/components/scripts/toc.inline.ts`,
+`quartz/components/styles/toc.scss`, `quartz/components/scripts/popover.inline.ts`.
+
+Preserve JSON-LD, uppercase-`T` URLs, mirror links, listing invariants, and every file under `content/`. One
+commit per affordance; GLG owns the final visual gate.
+
 ## Cutover — SHIPPED 2026-07-13 → `CHANGELOG.md` v2026.7.13
 
 Durable facts live in `AGENTS.md` ("Repository cutover"). Only the loose ends stay here.

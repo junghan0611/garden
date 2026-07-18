@@ -5,6 +5,9 @@ import { toString } from "mdast-util-to-string"
 import Slugger from "github-slugger"
 
 export interface Options {
+  // Both bounds are markdown heading numbers, not "levels": minDepth 2 / maxDepth 3
+  // means H2 and H3 are listed while H1 and H4+ are not.
+  minDepth: 1 | 2 | 3 | 4 | 5 | 6
   maxDepth: 1 | 2 | 3 | 4 | 5 | 6
   minEntries: number
   showByDefault: boolean
@@ -12,6 +15,7 @@ export interface Options {
 }
 
 const defaultOptions: Options = {
+  minDepth: 1,
   maxDepth: 3,
   minEntries: 1,
   showByDefault: true,
@@ -39,7 +43,7 @@ export const TableOfContents: QuartzTransformerPlugin<Partial<Options>> = (userO
               const toc: TocEntry[] = []
               let highestDepth: number = opts.maxDepth
               visit(tree, "heading", (node) => {
-                if (node.depth <= opts.maxDepth) {
+                if (node.depth >= opts.minDepth && node.depth <= opts.maxDepth) {
                   const text = toString(node)
                     .replace(
                       /<span class="timestamp-wrapper"><span class="timestamp">.*?<\/span><\/span>\s*/g,

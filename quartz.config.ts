@@ -99,6 +99,9 @@ const config: QuartzConfig = {
         }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents({
+        // Heading numbers, not level counts: list H2 and H3, skip H1 and H4+.
+        // Body H1 exists in 134 notes and is not a section heading there.
+        minDepth: 2,
         maxDepth: 3
         }),
       Plugin.CrawlLinks({ markdownLinkResolution: "absolute",
