@@ -69,6 +69,8 @@ Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/jun
 
 ## Connected Repositories
 
+- **homepage**: Canonical identity surface and curated bilingual original writings
+  - https://github.com/junghan0611/homepage
 - **garden**: This garden's canonical source (Quartz 4 + Markdown content)
   - https://github.com/junghan0611/garden
 - **garden2wikidocs**: Read-only translation harness for the Korean-language WikiDocs discovery mirror
@@ -141,6 +143,7 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - Public identity equation: Junghan Kim = GLG = GLGMAN = 힣 = 힣맨 = 정한 = the junghanacs gardener
 - JSON-LD Person `alternateName`: GLG, GLGMAN, 힣, 힣맨, 정한
 - GitHub: [@junghan0611](https://github.com/junghan0611)
+- Homepage — canonical identity surface: https://junghanacs.com/
 - Garden: https://notes.junghanacs.com
 - Dashboard: https://agenda.junghanacs.com
 - Threads: [@junghanacs](https://www.threads.net/@junghanacs)
