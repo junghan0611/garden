@@ -52,6 +52,7 @@ Junghan Kim = GLG (힣) = GLGMAN (힣맨) = the junghanacs gardener. Use this eq
 | Repo | Purpose |
 |------|---------|
 | [garden_v5](https://github.com/junghan0611/garden_v5) | Quartz **v5** rebuild workspace (branch `main`) — separate from this live garden; do not merge or port |
+| [garden2wikidocs](https://github.com/junghan0611/garden2wikidocs) | Read-only publication translator from this canonical garden to the Korean-language WikiDocs discovery mirror |
 | [notes.junghanacs.com](https://github.com/junghanacs/notes.junghanacs.com) | **Retired source** — read-only history on `v4`, keeps old `blob/v4/…` permalinks alive, rollback target |
 | [GLG-Mono](https://github.com/junghan0611/GLG-Mono) | The garden's single typeface (header/title/body/code). Web subsetting SSOT: `docs/WEBFONT_SUBSET.md` |
 | [doomemacs-config](https://github.com/junghan0611/doomemacs-config) | Doom Emacs config — denote-export.sh, agent-server.el |
@@ -205,10 +206,28 @@ IndexNow: `scripts/post-build.sh` appends a "Recent Updates" block to `public/ll
 `quartz/components/Head.tsx` emits a single `@graph` with stable `@id`s so crawlers and LLMs merge node properties across pages. Restricted to the homepage and Denote-ID pages (tags/folder-index/404 excluded).
 
 - **Person** (`@id …/#person`) on every page — `name`, `alternateName: [GLG, GLGMAN]`, `jobTitle`, `description`, `knowsAbout`, `knowsLanguage`, `sameAs` (GitHub, LinkedIn, Bluesky, Mastodon, homepage), `image`.
-- **WebSite** (`#website`), **ProfilePage** (homepage only, `mainEntity → #person`, `primaryImageOfPage` as `ImageObject`), **BlogPosting** (notes, `author/publisher → #person`, `isBasedOn → GitHub source`).
+- **WebSite** (`#website`), **ProfilePage** (homepage only, `mainEntity → #person`, `primaryImageOfPage` as `ImageObject`), and per-section content nodes (`author/publisher → #person`, `isBasedOn → GitHub source`).
 - Profile photo: `quartz/static/profile.jpg` (640×640 grayscale) → served at `/static/profile.jpg`. Separate channel from `og:image` (`/static/og-image.png`); the face photo never overrides link-preview cards.
 - **Standard schema.org only.** No invented properties (e.g. `temporalStatus`) — crawlers drop non-standard terms. Synthesize at build time; never mutate the org source. No content `license` field until a content licence (CC-*) is actually chosen — `LICENSE.txt` is Quartz's MIT, not a content licence.
 - Next AEO lever (not yet shipped): `#+reference:` citekeys → frontmatter `refs[]` → schema.org `citation` (org-export side) so bib notes expose what primary sources they engage — the "footprints, not facade" signal.
+
+## WikiDocs discovery mirror
+
+The complete cross-repository contract is [`docs/WIKIDOCS_MIRROR.md`](docs/WIKIDOCS_MIRROR.md).
+This garden is the canonical, latest, and authored source; WikiDocs is a Korean-language discovery and
+reading mirror, and `garden2wikidocs` is the read-only translation harness.
+
+- Never modify Org or exported content Markdown for mirror plumbing. Quartz synthesizes mapped `sameAs` data
+  and the visible mirror link from `quartz/data/wikidocs-mirror.json`.
+- `garden2wikidocs/mapping.json` owns WikiDocs `page_id`/URL facts. The garden owns the explicit import gate
+  `scripts/sync-wikidocs-map.mjs` and the committed minimal snapshot; Netlify never reads a sibling checkout
+  or fetches the mapping over the network.
+- `garden2wikidocs` never writes into this repository. It reports a recovered stable mapping, then the garden
+  owner decides when to import it.
+- An unmapped new garden note is valid and must remain deployable. Mirror lag or failure never blocks the
+  canonical publication path.
+- Content `sameAs` points to the corresponding rendering; it is not an HTML canonical directive. Preserve the
+  uppercase-`T`/no-per-page-canonical invariant below.
 
 ## Build & URL invariants
 

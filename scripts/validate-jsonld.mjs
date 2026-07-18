@@ -16,12 +16,15 @@ const EXPECTED_TYPES = {
   meta: ["Article", "DefinedTerm"],
 }
 const CONTENT_SECTIONS = new Set(Object.keys(EXPECTED_TYPES))
+const MIRROR_DATA = path.join("quartz", "data", "wikidocs-mirror.json")
 
 const failures = []
 const stats = {
   html: 0,
   ldBlocks: 0,
   contentNodes: 0,
+  mirroredContent: 0,
+  unmappedContent: 0,
   bySection: {},
   nodeTypes: {},
   contentTypes: {},
@@ -30,6 +33,37 @@ const stats = {
 function fail(file, message) {
   failures.push(`${file}: ${message}`)
 }
+
+const mirrorMappings = {}
+const mirrorUrls = new Set()
+if (!fs.existsSync(MIRROR_DATA)) {
+  fail(MIRROR_DATA, "missing WikiDocs mirror snapshot")
+} else {
+  try {
+    const snapshot = JSON.parse(fs.readFileSync(MIRROR_DATA, "utf8"))
+    const mappings = snapshot?.byDenoteId
+    if (!mappings || typeof mappings !== "object" || Array.isArray(mappings)) {
+      fail(MIRROR_DATA, "byDenoteId must be an object")
+    } else {
+      for (const [id, url] of Object.entries(mappings)) {
+        if (!/^\d{8}T\d{6}$/.test(id)) fail(MIRROR_DATA, `invalid Denote ID: ${id}`)
+        if (typeof url !== "string" || !/^https:\/\/wikidocs\.net\/\d+$/.test(url)) {
+          fail(MIRROR_DATA, `invalid WikiDocs URL for ${id}: ${url}`)
+          continue
+        }
+        if (mirrorUrls.has(url)) fail(MIRROR_DATA, `duplicate WikiDocs URL: ${url}`)
+        mirrorUrls.add(url)
+        mirrorMappings[id] = url
+      }
+      if (snapshot?._meta?.mappedNotes !== Object.keys(mirrorMappings).length) {
+        fail(MIRROR_DATA, "_meta.mappedNotes does not match byDenoteId size")
+      }
+    }
+  } catch (error) {
+    fail(MIRROR_DATA, `invalid JSON: ${error.message}`)
+  }
+}
+const seenContentIds = new Set()
 
 function walk(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true })
@@ -102,10 +136,11 @@ function validateHome(file, graph, html) {
   if (twitterUrl !== ORIGIN) fail(file, `home twitter:url must be origin, got ${twitterUrl}`)
 }
 
-function validateContent(file, graph) {
+function validateContent(file, graph, html) {
   const rel = path.relative(PUBLIC_DIR, file)
   const [section, basename] = rel.split(path.sep)
   const id = basename?.replace(/\.html$/, "")
+  seenContentIds.add(id)
 
   if (!CONTENT_SECTIONS.has(section)) {
     fail(file, `unexpected Denote JSON-LD section: ${section}`)
@@ -133,6 +168,21 @@ function validateContent(file, graph) {
   if (content["@id"] !== `${expectedUrl}#article`) fail(file, "content @id changed")
   if (content.url !== expectedUrl) fail(file, "content.url changed")
   if (content.mainEntityOfPage !== expectedUrl) fail(file, "content.mainEntityOfPage changed")
+
+  const expectedMirror = mirrorMappings[id]
+  if (expectedMirror) {
+    stats.mirroredContent++
+    if (content.sameAs !== expectedMirror) {
+      fail(file, `content.sameAs must match WikiDocs snapshot: ${expectedMirror}`)
+    }
+    if (!html.includes(`href="${expectedMirror}"`)) {
+      fail(file, `visible WikiDocs mirror link missing: ${expectedMirror}`)
+    }
+  } else {
+    stats.unmappedContent++
+    if ("sameAs" in content) fail(file, "unmapped content must not emit mirror sameAs")
+  }
+
   if (content.author?.["@id"] !== `${ORIGIN}/#person`) fail(file, "content.author must point to #person")
   if (content.publisher?.["@id"] !== `${ORIGIN}/#person`) fail(file, "content.publisher must point to #person")
   if (content.isPartOf?.["@id"] !== `${ORIGIN}/#website`) fail(file, "content.isPartOf must point to #website")
@@ -199,11 +249,16 @@ for (const file of files) {
 
     const content = graph.find((node) => node["@id"]?.endsWith("#article"))
     if (path.relative(PUBLIC_DIR, file) === "index.html") validateHome(file, graph, html)
-    if (content) validateContent(file, graph)
+    if (content) validateContent(file, graph, html)
   }
 }
 
 if (stats.ldBlocks === 0) fail(PUBLIC_DIR, "no JSON-LD blocks found")
+
+const staleMirrorIds = Object.keys(mirrorMappings).filter((id) => !seenContentIds.has(id))
+if (staleMirrorIds.length > 0) {
+  fail(MIRROR_DATA, `snapshot contains ${staleMirrorIds.length} missing garden page(s): ${staleMirrorIds.slice(0, 5).join(", ")}`)
+}
 
 if (failures.length > 0) {
   console.error(`[jsonld] FAIL ${failures.length} issue(s)`) 
@@ -214,5 +269,6 @@ if (failures.length > 0) {
 }
 
 console.log(`[jsonld] OK html=${stats.html} ld=${stats.ldBlocks} content=${stats.contentNodes}`)
+console.log(`[jsonld] mirror=mapped:${stats.mirroredContent} unmapped:${stats.unmappedContent}`)
 console.log(`[jsonld] sections=${JSON.stringify(stats.bySection)}`)
 console.log(`[jsonld] contentTypes=${JSON.stringify(stats.contentTypes)}`)

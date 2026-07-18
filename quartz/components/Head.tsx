@@ -5,6 +5,7 @@ import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { unescapeHTML } from "../util/escape"
 import { CustomOgImagesEmitterName } from "../plugins/emitters/ogImage"
+import { wikidocsMirrorUrl } from "../util/wikidocsMirror"
 export default (() => {
   const Head: QuartzComponent = ({
     cfg,
@@ -205,6 +206,7 @@ export default (() => {
             }
             const contentType = typeBySection[section] ?? "BlogPosting"
             const crumbName = section.charAt(0).toUpperCase() + section.slice(1)
+            const mirrorUrl = wikidocsMirrorUrl(slug)
 
             const article = {
               // 타입이 바뀌어도 @id suffix(#article)는 고정 — 크롤러 노드 병합 안정성(v5에서 #content로 재명명).
@@ -214,6 +216,8 @@ export default (() => {
               "name": fm?.title ?? title,
               "url": socialUrl,
               "mainEntityOfPage": socialUrl,
+              // 같은 저작물의 한국어 발견 미러. 검색엔진 canonical 지시가 아니다.
+              ...(mirrorUrl ? { "sameAs": mirrorUrl } : {}),
               "author": { "@id": `${origin}/#person` },
               "publisher": { "@id": `${origin}/#person` },
               // 가든은 blog가 아니다. 폴더별 의미는 @type이 표현하고, 모든 공개 MD 산출물은

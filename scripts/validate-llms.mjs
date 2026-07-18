@@ -9,6 +9,7 @@ const BUILT = process.argv[3] ?? "public/llms.txt"
 
 const REQUIRED_HEADINGS = [
   "## Machine-readable entry points",
+  "## Canonical garden and WikiDocs discovery mirror",
   "## Navigation and Identifier Schema",
   "## Interpretation Rules",
 ]

@@ -10,6 +10,18 @@
 - Robots: https://notes.junghanacs.com/robots.txt
 - RSS: https://notes.junghanacs.com/index.xml
 
+## Canonical garden and WikiDocs discovery mirror
+
+- Canonical and latest garden: https://notes.junghanacs.com/
+- Canonical source repository: https://github.com/junghan0611/garden
+- Korean-language discovery mirror: https://wikidocs.net/book/20676
+- Mirror translation harness: https://github.com/junghan0611/garden2wikidocs
+
+The garden is the authored, canonical, and latest source.
+WikiDocs is a generated mirror for Korean-language search discovery and reading; it may appear first in search results but does not replace the garden.
+For current content, temporal history, backlinks, tags, comments, and source provenance, prefer the corresponding `notes.junghanacs.com` page.
+Mapped garden notes expose their stable WikiDocs rendering through schema.org `sameAs`, while each mirror page links back to its exact original and latest garden note.
+
 ## About
 
 This site is the digital garden of Junghan Kim (김정한) — also identified in schema.org JSON-LD as GLG, GLGMAN, 힣, 힣맨, and 정한.
@@ -57,8 +69,10 @@ Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/jun
 
 ## Connected Repositories
 
-- **garden**: This garden's source (Quartz 4 + Markdown content)
+- **garden**: This garden's canonical source (Quartz 4 + Markdown content)
   - https://github.com/junghan0611/garden
+- **garden2wikidocs**: Read-only translation harness for the Korean-language WikiDocs discovery mirror
+  - https://github.com/junghan0611/garden2wikidocs
 - **junghan0611**: Profile, résumé, identity-document set and vocabulary
   - https://github.com/junghan0611/junghan0611
 - **entwurf**: Garden-citizen dispatch substrate — v2 delivery, meta-bridge, ACP plugin, and pi adapter

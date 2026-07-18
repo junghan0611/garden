@@ -5,6 +5,7 @@ import { classNames } from "../util/lang"
 import { i18n } from "../i18n"
 import { JSX } from "preact"
 import style from "./styles/contentMeta.scss"
+import { wikidocsMirrorUrl } from "../util/wikidocsMirror"
 
 interface ContentMetaOptions {
   showReadingTime: boolean
@@ -61,8 +62,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       segments.push(<span>{displayedTime}</span>)
     }
 
-    // GitHub links
+    // Source/provenance links
     const showGitHubLinks = options.repoLink && options.branch && !isIndex
+    const mirrorUrl = isIndex ? undefined : wikidocsMirrorUrl(fileData.slug)
 
     return (
       <div class="contentmeta-container">
@@ -86,6 +88,15 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
             >
               ᨒ History ↗
             </a>
+            {mirrorUrl && (
+              <a
+                class="github-link external"
+                href={mirrorUrl}
+                title="한국어 검색과 읽기를 위한 위키독스 발견 미러"
+              >
+                ᨒ WikiDocs mirror ↗
+              </a>
+            )}
           </p>
         )}
         <p
