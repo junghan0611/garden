@@ -14,7 +14,67 @@ longer waits on "v5 stable".
 
 # NOW
 
-## P0 — in-article outline
+## P0 — 디지털 가든 코어 (선별 ~400 노트, 2미러 발행)
+
+GLG가 2026-07-20에 연 새 레인. 정본 가든(2,239)은 그대로 두고, **선별된 ~400 노트짜리 코어 판본**을
+두 미러에 발행한다. 위키독스 상한이 500이라 400은 의도된 여유다.
+
+- 블로그스팟: <https://junghanacs.blogspot.com/> — 이름 **"디지털 가든 코어"**, 방금 개설
+- 위키독스: 기존 book/20676을 이 코어 판본으로 축소
+
+**이 코어 판본 때문에 가든의 per-note 미러 링크와 `sameAs`를 제거했다**(`da0c6f74`). 선별 판본은 같은
+저작물이 아니다. 되살리지 말 것 — `validate-jsonld.mjs`가 부재를 검증한다.
+
+### 선별 규칙 (GLG 확정분)
+
+`journal 2025+` ∪ `autholog 태그` ∪ `botlog` 전체. **meta는 넣지 않는다.** bib는 미정.
+
+### 측정 (2026-07-20, `content/` 기준)
+
+| 구성 | 수 |
+|---|---:|
+| journal 2025+ | 89 (전체 104 중; 2022:3 + 2024:12 제외) |
+| botlog 전체 | 80 |
+| autholog 태그 | 161 = notes 154 + botlog 6(중복) + meta 1 |
+| **합집합(meta 제외)** | **323** |
+| 400까지 여유 | **77** |
+
+`autholog`는 이 세션 안에서만 160→161로 늘었다(내보내기 한 번에 `notes/20251120T090634` 편입).
+이 표는 스냅샷이지 계약이 아니다 — 규칙을 코드로 옮길 때 다시 세라.
+
+### GLG 추정과 다른 두 가지 — 결정 필요
+
+1. **여유는 100이 아니라 77이다.** 그리고 위클리 저널이 주 1건 = **연 52건**씩 들어온다. 즉 현재 규칙
+   그대로면 **약 18개월 뒤 400에 닿는다**. bib를 무엇으로 채울지보다 이게 더 큰 제약이다.
+   → 최소 한 규칙은 rolling이어야 한다. 무한 증가 멤버는 journal뿐이므로, `journal 2025+`(영구 누적)를
+   `최근 N개월`(고정 크기)로 바꾸면 코어가 정상상태가 된다. **GLG 판단 사항** — 2025년치를 영구 보존할지,
+   창을 굴릴지는 편집 의도의 문제다.
+2. **`meta/20241206T090648`이 autholog 태그를 달고 있다.** "meta 제외"와 "autholog 포함"이 이 1건에서
+   충돌한다. autholog 우선(=포함)인지 meta 제외 우선인지 정해야 규칙이 결정적이 된다.
+
+### 링크 회수 — 이번 위키독스 내보내기에서 검증된 방식
+
+`garden2wikidocs`에 링크 대체 로직이 이미 들어갔고, 링크를 살린 채 옮길 수 있음이 확인됐다. 규칙:
+
+- 링크 대상이 **코어 안에 있으면** → 해당 미러의 자기 링크로 회수 (미러 내부에서 닫힌 탐색면)
+- 링크 대상이 **코어 밖이면** → 정본 가든 절대 URL로
+
+이래야 미러가 그 자체로 기능하고, 크롤링돼서 정보로서 값을 한다. 미러 → 가든 방향 링크는 유지된다.
+
+### 다음 한 걸음
+
+1. 위 두 결정(rolling 여부 / autholog-meta 충돌)을 GLG에게 받는다.
+2. bib 편입 방식을 설계한다 — **여유가 78이고 매년 52씩 줄기 때문에, bib는 늘어나는 규칙이 아니라
+   고정 선별 목록이어야 한다.** 규칙 기반("특정 태그 bib 전부")은 상한을 넘긴다.
+3. 선별 규칙을 `garden2wikidocs` 쪽 실행 가능한 셀렉터로 옮기고, 블로그스팟 발행 경로를 정한다
+   (Blogger API / 수동 / 별도 하네스 — 미정).
+
+**Do not touch**: `content/` 원본, 가든의 per-note 미러 링크·`sameAs`(제거 상태 유지),
+`quartz/data/wikidocs-mirror.json`(2,238 엔트리는 선별 판본 이전이라 낡음 — 코어 확정 후 재import하거나 폐기).
+
+**Read**: `docs/WIKIDOCS_MIRROR.md`, `~/repos/gh/garden2wikidocs/NEXT.md`.
+
+## P1 — in-article outline (구현 완료, GLG 시각 게이트 대기)
 
 GLG saw this reading affordance on the WikiDocs mirror and wants the canonical garden to match or exceed it.
 **The reading-progress rail that was originally paired with it is dropped — GLG decided 2026-07-18 not to
@@ -131,8 +191,9 @@ Acceptance:
 `quartz/plugins/transformers/toc.ts`, `quartz/components/scripts/toc.inline.ts`,
 `quartz/components/styles/toc.scss`, `quartz/components/scripts/popover.inline.ts`.
 
-Preserve JSON-LD, uppercase-`T` URLs, mirror links, listing invariants, and every file under `content/`. One
-commit per affordance; GLG owns the final visual gate.
+Preserve JSON-LD, uppercase-`T` URLs, listing invariants, and every file under `content/`. One
+commit per affordance; GLG owns the final visual gate. (This line used to say "mirror links" too — those were
+removed on 2026-07-20; see the core-edition lane above.)
 
 ## Cutover — SHIPPED 2026-07-13 → `CHANGELOG.md` v2026.7.13
 
