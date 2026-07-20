@@ -44,7 +44,8 @@ Org → exported garden Markdown → independent garden deploy
                               ↓ explicit owner-run import
            garden/quartz/data/wikidocs-mirror.json
                               ↓
-              Quartz JSON-LD + visible mirror link
+                   (retained as data only —
+              the garden emits no per-note link)
 ```
 
 The garden's Netlify build never reads a sibling checkout and never fetches a remote
@@ -62,7 +63,8 @@ import the new snapshot.
 2. Let `garden2wikidocs` read the public garden files and update the WikiDocs mirror.
 3. Recover new WikiDocs `page_id` values and audit the mirror.
 4. Explicitly import the refreshed mapping snapshot into the garden.
-5. On the next garden deploy, emit the corresponding JSON-LD and visible mirror links.
+5. Deploy the garden. The garden emits nothing per-note about the mirror; step 4 only
+   keeps the ledger current for future use.
 
 A new garden note may temporarily have no WikiDocs mapping. That is normal and must
 not fail a garden build. A mirror outage or delayed `page_id` recovery must never block
@@ -70,13 +72,28 @@ the canonical publication path.
 
 ## Garden output
 
-For a mapped Denote page, Quartz adds the stable WikiDocs URL to the page's
-CreativeWork JSON-LD as `sameAs` and shows a compact `WikiDocs mirror` link in content
-metadata. Both are synthesized at build time; Org and exported content Markdown are not
-modified for mirror plumbing.
+**The garden emits nothing per-note about the mirror.** No visible `WikiDocs mirror`
+link in content metadata, no `sameAs` in the page's CreativeWork JSON-LD.
 
-`sameAs` records a relationship between two renderings of the work. It is not an HTML
-canonical directive and does not grant WikiDocs authority over source metadata.
+Both surfaces shipped in `f7688814` (2026-07-18) and were removed on 2026-07-20, for two
+independent reasons:
+
+1. **`sameAs` became factually wrong.** WikiDocs is moving to a curated minimal edition —
+   a few hundred selected notes, not a page-for-page rendering of the garden. `sameAs`
+   asserts that two URLs denote the *same entity*; a selected subset published under a
+   different editorial shape does not qualify.
+2. **The snapshot has no liveness guarantee.** `wikidocs-mirror.json` is a frozen import
+   and no build step verifies that a mapped page still resolves. WikiDocs applies
+   server-side caps without notice — `garden2wikidocs@6bfbadf` hit a 1000-node TOC
+   truncation on a 2,243-node book — so a stale snapshot degrades into thousands of dead
+   outbound links that the garden cannot detect.
+
+`scripts/validate-jsonld.mjs` asserts the absence of both surfaces. Restoring either one
+fails the validator by design. Before reinstating per-note links, the curated set must be
+stable *and* something must check remote liveness.
+
+The surviving link direction is mirror → garden: each WikiDocs page carries a provenance
+block pointing at its exact original (see below).
 
 The garden's existing uppercase-`T` URL behavior deliberately has no per-page
 `<link rel="canonical">`. This mirror integration does not change that invariant.
@@ -103,10 +120,16 @@ It is system metadata, not part of the author's `이 노트에 대하여` abstra
 
 ### Garden
 
+At the import gate (`scripts/sync-wikidocs-map.mjs`):
+
 - Denote IDs and WikiDocs URLs are well formed.
 - Every imported WikiDocs page ID and URL is unique.
 - Every snapshot entry points to an existing garden Denote page.
-- A mapped page emits the exact `sameAs` URL and visible mirror link.
+
+At build validation (`scripts/validate-jsonld.mjs`):
+
+- No content node carries `sameAs`.
+- No built page links out to `wikidocs.net`.
 - An unmapped new garden page remains valid and deployable.
 - Netlify requires no sibling repository or network mapping fetch.
 

@@ -217,17 +217,25 @@ The complete cross-repository contract is [`docs/WIKIDOCS_MIRROR.md`](docs/WIKID
 This garden is the canonical, latest, and authored source; WikiDocs is a Korean-language discovery and
 reading mirror, and `garden2wikidocs` is the read-only translation harness.
 
-- Never modify Org or exported content Markdown for mirror plumbing. Quartz synthesizes mapped `sameAs` data
-  and the visible mirror link from `quartz/data/wikidocs-mirror.json`.
+- **The garden emits no per-note link to WikiDocs — neither a visible link nor JSON-LD `sameAs`.** Removed
+  2026-07-20, two days after it shipped in `f7688814`. WikiDocs is becoming a curated minimal edition of a few
+  hundred selected notes, so it is no longer a page-for-page rendering of the same work, and `sameAs` is
+  defined for identical entities only. The link direction that survives is mirror → garden.
+- The second reason the link had to go: `quartz/data/wikidocs-mirror.json` is a frozen import, and nothing in
+  the build ever checks that a mapped page still resolves. WikiDocs enforces server-side caps without notice
+  (see `garden2wikidocs@6bfbadf`, the 1000-node TOC truncation), so a stale snapshot silently becomes thousands
+  of dead outbound links. Do not restore per-note linking without a liveness check on the remote pages.
+- `scripts/validate-jsonld.mjs` now asserts the *absence* of both surfaces. Restoring either one fails the
+  validator on purpose.
+- Never modify Org or exported content Markdown for mirror plumbing.
 - `garden2wikidocs/mapping.json` owns WikiDocs `page_id`/URL facts. The garden owns the explicit import gate
   `scripts/sync-wikidocs-map.mjs` and the committed minimal snapshot; Netlify never reads a sibling checkout
-  or fetches the mapping over the network.
+  or fetches the mapping over the network. The snapshot is retained as data only — it is currently read by
+  nothing, and it predates the curated-subset plan, so treat its 2,238 entries as stale.
 - `garden2wikidocs` never writes into this repository. It reports a recovered stable mapping, then the garden
   owner decides when to import it.
 - An unmapped new garden note is valid and must remain deployable. Mirror lag or failure never blocks the
   canonical publication path.
-- Content `sameAs` points to the corresponding rendering; it is not an HTML canonical directive. Preserve the
-  uppercase-`T`/no-per-page-canonical invariant below.
 
 ## Build & URL invariants
 
