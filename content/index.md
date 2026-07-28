@@ -94,6 +94,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [직무 보유기술 - 이력서 시간축 증언 공개키]({{< relref "/notes/20250515T103930.md" >}})
 -   [연구가 아닌 물음과 탐험]({{< relref "/notes/20250428T155929.md" >}})
 -   [유니콘과 적토마 — 알아봄과 공존]({{< relref "/notes/20250518T144418.md" >}})
 -   [기업용 하네스 - PKM-AI 하네스 엔지니어의 다음 좌표]({{< relref "/notes/20231018T221900.md" >}})
@@ -134,7 +135,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (174)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (175)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -208,5 +209,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-07-28 17:50, CountNotes: 3499 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-07-29 06:49, CountNotes: 3499 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
