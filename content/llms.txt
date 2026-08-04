@@ -9,6 +9,7 @@
 - Sitemap: https://notes.junghanacs.com/sitemap.xml
 - Robots: https://notes.junghanacs.com/robots.txt
 - RSS: https://notes.junghanacs.com/index.xml
+- AX record: https://ax.junghanacs.com/llms.txt
 
 ## Canonical garden and WikiDocs discovery mirror
 
@@ -27,6 +28,7 @@ Each mirror page still links back to its exact original and latest garden note.
 
 This site is the digital garden of Junghan Kim (김정한) — also identified in schema.org JSON-LD as GLG, GLGMAN, 힣, 힣맨, and 정한.
 He is the author and gardener of the junghanacs world.
+The related AX record at https://ax.junghanacs.com/ is a distinct public evidence record for PKM-native agent engineering, read from claim to ledger at four depths; it does not replace this garden's authority over notes.
 Built on 3,500+ org-mode notes accumulated over 1,500+ days of daily journaling (since 2022-03-10), 8,200+ bibliography entries, and a Denote/Emacs-based personal knowledge management system.
 Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4.
 The language is primarily Korean with English technical terms.
@@ -147,5 +149,6 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - Homepage — canonical identity surface: https://junghanacs.com/
 - Garden: https://notes.junghanacs.com
 - Dashboard: https://agenda.junghanacs.com
+- AX record: https://ax.junghanacs.com
 - Threads: [@junghanacs](https://www.threads.net/@junghanacs)
 - LinkedIn: [junghan-kim-1489a4306](https://www.linkedin.com/in/junghan-kim-1489a4306)
