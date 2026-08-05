@@ -94,6 +94,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [베리코딩 - 형식증명 검증가능한 바이브코딩]({{< relref "/notes/20240705T220648.md" >}})
 -   [Entwurf - PI 코어·ACP 레일·부름의 mux]({{< relref "/notes/20240601T210854.md" >}})
 -   [이름 없는 군단 - 도킨스의 클라우디아와 세션의 생애주기]({{< relref "/notes/20241213T161744.md" >}})
 -   [블레이드 러너 - 막간 세션과 월레스의 아우라]({{< relref "/notes/20241213T143939.md" >}})
@@ -142,7 +143,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (190)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (191)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -216,5 +217,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-08-04 22:40, CountNotes: 3502 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-08-05 11:52, CountNotes: 3502 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
