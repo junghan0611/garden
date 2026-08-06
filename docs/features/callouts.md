@@ -94,3 +94,29 @@ By default, custom callouts are handled by applying the `note` style. To make fa
 
 > [!quote]
 > Aliases: "quote", "cite"
+
+## Garden-specific callouts
+
+Two extra callout types beyond the Obsidian set, for writing a request/answer exchange into a note.
+They reuse the exact colours of the inline `@user` / `@assistant` gptel markers — user is question
+yellow (`#dba642`), assistant is tip green (`#00bfa5`) — so a conversation reads the same whether it
+is quoted inline or blocked out.
+
+Defined in `quartz/styles/custom.scss`; aliases live in `calloutMapping` in
+`quartz/plugins/transformers/ofm.ts`.
+
+> [!user]
+> Aliases: "user", "me"
+
+> [!assistant]
+> Aliases: "assistant", "ai", "bot"
+
+Typical usage — give each side a title so the exchange stays readable when collapsed:
+
+```
+> [!user] 질문
+> 콜아웃 종류를 어디서 늘리나요?
+
+> [!assistant]- 답변
+> `custom.scss`에 색을 정의하고, `ofm.ts`의 `calloutMapping`에 별칭을 추가합니다.
+```

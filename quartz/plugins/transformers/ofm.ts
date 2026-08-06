@@ -88,6 +88,12 @@ const calloutMapping = {
   example: "example",
   quote: "quote",
   cite: "quote",
+  // garden custom: conversation roles (matches the @user/@assistant gptel markers)
+  user: "user",
+  me: "user",
+  assistant: "assistant",
+  ai: "assistant",
+  bot: "assistant",
 } as const
 
 const arrowMapping: Record<string, string> = {
