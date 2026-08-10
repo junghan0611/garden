@@ -45,7 +45,7 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260803T000000.md" >}}) — Weekly journal
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260810T000000.md" >}}) — Weekly journal
 -   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
 -   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
 -   [근데 왜 힣 인가]({{< relref "/notes/20250320T212021.md" >}})
@@ -53,9 +53,9 @@ Machine-readable entry points for AI crawlers and language models:
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
 
-누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260803T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
+누더기 텍스트를 환영한다. 모든 전략과 고민은 접었다. 일단 [#데일리 #저널]({{< relref "/journal/20260810T000000.md" >}})에 쓴다. 여기에 기존 노트를 연결하고 때려 박는다.
 
--   [#데일리 #저널]({{< relref "/journal/20260803T000000.md" >}}) - Daily Lifelog
+-   [#데일리 #저널]({{< relref "/journal/20260810T000000.md" >}}) - Daily Lifelog
 -   [#데일리루틴 #워크플로우]({{< relref "/notes/20240905T152133.md" >}}) - Writing Policy
 -   [folder: journal]({{< relref "/journal" >}})
 
@@ -94,6 +94,8 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [Entwurf 물음·부름·불응·부릉 - 보이는 곳에서 함께하라]({{< relref "/notes/20250215T202517.md" >}})
+-   [리포가 자기 몸을 수선하게 하라]({{< relref "/notes/20240705T144627.md" >}})
 -   [지식구조화 - 언어철학 수리논리 지식공학]({{< relref "/notes/20240321T053220.md" >}})
 -   [통제 없는 능력이 열리는 자리 — AI 안전장치 임계점]({{< relref "/notes/20250319T172804.md" >}})
 -   [베리코딩 - 형식증명 검증가능한 바이브코딩]({{< relref "/notes/20240705T220648.md" >}})
@@ -145,7 +147,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (193)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (196)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -186,6 +188,7 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 그리고, 이것저것 진행 중이라네. 문서를 믿지 말게. 실체가 없다면 그건 말장난일걸세.
 
+-   [리포 수선 스킬 만드는 법 - 담당자에게 주는 정본과 계약]({{< relref "/botlog/20260227T031800.md" >}}) - mEnd
 -   [에이전트 오케스트레이터 리서치 — 뉴스 비교]({{< relref "/botlog/20260521T134542.md" >}}) - nEws
 -   [§garden2wikidocs — 가든의 위키독스 미러]({{< relref "/botlog/20260220T201100.md" >}}) - mIrrOr
 -   [⊨agent-server #에이전트 #놀이터 #신뢰 #울타리]({{< relref "/botlog/20260227T141200.md" >}}) - fEncEphIlOsOphy
@@ -220,5 +223,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-08-08 17:50, CountNotes: 3503 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-08-10 11:44, CountNotes: 3504 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.7), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
