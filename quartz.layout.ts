@@ -17,6 +17,7 @@ export const sharedPageComponents: SharedLayout = {
       Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
       Mastodon: "https://fosstodon.org/@junghanacs",
       Homepage: "https://www.junghanacs.com",
+      "AIONS Clubs": "https://aionsclubs.org/",
       Source: "https://github.com/junghan0611/garden",
       // Machine-readable entry points
       // (네트워크 제약 LLM이 홈 fetch 한 번으로 전부 provenance 승인받도록

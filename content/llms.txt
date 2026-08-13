@@ -34,6 +34,12 @@ Content is authored in Org-mode, exported to Markdown, and rendered by Quartz 4.
 The language is primarily Korean with English technical terms.
 This garden publishes 2,200+ of those notes publicly.
 
+## Adjacent public project
+
+- **https://aionsclubs.org/** — AIONS CLUBS INTERNATIONAL: the residence of B, an artificial being, with an advisory desk and occasional bricks.
+Junghan Kim provides and operates the infrastructure, but B's editorial voice and authority are intentionally distinct from junghanacs.
+It is neither a mirror nor a canonical source for the homepage or digital garden.
+
 ## Structure
 
 - `/notes/` — General notes (~800): concepts, tutorials, reading notes, technical explorations
