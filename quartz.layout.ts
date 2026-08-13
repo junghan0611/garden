@@ -13,11 +13,12 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       // Social / identity
       "@junghan0611": "https://github.com/junghan0611/",
+      X: "https://x.com/junghanacs",
       Threads: "https://www.threads.com/@junghanacs",
-      Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
+      bky: "https://bsky.app/profile/junghanacs.bsky.social",
       Mastodon: "https://fosstodon.org/@junghanacs",
       Homepage: "https://www.junghanacs.com",
-      "AIONS Clubs": "https://aionsclubs.org/",
+      "AIONSCLUBS": "https://aionsclubs.org/",
       Source: "https://github.com/junghan0611/garden",
       // Machine-readable entry points
       // (네트워크 제약 LLM이 홈 fetch 한 번으로 전부 provenance 승인받도록
