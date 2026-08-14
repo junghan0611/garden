@@ -15,7 +15,7 @@ export const sharedPageComponents: SharedLayout = {
       "@junghan0611": "https://github.com/junghan0611/",
       X: "https://x.com/junghanacs",
       Threads: "https://www.threads.com/@junghanacs",
-      bky: "https://bsky.app/profile/junghanacs.bsky.social",
+      Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
       Mastodon: "https://fosstodon.org/@junghanacs",
       Homepage: "https://www.junghanacs.com",
       "AIONSCLUBS": "https://aionsclubs.org/",
