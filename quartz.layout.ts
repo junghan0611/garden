@@ -27,9 +27,9 @@ export const sharedPageComponents: SharedLayout = {
       "robots.txt": "https://notes.junghanacs.com/robots.txt",
       "sitemap.xml": "https://notes.junghanacs.com/sitemap.xml",
       "llms.txt": "https://notes.junghanacs.com/llms.txt",
-      // Bibliography raw data — zotero-config (파사드가 아닌 누적 기록)
-      "Book.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/Book.bib",
-      "github-starred.bib": "https://github.com/junghan0611/zotero-config/blob/main/output/github-starred.bib",
+      // Bibliography raw data
+      "Book.bib": "https://github.com/junghan0611/garden/blob/main/Book.bib",
+      "github-starred.bib": "https://github.com/junghan0611/garden/blob/main/github-starred.bib",
     },
   }),
 }
