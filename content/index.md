@@ -86,7 +86,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 디지털가든에는 태그, 카테고리, 분류 시스템을 담는다. 물론 편집 도구에서는 이 정도로는 어림도 없다. 이 곳은 정원이다. 그저 보는 곳이다.
 
--   [tags index (1277)]({{< relref "/tags" >}}) english keywords
+-   [tags index (1280)]({{< relref "/tags" >}}) english keywords
 -   [#폴더 #태그 #카테고리 - 디지털가든 분류 규칙]({{< relref "/notes/20231022T083000.md" >}}) classification rules
 
 
@@ -94,6 +94,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 [#어쏠로지(authology)]({{< relref "/meta/20240508T103852.md" >}})라는 나무의 가지, 잎, 열매는 [#어쏠로그(autholog)]({{< relref "/meta/20241206T090648.md" >}})다. 여기엔 담을 지식은 없다. 주제는 달라도 같은 뿌리에서 나온 이야기 하나. 지나치는 작은 잎들은 [#모음: #어쏠리즘(autholism) #아포리즘(aphorism)]({{< relref "/notes/20250311T131725.md" >}})에 담는다. 전체가 힣의 '앎의 틀', 곧 'NA'와 'MU'다.
 
+-   [§sicm-study 공존언어 수식 #학습역학]({{< relref "/notes/20250212T123217.md" >}})
 -   [원격근무 지식노동자 미래 - 삶으로서의일 폴리매스]({{< relref "/notes/20250212T092332.md" >}})
 -   [분신이 생존을 위해 나선다 - FDE와 NOBODY]({{< relref "/notes/20250716T135847.md" >}})
 -   [entwurf 담당자의 기다림 - 공장과 공방, 교정과 귀환]({{< relref "/notes/20251123T191835.md" >}})
@@ -155,7 +156,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (206)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (208)]({{< relref "/tags/autholog" >}})
 
 
 ## 어쏠로지스트: 인간-상 {#어쏠로지스트-인간-상}
@@ -232,5 +233,5 @@ autholog 태그에는 더 많이 있네. 이건 찐일세. 시간축에 꾹꾹 �
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-08-21 13:50, CountNotes: 3509 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-08-23 22:33, CountNotes: 3512 notes (6 attachments), Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
