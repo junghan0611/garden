@@ -153,6 +153,7 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - JSON-LD Person `alternateName`: GLG, GLGMAN, 힣, 힣맨, 정한
 - GitHub: [@junghan0611](https://github.com/junghan0611)
 - Homepage — canonical identity surface: https://junghanacs.com/
+- Substack: https://junghankim151502.substack.com/
 - Garden: https://notes.junghanacs.com
 - Dashboard: https://agenda.junghanacs.com
 - AX record: https://ax.junghanacs.com

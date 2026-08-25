@@ -18,6 +18,7 @@ export const sharedPageComponents: SharedLayout = {
       Bluesky: "https://bsky.app/profile/junghanacs.bsky.social",
       Mastodon: "https://fosstodon.org/@junghanacs",
       Homepage: "https://www.junghanacs.com",
+      "Substack": "https://junghankim151502.substack.com/",
       "AIONSCLUBS": "https://aionsclubs.org/",
       Source: "https://github.com/junghan0611/garden",
       // Machine-readable entry points
