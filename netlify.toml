@@ -66,6 +66,14 @@
     Content-Type = "text/plain; charset=utf-8"
     Cache-Control = "public, max-age=3600"
 
+# autholog catalog record — .jsonld is not a Netlify-known type; nosniff would
+# leave it as octet-stream without this. Same pattern as llms.txt / robots.txt.
+[[headers]]
+  for = "/tags/autholog.jsonld"
+  [headers.values]
+    Content-Type = "application/ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
 # sitemap.xml — 검색엔진이 자주 확인하도록 짧은 캐시
 [[headers]]
   for = "/sitemap.xml"

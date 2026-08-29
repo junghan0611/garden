@@ -31,7 +31,7 @@ Quartz/`Head.tsx`/`validate-jsonld.mjs`는 안 건드린다.
 - ① `content/llms.txt` Structure: `/tags/autholog` + `.jsonld` + botlog/journal HTML. `/tags/` `/notes/` `/meta/` `/bib/` 링크 삭제 (텍스트만).
 - ② `scripts/generate-autholog-itemlist.mjs` → post-build가 `public/tags/autholog.jsonld` 생성. 기존 `#article` 참조, Head와 같은 필드만.
 
-Next: (1) 커밋/푸시 → (2) 라이브 `curl`로 `llms.txt`와 `.jsonld` 착지 확인 → (3) 홈 URL만 주고 Claude.ai 웹에 "autholog 코어가 뭐냐".
+Next: (1) 푸시 → (2) 라이브 `curl -I`로 `.jsonld`의 `Content-Type: application/ld+json`과 `llms.txt` 착지 확인 → (3) 홈 URL만 주고 Claude.ai 웹에 "autholog 코어가 뭐냐".
 
 ### 기대하지 말 것 — 다음에 모아 고민 (4번 칸)
 
