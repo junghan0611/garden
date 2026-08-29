@@ -5,6 +5,7 @@
 
 import fs from "node:fs"
 import path from "node:path"
+import { fileURLToPath } from "node:url"
 
 const PUBLIC_DIR = process.argv[2] ?? "public"
 const ORIGIN = "https://notes.junghanacs.com"
@@ -16,11 +17,16 @@ const EXPECTED_TYPES = {
   meta: ["Article", "DefinedTerm"],
 }
 const CONTENT_SECTIONS = new Set(Object.keys(EXPECTED_TYPES))
-// WikiDocs 미러는 더 이상 노트 단위로 링크되지 않는다. 미러가 선별된 미니멀 판본이 되면서
-// 페이지 대 페이지 동일성이 깨졌기 때문에, 여기서는 미러 링크가 되살아나지 않았는지만 본다.
-// 본문이 위키독스를 인용하는 건 정상(참고문헌 다수)이므로 host만 보면 안 된다. 제거된 표면은
-// ContentMeta의 provenance 링크줄뿐이라, `github-link` 클래스와 위키독스 host가 같이 나올 때만 잡는다.
-const MIRROR_LINK = /github-link[^>]*href="https:\/\/wikidocs\.net/
+const DENOTE_ID = /^\d{8}T\d{6}$/
+const SNAPSHOT_PATH = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+  "quartz",
+  "data",
+  "wikidocs-mirror.json",
+)
+// 본문이 위키독스를 인용하는 건 정상(참고문헌 다수)이므로 host만 보면 안 된다.
+// ContentMeta provenance 줄만 검사한다: github-link 클래스 + wikidocs.net href.
 
 const failures = []
 const stats = {
@@ -30,6 +36,8 @@ const stats = {
   bySection: {},
   nodeTypes: {},
   contentTypes: {},
+  wikiExpected: 0,
+  wikiFound: 0,
 }
 
 function fail(file, message) {
@@ -61,6 +69,68 @@ function expectType(actual, expected) {
 function graphNodes(json) {
   const graph = json?.["@graph"]
   return Array.isArray(graph) ? graph : []
+}
+
+function loadMirrorSnapshot() {
+  if (!fs.existsSync(SNAPSHOT_PATH)) {
+    console.error(`[jsonld] WikiDocs snapshot not found: ${SNAPSHOT_PATH}`)
+    process.exit(1)
+  }
+  const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, "utf8"))
+  if (snapshot?._meta?.schemaVersion !== 2) {
+    console.error(
+      `[jsonld] WikiDocs snapshot schemaVersion must be 2 (live TOC), got ${snapshot?._meta?.schemaVersion}`,
+    )
+    process.exit(1)
+  }
+  return {
+    byDenoteId: snapshot.byDenoteId ?? {},
+    byGardenSlug: snapshot.byGardenSlug ?? {},
+  }
+}
+
+const mirrorSnapshot = loadMirrorSnapshot()
+
+function expectedWikiDocsUrl(rel) {
+  const noExt = rel.replace(/\\/g, "/").replace(/\.html$/, "")
+  const last = noExt.split("/").pop() ?? ""
+  if (DENOTE_ID.test(last)) return mirrorSnapshot.byDenoteId[last]
+  const normalized = noExt.replace(/\/index$/, "")
+  return mirrorSnapshot.byGardenSlug[normalized] ?? mirrorSnapshot.byGardenSlug[noExt]
+}
+
+function wikiDocsProvenanceHrefs(html) {
+  const hrefs = []
+  const re = /<a\s[^>]*>/g
+  let match
+  while ((match = re.exec(html))) {
+    const tag = match[0]
+    if (!tag.includes("github-link")) continue
+    const href = tag.match(/href="(https:\/\/wikidocs\.net\/\d+)"/)
+    if (href) hrefs.push(href[1])
+  }
+  return hrefs
+}
+
+function checkWikiDocsLink(file, html) {
+  const rel = path.relative(PUBLIC_DIR, file)
+  const expected = expectedWikiDocsUrl(rel)
+  const found = wikiDocsProvenanceHrefs(html)
+  if (expected) {
+    stats.wikiExpected++
+    if (found.length === 1 && found[0] === expected) {
+      stats.wikiFound++
+      return
+    }
+    fail(
+      file,
+      `WikiDocs provenance link must be ${expected}, got ${JSON.stringify(found)}`,
+    )
+    return
+  }
+  if (found.length > 0) {
+    fail(file, `unpublished page must not emit WikiDocs provenance link, got ${JSON.stringify(found)}`)
+  }
 }
 
 function extractJsonLdBlocks(html) {
@@ -142,7 +212,6 @@ function validateContent(file, graph, html) {
   if ("sameAs" in content) {
     fail(file, "content node must not emit sameAs; the WikiDocs mirror is not the same work")
   }
-  if (MIRROR_LINK.test(html)) fail(file, "per-note WikiDocs mirror link must stay removed")
 
   if (content.author?.["@id"] !== `${ORIGIN}/#person`) fail(file, "content.author must point to #person")
   if (content.publisher?.["@id"] !== `${ORIGIN}/#person`) fail(file, "content.publisher must point to #person")
@@ -185,6 +254,7 @@ for (const section of CONTENT_SECTIONS) {
 
 for (const file of files) {
   const html = fs.readFileSync(file, "utf8")
+  checkWikiDocsLink(file, html)
   const blocks = extractJsonLdBlocks(html)
   stats.ldBlocks += blocks.length
 
@@ -227,3 +297,4 @@ if (failures.length > 0) {
 console.log(`[jsonld] OK html=${stats.html} ld=${stats.ldBlocks} content=${stats.contentNodes}`)
 console.log(`[jsonld] sections=${JSON.stringify(stats.bySection)}`)
 console.log(`[jsonld] contentTypes=${JSON.stringify(stats.contentTypes)}`)
+console.log(`[jsonld] wikiDocs=${stats.wikiFound}/${stats.wikiExpected}`)

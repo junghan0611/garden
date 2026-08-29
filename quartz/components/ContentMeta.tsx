@@ -5,6 +5,7 @@ import { classNames } from "../util/lang"
 import { i18n } from "../i18n"
 import { JSX } from "preact"
 import style from "./styles/contentMeta.scss"
+import { wikidocsMirrorUrl } from "../util/wikidocsMirror"
 
 interface ContentMetaOptions {
   showReadingTime: boolean
@@ -24,8 +25,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
     const isIndex = fileData.slug === "index"
+    const mirrorUrl = isIndex ? undefined : wikidocsMirrorUrl(fileData.slug)
 
-    if (!text) return null
+    if (!text && !mirrorUrl) return null
 
     const segments: (string | JSX.Element)[] = []
 
@@ -53,7 +55,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     }
 
     // Reading time
-    if (options.showReadingTime && !isIndex) {
+    if (options.showReadingTime && !isIndex && text) {
       const { minutes } = readingTime(text)
       const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
         minutes: Math.ceil(minutes),
@@ -61,39 +63,56 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       segments.push(<span>{displayedTime}</span>)
     }
 
-    // Source/provenance links
-    const showGitHubLinks = options.repoLink && options.branch && !isIndex
+    // Source/provenance links. WikiDocs is independent of GitHub so folder/tag
+    // indexes can show the live chapter URL without a source file.
+    const showGitHubLinks = Boolean(options.repoLink && options.branch && !isIndex)
+    const showProvenance = showGitHubLinks || Boolean(mirrorUrl)
 
     return (
       <div class="contentmeta-container">
-        {showGitHubLinks && (
+        {showProvenance && (
           <p class="content-meta github-links">
-            <a
-              class="github-link"
-              href={`${options.repoLink}/blob/${options.branch}/${fileData.filePath}`}
-            >
-              ᨒ Source
-            </a>
-            <a
-              class="github-link"
-              href={`${options.repoLink}/blame/${options.branch}/${fileData.filePath}`}
-            >
-              ᨒ Blame
-            </a>
-            <a
-              class="github-link external"
-              href={`${options.repoLink?.replace("github.com", "github.githistory.xyz")}/commits/${options.branch}/${fileData.filePath}`}
-            >
-              ᨒ History ↗
-            </a>
+            {showGitHubLinks && (
+              <>
+                <a
+                  class="github-link"
+                  href={`${options.repoLink}/blob/${options.branch}/${fileData.filePath}`}
+                >
+                  ᨒ Source
+                </a>
+                <a
+                  class="github-link"
+                  href={`${options.repoLink}/blame/${options.branch}/${fileData.filePath}`}
+                >
+                  ᨒ Blame
+                </a>
+                <a
+                  class="github-link external"
+                  href={`${options.repoLink?.replace("github.com", "github.githistory.xyz")}/commits/${options.branch}/${fileData.filePath}`}
+                >
+                  ᨒ History ↗
+                </a>
+              </>
+            )}
+            {mirrorUrl && (
+              <a
+                class="github-link external"
+                href={mirrorUrl}
+                title="위키독스에 퍼블리시된 이 페이지"
+              >
+                ᨒ WikiDocs ↗
+              </a>
+            )}
           </p>
         )}
-        <p
-          show-comma={options.showComma}
-          class={classNames(displayClass, "content-meta")}
-        >
-          {segments}
-        </p>
+        {segments.length > 0 && (
+          <p
+            show-comma={options.showComma}
+            class={classNames(displayClass, "content-meta")}
+          >
+            {segments}
+          </p>
+        )}
         {/* IndieWeb microformats (hidden) */}
         {!isIndex && cfg.baseUrl && fileData.slug && (
           <>

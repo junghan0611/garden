@@ -217,21 +217,18 @@ The complete cross-repository contract is [`docs/WIKIDOCS_MIRROR.md`](docs/WIKID
 This garden is the canonical, latest, and authored source; WikiDocs is a Korean-language discovery and
 reading mirror, and `garden2wikidocs` is the read-only translation harness.
 
-- **The garden emits no per-note link to WikiDocs — neither a visible link nor JSON-LD `sameAs`.** Removed
-  2026-07-20, two days after it shipped in `f7688814`. WikiDocs is becoming a curated minimal edition of a few
-  hundred selected notes, so it is no longer a page-for-page rendering of the same work, and `sameAs` is
-  defined for identical entities only. The link direction that survives is mirror → garden.
-- The second reason the link had to go: `quartz/data/wikidocs-mirror.json` is a frozen import, and nothing in
-  the build ever checks that a mapped page still resolves. WikiDocs enforces server-side caps without notice
-  (see `garden2wikidocs@6bfbadf`, the 1000-node TOC truncation), so a stale snapshot silently becomes thousands
-  of dead outbound links. Do not restore per-note linking without a liveness check on the remote pages.
-- `scripts/validate-jsonld.mjs` now asserts the *absence* of both surfaces. Restoring either one fails the
-  validator on purpose.
+- **Visible WikiDocs links are live-TOC only.** `ContentMeta` shows `WikiDocs ↗` next to Source/Blame/History
+  when the committed snapshot has a URL for that page. Folder indexes (`/journal/`, `/notes/`, …) and
+  `/tags/autholog` point at the matching WikiDocs chapter. Unpublished notes get no button.
+- **JSON-LD `sameAs` stays off.** WikiDocs is a curated subset, not the same entity. Do not add it.
+- Liveness is TOC membership at import time, not an HTTP HEAD from Netlify. `scripts/sync-wikidocs-map.mjs`
+  reads sibling `mapping.json` **and** `TOC.md`, and writes only recovered live URLs. The old 2,238-entry
+  full-mirror snapshot is invalid — dead `page_id` values from the 500-cap cut must not be reimported.
+- `scripts/validate-jsonld.mjs` asserts: no content `sameAs`; mapped pages emit the snapshot URL; unpublished
+  pages emit no `github-link` to `wikidocs.net`.
 - Never modify Org or exported content Markdown for mirror plumbing.
-- `garden2wikidocs/mapping.json` owns WikiDocs `page_id`/URL facts. The garden owns the explicit import gate
-  `scripts/sync-wikidocs-map.mjs` and the committed minimal snapshot; Netlify never reads a sibling checkout
-  or fetches the mapping over the network. The snapshot is retained as data only — it is currently read by
-  nothing, and it predates the curated-subset plan, so treat its 2,238 entries as stale.
+- `garden2wikidocs/mapping.json` owns WikiDocs `page_id`/URL facts. The garden owns the import gate and the
+  committed snapshot; Netlify never reads a sibling checkout or fetches the mapping over the network.
 - `garden2wikidocs` never writes into this repository. It reports a recovered stable mapping, then the garden
   owner decides when to import it.
 - An unmapped new garden note is valid and must remain deployable. Mirror lag or failure never blocks the

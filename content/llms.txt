@@ -21,7 +21,9 @@
 The garden is the authored, canonical, and latest source.
 WikiDocs is a generated mirror for Korean-language search discovery and reading; it may appear first in search results but does not replace the garden.
 For current content, temporal history, backlinks, tags, comments, and source provenance, prefer the corresponding `notes.junghanacs.com` page.
-The mirror carries a curated subset of the garden rather than a page-for-page copy, so garden notes do not link out to individual WikiDocs pages and do not claim schema.org `sameAs` with them.
+The mirror carries a curated subset of the garden rather than a page-for-page copy.
+Garden pages currently published on WikiDocs carry a visible WikiDocs link for verification.
+They do not claim schema.org `sameAs` with the mirror page.
 Each mirror page still links back to its exact original and latest garden note.
 
 ## About
