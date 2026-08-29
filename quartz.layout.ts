@@ -8,6 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [
     Component.Webmentions(),
     Component.Remark42Comments(),
+    Component.Backlinks(),
   ],
   footer: Component.Footer({
     links: {
@@ -78,11 +79,9 @@ export const defaultContentPageLayout: PageLayout = {
     // ),
 
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.DesktopOnly(Component.Backlinks()),
   ],
   right: [
     Component.DesktopOnly(Component.Explorer()),
-    Component.MobileOnly(Component.Backlinks()),
   ],
 }
 
