@@ -221,9 +221,12 @@ reading mirror, and `garden2wikidocs` is the read-only translation harness.
   when the committed snapshot has a URL for that page. Folder indexes (`/journal/`, `/notes/`, …) and
   `/tags/autholog` point at the matching WikiDocs chapter. Unpublished notes get no button.
 - **JSON-LD `sameAs` stays off.** WikiDocs is a curated subset, not the same entity. Do not add it.
-- Liveness is TOC membership at import time, not an HTTP HEAD from Netlify. `scripts/sync-wikidocs-map.mjs`
-  reads sibling `mapping.json` **and** `TOC.md`, and writes only recovered live URLs. The old 2,238-entry
-  full-mirror snapshot is invalid — dead `page_id` values from the 500-cap cut must not be reimported.
+- Liveness is TOC membership at **garden publish** import time, not an HTTP HEAD from Netlify.
+  The sub (`garden2wikidocs`) already made the WikiDocs pages. This repo does not open that repo to
+  create links. Next publish runs `scripts/sync-wikidocs-map.mjs`, which reads sibling `mapping.json`
+  **and** `TOC.md` and writes only recovered live URLs. A missing button this cycle is fine.
+  The old 2,238-entry full-mirror snapshot is invalid — dead `page_id` values from the 500-cap cut
+  must not be reimported.
 - `scripts/validate-jsonld.mjs` asserts: no content `sameAs`; mapped pages emit the snapshot URL; unpublished
   pages emit no `github-link` to `wikidocs.net`.
 - Never modify Org or exported content Markdown for mirror plumbing.

@@ -60,11 +60,11 @@ import the new snapshot.
 
 ## Publication ordering
 
-1. Export and deploy the garden independently.
-2. Let `garden2wikidocs` read the public garden files and update the WikiDocs mirror.
-3. Recover new WikiDocs `page_id` values and audit the mirror.
-4. Explicitly import the refreshed mapping snapshot into the garden.
-5. Deploy the garden. Mapped live pages show `WikiDocs ↗`; unpublished pages stay silent.
+1. Export and deploy the garden independently. A new note may ship with no WikiDocs button.
+2. `garden2wikidocs` (the sub) reads the public garden and updates the WikiDocs book.
+   Recovering `page_id` values belongs there. The garden does not open that repo to create links.
+3. On the **next garden publish**, import whatever the sub already recovered.
+4. Deploy. Mapped live pages show `WikiDocs ↗`; unpublished pages stay silent.
 
 A new garden note may temporarily have no WikiDocs mapping. That is normal and must
 not fail a garden build. A mirror outage or delayed `page_id` recovery must never block
