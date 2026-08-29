@@ -44,11 +44,12 @@ It is neither a mirror nor a canonical source for the homepage or digital garden
 
 ## Structure
 
-- `/notes/` — General notes (~800): concepts, tutorials, reading notes, technical explorations
-- `/meta/` — Meta/concept notes (~500): Syntopicon-style great-idea entries, categorical thinking
-- `/bib/` — Bibliographic notes (~650): Zotero-linked references, book/paper annotations
-- `/journal/` — Daily journal (weekly notes format, since 2022-03-10)
-- `/botlog/` — AI agent work logs: research, analysis, and collaboration records
+- https://notes.junghanacs.com/notes/ — General notes (~800): concepts, tutorials, reading notes, technical explorations.
+- https://notes.junghanacs.com/meta/ — Meta/concept notes (~500): Syntopicon-style great-idea entries, categorical thinking.
+- https://notes.junghanacs.com/bib/ — Bibliographic notes (~650): Zotero-linked references, book/paper annotations.
+- https://notes.junghanacs.com/journal/ — Daily journal (weekly notes format, since 2022-03-10).
+- https://notes.junghanacs.com/botlog/ — AI agent work logs: research, analysis, and collaboration records.
+- https://notes.junghanacs.com/tags/ — Tag index.
 
 ## Key Concepts
 
