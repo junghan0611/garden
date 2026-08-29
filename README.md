@@ -13,7 +13,8 @@
 If you landed here (human or AI agent) and want to understand this garden:
 
 - **The garden itself** — read at https://notes.junghanacs.com, not in this repo. Content in `content/` is auto-generated from Org-mode sources and not meant to be browsed as source.
-- **Machine-readable entry points** — https://notes.junghanacs.com/llms.txt (structured index), https://notes.junghanacs.com/sitemap.xml, https://notes.junghanacs.com/robots.txt, https://notes.junghanacs.com/index.xml (RSS). Every page's footer links to all four.
+- **Machine-readable entry points** — https://notes.junghanacs.com/llms.txt, https://notes.junghanacs.com/sitemap.xml, https://notes.junghanacs.com/robots.txt, https://notes.junghanacs.com/index.xml (RSS). Every page's footer links to all four.
+- **Autholog catalog record** — visiting agents: do **not** fetch `/tags/` (a 3.7MB HTML index) or the large folder listings `/notes/` `/meta/` `/bib/`. The core set is https://notes.junghanacs.com/tags/autholog (HTML listing) and https://notes.junghanacs.com/tags/autholog.jsonld (schema.org `ItemList`, 208 notes, newest-first: title, dates, tags, summary). This is a catalog record, not a query API and not Datasette.
 - **Agent instructions** — see [`AGENTS.md`](AGENTS.md) for durable conventions (build pipeline, editing rules, external-agent environment notes). Any AI agent working in this repo should read it first.
 - **Session handoff** — see [`NEXT.md`](NEXT.md) for the next concrete move, its verification, and current blockers. A boot sector, not a changelog; durable facts graduate into `AGENTS.md`.
 - **What to edit** — `quartz.layout.ts`, `quartz.config.ts`, `quartz/` components, `content/llms.txt`, `content/robots.txt`, `static/`, `scripts/`, `netlify.toml`. **Do not edit** `content/notes/`, `content/meta/`, `content/bib/`, `content/journal/`, `content/botlog/`, or `content/index.md` — those are exported from `~/org/` and will be overwritten on the next export.
@@ -65,18 +66,16 @@ Netlify (자동 배포)
 
 ## SEO Pipeline
 
-배포 후 Google Search Console에 sitemap을 자동 제출하여 인덱싱을 촉진.
+배포 후 Google Search Console에 sitemap을 제출하여 인덱싱을 촉진. 명령은 `gog searchconsole` (aliases `gsc`, `search-console`). `gog sc` 는 없다.
 
 ```bash
-# sitemap 제출
-gog sc sitemap submit --site="https://notes.junghanacs.com" \
+gog gsc sitemaps submit "https://notes.junghanacs.com/" \
   "https://notes.junghanacs.com/sitemap.xml" -a junghanacs@gmail.com
 
-# URL 인덱싱 상태 확인
-gog sc inspect --site="https://notes.junghanacs.com" <URL> -a junghanacs@gmail.com
+gog gsc sitemaps list "https://notes.junghanacs.com/" -a junghanacs@gmail.com
 ```
 
-[gogcli](https://github.com/junghan0611/gogcli) — Google Workspace + Search Console CLI. SC 기능은 `gogcli` 패치로 추가됨.
+[gogcli](https://github.com/steipete/gogcli) — Google Workspace + Search Console CLI. URL Inspection 명령은 upstream에 없다.
 
 ## Local Development
 
@@ -105,7 +104,6 @@ http://localhost:8080 에서 확인.
 - **GitHub**: https://github.com/junghan0611
 - **Dotfiles**: https://github.com/junghan0611/doomemacs-config
 - **Agent Config**: https://github.com/junghan0611/agent-config
-- **gogcli**: https://github.com/junghan0611/gogcli
 - **Threads**: @junghanacs
 
 ## Acknowledgments
