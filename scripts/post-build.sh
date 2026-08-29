@@ -16,7 +16,13 @@ echo "$INDEXNOW_KEY" > "public/${INDEXNOW_KEY}.txt"
 echo '8d423e4a2420e4370cd8d199712fd84bf4c2967b' > public/naverfca1456e69b21d0f6b4478da73268117.html
 
 # ---------------------------------------------------------------------------
-# 2. llms.txt 자동 갱신
+# 2. autholog catalog record (schema.org ItemList sidecar)
+#    Quartz/Head.tsx 외부. 검증기는 HTML만 보므로 여기서 생성해도 검증을 안 걷친다.
+# ---------------------------------------------------------------------------
+node scripts/generate-autholog-itemlist.mjs
+
+# ---------------------------------------------------------------------------
+# 3. llms.txt 자동 갱신
 #    수동 헤더 유지 + context-weighted Recent Updates 섹션 자동 생성
 # ---------------------------------------------------------------------------
 if [ -f public/llms.txt ]; then
@@ -29,7 +35,7 @@ if [ -f public/llms.txt ]; then
 fi
 
 # ---------------------------------------------------------------------------
-# 3. IndexNow 자동 제출 (5축)
+# 4. IndexNow 자동 제출 (5축)
 #    변경된 콘텐츠 URL을 Bing/Yandex/Naver에 즉시 알림
 # ---------------------------------------------------------------------------
 if [ -n "${CACHED_COMMIT_REF:-}" ] && [ -n "${COMMIT_REF:-}" ]; then

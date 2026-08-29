@@ -2,6 +2,15 @@
 
 Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
+# RAIL — 현재 좌표
+
+- [x] **1. 리포 cutover** (2026-07-13) — `junghan0611/garden@main`
+- [x] **2. autholog 카탈로그 레코드 ①+②** — `llms.txt`가 `/tags/`·큰 폴더 HTML을 가리키지 않음. `public/tags/autholog.jsonld`는 post-build sidecar.
+- [ ] **3. 배포 후 한 판 측정** ← CURRENT: 홈 URL만 주고 fetch-only 에이전트에게 autholog 코어를 물어본다
+- [ ] **4. 기대하지 말 것 — 다음에 고민** ← PAUSED: 3번 확인 전에 컬렉션을 늘리지 않는다
+
+현재 좌표: 2 구현됨 → 3 배포 후 측정 → 4 효과 경계 고민
+
 # STATUS — LIVE on `junghan0611/garden@main`
 
 The repository cutover is **done** (2026-07-13). Durable facts about it now live in `AGENTS.md`
@@ -13,6 +22,31 @@ indefinitely (see PARKED). Hosting stays Netlify; Oracle self-host is a separate
 longer waits on "v5 stable".
 
 # NOW
+
+## 카탈로그 레코드 (오늘) — ① 사슬 + ② ItemList sidecar
+
+이름은 윌리슨 아키텍처가 아니라 **카탈로그 레코드**다. schema.org `ItemList` 한 장, autholog 집합만.
+Quartz/`Head.tsx`/`validate-jsonld.mjs`는 안 건드린다.
+
+- ① `content/llms.txt` Structure: `/tags/autholog` + `.jsonld` + botlog/journal HTML. `/tags/` `/notes/` `/meta/` `/bib/` 링크 삭제 (텍스트만).
+- ② `scripts/generate-autholog-itemlist.mjs` → post-build가 `public/tags/autholog.jsonld` 생성. 기존 `#article` 참조, Head와 같은 필드만.
+
+Next: (1) 커밋/푸시 → (2) 라이브 `curl`로 `llms.txt`와 `.jsonld` 착지 확인 → (3) 홈 URL만 주고 Claude.ai 웹에 "autholog 코어가 뭐냐".
+
+### 기대하지 말 것 — 다음에 모아 고민 (4번 칸)
+
+효과 확인 없이 아래를 짓기 시작하면 산이다.
+
+- ItemList SEO / 리치 결과. Google이 일반 글 목록 ItemList에 캐러셀을 주지 않는다.
+- Datasette·쿼리 가능 가든. `.jsonld`는 정적 덤프 한 장이다.
+- 나머지 ~2,000편을 이 카탈로그에 넣는 것. autholog 코어만이다.
+- sitemap에 `/tags/`를 넣는 것. 지금 0건이고, 이번 일의 대상이 아니다.
+- 크롤러가 `.jsonld`를 가져온다는 믿음. `robots.txt` 허용 ≠ 수집.
+- Umami / GSC / Netlify 로그로 `.jsonld` fetch를 보는 것. 안 보인다.
+- WebMCP, 페이지별 `.json`, SKOS, `Head.tsx` 태그 페이지 JSON-LD 인라인.
+- 한 판 측정 전에 botlog·journal ItemList나 `/notes/` `/meta/` `/bib/` jsonld를 추가하는 것.
+
+측정 판정: `llms.txt`→autholog 목록이면 ① 성공. `.jsonld`를 표로 쓰면 ② 성공. 홈만 보고 끝나면 사슬 실패 — 컬렉션을 더 짓지 말 것.
 
 ## P0 — 디지털 가든 코어 (1단계 264 노트, 2미러 발행)
 
