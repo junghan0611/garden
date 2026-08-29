@@ -6,9 +6,9 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    Component.Backlinks(),
     Component.Webmentions(),
     Component.Remark42Comments(),
-    Component.Backlinks(),
   ],
   footer: Component.Footer({
     links: {
