@@ -7,6 +7,17 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.Backlinks(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "Recent Notes",
+        limit: 15,
+        filter: (f) => {
+          const tail = (f.slug ?? "").split("/").pop() ?? ""
+          return /^\d{8}T\d{6}$/.test(tail) && !f.frontmatter?.noindex
+        },
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
     Component.Webmentions(),
     Component.Remark42Comments(),
   ],
@@ -65,18 +76,6 @@ export const defaultContentPageLayout: PageLayout = {
         // { Component: Component.ReaderMode() },
       ],
     }),
-
-    // Component.DesktopOnly(Component.RecentNotes({ limit: 5, showTags: false})),
-    // Component.DesktopOnly(
-    //   Component.RecentNotes({
-    //     title: "Recent Update",
-    //     limit: 4,
-    //     showTags: false,
-    //     filter: (f) =>
-    //       f.slug!.startsWith("notes/") && f.slug! !== "notes/index" && !f.frontmatter?.noindex,
-    //     linkToMore: "notes/" as SimpleSlug,
-    //   }),
-    // ),
 
     Component.DesktopOnly(Component.TableOfContents()),
   ],

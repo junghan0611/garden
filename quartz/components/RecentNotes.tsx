@@ -1,5 +1,5 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { FullSlug, SimpleSlug, resolveRelative } from "../util/path"
+import { SimpleSlug, resolveRelative } from "../util/path"
 import { QuartzPluginData } from "../plugins/vfile"
 import { byDateAndAlphabetical } from "./PageList"
 import style from "./styles/recentNotes.scss"
@@ -25,6 +25,11 @@ const defaultOptions = (cfg: GlobalConfiguration): Options => ({
   sort: byDateAndAlphabetical(cfg),
 })
 
+function folderOf(slug: string | undefined): string {
+  const head = (slug ?? "").split("/")[0] ?? ""
+  return head
+}
+
 export default ((userOpts?: Partial<Options>) => {
   const RecentNotes: QuartzComponent = ({
     allFiles,
@@ -37,41 +42,25 @@ export default ((userOpts?: Partial<Options>) => {
     const remaining = Math.max(0, pages.length - opts.limit)
     return (
       <div class={classNames(displayClass, "recent-notes")}>
-        <h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title}</h3>
-        <ul class="recent-ul">
+        <p class="recent-notes-title">
+          {opts.title ?? i18n(cfg.locale).components.recentNotes.title}
+        </p>
+        <ul class="section-ul">
           {pages.slice(0, opts.limit).map((page) => {
             const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
-            const tags = page.frontmatter?.tags ?? []
+            const primaryDate = getDate(cfg, page)
+            const folder = folderOf(page.slug)
 
             return (
-              <li class="recent-li">
+              <li class="section-li">
                 <div class="section">
-                  <div class="desc">
-                    <h3>
-                      <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
-                        {title}
-                      </a>
-                    </h3>
+                  <div class="section-head">
+                    {primaryDate && <Date date={primaryDate} locale={cfg.locale} />}
+                    {folder && <span class="recent-folder">{folder}</span>}
+                    <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
+                      {title}
+                    </a>
                   </div>
-                  {page.dates && (
-                    <p class="meta">
-                      <Date date={getDate(cfg, page)!} locale={cfg.locale} />
-                    </p>
-                  )}
-                  {opts.showTags && (
-                    <ul class="tags">
-                      {tags.map((tag) => (
-                        <li>
-                          <a
-                            class="internal tag-link"
-                            href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
-                          >
-                            {tag}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </div>
               </li>
             )
