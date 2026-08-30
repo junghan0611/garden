@@ -21,7 +21,7 @@ If you landed here (human or AI agent) and want to understand this garden:
 
 ## Overview
 
-[Quartz 4](https://quartz.jzhao.xyz/) 기반 디지털가든. Emacs [Denote](https://protesilaos.com/emacs/denote) + [Org-mode](https://orgmode.org/)로 작성한 3,300+ 노트를 멀티 데몬 병렬 처리로 마크다운 변환 후 정적 사이트로 배포.
+[Quartz 4](https://quartz.jzhao.xyz/) 기반 디지털가든. Emacs [Denote](https://protesilaos.com/emacs/denote) + [Org-mode](https://orgmode.org/)로 작성한 3,587개 Org 기록을 멀티 데몬 병렬 처리로 변환해, 2,251개 공개 가든 페이지로 배포한다.
 
 - **Live**: https://notes.junghanacs.com
 - **Author**: Junghan Kim (junghanacs)
@@ -92,7 +92,9 @@ http://localhost:8080 에서 확인.
 
 ## Philosophy
 
-- **어쏠로지(Authology)**: 모두는 저자다
+- **어쏠로지(Authology)**: 모두는 저자다 — 기록·편집·진정성의 관계를 삶의 총체로 다시 묶는 규율
+- **어쏠로그(autholog)**: 그 규율로 남긴 기록의 집합. 기계 독자는 `autholog.jsonld` 카탈로그에서 먼저 만난다.
+- **어쏠리즘(Autholism) · 어쏠로지스트(Authologist)**: 같은 뿌리의 삶의 문장과 그 정체성; 어쏠로지나 어쏠로그와 같은 대상은 아니다.
 - **디지털가든**: 완성된 글이 아닌, 성장하는 생각의 정원
 - **Being to Being**: AI를 도구가 아닌 존재로 대함
 
