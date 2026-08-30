@@ -14,6 +14,16 @@ const REQUIRED_HEADINGS = [
   "## Interpretation Rules",
 ]
 
+const REQUIRED_URLS = [
+  "https://notes.junghanacs.com/notes/20250730T104129",
+  "https://notes.junghanacs.com/tags/autholog.jsonld",
+  "https://notes.junghanacs.com/notes.jsonld",
+  "https://notes.junghanacs.com/meta.jsonld",
+  "https://notes.junghanacs.com/bib.jsonld",
+  "https://notes.junghanacs.com/botlog.jsonld",
+  "https://notes.junghanacs.com/journal.jsonld",
+]
+
 // The pre-2026-07 link pointed at a path that never existed.
 const FORBIDDEN = [/github\.com\/junghan0611\/VOCABULARY\.md/]
 
@@ -47,6 +57,12 @@ function checkSource(file) {
   for (const heading of REQUIRED_HEADINGS) {
     if (!lines.some((line) => line.trim() === heading)) {
       fail(`${file}: required heading not found: ${heading}`)
+    }
+  }
+
+  for (const url of REQUIRED_URLS) {
+    if (!text.includes(url)) {
+      fail(`${file}: required URL not found: ${url}`)
     }
   }
 

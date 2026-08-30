@@ -16,10 +16,12 @@ echo "$INDEXNOW_KEY" > "public/${INDEXNOW_KEY}.txt"
 echo '8d423e4a2420e4370cd8d199712fd84bf4c2967b' > public/naverfca1456e69b21d0f6b4478da73268117.html
 
 # ---------------------------------------------------------------------------
-# 2. autholog catalog record (schema.org ItemList sidecar)
-#    Quartz/Head.tsx 외부. 검증기는 HTML만 보므로 여기서 생성해도 검증을 안 걷친다.
+# 2. category records (schema.org ItemList sidecars)
+#    Quartz/Head.tsx 외부. validate-jsonld.mjs 는 HTML만 보므로 여기서 생성한다.
+#    독립 검증기가 각 sidecar 항목을 public HTML #article 과 대조한다.
 # ---------------------------------------------------------------------------
-node scripts/generate-autholog-itemlist.mjs
+node scripts/generate-category-records.mjs
+node scripts/validate-category-records.mjs
 
 # ---------------------------------------------------------------------------
 # 3. llms.txt 자동 갱신

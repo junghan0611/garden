@@ -66,10 +66,41 @@
     Content-Type = "text/plain; charset=utf-8"
     Cache-Control = "public, max-age=3600"
 
-# autholog catalog record — .jsonld is not a Netlify-known type; nosniff would
+# category records — .jsonld is not a Netlify-known type; nosniff would
 # leave it as octet-stream without this. Same pattern as llms.txt / robots.txt.
+# One [[headers]] block per path (no glob, no combined for=).
 [[headers]]
   for = "/tags/autholog.jsonld"
+  [headers.values]
+    Content-Type = "application/ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/notes.jsonld"
+  [headers.values]
+    Content-Type = "application/ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/meta.jsonld"
+  [headers.values]
+    Content-Type = "application/ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/bib.jsonld"
+  [headers.values]
+    Content-Type = "application/ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/botlog.jsonld"
+  [headers.values]
+    Content-Type = "application/ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/journal.jsonld"
   [headers.values]
     Content-Type = "application/ld+json; charset=utf-8"
     Cache-Control = "public, max-age=3600"
