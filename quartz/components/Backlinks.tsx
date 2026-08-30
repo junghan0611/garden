@@ -12,6 +12,11 @@ const defaultOptions: BacklinksOptions = {
   hideWhenEmpty: true,
 }
 
+function folderOf(slug: string | undefined): string {
+  const parts = (slug ?? "").split("/")
+  return parts.length > 1 ? parts[0] : ""
+}
+
 export default ((opts?: Partial<BacklinksOptions>) => {
   const options: BacklinksOptions = { ...defaultOptions, ...opts }
 
@@ -31,13 +36,17 @@ export default ((opts?: Partial<BacklinksOptions>) => {
         <h3>{i18n(cfg.locale).components.backlinks.title}</h3>
         <ul>
           {backlinkFiles.length > 0 ? (
-            backlinkFiles.map((f) => (
-              <li>
-                <a href={resolveRelative(fileData.slug!, f.slug!)} class="internal">
-                  {f.frontmatter?.title}
-                </a>
-              </li>
-            ))
+            backlinkFiles.map((f) => {
+              const folder = folderOf(f.slug)
+              return (
+                <li>
+                  {folder && <span class="backlink-folder">{folder}</span>}
+                  <a href={resolveRelative(fileData.slug!, f.slug!)} class="internal">
+                    {f.frontmatter?.title}
+                  </a>
+                </li>
+              )
+            })
           ) : (
             <li>{i18n(cfg.locale).components.backlinks.noBacklinksFound}</li>
           )}

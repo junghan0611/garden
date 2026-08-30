@@ -13,7 +13,27 @@
     overflow: visible;
 
     & > li {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: baseline;
+      column-gap: 0.6em;
+      padding: 0.3em 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--lightgray);
+      }
+
+      & > .backlink-folder {
+        flex: 0 0 auto;
+        font-weight: 700;
+        opacity: 0.75;
+      }
+
       & > a {
+        flex: 1 1 auto;
+        min-width: 0;
+        font-weight: 700;
+        line-height: 1.4;
         background-color: transparent;
       }
     }

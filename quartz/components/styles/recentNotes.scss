@@ -12,13 +12,18 @@
   }
 
   li.section-li {
-    margin-bottom: 0.25em;
+    margin-bottom: 0;
+    padding: 0.3em 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--lightgray);
+    }
   }
 
   .section-head > .recent-folder {
     flex: 0 0 auto;
-    font-variant-numeric: tabular-nums;
-    opacity: 0.6;
+    font-weight: 700;
+    opacity: 0.75;
   }
 
   .section-head > a {
@@ -26,7 +31,7 @@
     min-width: 0;
     margin: 0;
     font-size: 1em;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.4;
     background-color: transparent;
   }

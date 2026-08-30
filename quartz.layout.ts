@@ -9,7 +9,7 @@ export const sharedPageComponents: SharedLayout = {
     Component.Backlinks(),
     Component.ConditionalRender({
       component: Component.RecentNotes({
-        title: "Recent Notes",
+        title: "Recently Modified Notes",
         limit: 15,
         filter: (f) => {
           const tail = (f.slug ?? "").split("/").pop() ?? ""
