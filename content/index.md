@@ -109,5 +109,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-01 22:48, CountOrg: 3,588, CountGarden: 2,252, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-03 18:46, CountOrg: 3,588, CountGarden: 2,252, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
