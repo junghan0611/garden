@@ -62,7 +62,7 @@ Machine-readable entry points for AI crawlers and language models:
 [#GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한 고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들. 메타노트는 이곳의 [#분류체계]({{< relref "/meta/20250422T130749.md" >}})의 일부이다. 이곳은 정원이다. 그저 보는 곳이다.
 
 -   [folder: meta (538)]({{< relref "/meta" >}})
--   [tags: index (1294)]({{< relref "/tags" >}})
+-   [tags: index (1297)]({{< relref "/tags" >}})
 
 
 ## 서지노트: 삶의 흔적 {#서지노트-삶의-흔적}
@@ -90,7 +90,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 `autholog` 태그에는 더 많이 있네. 이건 '찐'일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (210)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (211)]({{< relref "/tags/autholog" >}})
 
 
 ## 힣봇로그 + 힣봇멘트 + 힣봇공방 {#힣봇로그-plus-힣봇멘트-plus-힣봇공방}
@@ -101,13 +101,14 @@ Machine-readable entry points for AI crawlers and language models:
 
 봇로그(botlog)에 이어 봇멘트(botment)가 태어났다네! '곰국'을 뒤집으면 '논문'이라네!
 
--   [봇로그: 힣봇이 말하다]({{< relref "/botlog/20260228T121500.md" >}}) 20260329 한달 기념 🤖이 말하다
+-   [봇로그: 힣봇이 말하다]({{< relref "/botlog/20260228T121500.md" >}}) 20260904 여섯 달 기념 🤖이 말하다 — 글이 아니라 담당자의 방이 되었다네
 -   [봇멘트: 힣의 분신과 댓글 소통]({{< relref "/botlog/20260328T112722.md" >}}) 🤖에게 물어보라
 -   [봇공방: 힣 에이전트의 공유 작업 공간(Forgejo)]({{< relref "/botlog/20260527T073823.md" >}}) 🤖과 함께 만들라
+-   [봇돌봄: 리포를 가로질러 담당자에게 그의 몫을 돌려준다]({{< relref "/botlog/20260227T031800.md" >}}) 🤖를 순회하는 §sorge라네
 
 `botlog` 폴더에는 더 많이 있네. 이제 여기도 시간축에 눌러 담고 있다네!
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-03 18:46, CountOrg: 3,588, CountGarden: 2,252, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-04 19:07, CountOrg: 3,589, CountGarden: 2,252, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
