@@ -4,9 +4,9 @@
     "bookUrl": "https://wikidocs.net/book/20676",
     "source": "https://github.com/junghan0611/garden2wikidocs/blob/main/mapping.json",
     "toc": "https://github.com/junghan0611/garden2wikidocs/blob/main/TOC.md",
-    "sourceSha256": "f03f4f8918ed6c407415284192918a1fa6fafc350a28961ceabc573a73be479b",
-    "tocSha256": "219052ca2f40427babdccb8a0fe9d6886c3d19dcf601f823cb212a622a901b1d",
-    "mappedNotes": 282,
+    "sourceSha256": "55ea0340f7c93973bd733951ae45937988475889a9a40c662fd4b8f49a9cc310",
+    "tocSha256": "4fced2ee5033ccced43babc1e99b766fc1ae468ca792bf7005a0f75f8f5882d3",
+    "mappedNotes": 283,
     "mappedSlugs": 6
   },
   "byDenoteId": {
@@ -37,6 +37,7 @@
     "20231018T221900": "https://wikidocs.net/381141",
     "20231022T083000": "https://wikidocs.net/381143",
     "20231113T134314": "https://wikidocs.net/381158",
+    "20231114T064414": "https://wikidocs.net/425191",
     "20231116T232654": "https://wikidocs.net/381167",
     "20240104T061355": "https://wikidocs.net/381173",
     "20240119T030240": "https://wikidocs.net/381180",
