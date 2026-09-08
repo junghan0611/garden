@@ -42,10 +42,11 @@ Machine-readable entry points for AI crawlers and language models:
 -   [그는 누구인가]({{< relref "/notes/20241203T064647.md" >}})
 -   [영어로 좀 적어주시게]({{< relref "/botlog/20260318T183247.md" >}}) — §junghan0611: English Public Key
 -   [그는 지금 뭐하는가](https://agenda.junghanacs.com/) — §geworfen: thrown into the world
--   [그는 오늘 뭐 하는가]({{< relref "/journal/20260907T000000.md" >}}) — Weekly journal
--   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}})
--   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}})
--   [근데 왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}})
+-   [그는 오늘 뭐 하는가]({{< relref "/journal/20260907T000000.md" >}}) — Weekly Journal
+-   [그의 생각: 어쏠로그(autholog)]({{< relref "/tags/autholog" >}}) - rawwriting
+-   [그의 외침: 어쏠리즘(autholism)]({{< relref "/notes/20250311T131725.md" >}}) - aphorism
+-   [그의 도구들]({{< relref "/notes/20241203T065121.md" >}}) - usesthis
+-   [근데 왜 '힣' 인가]({{< relref "/notes/20250320T212021.md" >}}) - why
 
 
 ## 저널노트: 일일일생 {#저널노트-일일일생}
@@ -110,5 +111,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-08 11:20, CountOrg: 3,590, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-09 06:32, CountOrg: 3,590, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
