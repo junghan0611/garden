@@ -90,7 +90,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 `autholog` 태그에는 더 많이 있네. 이건 '찐'일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (212)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (213)]({{< relref "/tags/autholog" >}})
 
 
 ## 힣봇로그 + 힣봇멘트 + 힣봇공방 {#힣봇로그-plus-힣봇멘트-plus-힣봇공방}
@@ -110,5 +110,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-07 13:40, CountOrg: 3,590, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-08 11:20, CountOrg: 3,590, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
