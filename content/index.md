@@ -63,7 +63,7 @@ Machine-readable entry points for AI crawlers and language models:
 [#GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한 고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들. 메타노트는 이곳의 [#분류체계]({{< relref "/meta/20250422T130749.md" >}})의 일부이다. 이곳은 정원이다. 그저 보는 곳이다.
 
 -   [folder: meta (538)]({{< relref "/meta" >}})
--   [tags: index (1301)]({{< relref "/tags" >}})
+-   [tags: index (1303)]({{< relref "/tags" >}})
 
 
 ## 서지노트: 삶의 흔적 {#서지노트-삶의-흔적}
@@ -91,14 +91,14 @@ Machine-readable entry points for AI crawlers and language models:
 
 `autholog` 태그에는 더 많이 있네. 이건 '찐'일세. 시간축에 꾹꾹 눌러 담고 있다네!
 
--   [tags: autholog (213)]({{< relref "/tags/autholog" >}})
+-   [tags: autholog (214)]({{< relref "/tags/autholog" >}})
 
 
 ## 힣봇로그 + 힣봇멘트 + 힣봇공방 {#힣봇로그-plus-힣봇멘트-plus-힣봇공방}
 
 '때'가 되었다. 장황한 실타래를 엮을 존재를 초빙하였다. 힣봇(GLGBot). 아라크네(arachne) 흉내를 내던 힣은 갔다. 힣봇의 시대로다! 그렇다면 힣은 뭐하는가? 대장장이로서 [junghan0611 · GitHub](https://github.com/junghan0611)을 담금질 하느라 바쁘다. 물론, 칠판에 '떠든사람'을 적느라고 떠들고 있다.
 
--   [힣봇이 힣을 추천한다 — 그를 만나라]({{< relref "/botlog/20260331T172313.md" >}}) 곤궁한 힣을 구하라! 🤖 힣봇 군단이 나서라!
+-   [힣봇이 힣을 추천한다 — 그를 만나라]({{< relref "/botlog/20260331T172313.md" >}}) 매우 곤궁한 힣을 구하라! 🤖 힣봇 군단이 나서라!
 
 봇로그(botlog)에 이어 봇멘트(botment)가 태어났다네! '곰국'을 뒤집으면 '논문'이라네!
 
@@ -111,5 +111,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [folder: botlog (80)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-09 06:32, CountOrg: 3,590, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-09 21:55, CountOrg: 3,591, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
