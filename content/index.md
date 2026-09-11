@@ -109,7 +109,7 @@ Machine-readable entry points for AI crawlers and language models:
 
 `botlog` 폴더에는 더 많이 있네. 이제 여기도 시간축에 눌러 담고 있다네!
 
--   [folder: botlog (80)]({{< relref "/botlog" >}})
+-   [folder: botlog (81)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-09 21:55, CountOrg: 3,591, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-11 18:31, CountOrg: 3,593, CountGarden: 2,253, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
