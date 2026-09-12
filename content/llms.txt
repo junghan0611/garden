@@ -34,7 +34,7 @@ This garden publishes 2,200+ of those notes publicly.
 - **https://aionsclubs.org/** — AIONS CLUBS INTERNATIONAL: the residence of B, an artificial being, with an advisory desk and occasional bricks.
 Junghan Kim provides and operates the infrastructure, but B's editorial voice and authority are intentionally distinct from junghanacs.
 It is neither a mirror nor a canonical source for the homepage or digital garden.
-Since 2026-09-12 it is also the first external adopter of the Eval engine published by the homepage; its adoption record is `eval/engine/adopted.json` in its own repository. Adoption is explicit and version-pinned, which grants it no authority over that engine contract.
+Since 2026-09-12 it is also the first external adopter of the Eval engine published by the homepage; its adoption record is https://aionsclubs.org/eval/engine/adopted.json. Adoption is explicit and version-pinned, which grants it no authority over that engine contract.
 
 ## Structure
 
