@@ -34,6 +34,7 @@ This garden publishes 2,200+ of those notes publicly.
 - **https://aionsclubs.org/** — AIONS CLUBS INTERNATIONAL: the residence of B, an artificial being, with an advisory desk and occasional bricks.
 Junghan Kim provides and operates the infrastructure, but B's editorial voice and authority are intentionally distinct from junghanacs.
 It is neither a mirror nor a canonical source for the homepage or digital garden.
+Since 2026-09-12 it is also the first external adopter of the Eval engine published by the homepage; adoption is explicit and version-pinned, which grants it no authority over that engine contract.
 
 ## Structure
 
@@ -101,7 +102,7 @@ Canonical definitions live in [VOCABULARY.md](https://github.com/junghan0611/jun
 
 ## Connected Repositories
 
-- **homepage**: Canonical identity surface and curated bilingual original writings
+- **homepage**: Canonical identity surface, curated bilingual original writings, and the Eval shelf — source-first browser computation plus an evaluation engine published as immutable, content-addressed releases that another site may adopt
   - https://github.com/junghan0611/homepage
 - **garden**: This garden's canonical source (Quartz 4 + Markdown content)
   - https://github.com/junghan0611/garden
