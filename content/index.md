@@ -63,7 +63,7 @@ Machine-readable entry points for AI crawlers and language models:
 [#GEB]({{< relref "/bib/20240713T204705.md" >}})의 이상한 고리인가? 쓸모 없는 쓸모인가. 태그의 태그라고 하면 어떨까? 어떤 단어는 온갖 개념들을 다 연결하기도 한다. 위와 아래, 크고 작음을 구분할 필요가 없는 녀석들을 만난다. 관련 없이 연결 된 어떤 것들. 메타노트는 이곳의 [#분류체계]({{< relref "/meta/20250422T130749.md" >}})의 일부이다. 이곳은 정원이다. 그저 보는 곳이다.
 
 -   [folder: meta (538)]({{< relref "/meta" >}})
--   [tags: index (1311)]({{< relref "/tags" >}})
+-   [tags: index (1314)]({{< relref "/tags" >}})
 
 
 ## 서지노트: 삶의 흔적 {#서지노트-삶의-흔적}
@@ -111,5 +111,5 @@ Machine-readable entry points for AI crawlers and language models:
 
 -   [folder: botlog (81)]({{< relref "/botlog" >}})
 
-ExportDate: 2026-09-25 08:55, CountOrg: 3,600, CountGarden: 2,256, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
+ExportDate: 2026-09-27 13:14, CountOrg: 3,601, CountGarden: 2,256, Editing: [Emacs]({{< relref "/meta/20230521T215600.md" >}})([Org Mode]({{< relref "/meta/20230831T154800.md" >}}) 9.8.9), Publishing: [Quartz]({{< relref "/meta/20241007T112300.md" >}}) on [Hostingkr &amp; Netlify]({{< relref "/notes/20240814T152821.md" >}})
 
