@@ -6,10 +6,11 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 - [x] **1. 리포 cutover** (2026-07-13) — `junghan0611/garden@main`
 - [x] **2. autholog 카테고리 레코드** — sidecar + llms.txt. Copilot auto 한 판으로 사슬 확인.
-- [ ] **3. 다섯 폴더 카테고리 레코드** ← CURRENT: notes/meta/bib/botlog/journal ItemList + 독립 검증기. 커밋 전 검수.
-- [ ] **4. 기대하지 말 것** — 태그 JSON-LD, Datasette, ItemList SEO, size hard cap. 실측 후 GLG가 따로 연다.
+- [x] **3. 다섯 폴더 카테고리 레코드** — notes/meta/bib/botlog/journal ItemList + 독립 검증기. `v2026.9.27`에 수록.
+- [ ] **4. 배포 후 확인** ← CURRENT: Netlify 여섯 sidecar Content-Type, 인아티클 목차 시각·프리뷰 게이트.
+- [ ] **5. 기대하지 말 것** — 태그 JSON-LD, Datasette, ItemList SEO, size hard cap. 실측 후 GLG가 따로 연다.
 
-현재 좌표: 2 완료 → 3 구현·검증 중 → 4 보류
+현재 좌표: 3 구현 완료 → 4 배포 후 확인 → 5 보류
 
 # STATUS — LIVE on `junghan0611/garden@main`
 
@@ -33,7 +34,7 @@ longer waits on "v5 stable".
 - `llms.txt`: orientation(`20250730T104129`) + 여섯 sidecar 직접 링크. 큰 폴더 HTML은 첫 홉이 아님.
 - autholog fetch-only 측정(Copilot auto, cwd=/tmp, 홈→llms.txt→jsonld, 208건)은 **완료**.
 
-Next: (1) 커밋 전 검수 마무리 → (2) dirty export 없는 candidate에서 post-build + category validator 그린 receipt → (3) Netlify `curl -I` 여섯 sidecar Content-Type.
+Next: `v2026.9.27` 배포 뒤 Netlify `curl -I` 여섯 sidecar Content-Type 확인. 코드와 독립 검증기는 이번 릴리즈에 수록됐다; 이전 커밋 전 검수 지시는 종료됐다.
 
 ### 기대하지 말 것 (4번 칸)
 

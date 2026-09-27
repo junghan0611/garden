@@ -9,6 +9,22 @@ is deferred indefinitely.
 
 ## Unreleased
 
+## v2026.9.27 — Garden export and machine-readable catalogs
+
+### Published content
+
+- Published the garden's accumulated Org-to-Markdown updates since the repository cutover, including new images and the September 27 full re-export. This export pairs with `doomemacs-config` `v2026.9.27`: source NBSP no longer leaks between Hangul words, and emphasis padding avoids most ordinary text that resembles markup (one ambiguous `+` case remains). The upstream release records the export logic and its tests.
+- Rebuilt heading anchors without NBSP (for example, `#…지식-의-세계` becomes `#…지식의-세계`). The export review checked all 90 pages with changed heading IDs on localhost and found no broken in-page `#href` targets. Previously shared external links to old anchors were not measurable.
+- The export review found 0 Hangul–NBSP–Hangul pairs and 0 NBSP in literal code blocks in the affected corpus; `verify-relref` reported 25,137 valid references, 0 malformed, and 2 pre-existing ambiguous references. Cross-page unresolved anchors rose from 210 to 212 because two new links use the older journal date-anchor form; historical journal entries were not re-exported.
+
+### Site and discovery
+
+- Published six category `ItemList` records for autholog and the five garden folders, linked from `llms.txt`, with an independent validator against rendered HTML. The autholog record is served as JSON-LD with the correct content type.
+- Added an in-article H2–H3 outline after each note's abstract and improved homepage recent-note and backlink placement. The outline's final visual/deployed preview check remains a follow-up.
+- Made the garden's machine entry points and Authology terminology clearer in `llms.txt`, including the agent-facing evidence shelf and adoption link.
+- Restored WikiDocs links only for pages in the recovered live-TOC snapshot; removed per-note mirror equivalence for the later curated core edition. Recorded the Blogger-first publication plan without publishing that edition.
+- Updated the public identity and homepage links, added conversation callouts, and used the repository-local Quartz CLI in development and deployment scripts.
+
 ## v2026.7.13 — 저장소 이관: `junghan0611/garden@main`
 
 The inaugural tag of this repository. Work before it predates CalVer tracking and lives only in commit history.
