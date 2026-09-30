@@ -8,6 +8,8 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import ts from "typescript"
 
+export const CANONICAL_ROUTE = { pattern: "notes.junghanacs.com", custom_domain: true }
+
 export function parseJsonc(file, text) {
   const { config, error } = ts.parseConfigFileTextToJson(file, text)
   if (error) throw new Error(`${file}: ${ts.flattenDiagnosticMessageText(error.messageText, "\n")}`)
@@ -29,8 +31,11 @@ export function validateConfig(file) {
   expect("name", c.name, "junghanacs-garden")
   expect("workers_dev", c.workers_dev, true)
   expect("preview_urls", c.preview_urls, true)
-  // The canonical host is attached at cutover only (nixos-config#11), never by a routine deploy.
-  for (const key of ["routes", "route"]) if (key in c) fail(`${key} present: domains attach only at the cutover gate`)
+  // Exactly one route: the canonical host as a Custom Domain. No other host, no path route, no zone route.
+  if ("route" in c) fail("route (singular) present: use the single routes entry")
+  const routes = c.routes
+  if (!Array.isArray(routes) || routes.length !== 1) fail(`routes must be exactly [${JSON.stringify(CANONICAL_ROUTE)}], got ${JSON.stringify(routes)}`)
+  else if (JSON.stringify(routes[0]) !== JSON.stringify(CANONICAL_ROUTE)) fail(`routes[0] is ${JSON.stringify(routes[0])}, expected ${JSON.stringify(CANONICAL_ROUTE)}`)
   expect("main", c.main, "cloudflare/worker.mjs")
   if (typeof c.main === "string" && !fs.existsSync(path.resolve(path.dirname(file), c.main))) fail(`main ${c.main} does not exist`)
   if (!Array.isArray(c.compatibility_flags) || !c.compatibility_flags.includes("assets_navigation_has_no_effect"))

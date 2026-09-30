@@ -145,8 +145,35 @@ for (const check of checks) {
   }
 }
 
+// Crawlers on the canonical host: the garden allows search and AI crawlers (robots.txt), so a zone-level
+// bot challenge must not answer them. Measured per user agent, never inferred from zone settings.
+const USER_AGENTS = {
+  browser: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36",
+  Googlebot: "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+  Bingbot: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
+  GPTBot: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)",
+  ClaudeBot: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)",
+  PerplexityBot: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)",
+}
+let uaChecks = 0
+if (canonical) {
+  for (const [name, ua] of Object.entries(USER_AGENTS)) {
+    for (const p of ["/", "/robots.txt", "/llms.txt", samples[0]].filter(Boolean)) {
+      uaChecks++
+      try {
+        const r = await fetch(`${origin}${p}`, { redirect: "manual", headers: { "User-Agent": ua }, signal: AbortSignal.timeout(20000) })
+        await r.arrayBuffer()
+        if (r.status !== 200) fail(`[${name}] ${p} answered ${r.status}`)
+        if (r.headers.get("cf-mitigated")) fail(`[${name}] ${p} cf-mitigated: ${r.headers.get("cf-mitigated")}`)
+      } catch (e) {
+        fail(`[${name}] ${p} fetch failed: ${e.cause?.code ?? e.message}`)
+      }
+    }
+  }
+}
+
 if (failures.length) {
   for (const f of failures) console.error(`[verify-deployed] FAIL ${f}`)
   process.exit(1)
 }
-console.log(`[verify-deployed] OK ${origin} checks=${checks.length}${publicDir ? ` bodies=${publicDir}` : ""}`)
+console.log(`[verify-deployed] OK ${origin} checks=${checks.length}${uaChecks ? ` ua=${uaChecks}` : ""}${publicDir ? ` bodies=${publicDir}` : ""}`)

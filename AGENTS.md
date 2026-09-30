@@ -255,13 +255,15 @@ or remove the comment-key restoration as an incidental migration change.
 
 ### Cloudflare migration lane — 2026-09-30
 
-The canonical domain is still on Netlify; Cloudflare Workers Static Assets + Workers Builds are verified
-on the domainless `junghanacs-garden` Worker. Git `main` builds use `./scripts/build-cloudflare.sh`, then
+Since 2026-09-30 18:06 KST the canonical domain is served by the `junghanacs-garden` Worker (Workers Custom
+Domain); Netlify remains only as the rollback target. Git `main` builds use `./scripts/build-cloudflare.sh`, then
 `npx wrangler deploy`. The build requires full Git history, reruns gitleaks, and validates JSON-LD and
 asset/header/sitemap contracts. The ignored privacy filter remains GLG's pre-commit `run.sh` step.
 
-- `wrangler.jsonc` and its validator currently allow **no routes/custom domain**. Canonical attachment,
-  validator changes for that attachment, and DNS coordination require a separate cutover approval.
+- `wrangler.jsonc` has exactly one route, `notes.junghanacs.com` as a Custom Domain; the validator rejects
+  any other host or route. Externally managed DNS-only records are not replaced even with
+  `override_existing_dns_record` (409 `100117`, measured 2026-09-30): delete the old record first, then attach.
+  Never add a route for a host that still points elsewhere. Rollback order: remove the Custom Domain first, then restore DNS.
 - Normal static assets are asset-first; only misses reach the lowercase compatibility Worker. Keep
   `assets_navigation_has_no_effect` for browser navigation and do not enable `run_worker_first`.
 - `cloudflare/_headers` is copied only by the Cloudflare build. Keep canonical-domain HSTS and

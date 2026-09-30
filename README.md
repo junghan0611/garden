@@ -47,7 +47,7 @@ content/
 | Note System | Denote (파일명 기반 메타데이터, sequence 지원) |
 | Export | denote-export.sh (멀티 데몬 병렬 처리) |
 | Generator | Quartz 4 (TypeScript) |
-| Hosting | Netlify 정본 유지 → Cloudflare Workers Static Assets + Workers Builds 이전 중 |
+| Hosting | Cloudflare Workers Static Assets + Workers Builds (2026-09-30 전환, Netlify는 되돌리기 대상) |
 | SEO | gogcli (Search Console 자동화) |
 
 ## Export Pipeline
@@ -60,11 +60,11 @@ content/
     ↓ 검수한 Markdown을 git commit / push
 CI build → public/ (HTML·기계 진입점)
     ↓ deploy
-Netlify (현재 정본) / Cloudflare Workers (도메인 없는 검수·자동 빌드 확인)
+Cloudflare Workers (정본 notes.junghanacs.com, main push = 배포)
 ```
 
 Cloudflare 이전은 [배포 계약](docs/deploy-cloudflare.md)을 따른다. 공개 가든 주소는 그대로 유지하며,
-정본 도메인 전환 전까지 workers.dev는 noindex 검수용이다. Workers 빌드 명령은
+workers.dev 주소는 noindex 검수용이다. Workers 빌드 명령은
 `./scripts/build-cloudflare.sh`, 배포 명령은 `npx wrangler deploy`다.
 
 멀티 데몬 내보내기 도구는 [doomemacs-config/bin/](https://github.com/junghan0611/doomemacs-config/tree/main/bin) 참조.

@@ -167,8 +167,8 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - **Authoring**: Org-mode + Denote (Doom Emacs)
 - **Export**: denote-export.sh (Org → Hugo-flavored Markdown)
 - **Build**: Quartz 4 (TypeScript, OxHugoFlavouredMarkdown plugin)
-- **Hosting**: Migrating from Netlify to Cloudflare Workers Static Assets + Workers Builds (GitHub-triggered build and deployment).
-- **Migration status (2026-09-30)**: Cloudflare domainless verification and Git builds have passed; the canonical domain is still served by Netlify until the DNS cutover.
+- **Hosting**: Cloudflare Workers Static Assets + Workers Builds (GitHub-triggered build and deployment), since 2026-09-30.
+- **Migration status (2026-09-30)**: The canonical domain moved from Netlify to Cloudflare; Netlify remains only as a rollback target.
 - **Canonical URL**: https://notes.junghanacs.com/ remains unchanged; workers.dev addresses are non-indexable verification surfaces, not alternative canonical gardens.
 - **Infrastructure**: NixOS + Oracle ARM (for Umami, Remark42, geworfen)
 - **Analytics**: Umami (self-hosted on Oracle ARM)

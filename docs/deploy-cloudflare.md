@@ -4,10 +4,9 @@
 (`cloudflare/worker.mjs`)가 옛 소문자 Denote URL을 회수한다.
 큰 틀(계정·토큰·DNS·Netlify 해지)은 nixos-config#11, 선례는 homepage `docs/deploy-cloudflare.md`와 homepage#3.
 
-상태(2026-09-30): **전환 전.** 정본 호스트는 Netlify이고 `netlify.toml`의 빌드가 그대로 돈다. Worker
-`junghanacs-garden`은 workers.dev에만 있다(routes 없음, noindex). Workers Builds가 연결돼 **main push = workers.dev 배포**다:
-첫 CI 빌드 `c6941c40`(commit `221d70a6`)이 Version `669c4eef`를 배포했다. 미리보기는 `wrangler versions upload`로 만든다.
-custom domain·DNS는 이 문서의 범위 밖 관문이다(nixos-config#11).
+상태(2026-09-30 18:06 KST~): **정본 `notes.junghanacs.com`을 Worker `junghanacs-garden`이 서빙한다**(Workers Custom Domain).
+Workers Builds가 연결돼 **main push = 정본 배포**다. workers.dev 주소는 noindex 검수용으로 남는다. 미리보기는
+`wrangler versions upload`로 만든다. Netlify 사이트는 되돌리기 대상으로 남아 있고(`netlify.toml` 유지), 해지는 nixos-config#11 소관이다.
 
 ## 구성
 
@@ -128,6 +127,49 @@ Workers Builds 이미지에는 gitleaks가 없다(첫 CI 빌드에서 다운로�
 - 이 스크립트의 단계 시간표는 config · git-history · gitleaks · quartz · jsonld · post-build · headers · output-gate이다.
   실패하면 `FAILED in stage <이름>`을 찍고 멈춘다(배포 명령은 빌드 명령이 성공해야 실행된다).
 - 빌드는 외부로 발행하지 않는다: IndexNow 변수 제거, sitemap 제출 없음. 준비 단계의 외부 요청은 gitleaks 다운로드(PATH에 없을 때)와 git 이력 fetch(shallow일 때)다.
+
+## 정본 도메인 전환 (`notes.junghanacs.com`) — 절차
+
+GLG 승인(2026-09-30). 역할: DNS 레코드 삭제·복구는 nixos-config, Worker 부착·설정·검증은 이 리포. Netlify 사이트는
+되돌리기 대상이므로 지우지 않는다.
+
+- 전환 전 DNS(읽기, 2026-09-30): `CNAME notes.junghanacs.com → notes-junghanacs.netlify.app`(DNS only, ttl auto)와
+  `TXT notes.junghanacs.com`(openai 도메인 검증) 하나씩. Custom Domain은 같은 이름의 CNAME이 있으면 만들 수 없다(공식 문서).
+  TXT는 그대로 둔다.
+- 설정: `wrangler.jsonc` `routes`는 정확히 `[{ "pattern": "notes.junghanacs.com", "custom_domain": true }]` 하나.
+  `validate-wrangler-config.mjs`가 다른 host·두 번째 route·zone route·`custom_domain: false`·단수 `route` 키를 거부한다.
+- 부착은 **이미 배포된 버전에** 한다(새 빌드·재업로드 없음). wrangler가 custom domain을 게시하는 방식 그대로(4.143.0
+  `wrangler-dist/cli.js` `publishCustomDomains`): 미리보기 `POST /accounts/{acc}/workers/scripts/junghanacs-garden/domains/changeset?replace_state=true`
+  (added·updated·conflicting 반환), 적용 `PUT …/domains/records` body `{override_scope, override_existing_origin,
+  override_existing_dns_record, origins:[{hostname, zone_id}]}`. 옵션 이름과 달리 **Cloudflare 밖에서 관리되는 DNS-only
+  레코드(Netlify CNAME)는 `override_existing_dns_record: true`로도 대체되지 않는다** — 409 `100117`(아래 실행 기록). 그래서 CNAME을
+  먼저 지우고 곧바로 PUT한다. `cf` CLI에는 이 명령이 없고, `wrangler triggers deploy`는 실험 명령이다.
+- wrangler는 비대화형(CI)에서 `override_existing_origin`·`override_existing_dns_record`를 자동으로 true로 둔다(같은 소스).
+  외부 DNS 레코드가 남은 host에 route를 커밋하면 CI의 custom domain 게시가 같은 100117로 거부될 것으로 본다(API 실측에서 유추,
+  CI 경로 자체는 미측정). 어느 쪽이든 routes 설정은 전환과 같은 박자에만 커밋한다. routes가 없는 설정으로 배포하면 wrangler는 custom domain 게시
+  함수를 부르지 않는다(소스 판독 — 기존 Custom Domain을 지우지 않을 것으로 보이나 실측 아님).
+- 순서:
+  1. nixos-config가 CNAME·TXT를 스냅샷하고 ready를 알린다(TXT는 유지 대상).
+  2. `changeset` 미리보기로 `conflicting`에 `notes.junghanacs.com`이 뜨는지 본다(POST지만 wrangler가 확인 질문 전에 부르는
+     미리보기 — 소스상 적용은 `records` PUT만 한다).
+  3. 코디네이터 go → `records` PUT(override_existing_dns_record) 한 번 → Workers Domains `GET`·DNS 레코드 읽기로 readback.
+  4. 정본 게이트: `verify-deployed.mjs https://notes.junghanacs.com`(HSTS, X-Robots 없음, 소문자 301, 크롤러 UA 200·`cf-mitigated`
+     없음), 댓글 continuity, 브라우저 SPA·검색·폰트. 노트북 네트워크는 DNS(53)를 가로채므로 DNS 수렴 판단은 DoH나 오라클에서 한다.
+  5. GLG 승인 뒤 `wrangler.jsonc`(routes)·validator를 커밋·push — 이후 CI 배포가 같은 Custom Domain을 유지한다.
+- 되돌리기: Custom Domain 해제(`DELETE /accounts/{account_id}/workers/domains/{domain_id}`) **먼저**, 그 뒤 nixos-config가 스냅샷대로
+  CNAME 복원. 설정에 routes가 남아 있으면 다음 배포가 다시 붙이므로 함께 되돌린다. Custom Domain을 지워도 발급된 Advanced
+  Certificate는 자동 삭제되지 않는다(공식 문서).
+- **실행 기록(2026-09-30)**: (A) `override_existing_dns_record: true` PUT 단독 → **409 `100117` "Hostname 'notes.junghanacs.com'
+  already has externally managed DNS records (A, CNAME, etc). Delete them first or try a different hostname."**, 아무것도 바뀌지 않음
+  (readback). changeset도 이 CNAME을 `conflicting`에 넣지 않았다 — Cloudflare 밖(DNS only) 레코드는 override 대상이 아니다.
+  (B) homepage 선례: 스냅샷 확인 → CNAME 삭제 09:06:03.674Z → 같은 PUT 09:06:04Z → 성공 09:06:05.311Z(약 1.6s, 실패 시 스냅샷으로
+  자동 복원하는 스크립트). 결과: Workers Domains `notes.junghanacs.com→junghanacs-garden(production)`, DNS는 Worker 소유
+  `AAAA 100::`(proxied, read-only) + TXT 유지, DoH(Cloudflare·Google) A = Cloudflare IP. 정본 게이트 `verify-deployed.mjs
+  https://notes.junghanacs.com` **OK checks=51 ua=24**, 댓글 두 노트 대문자·소문자 요청 모두 key 일치·ID 2·1건 일치(GLG 실브라우저
+  "댓글 보인다"), SPA 2회 same-document·검색 311/20/54/216.
+- 전환 뒤 따로 볼 것: Naver 검증 `.html` 307(검증기가 따라가는지), IndexNow·sitemap 통지(대문자 URL), Search Console 제출.
+- 댓글 baseline(Netlify 정본, 전환 전): `/notes/20250716T135847`·`/notes/20250215T202517` — `remark_config.url`이 대문자 key와 같고,
+  remark42 API의 댓글 ID(2·1건)가 iframe의 `remark42__comment-<id>`와 일치, frame-ancestors 오류 없음. 전환 뒤 같은 대조를 반복한다.
 
 ## 배포 경로와 제약
 

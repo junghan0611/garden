@@ -36,7 +36,12 @@ test("comments and URL-looking strings do not confuse the parser", () => {
 })
 
 for (const [name, from, to, expect] of [
-  ["adding routes", '"workers_dev": true,', '"routes": [{ "pattern": "notes.junghanacs.com", "custom_domain": true }],\n  "workers_dev": true,', "routes present"],
+  ["dropping the canonical route", '"routes": [{ "pattern": "notes.junghanacs.com", "custom_domain": true }],\n', "", "routes must be exactly"],
+  ["a second route", '"routes": [{ "pattern": "notes.junghanacs.com", "custom_domain": true }]', '"routes": [{ "pattern": "notes.junghanacs.com", "custom_domain": true }, { "pattern": "junghanacs.com", "custom_domain": true }]', "routes must be exactly"],
+  ["another host", '"pattern": "notes.junghanacs.com"', '"pattern": "evil.junghanacs.com"', "routes[0]"],
+  ["a zone route instead of a custom domain", '{ "pattern": "notes.junghanacs.com", "custom_domain": true }', '{ "pattern": "notes.junghanacs.com/*", "zone_name": "junghanacs.com" }', "routes[0]"],
+  ["custom_domain false", '"custom_domain": true', '"custom_domain": false', "routes[0]"],
+  ["a singular route key", '"workers_dev": true,', '"route": "notes.junghanacs.com/*",\n  "workers_dev": true,', "route (singular)"],
   ["run_worker_first true", '"binding": "ASSETS",', '"binding": "ASSETS",\n    "run_worker_first": true,', "run_worker_first"],
   ["run_worker_first patterns", '"binding": "ASSETS",', '"binding": "ASSETS",\n    "run_worker_first": ["/*"],', "run_worker_first"],
   ["dropping the navigation flag", '["assets_navigation_has_no_effect"]', "[]", "assets_navigation_has_no_effect"],
