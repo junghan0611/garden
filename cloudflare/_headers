@@ -1,0 +1,86 @@
+# Cloudflare Workers response headers — copied to public/_headers by scripts/build-cloudflare.sh only.
+# Netlify keeps reading netlify.toml. Cloudflare joins the values of every matching rule, so a header
+# name lives in at most one rule that can match a given path (scripts/validate-cloudflare-output.mjs).
+# Contract: docs/deploy-cloudflare.md
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Link: </llms.txt>; rel="service-doc"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml"
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/tags/autholog.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/notes.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/meta.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/bib.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/botlog.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/journal.jsonld
+  Content-Type: application/ld+json; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/static/contentIndex.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.png
+  Cache-Control: public, max-age=86400
+
+/*.jpg
+  Cache-Control: public, max-age=86400
+
+/*.svg
+  Cache-Control: public, max-age=86400
+
+/*.webp
+  Cache-Control: public, max-age=86400
+
+/*.gif
+  Cache-Control: public, max-age=86400
+
+# Canonical host only (Netlify sent this value).
+https://notes.junghanacs.com/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# workers.dev production and version preview hosts are not canonical.
+https://:host.junghanacs.workers.dev/*
+  X-Robots-Tag: noindex

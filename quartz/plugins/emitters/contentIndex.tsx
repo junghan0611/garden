@@ -105,10 +105,19 @@ function extractAbstract(tree: Root): string | undefined {
   return abstract === "" ? undefined : abstract
 }
 
+// Netlify 301s uppercase paths to lowercase, so its sitemap is lowercased. Cloudflare Workers serves
+// the emitted file names case-sensitively (Denote uppercase T), and scripts/build-cloudflare.sh sets
+// GARDEN_URL_CASE=preserve. Contract: docs/deploy-cloudflare.md.
+const preserveUrlCase = process.env.GARDEN_URL_CASE === "preserve"
+
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string {
   const base = cfg.baseUrl ?? ""
+  const loc = (slug: SimpleSlug) => {
+    const url = joinSegments(base, encodeURI(slug))
+    return preserveUrlCase ? url : url.toLowerCase()
+  }
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<url>
-    <loc>https://${joinSegments(base, encodeURI(slug)).toLowerCase()}</loc>
+    <loc>https://${loc(slug)}</loc>
     ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`
   const urls = Array.from(idx)

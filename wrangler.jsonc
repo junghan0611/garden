@@ -1,0 +1,19 @@
+// notes.junghanacs.com (garden) as Cloudflare Workers static assets, asset-first.
+// Build: scripts/build-cloudflare.sh. Contract: docs/deploy-cloudflare.md.
+// No routes yet: the canonical host stays on Netlify until the cutover gate (nixos-config#11 step 5).
+{
+  "name": "junghanacs-garden",
+  "compatibility_date": "2026-09-30",
+  // Without this, browser navigations (Sec-Fetch-Mode: navigate) that miss an asset get the 404 page
+  // directly and never reach the Worker, so an old lowercase link typed or clicked would not be recovered.
+  "compatibility_flags": ["assets_navigation_has_no_effect"],
+  // Runs only when no asset matches (run_worker_first unset): lowercase Denote URL → 301, else the 404 page.
+  "main": "cloudflare/worker.mjs",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  }
+}

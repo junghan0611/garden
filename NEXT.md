@@ -4,13 +4,13 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 # RAIL — 현재 좌표
 
-- [x] **1. 리포 cutover** (2026-07-13) — `junghan0611/garden@main`
-- [x] **2. autholog 카테고리 레코드** — sidecar + llms.txt. Copilot auto 한 판으로 사슬 확인.
-- [x] **3. 다섯 폴더 카테고리 레코드** — notes/meta/bib/botlog/journal ItemList + 독립 검증기. `v2026.9.27`에 수록.
-- [ ] **4. 배포 후 확인** ← CURRENT: Netlify 여섯 sidecar Content-Type, 인아티클 목차 시각·프리뷰 게이트.
-- [ ] **5. 기대하지 말 것** — 태그 JSON-LD, Datasette, ItemList SEO, size hard cap. 실측 후 GLG가 따로 연다.
+- [x] **1. homepage 선례·역할 인계** — 원천: nixos-config#11 / homepage#3 / homepage `docs/deploy-cloudflare.md`.
+- [x] **2. run.sh 동등 baseline·도메인 없는 version preview** — workers.dev 첫 배포 완료(15:14, noindex), frozen 후보 유지.
+- [x] **3. 가든 배포 계약·독립 검수** — 소문자 t→대문자 T 301·독립 51응답·브라우저 query/fragment·검색 통과.
+- [ ] **4. Workers Builds 연결·캐시 측정** ← CURRENT: GLG Connect 완료·commit/push 승인 → 최초 Git 빌드 관측, off 1회 / on 2회.
+- [ ] **5. canonical 전환·재색인·Netlify 정리** ← PAUSED: 신·구 비교 녹색 + GLG 승인 + nixos-config DNS 조율 전에는 금지.
 
-현재 좌표: 3 구현 완료 → 4 배포 후 확인 → 5 보류
+현재 좌표: 1·2·3 완료 → 4 Git 자동 빌드 준비 마무리 → 5 승인 전 보류
 
 # STATUS — LIVE on `junghan0611/garden@main`
 
@@ -19,10 +19,27 @@ The repository cutover is **done** (2026-07-13). Durable facts about it now live
 (owned by the font steward) and the non-font PageSpeed work below.
 
 The garden is developed **independently** — upstream Quartz is not tracked and Quartz v5 is deferred
-indefinitely (see PARKED). Hosting stays Netlify; Oracle self-host is a separate, unscheduled question and no
-longer waits on "v5 stable".
+indefinitely (see PARKED). Netlify serves the garden until the Cloudflare preview gates and GLG's cutover approval.
+GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a separate, unscheduled question.
 
 # NOW
+
+## Cloudflare Workers 이전 — 2026-09-30 GLG 승인 범위
+
+- 코디네이터: 현재 pi/Sol `20260930T141156-e4cda9`; 실무: Claude Code/Opus `20260930T144649-fafdc7` (callback 수신 14:46 KST). 코드·테스트·배포 계약은 Opus, NEXT·관문·독립 검수·타 리포 조율은 Sol. 체크포인트는 코디네이터로 보고.
+- GLG 원문 지시: `run.sh`의 언어 치환까지 보존하고 노트북에서 빌드 검수, 도메인 없는 버전부터. Netlify $20의 크레딧 비용 때문에 Workers Free로 이전. push는 GLG가 한다.
+- 읽은 코드: `run.sh`는 `change-text.sh` → `lint.sh` → Quartz `build --serve --port 1231 --concurrency 8`. CI/검수는 serve 없는 동등 경로가 필요하다. `change-text.sh`는 gitignored이며 content를 제자리 치환한다. `git archive`만으로 준비 단계가 보존되지 않으므로 격리 snapshot에 안전하게 전달하고, 민감 치환 매핑을 tracked 파일로 복제하지 않는다.
+- Next(16:01 GLG "진행해줘…돌아와서 커넥트" 지시): CI Git 이력 관문(shallow면 unshallow 1회·검증불가 시 fail-closed)·단계별 시간/버전 로그 준비 완료 → GLG Connect 완료 후 **"커밋푸시하자 안되면 고치면된다" 승인**으로 Sol commit/push → 최초 Git 빌드 관측. Sol 직접 tests45/45·bash syntax·diff whitespace 검사 통과. `check-git-history.sh`는 CI SHA=HEAD 검사·이력 없는 사본 거부·fetch 오류 원격URL 비노출, stage 함수는 실패 시 배포 전 중단. Opus 격리 후보 cand3 receipt: `/tmp/garden-cf/candidate3.log`, content15c2311b5/overlay `ae88681af324cce9`, full2298commits·NOOP·secret/JSON-LD/category/output gate OK·total55s(Quartz52s). cand3는 업로드하지 않았고 기존 preview30410e9a/defaultf2d84c5d 유지. **Deploy command는 기본 `npx wrangler deploy`**로 결정(버전 장기 고정의 유지보수 부담을 피하고 실제 사용 버전을 로그로 관측). GLG가 먼저 Connect했고 대시보드가 다음 push를 첫 빌드 trigger로 안내했다. 현재 원천 구현을 승인된 commit/push로 GitHub main에 올리는 단계다. 공식 Builds Free 한도(Cloudflare limits-and-pricing, May29 2026): 2vCPU/8GB/20GB·동시1·월3000분·빌드당20분. 로컬 최신55s/Quartz52s는 parse4threads(getconf16논리CPU 호스트), run.sh는8threads 명시; CI실제시간은 아직미측정, 같은55s를 보장하지 않는다. **새 preview** https://30410e9a-junghanacs-garden.junghanacs.workers.dev/journal/20260921t000000 검수 완료. 대문자 T 정본 + 옛 소문자 t 301 회수는 구현·자동 검수 완료. **기본** https://junghanacs-garden.junghanacs.workers.dev 는 아직 f2d84c5d(소문자 404), `versions deploy`하지 않았다. 기본 URL 승격도 별도 승인. 공유 main 구현은 미커밋, content·정본 DNS·Netlify 무변경. 현재 공유 main 구현은 미커밋, 공유 branch 전환 없음. CI privacy는 이번에는 GLG의 커밋 전 run.sh + gitleaks; 비공개 패턴 secret 신설은 보류.
+- Preview: https://f2d84c5d-junghanacs-garden.junghanacs.workers.dev (동일 배포 version). Opus가 두 host 응답 gate OK 보고했고, Sol은 workers.dev에서 35 checks+동일 산출물 본문 대조를 독립 통과. 브라우저 정정 receipt `/tmp/garden-cf/browser/probe1-workersdev.json`·`probe1-netlify.json`을 Sol이 직접 읽어 SPA 2회 same-document, emacs 311/어쏠로지 20/디지털 가든 53/#autholog 216 결과·검색창 유지·errors=[]가 두 호스트에서 같음을 확인. 초기 CJK/SPA artifact는 `gate1.initial-fill-artifact.json`으로 분리, 해당 두 필드는 인용하지 않는다. 390px screenshot은 Sol이 직접 읽어 abstract→목차·본문 렌더를 확인.
+- 첫 Workers Builds 관문(homepage 담당자 제안, garden 채택): 빌드 로그에 `git rev-parse --is-shallow-repository`, `git rev-list --count HEAD`를 남기고 기준 후보의 2,298 commits/full history와 대조. 얕은 이력에서 날짜 fallback을 조용히 허용하지 않는다; 필요하면 `git fetch --unshallow` 가능성·비용을 측정해 처리. 설치/Quartz/검증/upload 시간을 분리하고 Node 22·wrangler 고정 버전 확인. 대시보드 연결은 GLG, 최초 caching off → on 2회. homepage 담당자의 Connect 선례 답(15:54): 연결 자체는 빌드를 시작하지 않고 다음 push가 첫 빌드 trigger였다. build command `./scripts/build-cloudflare.sh`는 필수, deploy는 선례의 pinned값 대신 **GLG 최신 결정 `npx wrangler deploy`**, **non-production command는 기본값 그대로·preview builds off**(실행 미측정 값을 임의로 넣지 않음), API token Create new token, 변수 `WRANGLER_SEND_METRICS=false`. 입력 전 구현을 commit/push해야 자동 설정 PR을 피한다. Node `.node-version`의 정확 패치 적용·lock 기반 의존성 설치 방식은 첫 빌드 로그 확인 대상. watch excludes는 리포 문서류만 연결 뒤 설정. 현재 frozen Worker는 이 관측 준비를 위해 다시 배포하지 않는다.
+- 댓글은 preview host가 remark42 frame-ancestors 허용 목록에 없어 iframe 차단(예상 제한). 허용 목록을 넓히지 않는다. canonical 전환 후 기존 thread 표시·테마·SPA를 별도 browser 관문으로 확인; 현재 실댓글 보존까지 완료했다고 말하지 않는다.
+- Baseline receipt: `/tmp/garden-cf/baseline.log`, content HEAD `15c2311b5`, 치환 전/후 manifest `c4ab18143be44f0c` NOOP, gitleaks/JSON-LD/category 통과, 외부 IndexNow 건너뜀. 총 61s(Quartz 47s), 6,251 files / 1,430,667,445 bytes, 최대 12,330,793 bytes, 25MiB 초과 0. **크기·시간 baseline만**: git archive의 git-repository 경고가 있어 날짜 fallback이 달라질 수 있다(`quartz.config.ts:68-69`); 최종 비교 후보는 이력 있는 격리 checkout으로 다시 빌드.
+- 전환 전 URL 방침: CF 빌드에서만 대문자 sitemap 스위치를 켜고 독립 gate로 경로 실재를 검증. 기본 Netlify 경로는 현재 소문자 그대로. remark42 T 복원 유지. 구현 overlay는 기존 커밋에 포함된 것처럼 표시하지 않고 원천 SHA와 patch/산출물 digest를 구분한다. **GLG 최신 결정이 #11 결정 5의 소문자 404 허용을 변경**: 실재 Denote의 t→T 301, query 보존·브라우저 navigation 포함·존재하지 않는 경로 404 유지. static hit는 asset-first로 유지, 호환 처리에 모든 요청 Worker 호출을 붙이지 않는다. 설계 확인(15:34): asset-first 얇은 Worker + `assets_navigation_has_no_effect`, ASSETS binding으로 대문자 대상 HEAD 200 확인 후 301, 미스만 Worker·정적 hit는 기존 자산 경로. Worker 301/404도 공통 헤더·preview noindex/정본 HSTS 유지, `x-garden-route`는 샘플 진단용. 구현·로컬/edge 실측 전이므로 런타임 보장은 아직 아니다. candidate2 review·dry-run 통과, Sol 15:43 version upload 승인. Sol 직접 39/39 tests + config/output gate OK6251/22/2252, 후보 `/tmp/garden-cf/cand2-15c2311b5/public`, manifest `03b1ad0a18adf8f4`, overlay `b54d0c7299dd98ea`. 실제 Worker runtime은 default export 27줄+URL/헤더 helper; 로컬 pretty HTML/asset hit는 route marker 없음, 소문자 301·unknown404 marker 확인(아직edge미측정). production f2d84c5d는 유지. 새 preview **https://30410e9a-junghanacs-garden.junghanacs.workers.dev**, Version `30410e9a-4c93-4f8e-a029-a6688695ad69` 업로드 완료(15:43:21→15:43:49, `/tmp/garden-cf/upload2.log`: 새2275+중복3976=6251, upload17.77s/전체약28s). Sol 직접 HEAD로 소문자 canary query 보존301→대문자200·없는ID404·세응답noindex 확인, 정본은 여전히 Netlify200. bg04 독립 edge gate exit0/16s, `OK checks=51 bodies=public` (`/home/junghan/.pi/background/1790750654654-bg04.log`) 통과. 브라우저 검수 완료: Sol이 `/tmp/garden-cf/browser/nav2-preview.json`·`probe2-preview.json`·`edge-samples2.txt` 직접 읽어 address navigation 소문자301→대문자200, trailing slash 301 한 번, query/fragment 유지·hashTarget true, 미존재ID404·asset오타404, SPA2회·검색4종 기존 결과 일치·errors=[] 확인. 정상 HTML/query/HEAD/CSS/woff2/jsonld/폴더307 샘플은 route marker 없음, POST는 asset405 보존. 전체 static hit 미호출의 보편 증명이 아니라 샘플 응답+플랫폼 asset-first 계약으로 한정.
+- Upload 관문 receipt(실무 checkpoint 3, `/tmp/garden-cf/upload.log`): dry-run은 통과했으나 신규 Worker에 `versions upload`는 `You cannot upload a new version of a Worker that does not yet exist`로 거부(exit 1). deploy로 대체하지 않았다. 실무 읽기 확인: 계정 Worker는 homepage만, garden 미생성. homepage 담당자 실행 기록(14:56 수신, #3 코멘트 5903205591/5903271104)으로 최초는 routes 없는 실제 페이지 `wrangler deploy`(40234af6), versions upload는 Worker 생성 뒤라는 순서를 확인. placeholder 제안은 접고 **처음부터 noindex인 실제 가든의 domainless deploy**를 GLG에게 승인 확인 중. 후속은 version preview. GLG 15:11 지시 "배포가자. 해보자."로 **실제 후보의 routes 없는 최초 workers.dev deploy 승인**. Frozen 후보 첫 deploy 성공: https://junghanacs-garden.junghanacs.workers.dev, Version `f2d84c5d-7c1d-4cd0-8fae-964b68d87c9a`, `/tmp/garden-cf/deploy1.log`(Opus receipt, 15:11:45→15:14:12). 업로드 4934+기존중복1317=6251, 업로드135.17s/전체약147s. Opus 즉시 curl로 홈·대표노트·jsonld·robots의 noindex/200 확인, 별도 안전복구 불필요. Sol 독립 응답·동일 빌드 본문 gate **통과**: bg01 exit0/10s, `/home/junghan/.pi/background/1790748887008-bg01.log` → `OK checks=35 bodies=public`. Opus 브라우저 probe 녹색, Sol이 파일 receipt 확인; GLG 직접 검수 대기. canonical 전환·Netlify·commit/push는 금지 유지.
+- Read: nixos-config#11 **본문+스레드**, homepage#3 스레드, `../homepage/docs/deploy-cloudflare.md`; 가든 `netlify.toml`, `scripts/post-build.sh`. #11 결정 5는 대문자 T 정본·소문자 404 감수, 결정 6은 역할 분리.
+- Do not touch: canonical 도메인/DNS/zone/Netlify, homepage·aions Worker, commit/push. 새 Worker `junghanacs-garden`만 고려하고 custom routes 없이 `versions upload`부터. IndexNow 외부 POST·검색 제출은 로컬/preview에서 실행하지 않는다. 생성·검증과 실제 발행 통지를 구분한다.
+- 교차검토 수선 완료(15:05): 공통 nosniff 삭제 mutant 거짓 통과를 고치고 보안/Link·캐시 필수값과 음성테스트 보강, 배포 gate는 sitemap/CSS 포함 동일 응답에서 판정·샘플 HTML도 본문 대조. Sol 직접 tests 18/18·bash syntax·후보 output gate OK(6251/22/2252). Frozen 후보 `/tmp/garden-cf/cand-15c2311b5/public`, manifest digest `fcb406da46dce313`, overlay `c1a630c685441f27`. Quartz 병렬 Explorer ID로 재빌드 간 바이트가 달라질 수 있으므로 **그 빌드 한 번의 public과 업로드 응답**을 비교한다. edge 응답·브라우저 probe 통과(댓글은 preview origin 제한); 현재 버전/산출물은 변경 없이 유지.
+- 완료 기준: 신·구 실제 응답 비교(여섯 sidecar MIME/내용, llms charset, Link·보안·캐시, 대문자 200/실재 소문자 t 경로 301→대문자 200, 없는 경로 404), mutable index/CSS/JS 갱신, 댓글 thread·검색·SPA 브라우저 검수. 이 아래 기존 배포 후 확인 항목도 함께 회수한다.
 
 ## 카테고리 레코드 — autholog + 다섯 폴더
 

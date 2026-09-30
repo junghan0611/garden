@@ -44,3 +44,7 @@ docs/plans
 
 .beads/.br_history
 .beads/.br_recovery
+
+# Cloudflare: cf CLI cache (account id/name) and wrangler state
+.cloudflare/
+.wrangler/
