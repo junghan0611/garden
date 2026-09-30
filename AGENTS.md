@@ -199,7 +199,12 @@ Junghan export/검수 (`denote-export.sh`, `run.sh`) → git commit → git push
 
 Note: Indexing takes time after build. Wait before testing with Gemini.
 
-IndexNow: `scripts/post-build.sh` appends a "Recent Updates" block to `public/llms.txt` and submits IndexNow to Bing/Yandex/Naver on every Netlify build — no manual step.
+`scripts/post-build.sh` generates the category records, verification files, and the "Recent Updates" block in
+`public/llms.txt` on both build paths. Its IndexNow submission is **Netlify-only**, armed by
+`CACHED_COMMIT_REF` + `COMMIT_REF`. `scripts/build-cloudflare.sh` removes those variables: Workers builds
+and previews do **not** submit IndexNow or a sitemap. After the canonical cutover, submit the uppercase
+sitemap through `gog gsc`; replacement post-deploy IndexNow notification remains a separate open task.
+Do not treat a successful Workers build as evidence that search engines were notified.
 
 ## Structured Data (JSON-LD / AEO)
 
@@ -239,7 +244,31 @@ reading mirror, and `garden2wikidocs` is the read-only translation harness.
 
 ## Build & URL invariants
 
-Denote IDs and all built URLs use **uppercase `T`** (`20250727T094722`). The lone lowercase outlier is `sitemap.xml <loc>` (explicit `.toLowerCase()` in `quartz/plugins/emitters/contentIndex.tsx`). Netlify 301s uppercase→lowercase and serves lowercase `200`; `remark42.inline.ts` restores uppercase at runtime for comments. There is **no per-page `<link rel="canonical">`** — a deliberate decision: adding one would conflict the uppercase-HTML / lowercase-response / lowercase-sitemap signals (Quartz upstream refuses canonical for the same reason). Don't "fix" this without a canary confirming Netlify can preserve uppercase.
+Denote IDs and built HTML paths use **uppercase `T`** (`20250727T094722`). Sitemap casing is build-specific:
+the default Netlify path lowercases `<loc>`; `scripts/build-cloudflare.sh` sets `GARDEN_URL_CASE=preserve`
+so Cloudflare's sitemap preserves uppercase `T`. Netlify serves uppercase→lowercase 301, while Cloudflare
+serves uppercase 200 and recovers **existing** lowercase Denote URLs with a 301 to uppercase. Unknown
+notes stay 404; query and fragment preservation were verified in the domainless browser canary.
+`remark42.inline.ts` still restores uppercase for comment keys; actual canonical-domain thread continuity
+must be checked after cutover. There is still **no per-page `<link rel="canonical">`**. Do not introduce one
+or remove the comment-key restoration as an incidental migration change.
+
+### Cloudflare migration lane — 2026-09-30
+
+The canonical domain is still on Netlify; Cloudflare Workers Static Assets + Workers Builds are verified
+on the domainless `junghanacs-garden` Worker. Git `main` builds use `./scripts/build-cloudflare.sh`, then
+`npx wrangler deploy`. The build requires full Git history, reruns gitleaks, and validates JSON-LD and
+asset/header/sitemap contracts. The ignored privacy filter remains GLG's pre-commit `run.sh` step.
+
+- `wrangler.jsonc` and its validator currently allow **no routes/custom domain**. Canonical attachment,
+  validator changes for that attachment, and DNS coordination require a separate cutover approval.
+- Normal static assets are asset-first; only misses reach the lowercase compatibility Worker. Keep
+  `assets_navigation_has_no_effect` for browser navigation and do not enable `run_worker_first`.
+- `cloudflare/_headers` is copied only by the Cloudflare build. Keep canonical-domain HSTS and
+  workers.dev noindex host-specific; Worker-created responses carry the same required headers.
+- Retain `netlify.toml` and its plugin while Netlify is the canonical/rollback host. Netlify-only plugins,
+  redirects and build variables are not Cloudflare features.
+- Configuration, measurements, remaining cutover gates and rollback context: `docs/deploy-cloudflare.md`.
 
 Quartz v5 is deferred indefinitely. Its rebuild remains in `junghan0611/garden_v5` as a strictly separate
 lane; do not merge or port it into this garden.

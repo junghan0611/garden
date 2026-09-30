@@ -5,9 +5,9 @@
 큰 틀(계정·토큰·DNS·Netlify 해지)은 nixos-config#11, 선례는 homepage `docs/deploy-cloudflare.md`와 homepage#3.
 
 상태(2026-09-30): **전환 전.** 정본 호스트는 Netlify이고 `netlify.toml`의 빌드가 그대로 돈다. Worker
-`junghanacs-garden`은 workers.dev에만 있다(15:14 KST 첫 `wrangler deploy`, GLG 승인, routes 없음, noindex).
-이후 미리보기는 `wrangler versions upload`로 만든다. custom domain·DNS·Workers Builds 연결은
-이 문서의 범위 밖 관문이다.
+`junghanacs-garden`은 workers.dev에만 있다(routes 없음, noindex). Workers Builds가 연결돼 **main push = workers.dev 배포**다:
+첫 CI 빌드 `c6941c40`(commit `221d70a6`)이 Version `669c4eef`를 배포했다. 미리보기는 `wrangler versions upload`로 만든다.
+custom domain·DNS는 이 문서의 범위 밖 관문이다(nixos-config#11).
 
 ## 구성
 
@@ -35,15 +35,16 @@
   조용히 checkout 시각으로 떨어진다(2026-09-30: `git archive` 사본은 "couldn't find git repository" 18건, 약 2,500 파일 본문이 달라짐).
   그래서 `check-git-history.sh`가 빌드 앞에서 막는다: git checkout이 아니면 실패, `WORKERS_CI_COMMIT_SHA`와 HEAD가 다르면 실패,
   shallow면 `git fetch --unshallow`를 **한 번** 시도하고(시간 로그, git 출력은 원격 URL을 담을 수 있어 버림) 여전히 shallow거나
-  실패하면 멈춘다. 커밋 수는 로그만 하고 상수로 강제하지 않는다(로컬 기준 2,298). Workers Builds의 clone 깊이는 첫 빌드에서 측정한다.
+  실패하면 멈춘다. 커밋 수는 로그만 하고 상수로 강제하지 않는다(로컬 기준 2,298). Workers Builds는 깊이 1로 clone한다(첫 CI 빌드 `c6941c40`: `shallow=true commits=1` →
+  `unshallowed in 10s shallow=false commits=2299`, 인증 문제 없음).
 
 ## gitleaks (CI)
 
-Workers Builds 이미지에 gitleaks가 있는지는 미측정이다. `build-cloudflare.sh`는 `WORKERS_CI=1`이고 PATH에 `gitleaks`가 없을 때만
+Workers Builds 이미지에는 gitleaks가 없다(첫 CI 빌드에서 다운로드 경로가 실행됨). `build-cloudflare.sh`는 `WORKERS_CI=1`이고 PATH에 `gitleaks`가 없을 때만
 공식 릴리스 `gitleaks_8.28.0_linux_x64.tar.gz`를 받고 sha256
 `a65b5253807a68ac0cafa4414031fd740aeb55f54fb7e55f386acb52e6a840eb`(릴리스 `checksums.txt`, 로컬 nix판과 같은 버전)를
 확인한 뒤 쓴다. 다운로드·해시·압축 해제 중 하나라도 실패하면 `set -e`로 빌드가 멈추고 배포하지 않는다.
-로컬에서 PATH에 없으면 받지 않고 멈춘다. 빌드 이미지의 `curl`·`tar`·`sha256sum` 존재는 Workers Builds 연결 뒤 로그로 확인한다(미측정).
+로컬에서 PATH에 없으면 받지 않고 멈춘다. 빌드 이미지에 `curl`·`tar`·`sha256sum`이 있다(첫 CI 빌드 로그: `gitleaks_8.28.0_linux_x64.tar.gz: OK`).
 
 ## URL 대소문자 (nixos-config#11 결정 5 → 2026-09-30 GLG 변경)
 
@@ -107,15 +108,18 @@ Workers Builds 이미지에 gitleaks가 있는지는 미측정이다. `build-clo
 | preview 명령 / non-production 브랜치 빌드 | 기본값 유지 / **off**. 미리보기는 `wrangler versions upload`로 만든다 |
 | 빌드 토큰 | 자동 생성(Create new token) |
 | 빌드 변수 | `WRANGLER_SEND_METRICS=false` |
-| build cache | 첫 빌드 off, 이후 on으로 2회 측정 |
-| 빌드 감시 제외 | 문서류만(`NEXT.md`, `NEXT--*.md`, `CHANGELOG.md`, `AGENTS.md`, `README.md`, `docs/**`) — 연결 뒤 설정 |
-| Node | `.node-version` `v22.16.0`이 정확히 설치되는지 빌드 로그로 확인(미측정) |
-| 의존성 설치 | Workers Builds가 lockfile로 자동 설치하는지 로그로 확인(미측정). 설치 시간은 이 스크립트가 아니라 Cloudflare 로그에 있다 |
+| build cache | on(2026-09-30 16:57 KST~, `modified_on` 07:57:08Z). 의존성 캐시만 복원된다 — "Skipping build output cache as it's not supported for your project" |
+| 빌드 감시 제외 | 문서류만(`NEXT.md`, `NEXT--*.md`, `CHANGELOG.md`, `AGENTS.md`, `README.md`, `docs/**`) — 2026-09-30 설정·readback 확인. 이 목록 밖 파일이 하나라도 바뀐 push는 빌드한다(측정 전) |
+| Node | `.node-version`대로 `Installing nodejs 22.16.0`(첫 CI 빌드 로그), 이미지 npm 10.9.2 |
+| 의존성 설치 | Workers Builds가 `npm clean-install --progress=false`로 자동 설치(첫 CI 빌드 17s). 설치 시간은 이 스크립트가 아니라 Cloudflare 로그에 있다 |
 
 - 원칙: 연결 전에 `wrangler.jsonc`와 빌드 스크립트가 main HEAD에 있어야 Cloudflare가 설정 PR을 만들지 않는다.
 - 2026-09-30 경과: GLG가 16:07 KST에 Connect를 마쳤다(설정값은 위 표와 같음 — `cf builds triggers list`·`environment-variables list`
-  읽기로 확인, 빌드 0건). Connect는 빌드를 시작하지 않고 첫 push가 트리거한다. 이 구현은 GLG 승인 뒤 커밋·push되며,
-  CI 빌드 결과(시간·clone 깊이·설치)는 아직 측정 전이다.
+  읽기로 확인). Connect는 빌드를 시작하지 않았고, GLG 승인 뒤 push된 `221d70a6`이 첫 CI 빌드 `c6941c40`을 트리거해
+  성공했다(약 326s, 아래 측정 표). 배포 명령이 받은 wrangler는 4.144.0이었다. 기본 workers.dev는 가장 최근 성공 빌드의 버전이다.
+- 수동 빌드(`cf builds create <trigger-uuid>`): body 없이는 `[12002] Invalid request body`. `{"branch":"main"}`만 주면 빌드는 되지만
+  `WORKERS_CI_COMMIT_SHA`에 SHA가 아니라 `main`이 들어와 이력 관문이 멈춘다. `{"branch":"main","commit_hash":"<40자리>"}`로 주면 SHA가
+  들어온다. 이 body 필드는 CLI/OpenAPI 스키마에서 찾지 못했다 — 2026-09-30 호출 응답이 근거다(`branch` 필수 여부는 가설).
 - 사양(공식 Limits & pricing, 2026-05-29 갱신): Free 2 vCPU · 8 GB · 디스크 20 GB · 월 3,000 빌드 분 · 동시 1 · 빌드당 20분.
   추가 요금 문구는 Paid(6,000분 후 분당 $0.005)에만 있다. 로컬 55s(16 논리코어, Quartz parse 4 threads —
   `quartz/processors/parse.ts`는 concurrency 미명시 시 기본 1–4 threads)는 CI 시간이 아니다.
@@ -147,7 +151,10 @@ Workers Builds 이미지에 gitleaks가 있는지는 미측정이다. `build-clo
 
 ## 측정 기록 (2026-09-30, 전환 전)
 
-모든 수치는 content SHA `15c2311b5`. 원본 로그는 `/tmp`에만 있었으므로 결정적인 줄만 옮긴다.
+로컬 후보·수동 업로드 행의 content SHA는 `15c2311b5`, CI 행은 commit `221d70a6`(같은 content + 이 구현). Version
+`f2d84c5d`(수동 첫 deploy)와 `30410e9a`(소문자 301 미리보기)는 **그 시점**의 상태다. 기본 workers.dev의 버전 계보:
+`f2d84c5d`(15:14 KST 수동) → `669c4eef`(16:35 첫 CI) → `8d23fe41`(17:03 수동 빌드 #2) → `7f2ed00f`(17:08 수동 빌드 #3, 2026-09-30
+기준 최신 성공). 원본 로그는 `/tmp`에만 있었으므로 결정적인 줄만 옮긴다.
 
 | 항목 | 값 |
 |---|---|
@@ -173,6 +180,11 @@ Workers Builds 이미지에 gitleaks가 있는지는 미측정이다. `build-clo
 | preview edge 샘플 | 대문자+query 200·HEAD 200·css·woff2·jsonld 200·`/notes` 307은 `x-garden-route` 없음(샘플), HEAD 소문자 301, POST 소문자 → asset 서버 405 그대로(`miss`) |
 | preview 브라우저 주소창(Playwright, `sec-fetch-mode: navigate`) | 소문자 journal/notes/meta/bib → 301 [lowercase-301] → 대문자 200, trailing slash도 한 번에; query 유지; fragment 유지하고 해당 heading 존재(`#h-2026-09-21`, `#tips-and-tricks-the-non-geek-scientist`); 없는 id·오타는 404 "Not Found". SPA 2회 same-document, 검색 311/20/53/216 — Netlify 정본과 같음 |
 | Git Builds 준비 후보(cand3) | `git-history: shallow=false commits=2298`, 단계 시간 config 0s · git-history 0s · gitleaks 1s · quartz 52s · jsonld 0s · post-build 2s · headers 0s · output-gate 0s · total 55s(로컬), 테스트 45/45. git 없는 사본은 `FAILED in stage git-history`로 멈추고 `public/` 미생성 |
+| 첫 Workers Builds (build `c6941c40`, commit `221d70a6`) | 성공. 초기화 시작 07:29:54.959Z → 종료 07:35:20.889Z 약 326s(생성 07:29:50Z 기준 약 331s). 초기화 11s · clone 32s · `Installing nodejs 22.16.0`(정확 패치) · `npm clean-install` "added 486 packages in 17s" · 빌드 212s(config 1 · git-history 10 · gitleaks 11 · quartz 183 · jsonld 1 · post-build 4 · output-gate 1) · 배포 44s. CI clone은 깊이 1 → `unshallowed in 10s shallow=false commits=2299`. gitleaks는 이미지에 없어 pinned 다운로드(sha256 OK). Quartz "Parsing input files using 4 threads"(Free 사양은 2 vCPU — 스레드 수와 코어 수는 다르다). node v22.16.0 · npm 10.9.2 · git 2.43.0 · 배포 `npx wrangler deploy` → wrangler 4.144.0. "Uploaded 2568 files (3683 already uploaded)", Version `669c4eef-4d83-44f8-a30c-394d36538243`. 이후 기본 workers.dev와 version URL 모두 `verify-deployed.mjs` 51 checks OK(CI 산출물이 로컬에 없어 본문 대조 없음). 경고는 KaTeX strict "LaTeX-incompatible input"(수식 속 한글 등 기존 content) — 실패 아님. 실패 시 기존 버전 유지는 이 첫 성공 빌드 시점에는 미측정 — 뒤의 수동 빌드 #1(비의도적 실패)에서 관측 |
+| cache on 뒤 수동 빌드 #1 (`06a5b122`, body `{"branch":"main"}`) | **실패**(비의도적 입력): `ci_commit=main` → `git-history: FAIL … is not the commit Workers Builds announced (main)` → `FAILED in stage git-history … nothing is deployed`. `wrangler deployments list`: 07:35:17Z `669c4eef` 다음 배포는 08:03:37Z `8d23fe41` — 실패 시각(07:58Z)에 새 배포 없음, 기존 버전 유지. 의도된 실패 시험이 아니다. 시간 비교에서 제외 |
+| cache on 수동 빌드 #2 (`9d863716`, body에 `commit_hash`) | 성공, commit `221d70a6`(API·CI 로그 일치). 초기화 시작→events 끝 약 248s. init 3s · clone 37s · 설치 23s("added 486 packages in 12s") · build 138s(git-history 11 · gitleaks 2 · quartz 120 · post-build 3) · deploy 48s. 시작에 "Restoring from dependencies cache / build output cache", 끝에 "Success: Dependencies uploaded to build cache." · "Skipping build output cache as it's not supported for your project". Version `8d23fe41`, gate 51 OK |
+| cache on 수동 빌드 #3 (`b19a382c`) | 성공, commit `221d70a6`. 초기화 시작→events 끝 약 271s. "Restoring from dependencies cache"(08:05:03.371Z) → **"Success: Dependencies restored from build cache."**(08:05:14.005Z, 약 10.6s — Node 설치와 겹칠 수 있어 따로 합산하지 않는다) 뒤에도 `npm clean-install`이 돌아 "added 486 packages in 10s". 도구+의존성 단계는 event 기준 21.9s(#2 23s, 캐시 off 첫 CI 약 24s)로 거의 같다. deploy 29s(#2 48s). 이번 로그에는 npx의 "will be installed" 줄이 없다 — 이것이 배포 시간 차이의 원인인지는 단정하지 않는다(추론). build 170s(quartz 147s). Version `7f2ed00f`, version·기본 URL gate 51 OK |
+| 캐시 판정 | 의존성 캐시는 복원되지만 npm clean-install이 매번 다시 설치해, **도구·의존성 단계는 약 24 → 23 → 22s로 이득이 작다**. 전체 시간 차이(첫 CI 약 326s → #2 약 248s → #3 약 271s)는 Quartz·배포 변동을 포함하므로 캐시 효과로 귀속하지 않는다. build output 캐시는 이 프로젝트에 미지원. 시간의 대부분은 Quartz(120·147·183s — 같은 커밋인데 편차가 크고 원인은 미확정)다 |
 
 로컬 행은 edge 응답이 아니다. edge 판정은 첫 업로드 뒤 `verify-deployed.mjs`로 한다.
 

@@ -17,7 +17,7 @@ If you landed here (human or AI agent) and want to understand this garden:
 - **Category records** — visiting agents: do **not** fetch `/tags/` (a 3.7MB HTML index) or large folder listings as a first hop. Fetch the schema.org `ItemList` sidecars instead: https://notes.junghanacs.com/tags/autholog.jsonld (curated core) plus https://notes.junghanacs.com/notes.jsonld, `/meta.jsonld`, `/bib.jsonld`, `/botlog.jsonld`, `/journal.jsonld`. Human HTML listings remain for browsing. This is not a query API and not Datasette. Tags as a whole are not published as JSON-LD.
 - **Agent instructions** — see [`AGENTS.md`](AGENTS.md) for durable conventions (build pipeline, editing rules, external-agent environment notes). Any AI agent working in this repo should read it first.
 - **Session handoff** — see [`NEXT.md`](NEXT.md) for the next concrete move, its verification, and current blockers. A boot sector, not a changelog; durable facts graduate into `AGENTS.md`.
-- **What to edit** — `quartz.layout.ts`, `quartz.config.ts`, `quartz/` components, `content/llms.txt`, `content/robots.txt`, `static/`, `scripts/`, `netlify.toml`. **Do not edit** `content/notes/`, `content/meta/`, `content/bib/`, `content/journal/`, `content/botlog/`, or `content/index.md` — those are exported from `~/org/` and will be overwritten on the next export.
+- **What to edit** — `quartz.layout.ts`, `quartz.config.ts`, `quartz/` components, `content/llms.txt`, `content/robots.txt`, `static/`, `scripts/`, `wrangler.jsonc`, `cloudflare/`, `netlify.toml`. **Do not edit** `content/notes/`, `content/meta/`, `content/bib/`, `content/journal/`, `content/botlog/`, or `content/index.md` — those are exported from `~/org/` and will be overwritten on the next export.
 
 ## Overview
 
@@ -47,7 +47,7 @@ content/
 | Note System | Denote (파일명 기반 메타데이터, sequence 지원) |
 | Export | denote-export.sh (멀티 데몬 병렬 처리) |
 | Generator | Quartz 4 (TypeScript) |
-| Hosting | Netlify + Hostingkr |
+| Hosting | Netlify 정본 유지 → Cloudflare Workers Static Assets + Workers Builds 이전 중 |
 | SEO | gogcli (Search Console 자동화) |
 
 ## Export Pipeline
@@ -56,11 +56,16 @@ content/
 ~/org/ (Org-mode)
     ↓ denote-export.sh all
 ~/sync/markdown/notes.junghanacs.com/content/ (Markdown)
-    ↓ npx quartz build
-public/ (HTML)
-    ↓ git push
-Netlify (자동 배포)
+    ↓ run.sh (언어 치환·비밀정보 검사·로컬 화면 검수)
+    ↓ 검수한 Markdown을 git commit / push
+CI build → public/ (HTML·기계 진입점)
+    ↓ deploy
+Netlify (현재 정본) / Cloudflare Workers (도메인 없는 검수·자동 빌드 확인)
 ```
+
+Cloudflare 이전은 [배포 계약](docs/deploy-cloudflare.md)을 따른다. 공개 가든 주소는 그대로 유지하며,
+정본 도메인 전환 전까지 workers.dev는 noindex 검수용이다. Workers 빌드 명령은
+`./scripts/build-cloudflare.sh`, 배포 명령은 `npx wrangler deploy`다.
 
 멀티 데몬 내보내기 도구는 [doomemacs-config/bin/](https://github.com/junghan0611/doomemacs-config/tree/main/bin) 참조.
 

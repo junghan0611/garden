@@ -145,6 +145,8 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 
 - Note ID: `YYYYMMDDTHHMMSS` (e.g., `20260319T152938`)
 - URL pattern: `/{section}/YYYYMMDDTHHMMSS`
+- Preserve uppercase `T` when constructing Denote URLs; do not lowercase note identifiers.
+- On Cloudflare, an existing legacy lowercase `t` Denote URL redirects permanently (301) to its uppercase `T` path; nonexistent notes remain 404.
 - Sections: `notes`, `meta`, `bib`, `botlog`, `journal`
 - Internal note reference: `[[denote:YYYYMMDDTHHMMSS]]`
 - Citation reference: `[cite:@key]` using Zotero/BibTeX citation keys
@@ -165,7 +167,9 @@ The garden is organized around stable Denote IDs, sectioned URLs, Zotero citatio
 - **Authoring**: Org-mode + Denote (Doom Emacs)
 - **Export**: denote-export.sh (Org → Hugo-flavored Markdown)
 - **Build**: Quartz 4 (TypeScript, OxHugoFlavouredMarkdown plugin)
-- **Hosting**: Netlify (CDN + auto-deploy from GitHub)
+- **Hosting**: Migrating from Netlify to Cloudflare Workers Static Assets + Workers Builds (GitHub-triggered build and deployment).
+- **Migration status (2026-09-30)**: Cloudflare domainless verification and Git builds have passed; the canonical domain is still served by Netlify until the DNS cutover.
+- **Canonical URL**: https://notes.junghanacs.com/ remains unchanged; workers.dev addresses are non-indexable verification surfaces, not alternative canonical gardens.
 - **Infrastructure**: NixOS + Oracle ARM (for Umami, Remark42, geworfen)
 - **Analytics**: Umami (self-hosted on Oracle ARM)
 - **Comments**: Remark42 (self-hosted on Oracle ARM)
