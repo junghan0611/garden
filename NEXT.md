@@ -10,7 +10,7 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 - [x] **4. Workers Builds·정본 전환** — 캐시 비교 완료, 18:06 도메인 전환·DNS/Oracle/댓글 검수 완료, `812d5ffa5` push → CI `2192ab7d`/version `abf3a558` 성공·정본 유지·Sol bg15 독립 검수 통과.
 - [ ] **5. 이관 후 운영 후속** ← CURRENT: sitemap 재제출 완료(bg16 submitted=true, 재수집 pending) → 다음 세션은 자동 IndexNow 통지·Naver 인증·Org 원본 상태 갱신을 별도 작업으로 판단.
 
-현재 좌표: homepage·garden 이관 완료. Netlify 정리는 GLG가 진행하며, DNS 삭제·부착 재실행 금지.
+현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
 
 # STATUS — LIVE on `junghan0611/garden@main`
 
@@ -19,7 +19,7 @@ The repository cutover is **done** (2026-07-13). Durable facts about it now live
 (owned by the font steward) and the non-font PageSpeed work below.
 
 The garden is developed **independently** — upstream Quartz is not tracked and Quartz v5 is deferred
-indefinitely (see PARKED). Cloudflare now serves the canonical domain (2026-09-30 18:06 KST cutover); Netlify is retained only until post-cutover verification and GLG's cleanup.
+indefinitely (see PARKED). Cloudflare now serves the canonical domain (2026-09-30 18:06 KST cutover); GLG reported Netlify cleanup complete on 2026-10-03. Do not assume the old Netlify rollback target remains available.
 GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a separate, unscheduled question.
 
 # NOW
@@ -27,10 +27,10 @@ GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a 
 ## Cloudflare Workers 이전 — 2026-09-30 GLG 승인 범위
 
 - **Current:** 정본 `notes.junghanacs.com` → Cloudflare garden production 연결 완료. Sol 직접 읽은 receipt: `/tmp/garden-cf/execute1.txt` native override 409/100117(무적용), `/tmp/garden-cf/cutover-b.log` CNAME 삭제09:06:03.674Z→부착09:06:05.311Z, `/tmp/garden-cf/verify-canonical1.log` 51checks/24UA 통과. 원자 override 가능 주장은 이 409로 퇴역. Opus 보고: TXT 유지·실제 댓글 API/iframe ID 일치·SPA/검색 정상, GLG 댓글 확인. nixos 09:10:47Z 독립 검수 보고: TXT 그대로·Worker AAAA·CNAME 소멸·다른 레코드 유지, 두 DoH CF IP, Oracle 홈/robots200·ai-train=yes·t→T301. nixos가 GLG에게 garden Netlify 정리 가능 안내 완료.
-- **Next:** 이관 실무 완료. `812d5ffa5` push/agenda 18:19 1회(Opus), CI `2192ab7d` 성공→`abf3a558-17eb-4e86-a789-878c568f87b7`/custom domain 유지(Opus `/tmp/garden-cf/build-p3.json`); Sol 독립 bg15 정본51checks+24UA/version51checks 통과(`/home/junghan/.pi/background/1790760261553-bg15.log`). 대문자 sitemap 제출 bg16 성공(exit0/2s, `/home/junghan/.pi/background/1790760323876-bg16.log`): submitted=true, errors/warnings0, 재수집 pending=true. 목록의 last_downloaded는 전환 전 시각이므로 새 sitemap 색인 완료로 해석하지 않는다. GLG가 NEXT-only commit/push로 문서 빌드 제외 실검증을 승인했다. `cf builds triggers list`로 NEXT/README/AGENTS/CHANGELOG/docs 제외 규칙을 재확인했으며, 사이트 코드·콘텐츠가 함께 바뀌면 빌드는 실행된다. 이번 NEXT-only push 뒤 빌드 목록을 별도 관측한다. 다음 작업 후보: 자동 IndexNow 발행후 통지 설계, Naver `.html`307 인증 확인, Org 호스팅 노트 원본 전환 상태 갱신/GLG 재export.
+- **Next:** 이관 실무 완료. `812d5ffa5` push/agenda 18:19 1회(Opus), CI `2192ab7d` 성공→`abf3a558-17eb-4e86-a789-878c568f87b7`/custom domain 유지(Opus `/tmp/garden-cf/build-p3.json`); Sol 독립 bg15 정본51checks+24UA/version51checks 통과(`/home/junghan/.pi/background/1790760261553-bg15.log`). 대문자 sitemap 제출 bg16 성공(exit0/2s, `/home/junghan/.pi/background/1790760323876-bg16.log`): submitted=true, errors/warnings0, 재수집 pending=true. 목록의 last_downloaded는 전환 전 시각이므로 새 sitemap 색인 완료로 해석하지 않는다. GLG가 NEXT-only commit/push로 문서 빌드 제외 실검증을 승인했다. `cf builds triggers list`로 NEXT/README/AGENTS/CHANGELOG/docs 제외 규칙을 재확인했으며, 사이트 코드·콘텐츠가 함께 바뀌면 빌드는 실행된다. 이전 세션 recap(2026-09-30 18:33)에서 NEXT-only push 뒤 2분간 3회 관측·새 빌드 0건을 보고했다. 다음 작업 후보: 자동 IndexNow 발행후 통지 설계, Naver `.html`307 인증 확인, Org 호스팅 노트 원본 전환 상태 갱신/GLG 재export.
 - **Blocker:** 이관 blocker 없음. Google 재수집/색인은 비동기, 자동 IndexNow는 별도 미구현 작업. Naver `.html`307 수용 여부 미측정. 자동 IndexNow 통지 대체 없음(빌드에서는 계속금지).
 - **Read:** `docs/deploy-cloudflare.md`, nixos-config#11 스레드, 위 실제 실행 receipt. 아래 긴 이력은 당시 상태이며 현재 실행 지시가 아니다.
-- **Do not touch:** 추가 DNS 삭제/부착/PUT 재실행, homepage·aions/MX·터널·zone 정책, privacy 치환 목록. Netlify 정리는 GLG가 직접 하며 독립 검수 완료/정리 가능 신호는 nixos가 전달했다. 실제 삭제 여부는 별도 확인. Netlify 삭제 후 CNAME rollback 경로가 사라지고 Worker 이전 버전 복구만 남는다.
+- **Do not touch:** 추가 DNS 삭제/부착/PUT 재실행, homepage·aions/MX·터널·zone 정책, privacy 치환 목록. Netlify 정리는 GLG가 직접 완료했다고 2026-10-03 알려줬다. 구체적 삭제 자원은 원격 재조회하지 않았으므로 기존 Netlify rollback을 전제하지 않는다. Netlify 삭제 후 CNAME rollback 경로가 사라지고 Worker 이전 버전 복구만 남는다.
 
 ### 완료한 준비의 receipt — 현재 지시는 위 Next
 
