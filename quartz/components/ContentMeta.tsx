@@ -67,8 +67,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       segments.push(<span>{displayedTime}</span>)
     }
 
-    // Source/provenance links, kept to one line on a 360px phone: short labels, ↗ only where the
-    // original line had it (History, WikiDocs).
+    // Source/provenance links, kept to one line on a 360px phone. ↗ marks a link that opens another
+    // page or site; CopyMD is the only action and stays put, so it carries none.
     // WikiDocs stays last and independent of GitHub and MD — it appears only when the committed
     // snapshot maps this page, so the always-present links never shift position.
     const showGitHubLinks = Boolean(options.repoLink && options.branch && !isIndex)
@@ -86,21 +86,21 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
                   href={`${options.repoLink}/blob/${options.branch}/${fileData.filePath}`}
                   title="GitHub 원본 (ox-hugo export)"
                 >
-                  Source
+                  Source↗
                 </a>
                 <a
                   class="github-link"
                   href={`${options.repoLink}/blame/${options.branch}/${fileData.filePath}`}
                   title="GitHub blame"
                 >
-                  Blame
+                  Blame↗
                 </a>
                 <a
                   class="github-link external"
                   href={`${options.repoLink?.replace("github.com", "github.githistory.xyz")}/commits/${options.branch}/${fileData.filePath}`}
                   title="커밋 히스토리 (githistory.xyz)"
                 >
-                  History ↗
+                  History↗
                 </a>
               </>
             )}
@@ -113,7 +113,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
                   data-router-ignore
                   title="이 페이지의 Markdown 원문 — 에이전트·LLM용"
                 >
-                  MD
+                  MD↗
                 </a>
                 <a
                   class="github-link markdown-copy"
@@ -133,7 +133,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
                 href={mirrorUrl}
                 title="위키독스에 퍼블리시된 이 페이지"
               >
-                WikiDocs ↗
+                WikiDocs↗
               </a>
             )}
           </p>

@@ -44,7 +44,7 @@ Org → exported garden Markdown → independent garden deploy
                               ↓ explicit owner-run import
            garden/quartz/data/wikidocs-mirror.json
                               ↓ Quartz ContentMeta
-              live-TOC pages emit WikiDocs ↗
+              live-TOC pages emit WikiDocs↗
               (no JSON-LD sameAs)
 ```
 
@@ -64,7 +64,7 @@ import the new snapshot.
 2. `garden2wikidocs` (the sub) reads the public garden and updates the WikiDocs book.
    Recovering `page_id` values belongs there. The garden does not open that repo to create links.
 3. On the **next garden publish**, import whatever the sub already recovered.
-4. Deploy. Mapped live pages show `WikiDocs ↗`; unpublished pages stay silent.
+4. Deploy. Mapped live pages show `WikiDocs↗`; unpublished pages stay silent.
 
 A new garden note may temporarily have no WikiDocs mapping. That is normal and must
 not fail a garden build. A mirror outage or delayed `page_id` recovery must never block
@@ -74,7 +74,7 @@ the canonical publication path.
 
 **Visible link, live TOC only. No `sameAs`.**
 
-`ContentMeta` emits `WikiDocs ↗` when the committed snapshot has a URL for that page:
+`ContentMeta` emits `WikiDocs↗` when the committed snapshot has a URL for that page:
 
 - Denote pages in the WikiDocs TOC → that page's recovered `https://wikidocs.net/<id>`
 - Folder indexes `/journal/`, `/meta/`, `/bib/`, `/notes/`, `/botlog/` → chapter URL

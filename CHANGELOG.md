@@ -9,6 +9,8 @@ is deferred indefinitely.
 
 ## Unreleased
 
+- Marked every provenance link that opens another page or site with `↗` — `Source↗ Blame↗ History↗ MD↗ CopyMD WikiDocs↗` — leaving `CopyMD`, the one in-place action, unmarked. The line still fits one 360px phone line.
+
 ## v2026.10.14 — Cloudflare Workers and Markdown twins
 
 ### Hosting

@@ -37,12 +37,12 @@
       content: none;
     }
 
-    // The full line (Source Blame History ↗ MD CopyMD WikiDocs ↗) must fit one line on a 360px phone:
-    // 38 GLG-Mono glyphs at 528/1000em (↗ included) × 0.85rem ≈ 273px, plus six 0.5rem gaps ≈ 321px,
+    // The full line (Source↗ Blame↗ History↗ MD↗ CopyMD WikiDocs↗) must fit one line on a 360px phone:
+    // 39 GLG-Mono glyphs at 528/1000em (↗ included) × 0.85rem ≈ 280px, plus six 0.4rem gaps ≈ 318px,
     // inside 328px of content width ("Copied"/"Failed" are as long as "CopyMD"). From the font's hmtx,
-    // not a browser — about 7px of slack, so a longer label here needs a re-measure.
+    // not a browser — about 10px of slack, so a longer label here needs a re-measure.
     @media all and ($mobile) {
-      margin-right: 0.5rem;
+      margin-right: 0.4rem;
     }
   }
 }

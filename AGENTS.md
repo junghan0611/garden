@@ -230,8 +230,9 @@ Every published content page also ships `/<slug>.md` — a public Markdown copy 
   an allowlist: title, url, author, date, lastmod, tags, description.
 - HTML is the indexed original: `.md` carries `X-Robots-Tag: noindex` on the canonical host. Never `Disallow`
   `.md` in robots.txt — that also blocks the fetch that reads noindex.
-- The provenance line is `Source Blame History ↗ MD CopyMD WikiDocs ↗`. WikiDocs stays last and independent of
-  MD, and the line must fit one 360px phone line (about 7px of slack; re-measure before lengthening a label).
+- The provenance line is `Source↗ Blame↗ History↗ MD↗ CopyMD WikiDocs↗`: `↗` marks every link that opens another
+  page or site; `CopyMD` is the one in-place action. WikiDocs stays last and independent of MD, and the line must
+  fit one 360px phone line (about 10px of slack; re-measure before lengthening a label).
 - Gates: `validate-cloudflare-output.mjs` (every sitemap Denote page advertises a twin, no orphan `.md`, no
   comment/shortcode/local path outside code, absolute destinations only) and `verify-deployed.mjs` (edge MIME,
   cache, noindex, frontmatter url).
@@ -242,7 +243,7 @@ The complete cross-repository contract is [`docs/WIKIDOCS_MIRROR.md`](docs/WIKID
 This garden is the canonical, latest, and authored source; WikiDocs is a Korean-language discovery and
 reading mirror, and `garden2wikidocs` is the read-only translation harness.
 
-- **Visible WikiDocs links are live-TOC only.** `ContentMeta` shows `WikiDocs ↗` next to Source/Blame/History
+- **Visible WikiDocs links are live-TOC only.** `ContentMeta` shows `WikiDocs↗` next to Source/Blame/History
   when the committed snapshot has a URL for that page. Folder indexes (`/journal/`, `/notes/`, …) and
   `/tags/autholog` point at the matching WikiDocs chapter. Unpublished notes get no button.
 - **JSON-LD `sameAs` stays off.** WikiDocs is a curated subset, not the same entity. Do not add it.
