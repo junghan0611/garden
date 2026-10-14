@@ -6,6 +6,9 @@ import { i18n } from "../i18n"
 import { JSX } from "preact"
 import style from "./styles/contentMeta.scss"
 import { wikidocsMirrorUrl } from "../util/wikidocsMirror"
+import { markdownSidecarSlug } from "../util/markdownSidecar"
+// @ts-ignore
+import script from "./scripts/contentMeta.inline"
 
 interface ContentMetaOptions {
   showReadingTime: boolean
@@ -26,6 +29,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     const text = fileData.text
     const isIndex = fileData.slug === "index"
     const mirrorUrl = isIndex ? undefined : wikidocsMirrorUrl(fileData.slug)
+    const markdownSlug = markdownSidecarSlug(fileData.slug, fileData.filePath)
 
     if (!text && !mirrorUrl) return null
 
@@ -63,10 +67,13 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       segments.push(<span>{displayedTime}</span>)
     }
 
-    // Source/provenance links. WikiDocs is independent of GitHub so folder/tag
-    // indexes can show the live chapter URL without a source file.
+    // Source/provenance links, kept to one line on a 360px phone: short labels, ↗ only where the
+    // original line had it (History, WikiDocs).
+    // WikiDocs stays last and independent of GitHub and MD — it appears only when the committed
+    // snapshot maps this page, so the always-present links never shift position.
     const showGitHubLinks = Boolean(options.repoLink && options.branch && !isIndex)
-    const showProvenance = showGitHubLinks || Boolean(mirrorUrl)
+    const markdownHref = markdownSlug ? `/${markdownSlug}.md` : undefined
+    const showProvenance = showGitHubLinks || Boolean(markdownHref) || Boolean(mirrorUrl)
 
     return (
       <div class="contentmeta-container">
@@ -77,20 +84,46 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
                 <a
                   class="github-link"
                   href={`${options.repoLink}/blob/${options.branch}/${fileData.filePath}`}
+                  title="GitHub 원본 (ox-hugo export)"
                 >
-                  ᨒ Source
+                  Source
                 </a>
                 <a
                   class="github-link"
                   href={`${options.repoLink}/blame/${options.branch}/${fileData.filePath}`}
+                  title="GitHub blame"
                 >
-                  ᨒ Blame
+                  Blame
                 </a>
                 <a
                   class="github-link external"
                   href={`${options.repoLink?.replace("github.com", "github.githistory.xyz")}/commits/${options.branch}/${fileData.filePath}`}
+                  title="커밋 히스토리 (githistory.xyz)"
                 >
-                  ᨒ History ↗
+                  History ↗
+                </a>
+              </>
+            )}
+            {markdownHref && (
+              <>
+                <a
+                  class="github-link markdown-view"
+                  href={markdownHref}
+                  type="text/markdown"
+                  data-router-ignore
+                  title="이 페이지의 Markdown 원문 — 에이전트·LLM용"
+                >
+                  MD
+                </a>
+                <a
+                  class="github-link markdown-copy"
+                  href={markdownHref}
+                  data-router-ignore
+                  data-markdown-copy
+                  aria-live="polite"
+                  title="이 페이지를 Markdown으로 클립보드에 복사"
+                >
+                  CopyMD
                 </a>
               </>
             )}
@@ -100,7 +133,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
                 href={mirrorUrl}
                 title="위키독스에 퍼블리시된 이 페이지"
               >
-                ᨒ WikiDocs ↗
+                WikiDocs ↗
               </a>
             )}
           </p>
@@ -127,5 +160,6 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   }
 
   ContentMetadata.css = style
+  ContentMetadata.afterDOMLoaded = script
   return ContentMetadata
 }) satisfies QuartzComponentConstructor

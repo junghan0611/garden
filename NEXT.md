@@ -8,6 +8,8 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 - [x] **2. run.sh 동등 baseline·도메인 없는 version preview** — workers.dev 첫 배포 완료(15:14, noindex), frozen 후보 유지.
 - [x] **3. 가든 배포 계약·독립 검수** — 소문자 t→대문자 T 301·독립 51응답·브라우저 query/fragment·검색 통과.
 - [x] **4. Workers Builds·정본 전환** — 캐시 비교 완료, 18:06 도메인 전환·DNS/Oracle/댓글 검수 완료, `812d5ffa5` push → CI `2192ab7d`/version `abf3a558` 성공·정본 유지·Sol bg15 독립 검수 통과.
+- [x] **6. AEO 1단계 — 공개 Markdown 사본+발견 링크** (2026-10-14): `/<slug>.md`·`MD`/`CopyMD`·`rel=alternate`·`.md` noindex. GLG run.sh 검수 후 push.
+- [ ] **7. Cloudflare AEO 고도화** — 아래 NOW의 첫 절. 배포 후 확인부터.
 - [ ] **5. 이관 후 운영 후속** ← CURRENT: sitemap 재제출 완료(bg16 submitted=true, 재수집 pending) → 다음 세션은 자동 IndexNow 통지·Naver 인증·Org 원본 상태 갱신을 별도 작업으로 판단.
 
 현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
@@ -23,6 +25,34 @@ indefinitely (see PARKED). Cloudflare now serves the canonical domain (2026-09-3
 GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a separate, unscheduled question.
 
 # NOW
+
+## Cloudflare AEO 고도화 — 2026-10-14 GLG 지시 ("넥스트에 잡아놓고 이번에는 말한 범위 내에서 내보내자")
+
+출발점: Cloudflare 대시보드 통계를 보다가 AEO로 이어졌다. 2026-10-14 측정(Opus, CF GraphQL·isitagentready MCP):
+Agent Readiness **Level 2/5**(content 프로필) — robots·sitemap·Link·Content-Signal 통과, `markdownNegotiation` 실패.
+notes 24h: OAI-SearchBot 200:70 · ClaudeBot 200:55 · PerplexityBot 200:24 · ChatGPT-User 200:21. RUM 7일 AI 어시스턴트
+referer 0(Google 8, Naver 9). 무료 zone은 `clientRequestQuery`·`clientRefererHost`가 authz로 막혀 utm 확인 불가.
+1단계(이번 push)는 **공개 Markdown 사본+발견 링크**다. "Markdown for Agents 지원/협상 완료"라고 쓰지 않는다.
+
+- **Next — 배포 직후 확인:** `node scripts/verify-deployed.mjs https://notes.junghanacs.com public`(이번에 `.md` 표본 추가 —
+  `text/markdown`·mutable·모든 호스트 noindex·frontmatter 정본 url·HTML head/본문 링크·HTML 쪽 noindex 부재). 실제 CI
+  산출물의 파일 수(추정 ≈8.5k, Free 20,000)·빌드 시간(emitter 로컬 15s, CI 추정 +30~45s). 큰 `.md`를 GET으로
+  identity vs br/gzip 요청해 압축 여부(HEAD·작은 파일로 결론 내지 않음). 그다음 isitagentready 재스캔(Level은 그대로가 정상).
+- **Next — 협상(`Accept: text/markdown`) 별 단계:** 후보는 Free Transform Rule로 Denote 경로를 `concat(path, ".md")`
+  rewrite(선례 mwolson.org 2026-02-14, `matches`는 Business 이상이라 `strict wildcard`). **관문(Sol 2026-10-14):**
+  `.md` noindex가 rewrite된 정본 HTML URL 응답에 실리는지(_headers 매칭 경로·캐시·Response Transform 순서) 실측 전엔
+  해결로 보지 않는다. `contains "text/markdown"`은 q=0·HTML 선호도를 무시한다. unknown ID·확장자·mixed q·GET/HEAD·
+  대소문자·query·캐시 warm 순서(MD→HTML, HTML→MD)·noindex/HSTS/preview 격리. workers.dev는 notes zone hostname이 아니라
+  zone rule 실행면이 같다는 전제가 미검증 → 승인된 zone canary hostname으로 검증하고 정본 zone을 시험대로 쓰지 않는다,
+  `run_worker_first`도 켜지 않는다. 토큰 `glg-cloudflare`에 Transform Rules 권한 없음 → 대시보드 또는 권한 추가(GLG).
+- **Next — 작은 후속:** `scripts/generate-llms-recent.mjs` Recent 항목에 `[MD](…/<slug>.md)` 병기 — 생성된 public 파일이
+  있는 항목만, 독립 검사 동반. bare `/<ID>` → `/<section>/<ID>` 301(Bing 하루 14건 404, 미스 Worker에 ID→section
+  manifest, 중복 ID는 실패). AEO Visibility early access 신청은 대시보드에서 GLG.
+- **Parked:** JSON-LD `encoding`(MediaObject text/markdown) — 소비 효익 미측정, 범위 확대(Sol 판단). robots.txt로
+  `.md` Disallow 금지(noindex를 읽을 fetch까지 막는다).
+- **수선 후보(별건):** AGENTS.md의 tsc "23-error baseline"은 2026-10-14 측정 25(변경 전후 동일). AGENTS.md의
+  Netlify rollback 서술은 10/03 Netlify 정리 보고와 어긋난다. `bib/20241019T145802.md` 정의목록 안 figure 2개는
+  들여쓴 code로 남는다(Org 쪽 구조).
 
 ## Cloudflare Workers 이전 — 2026-09-30 GLG 승인 범위
 

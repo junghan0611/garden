@@ -216,6 +216,26 @@ Do not treat a successful Workers build as evidence that search engines were not
 - **Standard schema.org only.** No invented properties (e.g. `temporalStatus`) — crawlers drop non-standard terms. Synthesize at build time; never mutate the org source. No content `license` field until a content licence (CC-*) is actually chosen — `LICENSE.txt` is Quartz's MIT, not a content licence.
 - Next AEO lever (not yet shipped): `#+reference:` citekeys → frontmatter `refs[]` → schema.org `citation` (org-export side) so bib notes expose what primary sources they engage — the "footprints, not facade" signal.
 
+## Markdown twins (agent surface)
+
+Every published content page also ships `/<slug>.md` — a public Markdown copy plus discovery links. It is
+**not** Markdown for Agents and not `Accept: text/markdown` negotiation; that is a separate, gated step (NEXT).
+
+- One predicate, `markdownSidecarSlug` (`quartz/util/markdownSidecar.ts`), decides the emitter, the
+  `<link rel="alternate" type="text/markdown">` in `Head.tsx`, and the `MD`/`CopyMD` links in `ContentMeta.tsx`.
+  The body link matters most: provenance-gated fetchers only follow URLs that appear in the page.
+- Source is the committed ox-hugo export, never the Org file or a hand edit. Code (fenced, indented, inline) is
+  copied verbatim; HTML comments go (including an unclosed one, as CommonMark hides it); destinations become
+  absolute through Quartz `transformLink`, so they match the HTML; local paths lose their link. Frontmatter is
+  an allowlist: title, url, author, date, lastmod, tags, description.
+- HTML is the indexed original: `.md` carries `X-Robots-Tag: noindex` on the canonical host. Never `Disallow`
+  `.md` in robots.txt — that also blocks the fetch that reads noindex.
+- The provenance line is `Source Blame History ↗ MD CopyMD WikiDocs ↗`. WikiDocs stays last and independent of
+  MD, and the line must fit one 360px phone line (about 7px of slack; re-measure before lengthening a label).
+- Gates: `validate-cloudflare-output.mjs` (every sitemap Denote page advertises a twin, no orphan `.md`, no
+  comment/shortcode/local path outside code, absolute destinations only) and `verify-deployed.mjs` (edge MIME,
+  cache, noindex, frontmatter url).
+
 ## WikiDocs discovery mirror
 
 The complete cross-repository contract is [`docs/WIKIDOCS_MIRROR.md`](docs/WIKIDOCS_MIRROR.md).

@@ -5,22 +5,28 @@ import os from "node:os"
 import path from "node:path"
 import { test } from "node:test"
 import { fileURLToPath } from "node:url"
-import { CANONICAL, compilePattern, servedPaths, validate } from "./validate-cloudflare-output.mjs"
+import { CANONICAL, compilePattern, servedPaths, sidecarProblems, validate } from "./validate-cloudflare-output.mjs"
 
 const HEADERS = fs.readFileSync(
   path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "cloudflare", "_headers"),
   "utf8",
 )
 const NOTE = "notes/20250101T000000"
+const TWIN_HTML =
+  `<head><link rel="alternate" type="text/markdown" href="${CANONICAL}/${NOTE}.md"/></head>` +
+  `<body><a class="github-link markdown-view" href="/${NOTE}.md">MD</a></body>`
+const twinMarkdown = (body = "본문\n") =>
+  `---\ntitle: "노트"\nurl: "${CANONICAL}/${NOTE}"\nauthor: "Junghan Kim"\n---\n\n${body}`
 
-function fixture({ headers = HEADERS, locs = ["/", `/${NOTE}`, "/notes/"] } = {}) {
+function fixture({ headers = HEADERS, locs = ["/", `/${NOTE}`, "/notes/"], twin = twinMarkdown() } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "cf-output-"))
   const put = (rel, body = "x") => {
     fs.mkdirSync(path.dirname(path.join(dir, rel)), { recursive: true })
     fs.writeFileSync(path.join(dir, rel), body)
   }
-  for (const rel of ["index.html", `${NOTE}.html`, "notes/index.html", "404.html", "index.css", "postscript.js"])
-    put(rel)
+  for (const rel of ["index.html", "notes/index.html", "404.html", "index.css", "postscript.js"]) put(rel)
+  put(`${NOTE}.html`, twin === null ? "x" : TWIN_HTML)
+  if (twin !== null) put(`${NOTE}.md`, twin)
   for (const rel of ["llms.txt", "robots.txt", "static/contentIndex.json", "static/fonts/a.woff2"]) put(rel)
   for (const rel of ["tags/autholog", "notes", "meta", "bib", "botlog", "journal"]) put(`${rel}.jsonld`, "{}")
   put("sitemap.xml", `<urlset>${locs.map((l) => `<url><loc>${CANONICAL}${l}</loc></url>`).join("")}</urlset>`)
@@ -120,4 +126,52 @@ test("served paths follow auto-trailing-slash", () => {
   assert.deepEqual(servedPaths("notes/index.html"), ["/notes/"])
   assert.deepEqual(servedPaths(`${NOTE}.html`), [`/${NOTE}`])
   assert.deepEqual(servedPaths("notes.jsonld"), ["/notes.jsonld"])
+})
+
+test("a published Denote page without a twin fails; a twin without its page fails", () => {
+  assert.ok(validate(fixture({ twin: null })).failures.some((f) => f.includes("advertises no Markdown twin")))
+  assert.deepEqual(validate(fixture({ twin: null, locs: ["/", "/notes/"] })).failures, [])
+  const dir = fixture({ twin: null, locs: ["/", "/notes/"] })
+  fs.writeFileSync(path.join(dir, `${NOTE}.md`), twinMarkdown())
+  assert.ok(validate(dir).failures.some((f) => f.includes("no page advertises")))
+})
+
+test("an advertised twin missing from the output fails", () => {
+  const dir = fixture()
+  fs.rmSync(path.join(dir, `${NOTE}.md`))
+  assert.ok(validate(dir).failures.some((f) => f.includes("not in this output")))
+})
+
+test("a twin needs the body link, not only <head>", () => {
+  const dir = fixture()
+  fs.writeFileSync(path.join(dir, `${NOTE}.html`), TWIN_HTML.replace(/<body>.*<\/body>/, "<body></body>"))
+  assert.ok(validate(dir).failures.some((f) => f.includes("no body link")))
+})
+
+test("the .md rules are part of the header contract", () => {
+  const headers = dropLine(/^https:\/\/notes\.junghanacs\.com\/\*\.md\n  X-Robots-Tag: noindex\n/m)
+  assert.ok(validate(fixture({ headers })).failures.some((f) => f.includes("*.md x-robots-tag")))
+})
+
+test("twin content: comments and shortcodes in prose fail, inside code they pass", () => {
+  const url = `${CANONICAL}/${NOTE}`
+  assert.deepEqual(sidecarProblems(twinMarkdown("```html\n<!-- ok -->\n{{< relref >}}\n```\n`<!-- ok -->`\n"), url), [])
+  assert.deepEqual(sidecarProblems(twinMarkdown("> ```md\n> <!-- ok -->\n> ```\n"), url), [])
+  assert.ok(sidecarProblems(twinMarkdown("a <!-- private --> b\n"), url)[0].includes("HTML comment"))
+  assert.ok(sidecarProblems(twinMarkdown('[x]({{< relref "/notes/a.md" >}})\n'), url)[0].includes("shortcode"))
+})
+
+test("twin frontmatter: only allowlisted keys and the page's own url", () => {
+  const url = `${CANONICAL}/${NOTE}`
+  const extra = twinMarkdown().replace("author:", 'categories: ["Noname"]\nauthor:')
+  assert.ok(sidecarProblems(extra, url).some((p) => p.includes("not allowed")))
+  assert.ok(sidecarProblems(twinMarkdown(), `${CANONICAL}/notes/other`).some((p) => p.includes("url is not")))
+})
+
+test("twin destinations: absolute only, no local paths; code is exempt", () => {
+  const url = `${CANONICAL}/${NOTE}`
+  assert.deepEqual(sidecarProblems(twinMarkdown("    {{< relref >}} <!-- x -->\n\n[a](https://e.org)\n"), url), [])
+  assert.ok(sidecarProblems(twinMarkdown("[a](../bib/x.md)\n"), url)[0].includes("not absolute"))
+  assert.ok(sidecarProblems(twinMarkdown("![a](images/x.png)\n"), url)[0].includes("not absolute"))
+  assert.ok(sidecarProblems(twinMarkdown('<a href="file:///home/u/a">a</a>\n'), url)[0].includes("local path"))
 })

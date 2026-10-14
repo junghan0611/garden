@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as *;
+
 .contentmeta-container {
   margin-bottom: 0.5rem;
 }
@@ -33,6 +35,14 @@
 
     &.external::after {
       content: none;
+    }
+
+    // The full line (Source Blame History ↗ MD CopyMD WikiDocs ↗) must fit one line on a 360px phone:
+    // 38 GLG-Mono glyphs at 528/1000em (↗ included) × 0.85rem ≈ 273px, plus six 0.5rem gaps ≈ 321px,
+    // inside 328px of content width ("Copied"/"Failed" are as long as "CopyMD"). From the font's hmtx,
+    // not a browser — about 7px of slack, so a longer label here needs a re-measure.
+    @media all and ($mobile) {
+      margin-right: 0.5rem;
     }
   }
 }

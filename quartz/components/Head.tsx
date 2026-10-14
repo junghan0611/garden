@@ -5,6 +5,7 @@ import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { unescapeHTML } from "../util/escape"
 import { CustomOgImagesEmitterName } from "../plugins/emitters/ogImage"
+import { markdownSidecarSlug } from "../util/markdownSidecar"
 export default (() => {
   const Head: QuartzComponent = ({
     cfg,
@@ -90,6 +91,14 @@ export default (() => {
         )}
 
         <link rel="icon" href={iconPath} />
+        {/* Agent-facing Markdown twin (MarkdownSidecar emitter). Same predicate as ContentMeta's MD link. */}
+        {cfg.baseUrl && markdownSidecarSlug(fileData.slug, fileData.filePath) && (
+          <link
+            rel="alternate"
+            type="text/markdown"
+            href={`https://${cfg.baseUrl}/${fileData.slug}.md`}
+          />
+        )}
         {/* IndieWeb: Webmention endpoints */}
         <link rel="webmention" href={`https://webmention.io/${cfg.baseUrl}/webmention`} />
         <link rel="pingback" href={`https://webmention.io/${cfg.baseUrl}/xmlrpc`} />

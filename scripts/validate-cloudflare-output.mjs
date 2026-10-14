@@ -6,6 +6,10 @@
 import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkGfm from "remark-gfm"
+import { visit } from "unist-util-visit"
 
 export const CANONICAL = "https://notes.junghanacs.com"
 const MAX_FILES = 20000 // Workers Free: static asset files per version
@@ -43,6 +47,9 @@ const REQUIRED = [
   ]),
   ["/sitemap.xml", "cache-control", HOUR],
   ["/static/contentIndex.json", "cache-control", MUTABLE],
+  ["/*.md", "content-type", "text/markdown; charset=utf-8"],
+  ["/*.md", "cache-control", MUTABLE],
+  [`${CANONICAL}/*.md`, "x-robots-tag", "noindex"],
   ["/*.css", "cache-control", MUTABLE],
   ["/*.js", "cache-control", MUTABLE],
   ...["/*.woff2", "/*.woff"].flatMap((p) => [
@@ -111,6 +118,52 @@ export function servedPaths(rel) {
   if (p.endsWith("/index.html")) return [p.slice(0, -"index.html".length)]
   if (p.endsWith(".html")) return [p.slice(0, -".html".length)]
   return [p]
+}
+
+const twinParser = unified().use(remarkParse).use(remarkGfm).freeze()
+// Markdown twins (quartz/util/markdownSidecar.ts). Only these frontmatter keys may leave the source.
+export const SIDECAR_KEYS = ["title", "url", "author", "date", "lastmod", "tags", "description"]
+
+/**
+ * A twin's body, read with a CommonMark parser (not Quartz's): its prose lines with every code span and
+ * block (fenced, indented, inline) blanked out, and every link/image/definition destination.
+ */
+export function readTwinBody(markdown) {
+  const tree = twinParser.parse(markdown)
+  const offsets = []
+  const destinations = []
+  visit(tree, (node) => {
+    if ((node.type === "code" || node.type === "inlineCode") && node.position)
+      offsets.push([node.position.start.offset, node.position.end.offset])
+    if (node.type === "link" || node.type === "image" || node.type === "definition") destinations.push(node.url)
+  })
+  // Blank code in UTF-16 offsets, keeping newlines so line numbers survive.
+  let prose = markdown
+  for (const [start, end] of offsets.sort((a, b) => b[0] - a[0]))
+    prose = prose.slice(0, start) + prose.slice(start, end).replace(/[^\n]/g, " ") + prose.slice(end)
+  return { lines: prose.split("\n"), destinations }
+}
+
+/** Problems in one twin: frontmatter outside the allowlist, a wrong url, export plumbing left in prose,
+ *  a destination that is not absolute, a local path. */
+export function sidecarProblems(markdown, pageUrl) {
+  const problems = []
+  const fm = markdown.match(/^---\n([\s\S]*?)\n---\n/)
+  if (!fm) return ["no frontmatter"]
+  for (const line of fm[1].split("\n")) {
+    const key = line.match(/^([A-Za-z_]+):/)?.[1]
+    if (!key || !SIDECAR_KEYS.includes(key)) problems.push(`frontmatter line not allowed: ${line.slice(0, 60)}`)
+  }
+  if (!fm[1].split("\n").includes(`url: ${JSON.stringify(pageUrl)}`)) problems.push(`url is not ${pageUrl}`)
+  const { lines, destinations } = readTwinBody(markdown.slice(fm[0].length))
+  lines.forEach((line, i) => {
+    if (line.includes("<!--")) problems.push(`HTML comment outside code at body line ${i + 1}`)
+    if (/\{\{[<%]/.test(line)) problems.push(`Hugo shortcode outside code at body line ${i + 1}`)
+    if (/(?:href|src)="(?:file:|~|\/home\/)/.test(line)) problems.push(`local path in HTML at body line ${i + 1}`)
+  })
+  for (const url of destinations)
+    if (!/^(https?:|mailto:)/i.test(url)) problems.push(`destination is not absolute: ${url.slice(0, 60)}`)
+  return problems
 }
 
 function listFiles(dir) {
@@ -186,6 +239,30 @@ export function validate(publicDir) {
   }
   for (const p of JSONLD) if (!fs.existsSync(path.join(publicDir, p))) fail(`${p} missing`)
 
+  // Markdown twins: a page that advertises one links it in <head> and in the body, and the file exists;
+  // every .md belongs to such a page; each twin passes sidecarProblems.
+  const advertised = new Set()
+  for (const f of files.filter((f) => f.endsWith(".html"))) {
+    const html = fs.readFileSync(f, "utf8")
+    const tag = html.match(/<link\b[^>]*type="text\/markdown"[^>]*>/)?.[0]
+    if (!tag) continue
+    const [page] = servedPaths(path.relative(publicDir, f))
+    const twin = `${page}.md`
+    advertised.add(twin)
+    if (!tag.includes(`href="${CANONICAL}${twin}"`)) fail(`${page}: <link rel=alternate> is ${tag}, expected ${CANONICAL}${twin}`)
+    if (!html.includes(`href="${twin}"`)) fail(`${page}: no body link to ${twin}`)
+    if (!fs.existsSync(path.join(publicDir, twin))) fail(`${page}: advertises ${twin}, which is not in this output`)
+  }
+  let twins = 0
+  for (const f of files.filter((f) => f.endsWith(".md"))) {
+    twins++
+    const twin = "/" + path.relative(publicDir, f).split(path.sep).join("/")
+    if (!advertised.has(twin)) fail(`${twin}: no page advertises this Markdown twin`)
+    const page = twin.slice(0, -".md".length)
+    for (const problem of sidecarProblems(fs.readFileSync(f, "utf8"), `${CANONICAL}${page}`).slice(0, 3))
+      fail(`${twin}: ${problem}`)
+  }
+
   // Sitemap: canonical host, Denote uppercase T, and every <loc> served by a file in this output.
   const sitemapFile = path.join(publicDir, "sitemap.xml")
   let locs = []
@@ -202,18 +279,22 @@ export function validate(publicDir) {
       const p = decodeURI(loc.slice(CANONICAL.length))
       if (/\d{8}t\d{6}/.test(p)) fail(`sitemap <loc> has a lowercase Denote id: ${loc}`)
       if (!served.has(p)) fail(`sitemap <loc> has no file in this output: ${loc}`)
+      // Every published Denote page has a twin — so a build that drops the emitter and the Head link
+      // together cannot pass with zero twins.
+      if (/^\/(notes|meta|bib|botlog|journal)\/\d{8}T\d{6}$/.test(p) && !advertised.has(`${p}.md`))
+        fail(`${p} advertises no Markdown twin`)
     }
   }
-  return { failures, files: files.length, rules: rules.length, locs: locs.length }
+  return { failures, files: files.length, rules: rules.length, locs: locs.length, twins }
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const dir = process.argv[2] ?? "public"
-  const { failures, files, rules, locs } = validate(dir)
+  const { failures, files, rules, locs, twins } = validate(dir)
   if (failures.length) {
     for (const f of failures.slice(0, 50)) console.error(`[cloudflare-output] FAIL ${f}`)
     if (failures.length > 50) console.error(`[cloudflare-output] … ${failures.length - 50} more`)
     process.exit(1)
   }
-  console.log(`[cloudflare-output] OK files=${files} rules=${rules} sitemap=${locs}`)
+  console.log(`[cloudflare-output] OK files=${files} rules=${rules} sitemap=${locs} markdown=${twins}`)
 }

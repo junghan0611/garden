@@ -58,6 +58,7 @@ const SECURITY = [
 const CACHE_MUTABLE = "public,max-age=0,must-revalidate"
 const CACHE_HOUR = "public,max-age=3600"
 const TEXT = "text/plain;charset=utf-8"
+const MARKDOWN = "text/markdown;charset=utf-8"
 const LDJSON = "application/ld+json;charset=utf-8"
 const JSONLD = ["/tags/autholog.jsonld", "/notes.jsonld", "/meta.jsonld", "/bib.jsonld", "/botlog.jsonld", "/journal.jsonld"]
 
@@ -79,7 +80,9 @@ const both = (c) => [c, { ...c, nav: true }]
 const WORKER_404 = { status: 404, type: "text/html", route: "miss", same: true, file: "404.html" }
 const checks = [
   { path: "/", type: "text/html", same: true },
-  ...[CANARY, ...samples].map((p) => ({ path: p, type: "text/html", same: true })),
+  ...[CANARY, ...samples].map((p) => ({ path: p, type: "text/html", same: true, twin: true })),
+  // Agent-facing Markdown twins: served as text/markdown, mutable, and noindex on every host.
+  ...[CANARY, ...samples].map((p) => ({ path: `${p}.md`, type: MARKDOWN, cache: CACHE_MUTABLE, same: true, noindex: true, page: p })),
   ...[CANARY, ...samples].flatMap((p) => both({ path: lower(p), status: 301, location: p, route: "lowercase-301", empty: true })),
   ...both({ path: `${lower(CANARY)}/`, status: 301, location: CANARY, route: "lowercase-301" }),
   ...both({ path: `${lower(CANARY)}?a=1&b=two`, status: 301, location: `${CANARY}?a=1&b=two`, route: "lowercase-301" }),
@@ -126,11 +129,17 @@ for (const check of checks) {
   if (check.cors && h("access-control-allow-origin") !== "*") fail(`${where} access-control-allow-origin ${h("access-control-allow-origin")}`)
   for (const [name, value] of SECURITY) if (squash(h(name)) !== squash(value)) fail(`${where} ${name} is ${h(name)}`)
   const robots = (h("x-robots-tag") ?? "").split(",").map((t) => t.trim().toLowerCase()).filter(Boolean)
+  if (check.noindex && !robots.includes("noindex")) fail(`${where} is a Markdown twin and must be noindex`)
   if (canonical) {
-    if (robots.length) fail(`${where} carries X-Robots-Tag on the canonical host: ${h("x-robots-tag")}`)
+    if (robots.length && !check.noindex) fail(`${where} carries X-Robots-Tag on the canonical host: ${h("x-robots-tag")}`)
     if (squash(h("strict-transport-security")) !== "max-age=31536000;includesubdomains;preload")
       fail(`${where} strict-transport-security ${h("strict-transport-security")}`)
   } else if (!robots.includes("noindex")) fail(`${where} is indexable on a non-canonical host`)
+  const text = () => body.toString("utf8")
+  if (check.twin && !(text().includes('type="text/markdown"') && text().includes(`href="${check.path}.md"`)))
+    fail(`${where} does not link its Markdown twin in <head> and body`)
+  if (check.page && !text().includes(`url: "https://notes.junghanacs.com${check.page}"`))
+    fail(`${where} frontmatter url is not the canonical page`)
   if (check.json) {
     try {
       JSON.parse(body.toString("utf8"))

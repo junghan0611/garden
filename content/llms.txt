@@ -10,6 +10,7 @@
 - Robots: https://notes.junghanacs.com/robots.txt
 - RSS: https://notes.junghanacs.com/index.xml
 - AX record: https://ax.junghanacs.com/llms.txt
+- Markdown twin of any note: append `.md` to its URL, e.g. https://notes.junghanacs.com/notes/20250219T100218.md
 
 ## Canonical garden and WikiDocs discovery mirror
 

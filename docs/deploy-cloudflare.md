@@ -18,7 +18,7 @@ Workers Builds가 연결돼 **main push = 정본 배포**다. workers.dev 주소
 | `scripts/validate-wrangler-config.mjs` | **config 입력** gate(wrangler.jsonc, TypeScript JSONC 파서). 산출물 gate와 다른 증거 축. 테스트 `…​.test.mjs` |
 | `scripts/build-cloudflare.sh` | Cloudflare 빌드 명령. gitleaks → Quartz(대소문자 보존 sitemap) → JSON-LD 검증 → post-build 생성(IndexNow 없음) → `_headers` → 산출물 gate |
 | `cloudflare/_headers` | 응답 헤더. **Cloudflare 빌드만** `public/_headers`로 복사한다. Netlify는 계속 `netlify.toml`만 읽는다 |
-| `scripts/validate-cloudflare-output.mjs` | 산출물 gate(파일·크기 한도, `_headers` 규칙, sitemap). 테스트 `…​.test.mjs` |
+| `scripts/validate-cloudflare-output.mjs` | 산출물 gate(파일·크기 한도, `_headers` 규칙, sitemap, Markdown 사본). 테스트 `…​.test.mjs` |
 | `scripts/verify-deployed.mjs` | 배포된 호스트의 **응답** gate |
 
 ## 언어 치환(privacy filter)과 빌드 입력
@@ -89,6 +89,14 @@ Workers Builds 이미지에는 gitleaks가 없다(첫 CI 빌드에서 다운로�
   `application/ld+json; charset=utf-8`을 경로별로 명시한다.
 - mutable 고정 파일명(`contentIndex.json`·CSS·JS)은 기본값과 같은 `public, max-age=0, must-revalidate`를 계약으로 명시한다.
 - 정본 호스트만 HSTS(Netlify 값), `*.junghanacs.workers.dev`(production·version preview)는 `X-Robots-Tag: noindex`.
+- Markdown 사본 `/<slug>.md`(`MarkdownSidecar` emitter)는 `/*.md`에서 `text/markdown; charset=utf-8`·mutable 캐시,
+  정본 호스트 `https://notes.junghanacs.com/*.md`에서만 `X-Robots-Tag: noindex`(workers.dev 규칙과 이름이 겹치지 않게).
+  HTML이 색인 대상 정본이고 `.md`는 본문 `MD` 링크·`<link rel="alternate" type="text/markdown">`를 따라오는
+  에이전트용이다. gate는 광고한 페이지마다 파일·본문 링크가 있는지, 고아 `.md`가 없는지, frontmatter 허용 목록과
+  코드(펜스·들여쓰기·인라인) 밖 HTML 주석·Hugo shortcode·로컬 경로 부재, 링크 목적지가 모두 절대 URL인지 확인하고,
+  sitemap의 Denote 페이지는 반드시 사본을 광고해야 한다. `verify-deployed.mjs`는 표본 페이지마다 `<slug>.md`의
+  `text/markdown`·mutable 캐시·모든 호스트 `noindex`·frontmatter 정본 url과 HTML의 head/본문 링크를 확인한다 —
+  이 기능이 배포되기 전의 정본에 돌리면 당연히 실패한다.
 
 ## 알려진 차이 (Netlify → Workers)
 

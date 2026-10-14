@@ -128,6 +128,8 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
+      // /<slug>.md 에이전트용 Markdown 사본 — ContentMeta의 MD/CopyMD 링크와 같은 판정 함수를 쓴다.
+      Plugin.MarkdownSidecar(),
       // CustomOgImages: 폰트 로더는 util/og.tsx의 getOgSocialFonts에
       // 준비되어 있다(42dot Sans를 theme 이름으로 재라벨링). 디자인이 아직
       // 매력적이지 않고 풀빌드 +3~5분이라 기본은 꺼둔다. 필요할 때 주석 해제.

@@ -56,6 +56,12 @@
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 
+# Agent-facing Markdown twins (MarkdownSidecar emitter). noindex is canonical-host only below, because
+# the workers.dev rule already owns X-Robots-Tag on preview hosts.
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*.css
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -80,6 +86,10 @@
 # Canonical host only (Netlify sent this value).
 https://notes.junghanacs.com/*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# The HTML page is the indexed original; its .md twin is for agents that follow the link, not for search.
+https://notes.junghanacs.com/*.md
+  X-Robots-Tag: noindex
 
 # workers.dev production and version preview hosts are not canonical.
 https://:host.junghanacs.workers.dev/*
