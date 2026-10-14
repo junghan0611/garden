@@ -9,6 +9,26 @@ is deferred indefinitely.
 
 ## Unreleased
 
+## v2026.10.14 — Cloudflare Workers and Markdown twins
+
+### Hosting
+
+- Moved the canonical domain to the Cloudflare Worker `junghanacs-garden` as its single Workers Custom Domain (cutover 2026-09-30 18:06 KST). Git `main` builds run `./scripts/build-cloudflare.sh`: full Git history (Quartz dates depend on it), gitleaks, JSON-LD, and an output gate over files, `_headers`, and the sitemap; `scripts/verify-deployed.mjs` checks the deployed responses, including crawler user agents.
+- Static files stay asset-first; a small Worker answers only misses and recovers existing lowercase-`t` Denote URLs with a 301 to the uppercase original, keeping query strings. Unknown notes stay 404. The Cloudflare sitemap keeps the uppercase `T`.
+- GLG reported the Netlify site cleaned up on 2026-10-03, so Netlify is no longer a rollback target; recovery is a previous Worker version.
+
+### Agent surface — Markdown twins (AEO step 1)
+
+- Every published content page now ships a public Markdown twin at `/<slug>.md` (2,252 in the first build), built from the committed ox-hugo export: code is copied verbatim, HTML comments and export plumbing are removed, link and image destinations become absolute through the same `transformLink` the HTML uses, local paths lose their link, and frontmatter is limited to title, url, author, date, lastmod, tags, and description.
+- Pages advertise their twin with `<link rel="alternate" type="text/markdown">` and with `MD` / `CopyMD` in the provenance line, which drops its `ᨒ` glyphs so `Source Blame History ↗ MD CopyMD WikiDocs ↗` fits one 360px phone line. WikiDocs stays last and independent.
+- The HTML page stays the indexed original: twins are served as `text/markdown; charset=utf-8` with `X-Robots-Tag: noindex` on the canonical host. This is a Markdown copy with discovery links, not Markdown for Agents or `Accept: text/markdown` negotiation — Cloudflare Agent Readiness stays at Level 2/5, and negotiation is the next, separately gated step.
+- The output gate requires a twin for every sitemap Denote page and rejects orphans, comments or shortcodes outside code, local paths, and non-absolute destinations; `verify-deployed.mjs` adds twin MIME, cache, noindex, and canonical-url checks. First deploy (`77a6af625`): 57 checks and 24 crawler user agents passed, 27 sampled twins were byte-identical to GLG's local build, and a 535 KB twin was served at 183 KB with br.
+- The Cloudflare build grew from 93 s to 267 s (Quartz 75 → 206 s, output gate 39 s), still well inside the 20-minute limit; reducing it is tracked in NEXT.
+
+### Published content
+
+- Published the authology content refreshes, the October journal and Entwurf update, and the notes on the Cloudflare migration. Unwrapped a nested `denote:` link in two notes that had produced a `/[denote%3A…](…)` URL.
+
 ## v2026.9.27 — Garden export and machine-readable catalogs
 
 ### Published content
