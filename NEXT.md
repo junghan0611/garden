@@ -6,7 +6,7 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 - 닫힌 1–4(Cloudflare 이관)·6(AEO 1단계 Markdown 사본)은 `CHANGELOG.md` `v2026.10.14`로 옮겼다.
 - [ ] **7. Cloudflare AEO 고도화** — 아래 NOW의 첫 절. 배포 확인 끝(v2026.10.14) → 빌드 시간 → 협상 관문 → 작은 후속.
-- [ ] **5. 이관 후 운영 후속** ← CURRENT: sitemap 재제출 완료(bg16 submitted=true, 재수집 pending) → 다음 세션은 자동 IndexNow 통지·Naver 인증·Org 원본 상태 갱신을 별도 작업으로 판단.
+- [ ] **5. 이관 후 운영 후속** ← CURRENT: 10/27 배포 장애 회복 확인 → 기존 IndexNow/Naver 운영 후속으로 복귀. Wrangler 4.152.0 고정 유지 여부는 별도 판단.
 
 현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
 
@@ -21,6 +21,24 @@ indefinitely (see PARKED). Cloudflare now serves the canonical domain (2026-09-3
 GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a separate, unscheduled question.
 
 # NOW
+
+## 10/27 배포 회복 완료
+
+- 최종 직접 측정 19:23 KST: GLG 재시도 후 동일 실패 SHA `adadbad156935dd6e821ec1066e73405ec9efe00` / Wrangler 4.152.0 성공. Build `c4c2a98c-96f4-470f-86d6-e17a0ccd67db`, stopped 10:22:20.456Z. 현재 version `0dd9bbd9-8c5e-4d53-92ed-e65b6df1b372` / 100% / 10:22:17.043Z, 홈 HTTP 200. 원천 `/tmp/garden-cf-20261027/{builds,deployments}-recovered.json`. 동일 소스/버전 회복으로 결정적 입력 결함 가설은 약화, 일시적 서비스/상태 문제와 일치하나 내부 원인은 미확정. 추가 재시도·바이섹트·문의 게시 중단을 Opus에 전달. 4.152.0 고정은 유지 중(복원 미승인).
+
+### 닫힌 조사 이력 — 아래 실패 상태·Next 제안은 당시 기록이며 현재 실행 지시가 아님
+
+- GLG 추가 승인: 새 Claude Code/Opus 실무자 호출. fresh launch receipt nonce `mux-fresh-call-41c5ecbe7e61785dd1a247a1`; callback nonce 일치 수신, 실무 garden id `20261027T184248-0709a0`(자기보고 Claude Code/Opus5.5, 읽기 전용 감사로그 조사·지원문의 로컬 초안 완료). 코디네이터는 현재 세션. 범위: 읽기 전용 조사 + debug 로그 확보용 동일 SHA 원격 재시도 최대1회/임시 debug 설정 복원. 로컬 빌드·추가 반복재시도·DNS변경·commit/push 금지. `NEXT.md`는 코디네이터가 갱신하므로 실무자 덮어쓰기 금지.
+
+- CF Builds API 직접 확인: `adadbad156935dd6e821ec1066e73405ec9efe00`, build `8abce942-d6d2-4a4f-b36e-ce1bbcf6bfe3`. Build command/검증은 성공(154s), Wrangler 4.153.0이 `assets-upload-session` API에서 `10013: An unknown error has occurred`로 실패. 버전 원인/일시 장애는 미확정.
+- CF 성공 로그 직접 대조: 10/23 build `579406dc-8606-4480-ba4e-01aee16239ac`는 Wrangler 4.152.0. Deployments API는 여전히 version `82868657-ba46-459d-95c1-95034cb0471d` 100%; 정본 홈 HTTP 200 확인. 최신 콘텐츠만 미배포.
+- GLG 승인 후 18:31 KST 실행 receipt: trigger PATCH는 `deploy_command`만 `npx wrangler@4.152.0 deploy`로 변경, GET readback 일치. 동일 SHA+branch 재시도 build `bacc045e-6011-44a1-a478-1f2f21f3b4a1`도 실패: 원격 로그의 실제 Wrangler 4.152.0, build/검증149s 성공 후 같은 `assets-upload-session`/10013. 따라서 4.153.0에서만 발생하는 문제라는 가설은 지지되지 않음. 재조회 deployments는 기존82868657 100% 유지, 홈200. 로컬 빌드 없음. 고정 설정은 유지 중. Next: Cloudflare 장애/계정·assets 제약 등을 읽기 전용으로 조사할지 GLG 판단; 자동 추가 재시도·추가 설정 변경 금지. 원천은 `/tmp/garden-cf-20261027/retry-{status,logs}.json`, 위 build UUID로 원격 재조회 가능.
+- 세밀 로그 대조(10/27): 로그 `truncated=false`, cursor 다음 페이지0건. 성공 세션응답7.898s 뒤1177개 업로드 시작; 실패 두 건은21.480s/21.232s 뒤10013, 변경파일 수/전송 진행 로그가 전혀 없음. npm 공식4.152.0 배포물 `cli.js:167868–167911` 읽음: 실패 지점은 파일 본문 업로드 전 `{manifest}` POST, 성공응답의 buckets/JWT를 받기 전. CI 파일수8547/개별25MiB 관문 통과, 직전 성공 대비 tracked 변경은content47+이미지2(설정/코드0). HTTP 상태/Ray ID/응답headers는 공개 빌드 로그에 없어500/timeout 단정 불가. 상세 Wrangler 로그 경로는 원격 ephemeral 컨테이너 내부라 작업 호스트에서 직접 읽지 못함.
+- Opus receipt 18:46 수신 후 코디네이터가 `audit-garden-deploy-windows.tsv` 직접 읽음: Account Audit Logs v2에 두 요청 모두 HTTP500. 자동실패 ray `a510941a6d00286c`/audit`01a17ca1-cc8c-7562-8bb4-01c240b6d82b`, 4.152재시도 ray`a510b5507cd45283`/audit`01a17cb6-8e58-72ea-abf9-46216fea478e`. 직전성공은HTTP200. debug 재시도 없이 핵심값 확보했으므로 승인된 추가1회는 미사용/중단. HTTP500은 client manifest 유발/공통client동작까지 배제하지 못함. homepage1.5h전 성공은 실패시점 계정/서비스 장애 부재 증명 아님. Next: GLG가 게시/문의 여부 결정. Opus 로컬 초안 `/tmp/garden-cf-20261027/support-draft-private.md`(지원용 계정ID 포함, 공개금지), `issue-draft-public.md`(계정/Worker명 placeholder, 코디네이터 직접 읽음). 실제게시·추가실험·pin복원은 미승인. 원천 `opus-investigation.md`, 위 TSV; 원격 재조회 `cf accounts logs audit list --since … --before … --raw-cf-ray-id <ray>`.
+- **현재 우선 관측(19:10 KST):** GLG가 이전SHA를 대시보드재빌드했고 코디네이터가CF API직접확인: build`43f6bf2f-f596-418a-8abe-f119ea101358` SHA`76358fa49e0bd4c749428f8f0033e02c1ebc8f2e`/4.152.0 성공, 신규1387files 실제전송7.77s→version`23346fad-47f7-48e0-8aa2-5db4d21630c2`/10:08:57.675Z/100%배포. 원천`old-sha-rebuild-logs.json`,`deployments-old-sha-rebuild.json`(같은/tmpdir). 새SHA3차실패build`1c78767a-db26-4f15-baf7-9868921133da`도builds-latest.json에서확인. 전체서비스불능 가설은약화, 입력/manifest/특정서버상태조합 우선. 같은SHA도Quartz등비결정성으로동일hash보장없음. Opus에게변경입력정적분석지시; 추가빌드·배포·바이섹트는승인전실행금지. 지원문의보다이분석우선.
+- 18:54 새 교차근거: 코디네이터가 GitHub API로 workers-sdk#16447 comment6438647061 직접 읽음. 외부보고(우리 측 재현 아님): 다른계정31assets/1.96MB, 10/27 07:54Z성공→09:08/09:10Z 로컬4.152.0 및09:31Z Builds4.153.0 동일HTTP500/10013. 가든8.5k규모만의 문제 가설은 약화, 서비스측회귀 가설우선이나미확정. Opus가 GLG직접대시보드3차재시도18:52 KST동일실패를전달(코디네이터직접로그미열람); 형제추가실행아님. Next: 새이슈보다 기존 https://github.com/cloudflare/workers-sdk/issues/16447 댓글초안 검토/GLG게시승인. 반복재시도멈춤.
+- 외부 근거(원인 확정 아님): CF status `/incidents/j3llzsq3m17a`는 당일17:04–17:17 KST GitHub clone 장애(우리18:12/18:35 실패와 단계·시각 다름). workers-sdk#13118/#11153는 동일endpoint/10013의 과거 CF 내부장애 사례. Next 후보: 지원 문의에 기존 build UUID/시각 제공, 또는 GLG 별도 승인 후 `WRANGLER_LOG=debug` 1회 원격 관측(HTTP/Ray ID 확보, 민감 로그 주의). 자동 실행 금지.
+- 원천: 위 build UUID로 `cf builds logs get`, `cf workers deployments list --worker junghanacs-garden` 재조회 가능. 호스트 로컬 원본만 `/tmp/garden-cf-20261027/{builds,failed-logs,success-logs,deployments}.json`에 저장(다른 호스트에서는 UUID로 조회).
 
 ## Cloudflare AEO 고도화 — 2026-10-14 GLG 지시 ("넥스트에 잡아놓고 이번에는 말한 범위 내에서 내보내자")
 
