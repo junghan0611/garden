@@ -5,8 +5,8 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 # RAIL — 현재 좌표
 
 - 닫힌 1–4(Cloudflare 이관)·6(AEO 1단계 Markdown 사본)은 `CHANGELOG.md` `v2026.10.14`로 옮겼다.
-- [ ] **7. Cloudflare AEO 고도화** — 아래 NOW의 첫 절. 배포 확인 끝(v2026.10.14) → 빌드 시간 → 협상 관문 → 작은 후속.
-- [ ] **5. 이관 후 운영 후속** ← CURRENT: IndexNow Phase 1 검수 완료·GLG 실행 승인(11/04) → 첫 stamp 배포 확인·변경 URL 최초 통지. Wrangler 4.152.0 고정 유지 여부는 별도 판단.
+- [ ] **7. Cloudflare AEO 고도화** — 아래 해당 절. 배포 확인 끝(v2026.10.14) → 빌드 시간 → 협상 관문 → 작은 후속.
+- [ ] **5. 이관 후 운영 후속** ← CURRENT: IndexNow Phase 1 최초 178 URL HTTP 200 확인(11/04) → 다음 발행부터 운영자 실행 경로 유지. homepage·Crawler Hints·Naver 후속은 별도 판단.
 
 현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
 
@@ -22,12 +22,16 @@ GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a 
 
 # NOW
 
-## IndexNow 배포 후 통지 — Phase 1 최초 운영 승인(2026-11-04)
+## IndexNow 배포 후 통지 — Phase 1 최초 수신 확인(2026-11-04)
 
 - workspace-glgdot#7 garden 몫. Opus 구현·Sol 조율/검수. 계약: `docs/deploy-cloudflare.md` "IndexNow 배포 후 통지". 운영자 실행 CLI `scripts/indexnow-notify.mjs` + 빌드 stage `stamp`(`/deploy.json`) + post-build 옛 Netlify IndexNow 블록 제거.
 - 검수: Opus 전체 focused 103/103 보고, Sol 독립 notifier/output 71/71·parity 2/2·기존 반례 재검증 통과. 모의 전송의 production baseline 오염과 stamp SHA 독립 대조 공백을 수선했다.
-- GLG 승인: 커밋/push → 첫 stamp 배포 확인 → `53227a332` 기준 변경 URL dry-run → 최초 실제 IndexNow POST 1회. 이전 측정 178개는 diff 후보 수이며 미통지 증명은 아니다. 원격 설정 변경·자동 재전송·homepage 수정은 범위 밖.
-- Next: 정본 `/deploy.json`의 pushed SHA·main·clean 확인 후 production baseline이 없을 때만 승인된 SHA로 bootstrap, dry-run URL 집합 확인 후 notify. 202/429/unknown이면 baseline 유지하고 결과 보고; 자동 재시도하지 않는다. 실제 배포·POST 결과는 아직 미측정. Crawler Hints dashboard 상태는 별도 미확인.
+- 직접 측정: 가든 `bc75d6d847ed701aa359a3ccb72a3bbc9d249876` push·origin 일치. 정본 `/deploy.json`이 같은 SHA·main·clean=true·build `15e4a144-9412-4914-ac17-8569235cb7c4`를 반환하고, key 본문 정확 일치. stamp HEAD는 HTTP200·JSON·mutable·noindex·HSTS, 홈 HTML은 noindex 없음.
+- GLG 승인 실행: `53227a3320c890b1849a3a00fb6a9a8f7dbdfa94` 기준 production bootstrap → dry-run 178개(추가5/수정173) → **2026-11-04 14:43:36 KST 실제 POST 1회 HTTP200**. batch SHA256 `cf4a2ebb844743a426c50bb73f596dc8a6b8a0fcd1ad98d27ea2a89227c67e9d`. baseline이 `bc75d6d84`로 저장됐음을 status 재조회로 확인. HTTP200은 수신이며 실제 크롤링·색인·AI인용은 미확인.
+- Google SC 직접 측정: 2026-11-04 14:55:28 KST 정본 sitemap 제출 `submitted=true`, errors/warnings 0, pending=true. last_downloaded는 11/03 값이므로 새 제출의 재수집·색인은 미확인.
+- 영수증: 로컬 `/tmp/garden-indexnow-20261104/{production-plan,bootstrap,production-submit,final-status}.json`; 영속 state/attempts는 `~/.local/state/garden-indexnow/notes.junghanacs.com{.json,.attempts.jsonl}`. 이 문단에 핵심 측정값을 실었으므로 tmp 경로가 없는 기기에서도 상태를 구분할 수 있다.
+- Next: 다음 승인된 발행 후 `node scripts/indexnow-notify.mjs notify --wait-for <pushed sha>` 실행. 현재 baseline을 다시 bootstrap/reset하지 말 것. 202/429/unknown이면 결과 보고하고 자동 재시도하지 않는다. Phase1은 운영자 실행이지 자동 hook이 아니다. homepage는 해당 코디에게 구현·검수·운영 영수증을 전달했고 그 레인의 운영으로 분리했다. Crawler Hints 상태·비공개 조율 이슈 결과 게시는 본 세션에서 미실행.
+- 훅 detour: GLG 수선 승인으로 agent-config `2d1fad7` 로컬 커밋(미push): gitleaks가 추가행만 스캔하도록 @@ 문맥/삭제행 제외, staged/range10·기존 private-mode12 검증 통과. 그 리포의 기존 NEXT 수정은 보존. 가든은 정상 훅으로 commit/push했고 우회 설정을 쓰지 않았다. 후속은 agent-config 담당 레인에서 기존 변경과 구분해 판단한다.
 
 ## 10/27 배포 회복 완료
 
