@@ -6,7 +6,7 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 - 닫힌 1–4(Cloudflare 이관)·6(AEO 1단계 Markdown 사본)은 `CHANGELOG.md` `v2026.10.14`로 옮겼다.
 - [ ] **7. Cloudflare AEO 고도화** — 아래 NOW의 첫 절. 배포 확인 끝(v2026.10.14) → 빌드 시간 → 협상 관문 → 작은 후속.
-- [ ] **5. 이관 후 운영 후속** ← CURRENT: 10/27 배포 장애 회복 확인 → 기존 IndexNow/Naver 운영 후속으로 복귀. Wrangler 4.152.0 고정 유지 여부는 별도 판단.
+- [ ] **5. 이관 후 운영 후속** ← CURRENT: IndexNow Phase 1 검수 완료·GLG 실행 승인(11/04) → 첫 stamp 배포 확인·변경 URL 최초 통지. Wrangler 4.152.0 고정 유지 여부는 별도 판단.
 
 현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
 
@@ -21,6 +21,13 @@ indefinitely (see PARKED). Cloudflare now serves the canonical domain (2026-09-3
 GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a separate, unscheduled question.
 
 # NOW
+
+## IndexNow 배포 후 통지 — Phase 1 최초 운영 승인(2026-11-04)
+
+- workspace-glgdot#7 garden 몫. Opus 구현·Sol 조율/검수. 계약: `docs/deploy-cloudflare.md` "IndexNow 배포 후 통지". 운영자 실행 CLI `scripts/indexnow-notify.mjs` + 빌드 stage `stamp`(`/deploy.json`) + post-build 옛 Netlify IndexNow 블록 제거.
+- 검수: Opus 전체 focused 103/103 보고, Sol 독립 notifier/output 71/71·parity 2/2·기존 반례 재검증 통과. 모의 전송의 production baseline 오염과 stamp SHA 독립 대조 공백을 수선했다.
+- GLG 승인: 커밋/push → 첫 stamp 배포 확인 → `53227a332` 기준 변경 URL dry-run → 최초 실제 IndexNow POST 1회. 이전 측정 178개는 diff 후보 수이며 미통지 증명은 아니다. 원격 설정 변경·자동 재전송·homepage 수정은 범위 밖.
+- Next: 정본 `/deploy.json`의 pushed SHA·main·clean 확인 후 production baseline이 없을 때만 승인된 SHA로 bootstrap, dry-run URL 집합 확인 후 notify. 202/429/unknown이면 baseline 유지하고 결과 보고; 자동 재시도하지 않는다. 실제 배포·POST 결과는 아직 미측정. Crawler Hints dashboard 상태는 별도 미확인.
 
 ## 10/27 배포 회복 완료
 
@@ -72,7 +79,7 @@ referer 0(Google 8, Naver 9). 무료 zone은 `clientRequestQuery`·`clientRefere
 
 - **Current:** 정본 `notes.junghanacs.com` → Cloudflare garden production 연결 완료. Sol 직접 읽은 receipt: `/tmp/garden-cf/execute1.txt` native override 409/100117(무적용), `/tmp/garden-cf/cutover-b.log` CNAME 삭제09:06:03.674Z→부착09:06:05.311Z, `/tmp/garden-cf/verify-canonical1.log` 51checks/24UA 통과. 원자 override 가능 주장은 이 409로 퇴역. Opus 보고: TXT 유지·실제 댓글 API/iframe ID 일치·SPA/검색 정상, GLG 댓글 확인. nixos 09:10:47Z 독립 검수 보고: TXT 그대로·Worker AAAA·CNAME 소멸·다른 레코드 유지, 두 DoH CF IP, Oracle 홈/robots200·ai-train=yes·t→T301. nixos가 GLG에게 garden Netlify 정리 가능 안내 완료.
 - **Next:** 이관 실무 완료. `812d5ffa5` push/agenda 18:19 1회(Opus), CI `2192ab7d` 성공→`abf3a558-17eb-4e86-a789-878c568f87b7`/custom domain 유지(Opus `/tmp/garden-cf/build-p3.json`); Sol 독립 bg15 정본51checks+24UA/version51checks 통과(`/home/junghan/.pi/background/1790760261553-bg15.log`). 대문자 sitemap 제출 bg16 성공(exit0/2s, `/home/junghan/.pi/background/1790760323876-bg16.log`): submitted=true, errors/warnings0, 재수집 pending=true. 목록의 last_downloaded는 전환 전 시각이므로 새 sitemap 색인 완료로 해석하지 않는다. GLG가 NEXT-only commit/push로 문서 빌드 제외 실검증을 승인했다. `cf builds triggers list`로 NEXT/README/AGENTS/CHANGELOG/docs 제외 규칙을 재확인했으며, 사이트 코드·콘텐츠가 함께 바뀌면 빌드는 실행된다. 이전 세션 recap(2026-09-30 18:33)에서 NEXT-only push 뒤 2분간 3회 관측·새 빌드 0건을 보고했다. 다음 작업 후보: 자동 IndexNow 발행후 통지 설계, Naver `.html`307 인증 확인, Org 호스팅 노트 원본 전환 상태 갱신/GLG 재export.
-- **Blocker:** 이관 blocker 없음. Google 재수집/색인은 비동기, 자동 IndexNow는 별도 미구현 작업. Naver `.html`307 수용 여부 미측정. 자동 IndexNow 통지 대체 없음(빌드에서는 계속금지).
+- **Blocker:** 이관 blocker 없음. Google 재수집/색인은 비동기, 자동 IndexNow는 Phase 1(운영자 실행) 구현·미운영 — NOW 첫 절. Naver `.html`307 수용 여부 미측정. 자동 IndexNow 통지 대체 없음(빌드에서는 계속금지).
 - **Read:** `docs/deploy-cloudflare.md`, nixos-config#11 스레드, 위 실제 실행 receipt. 아래 긴 이력은 당시 상태이며 현재 실행 지시가 아니다.
 - **Do not touch:** 추가 DNS 삭제/부착/PUT 재실행, homepage·aions/MX·터널·zone 정책, privacy 치환 목록. Netlify 정리는 GLG가 직접 완료했다고 2026-10-03 알려줬다. 구체적 삭제 자원은 원격 재조회하지 않았으므로 기존 Netlify rollback을 전제하지 않는다. Netlify 삭제 후 CNAME rollback 경로가 사라지고 Worker 이전 버전 복구만 남는다.
 

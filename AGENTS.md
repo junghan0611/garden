@@ -193,18 +193,23 @@ Tool: upstream [steipete/gogcli](https://github.com/steipete/gogcli) on PATH via
 
 ```
 Junghan export/검수 (`denote-export.sh`, `run.sh`) → git commit → git push
-→ Netlify build → gog gsc sitemaps submit
-→ wait a few days → verify in Google Search Console
+→ Workers build + deploy → node scripts/indexnow-notify.mjs notify --wait-for <pushed sha>
+→ gog gsc sitemaps submit → wait a few days → verify in Google Search Console
 ```
 
 Note: Indexing takes time after build. Wait before testing with Gemini.
 
-`scripts/post-build.sh` generates the category records, verification files, and the "Recent Updates" block in
-`public/llms.txt` on both build paths. Its IndexNow submission is **Netlify-only**, armed by
-`CACHED_COMMIT_REF` + `COMMIT_REF`. `scripts/build-cloudflare.sh` removes those variables: Workers builds
-and previews do **not** submit IndexNow or a sitemap. After the canonical cutover, submit the uppercase
-sitemap through `gog gsc`; replacement post-deploy IndexNow notification remains a separate open task.
-Do not treat a successful Workers build as evidence that search engines were notified.
+`scripts/post-build.sh` only generates (category records, verification files including the IndexNow key
+file, the "Recent Updates" block in `public/llms.txt`); it sends nothing on any build path, and no
+environment variable re-arms a submission. The old Netlify-only IndexNow block (lowercased URLs, unchecked
+`curl -s`) is removed.
+
+IndexNow is a **post-deploy, operator-run** step (Phase 1): `scripts/indexnow-notify.mjs` reads the public
+deploy stamp `/deploy.json` on the canonical host, submits only the content URLs changed between the last
+accepted baseline and the commit actually being served, and records every attempt. Contract, exit codes and
+state: `docs/deploy-cloudflare.md` ("IndexNow 배포 후 통지"). GLG approved the first deployment, explicit
+bootstrap baseline and one real submission on 2026-11-04; the execution checkpoint lives in `NEXT.md`. A successful Workers build is never
+evidence that search engines were notified; an HTTP 200 from IndexNow is receipt, not crawling or indexing.
 
 ## Structured Data (JSON-LD / AEO)
 

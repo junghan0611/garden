@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # build-cloudflare.sh — Cloudflare Workers build: config gate → git history gate → gitleaks → Quartz
-# (case-preserving sitemap) → JSON-LD validation → post-build generation (no IndexNow) → _headers →
+# (case-preserving sitemap) → JSON-LD validation → post-build generation → deploy stamp → _headers →
 # output gate. Each stage is timed; any failure stops the build before wrangler deploys.
 # Netlify keeps its own command in netlify.toml until the cutover. Contract: docs/deploy-cloudflare.md
 #
@@ -63,14 +63,19 @@ rm -rf public
 stage quartz env GARDEN_URL_CASE=preserve npm run quartz -- build
 stage jsonld node scripts/validate-jsonld.mjs
 
-# 4. post-build generation. IndexNow is a publication side effect: a build is not a deploy, so the
-#    Netlify variables that arm it are removed here (post-build.sh skips it without them).
-stage post-build env -u CACHED_COMMIT_REF -u COMMIT_REF bash scripts/post-build.sh
+# 4. post-build generation, then the public deploy stamp (/deploy.json: commit, branch, build id). A build
+#    never notifies anyone: IndexNow is sent after the deploy, by scripts/indexnow-notify.mjs, only once
+#    the canonical host serves this stamp.
+stage post-build bash scripts/post-build.sh
+stage stamp node scripts/indexnow-notify.mjs stamp public
 
 # 5. Response headers, then the independent output gate. (cloudflare/worker.mjs is bundled by wrangler
 #    from wrangler.jsonc "main"; it is not part of public/.)
 stage headers cp cloudflare/_headers public/_headers
-stage output-gate node scripts/validate-cloudflare-output.mjs public
+# The gate re-reads the built commit itself, so a stamp naming any other (well-formed) SHA fails here.
+GATE_ARGS=(--expect-commit "$(git rev-parse HEAD)")
+if [[ "${WORKERS_CI:-}" == 1 ]]; then GATE_ARGS+=(--require-clean); fi
+stage output-gate node scripts/validate-cloudflare-output.mjs public "${GATE_ARGS[@]}"
 
 echo "build-cloudflare: stage times (npm ci and wrangler deploy are in the Cloudflare build log)"
 printf '  %s\n' "${TIMINGS[@]}"

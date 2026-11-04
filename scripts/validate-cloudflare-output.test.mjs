@@ -5,7 +5,7 @@ import os from "node:os"
 import path from "node:path"
 import { test } from "node:test"
 import { fileURLToPath } from "node:url"
-import { CANONICAL, compilePattern, servedPaths, sidecarProblems, validate } from "./validate-cloudflare-output.mjs"
+import { CANONICAL, compilePattern, servedPaths, sidecarProblems, stampProblems, validate } from "./validate-cloudflare-output.mjs"
 
 const HEADERS = fs.readFileSync(
   path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "cloudflare", "_headers"),
@@ -18,6 +18,19 @@ const TWIN_HTML =
 const twinMarkdown = (body = "본문\n") =>
   `---\ntitle: "노트"\nurl: "${CANONICAL}/${NOTE}"\nauthor: "Junghan Kim"\n---\n\n${body}`
 
+const STAMP = {
+  schema: 1,
+  host: "notes.junghanacs.com",
+  commit: "a".repeat(40),
+  branch: "main",
+  build: "0123abcd-0123-4567-89ab-0123456789ab",
+  built_at: "2026-11-04T04:00:00.000Z",
+  clean: true,
+}
+
+// Every gate run names the commit the fixture stamp claims, as build-cloudflare.sh does with HEAD.
+const check = (dir, opts = {}) => validate(dir, { expectCommit: STAMP.commit, ...opts })
+
 function fixture({ headers = HEADERS, locs = ["/", `/${NOTE}`, "/notes/"], twin = twinMarkdown() } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "cf-output-"))
   const put = (rel, body = "x") => {
@@ -29,17 +42,18 @@ function fixture({ headers = HEADERS, locs = ["/", `/${NOTE}`, "/notes/"], twin 
   if (twin !== null) put(`${NOTE}.md`, twin)
   for (const rel of ["llms.txt", "robots.txt", "static/contentIndex.json", "static/fonts/a.woff2"]) put(rel)
   for (const rel of ["tags/autholog", "notes", "meta", "bib", "botlog", "journal"]) put(`${rel}.jsonld`, "{}")
+  put("deploy.json", JSON.stringify(STAMP))
   put("sitemap.xml", `<urlset>${locs.map((l) => `<url><loc>${CANONICAL}${l}</loc></url>`).join("")}</urlset>`)
   put("_headers", headers)
   return dir
 }
 
 test("the tracked _headers and a well-formed output pass", () => {
-  assert.deepEqual(validate(fixture()).failures, [])
+  assert.deepEqual(check(fixture()).failures, [])
 })
 
 test("a lowercase Denote id in the sitemap fails twice: case and missing file", () => {
-  const { failures } = validate(fixture({ locs: ["/notes/20250101t000000"] }))
+  const { failures } = check(fixture({ locs: ["/notes/20250101t000000"] }))
   assert.ok(failures.some((f) => f.includes("lowercase Denote id")))
   assert.ok(failures.some((f) => f.includes("no file in this output")))
 })
@@ -47,22 +61,22 @@ test("a lowercase Denote id in the sitemap fails twice: case and missing file", 
 test("a sitemap entry on another host fails", () => {
   const dir = fixture()
   fs.writeFileSync(path.join(dir, "sitemap.xml"), "<loc>https://example.com/</loc>")
-  assert.ok(validate(dir).failures.some((f) => f.includes("not on")))
+  assert.ok(check(dir).failures.some((f) => f.includes("not on")))
 })
 
 test("two rules setting one header name on the same path fail (Cloudflare joins them)", () => {
-  const { failures } = validate(fixture({ headers: `${HEADERS}\n/static/*\n  Cache-Control: public, max-age=60\n` }))
+  const { failures } = check(fixture({ headers: `${HEADERS}\n/static/*\n  Cache-Control: public, max-age=60\n` }))
   assert.ok(failures.some((f) => f.includes("cache-control set by both")))
 })
 
 test("a missing workers.dev noindex rule fails", () => {
   const headers = HEADERS.replace(/https:\/\/:host\.junghanacs\.workers\.dev\/\*\n  X-Robots-Tag: noindex\n/, "")
   assert.notEqual(headers, HEADERS)
-  assert.ok(validate(fixture({ headers })).failures.some((f) => f.includes("x-robots-tag")))
+  assert.ok(check(fixture({ headers })).failures.some((f) => f.includes("x-robots-tag")))
 })
 
 test("a repeated rule path fails", () => {
-  const { failures } = validate(fixture({ headers: `${HEADERS}\n/llms.txt\n  X-Test: 1\n` }))
+  const { failures } = check(fixture({ headers: `${HEADERS}\n/llms.txt\n  X-Test: 1\n` }))
   assert.ok(failures.some((f) => f.includes("repeats rule /llms.txt")))
 })
 
@@ -80,28 +94,28 @@ for (const [name, re, expect] of [
   ["the llms.txt charset", /(?<=^\/llms\.txt\n)  Content-Type: .*\n/m, "content-type"],
 ]) {
   test(`deleting ${name} fails`, () => {
-    assert.ok(validate(fixture({ headers: dropLine(re) })).failures.some((f) => f.includes(expect)))
+    assert.ok(check(fixture({ headers: dropLine(re) })).failures.some((f) => f.includes(expect)))
   })
 }
 
 test("a changed contract value fails", () => {
   const headers = HEADERS.replace("public, max-age=86400", "public, max-age=60")
-  assert.ok(validate(fixture({ headers })).failures.some((f) => f.includes("/*.png cache-control")))
+  assert.ok(check(fixture({ headers })).failures.some((f) => f.includes("/*.png cache-control")))
 })
 
 test("one rule naming a header twice fails", () => {
   const headers = HEADERS.replace("/llms.txt\n", "/llms.txt\n  Cache-Control: no-store\n")
-  assert.ok(validate(fixture({ headers })).failures.some((f) => f.includes("names a header twice")))
+  assert.ok(check(fixture({ headers })).failures.some((f) => f.includes("names a header twice")))
 })
 
 test("a line over 2,000 characters fails", () => {
-  const { failures } = validate(fixture({ headers: `${HEADERS}\n/long\n  X-Long: ${"a".repeat(2000)}\n` }))
+  const { failures } = check(fixture({ headers: `${HEADERS}\n/long\n  X-Long: ${"a".repeat(2000)}\n` }))
   assert.ok(failures.some((f) => f.includes("longer than 2000")))
 })
 
 test("more than 100 rules fail", () => {
   const extra = Array.from({ length: 100 }, (_, i) => `/extra-${i}\n  X-Extra: 1\n`).join("\n")
-  assert.ok(validate(fixture({ headers: `${HEADERS}\n${extra}` })).failures.some((f) => f.includes("exceed 100")))
+  assert.ok(check(fixture({ headers: `${HEADERS}\n${extra}` })).failures.some((f) => f.includes("exceed 100")))
 })
 
 test("a file over 25 MiB fails", () => {
@@ -109,7 +123,7 @@ test("a file over 25 MiB fails", () => {
   const big = path.join(dir, "big.bin")
   fs.writeFileSync(big, "")
   fs.truncateSync(big, 25 * 1024 * 1024 + 1) // sparse: size counts, disk does not
-  assert.ok(validate(dir).failures.some((f) => f.includes("big.bin") && f.includes("25 MiB")))
+  assert.ok(check(dir).failures.some((f) => f.includes("big.bin") && f.includes("25 MiB")))
 })
 
 test("patterns: extension splat, host placeholder, one splat only", () => {
@@ -129,28 +143,28 @@ test("served paths follow auto-trailing-slash", () => {
 })
 
 test("a published Denote page without a twin fails; a twin without its page fails", () => {
-  assert.ok(validate(fixture({ twin: null })).failures.some((f) => f.includes("advertises no Markdown twin")))
-  assert.deepEqual(validate(fixture({ twin: null, locs: ["/", "/notes/"] })).failures, [])
+  assert.ok(check(fixture({ twin: null })).failures.some((f) => f.includes("advertises no Markdown twin")))
+  assert.deepEqual(check(fixture({ twin: null, locs: ["/", "/notes/"] })).failures, [])
   const dir = fixture({ twin: null, locs: ["/", "/notes/"] })
   fs.writeFileSync(path.join(dir, `${NOTE}.md`), twinMarkdown())
-  assert.ok(validate(dir).failures.some((f) => f.includes("no page advertises")))
+  assert.ok(check(dir).failures.some((f) => f.includes("no page advertises")))
 })
 
 test("an advertised twin missing from the output fails", () => {
   const dir = fixture()
   fs.rmSync(path.join(dir, `${NOTE}.md`))
-  assert.ok(validate(dir).failures.some((f) => f.includes("not in this output")))
+  assert.ok(check(dir).failures.some((f) => f.includes("not in this output")))
 })
 
 test("a twin needs the body link, not only <head>", () => {
   const dir = fixture()
   fs.writeFileSync(path.join(dir, `${NOTE}.html`), TWIN_HTML.replace(/<body>.*<\/body>/, "<body></body>"))
-  assert.ok(validate(dir).failures.some((f) => f.includes("no body link")))
+  assert.ok(check(dir).failures.some((f) => f.includes("no body link")))
 })
 
 test("the .md rules are part of the header contract", () => {
   const headers = dropLine(/^https:\/\/notes\.junghanacs\.com\/\*\.md\n  X-Robots-Tag: noindex\n/m)
-  assert.ok(validate(fixture({ headers })).failures.some((f) => f.includes("*.md x-robots-tag")))
+  assert.ok(check(fixture({ headers })).failures.some((f) => f.includes("*.md x-robots-tag")))
 })
 
 test("twin content: comments and shortcodes in prose fail, inside code they pass", () => {
@@ -174,4 +188,51 @@ test("twin destinations: absolute only, no local paths; code is exempt", () => {
   assert.ok(sidecarProblems(twinMarkdown("[a](../bib/x.md)\n"), url)[0].includes("not absolute"))
   assert.ok(sidecarProblems(twinMarkdown("![a](images/x.png)\n"), url)[0].includes("not absolute"))
   assert.ok(sidecarProblems(twinMarkdown('<a href="file:///home/u/a">a</a>\n'), url)[0].includes("local path"))
+})
+
+test("deploy stamp: required, exact public keys, canonical host, full SHA", () => {
+  const dir = fixture()
+  const want = { expectCommit: STAMP.commit }
+  assert.deepEqual(stampProblems(dir, want), [])
+  const put = (v) => fs.writeFileSync(path.join(dir, "deploy.json"), typeof v === "string" ? v : JSON.stringify(v))
+  put({ ...STAMP, build: null })
+  assert.deepEqual(stampProblems(dir, want), [])
+  for (const [bad, re] of [
+    [{ ...STAMP, device: "laptop" }, /keys/],
+    [{ ...STAMP, host: "junghanacs-garden.junghanacs.workers.dev" }, /host/],
+    [{ ...STAMP, commit: "abc1234" }, /full SHA/],
+    [{ ...STAMP, build: "local" }, /build/],
+    [{ ...STAMP, clean: "true" }, /clean/],
+    ["<!doctype html>", /not JSON/],
+  ]) {
+    put(bad)
+    assert.ok(stampProblems(dir, want).some((f) => re.test(f)), JSON.stringify(bad))
+  }
+  fs.rmSync(path.join(dir, "deploy.json"))
+  assert.ok(check(dir).failures.includes("deploy.json missing"))
+})
+
+test("the deploy stamp header rules are part of the contract", () => {
+  const headers = HEADERS.replace(/https:\/\/notes\.junghanacs\.com\/deploy\.json\n  X-Robots-Tag: noindex\n/, "")
+  assert.notEqual(headers, HEADERS)
+  assert.ok(check(fixture({ headers })).failures.some((f) => f.includes("deploy.json x-robots-tag")))
+})
+
+test("deploy stamp: a well-formed but wrong SHA fails against the built commit; no expected commit fails", () => {
+  const dir = fixture()
+  fs.writeFileSync(path.join(dir, "deploy.json"), JSON.stringify({ ...STAMP, commit: "b".repeat(40) }))
+  assert.ok(check(dir).failures.some((f) => f.includes("is not the built commit")))
+  fs.writeFileSync(path.join(dir, "deploy.json"), JSON.stringify(STAMP))
+  assert.deepEqual(check(dir).failures, [])
+  assert.ok(validate(dir).failures.some((f) => f.includes("no expected build commit")))
+  assert.ok(check(dir, { expectCommit: "abc" }).failures.some((f) => f.includes("no expected build commit")))
+})
+
+test("deploy stamp: clean is required only for CI (--require-clean); a local dirty build passes and says so", () => {
+  const dir = fixture()
+  fs.writeFileSync(path.join(dir, "deploy.json"), JSON.stringify({ ...STAMP, clean: false }))
+  const local = check(dir)
+  assert.deepEqual(local.failures, [])
+  assert.equal(local.stamp.clean, false)
+  assert.ok(check(dir, { requireClean: true }).failures.some((f) => f.includes("clean is not true")))
 })

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Independent gate for a Cloudflare Workers build output (scripts/build-cloudflare.sh).
 // Reads only public/: the _headers rules, the sitemap and the files it names. Does not import Quartz.
-// Usage: node scripts/validate-cloudflare-output.mjs [publicDir]
+// Usage: node scripts/validate-cloudflare-output.mjs [publicDir] --expect-commit <sha> [--require-clean]
 // Contract: docs/deploy-cloudflare.md
 import fs from "node:fs"
 import path from "node:path"
@@ -47,6 +47,8 @@ const REQUIRED = [
   ]),
   ["/sitemap.xml", "cache-control", HOUR],
   ["/static/contentIndex.json", "cache-control", MUTABLE],
+  ["/deploy.json", "cache-control", MUTABLE],
+  [`${CANONICAL}/deploy.json`, "x-robots-tag", "noindex"],
   ["/*.md", "content-type", "text/markdown; charset=utf-8"],
   ["/*.md", "cache-control", MUTABLE],
   [`${CANONICAL}/*.md`, "x-robots-tag", "noindex"],
@@ -166,6 +168,36 @@ export function sidecarProblems(markdown, pageUrl) {
   return problems
 }
 
+// Deploy stamp (scripts/indexnow-notify.mjs stamp): exactly these public identifiers, nothing else, and
+// the commit the caller independently says was built (build-cloudflare.sh: git rev-parse HEAD). clean is
+// required only with requireClean (Workers Builds); a local dirty build can pass this gate, which is why the
+// OK line prints clean=, and the notifier refuses clean=false regardless.
+const STAMP_KEYS = ["schema", "host", "commit", "branch", "build", "built_at", "clean"]
+export function stampProblems(publicDir, { expectCommit, requireClean = false } = {}) {
+  const file = path.join(publicDir, "deploy.json")
+  if (!fs.existsSync(file)) return ["deploy.json missing"]
+  let s
+  try {
+    s = JSON.parse(fs.readFileSync(file, "utf8"))
+  } catch {
+    return ["deploy.json is not JSON"]
+  }
+  const problems = []
+  if (JSON.stringify(Object.keys(s ?? {})) !== JSON.stringify(STAMP_KEYS)) problems.push(`deploy.json keys are ${Object.keys(s ?? {})}`)
+  if (s?.schema !== 1) problems.push("deploy.json schema is not 1")
+  if (`https://${s?.host}` !== CANONICAL) problems.push(`deploy.json host is ${s?.host}`)
+  if (!/^[0-9a-f]{40}$/.test(s?.commit ?? "")) problems.push("deploy.json commit is not a full SHA")
+  if (typeof s?.branch !== "string" || s.branch === "") problems.push("deploy.json branch missing")
+  if (s?.build !== null && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(s?.build ?? ""))
+    problems.push("deploy.json build is neither null nor a build UUID")
+  if (Number.isNaN(Date.parse(s?.built_at))) problems.push("deploy.json built_at is not a date")
+  if (typeof s?.clean !== "boolean") problems.push("deploy.json clean is not a boolean")
+  if (!/^[0-9a-f]{40}$/.test(expectCommit ?? "")) problems.push("no expected build commit given (--expect-commit <40-hex sha>)")
+  else if (s?.commit !== expectCommit) problems.push(`deploy.json commit ${s?.commit} is not the built commit ${expectCommit}`)
+  if (requireClean && s?.clean !== true) problems.push("deploy.json clean is not true (required for a CI build)")
+  return problems
+}
+
 function listFiles(dir) {
   const out = []
   const walk = (d) => {
@@ -179,7 +211,7 @@ function listFiles(dir) {
   return out
 }
 
-export function validate(publicDir) {
+export function validate(publicDir, { expectCommit, requireClean = false } = {}) {
   const failures = []
   const fail = (m) => failures.push(m)
   const norm = (v) => v.replace(/\s+/g, " ").trim()
@@ -238,6 +270,11 @@ export function validate(publicDir) {
     }
   }
   for (const p of JSONLD) if (!fs.existsSync(path.join(publicDir, p))) fail(`${p} missing`)
+  stampProblems(publicDir, { expectCommit, requireClean }).forEach(fail)
+  let stamp = null
+  try {
+    stamp = JSON.parse(fs.readFileSync(path.join(publicDir, "deploy.json"), "utf8"))
+  } catch {}
 
   // Markdown twins: a page that advertises one links it in <head> and in the body, and the file exists;
   // every .md belongs to such a page; each twin passes sidecarProblems.
@@ -285,16 +322,26 @@ export function validate(publicDir) {
         fail(`${p} advertises no Markdown twin`)
     }
   }
-  return { failures, files: files.length, rules: rules.length, locs: locs.length, twins }
+  return { failures, files: files.length, rules: rules.length, locs: locs.length, twins, stamp }
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const dir = process.argv[2] ?? "public"
-  const { failures, files, rules, locs, twins } = validate(dir)
+  const args = process.argv.slice(2)
+  const flag = (name) => {
+    const i = args.indexOf(name)
+    return i === -1 ? undefined : args.splice(i, 2)[1]
+  }
+  const expectCommit = flag("--expect-commit")
+  const requireClean = args.includes("--require-clean")
+  if (requireClean) args.splice(args.indexOf("--require-clean"), 1)
+  const dir = args[0] ?? "public"
+  const { failures, files, rules, locs, twins, stamp } = validate(dir, { expectCommit, requireClean })
   if (failures.length) {
     for (const f of failures.slice(0, 50)) console.error(`[cloudflare-output] FAIL ${f}`)
     if (failures.length > 50) console.error(`[cloudflare-output] … ${failures.length - 50} more`)
     process.exit(1)
   }
-  console.log(`[cloudflare-output] OK files=${files} rules=${rules} sitemap=${locs} markdown=${twins}`)
+  console.log(
+    `[cloudflare-output] OK files=${files} rules=${rules} sitemap=${locs} markdown=${twins} stamp=${stamp.commit.slice(0, 12)} clean=${stamp.clean}`,
+  )
 }

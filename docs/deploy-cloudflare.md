@@ -16,10 +16,11 @@ Workers Builds가 연결돼 **main push = 정본 배포**다. workers.dev 주소
 | `cloudflare/worker.mjs` | asset miss에서만 실행. 존재하는 소문자 Denote URL → 301, 나머지는 asset 서버의 404 그대로. **default export 하나만** 둔다 — workerd는 main 모듈의 named export를 모두 entrypoint로 보고 상수 export가 있으면 런타임이 뜨지 않는다(2026-09-30 `wrangler dev` 실측). 순수 로직은 `garden-route.mjs`, 테스트 `worker.test.mjs` |
 | `scripts/check-git-history.sh` | git 이력 관문(fail closed). 테스트 `…​.test.mjs` |
 | `scripts/validate-wrangler-config.mjs` | **config 입력** gate(wrangler.jsonc, TypeScript JSONC 파서). 산출물 gate와 다른 증거 축. 테스트 `…​.test.mjs` |
-| `scripts/build-cloudflare.sh` | Cloudflare 빌드 명령. gitleaks → Quartz(대소문자 보존 sitemap) → JSON-LD 검증 → post-build 생성(IndexNow 없음) → `_headers` → 산출물 gate |
+| `scripts/build-cloudflare.sh` | Cloudflare 빌드 명령. gitleaks → Quartz(대소문자 보존 sitemap) → JSON-LD 검증 → post-build 생성 → 배포 stamp(`/deploy.json`) → `_headers` → 산출물 gate |
 | `cloudflare/_headers` | 응답 헤더. **Cloudflare 빌드만** `public/_headers`로 복사한다. Netlify는 계속 `netlify.toml`만 읽는다 |
 | `scripts/validate-cloudflare-output.mjs` | 산출물 gate(파일·크기 한도, `_headers` 규칙, sitemap, Markdown 사본). 테스트 `…​.test.mjs` |
 | `scripts/verify-deployed.mjs` | 배포된 호스트의 **응답** gate |
+| `scripts/indexnow-notify.mjs` | 빌드 stage `stamp`(공개 commit·build id만) + 배포 뒤 운영자가 부르는 IndexNow 통지. 테스트 `…​.test.mjs`(mock/loopback), Quartz parity `…​.parity.test.mjs`(tsx). 아래 "IndexNow 배포 후 통지" |
 
 ## 언어 치환(privacy filter)과 빌드 입력
 
@@ -134,7 +135,7 @@ Workers Builds 이미지에는 gitleaks가 없다(첫 CI 빌드에서 다운로�
   unshallow 시간), 단계별 시간표, wrangler 버전과 `Current Version ID`. 빌드가 실패하면 기존 배포 버전이 그대로인지 확인한다.
 - 이 스크립트의 단계 시간표는 config · git-history · gitleaks · quartz · jsonld · post-build · headers · output-gate이다.
   실패하면 `FAILED in stage <이름>`을 찍고 멈춘다(배포 명령은 빌드 명령이 성공해야 실행된다).
-- 빌드는 외부로 발행하지 않는다: IndexNow 변수 제거, sitemap 제출 없음. 준비 단계의 외부 요청은 gitleaks 다운로드(PATH에 없을 때)와 git 이력 fetch(shallow일 때)다.
+- 빌드는 외부로 발행하지 않는다: IndexNow 제출 코드 없음, sitemap 제출 없음. 준비 단계의 외부 요청은 gitleaks 다운로드(PATH에 없을 때)와 git 이력 fetch(shallow일 때)다.
 
 ## 정본 도메인 전환 (`notes.junghanacs.com`) — 절차
 
@@ -184,8 +185,65 @@ GLG 승인(2026-09-30). 역할: DNS 레코드 삭제·복구는 nixos-config, Wo
 - **새 Worker에는 `wrangler versions upload`가 안 된다** (2026-09-30 측정: "You cannot upload a new version of a Worker that
   does not yet exist. Please run the `deploy` command first."). 첫 생성은 `wrangler deploy`가 필요하다 — 별도 관문.
 - 한도(공식 문서, Free): 버전당 파일 20,000개, 파일당 25MiB. 2026-09-30 산출물 6,251 files / 1.43GB, 최대 12.3MB.
-- IndexNow·sitemap 제출은 **배포 후 통지**다. 빌드(preview·CI)에서는 보내지 않는다(`post-build.sh`는 Netlify 변수가
-  없으면 건너뛰고, `build-cloudflare.sh`는 그 변수를 지운다). 전환 뒤 통지 설계는 별도.
+- IndexNow·sitemap 제출은 **배포 후 통지**다. 빌드(preview·CI)에서는 보내지 않는다. `post-build.sh`의 옛 Netlify 전용
+  IndexNow 블록(URL 전체 `tolower`, 응답 미확인 `curl -s`)은 지웠고, 환경변수로 다시 무장하는 경로는 없다. 통지 경로는 아래 절.
+
+## IndexNow 배포 후 통지 (Phase 1 — 운영자 실행)
+
+workspace-glgdot#7(비공개 조율 이슈)의 garden 몫. 실제 정본 배포 뒤에만, 같은 host의 바뀐 정본 URL만, 대문자 `T` 그대로 보낸다.
+**구현·테스트 상태이며 운영 채택·첫 baseline·실제 POST는 GLG 결정 전이다.** CI deploy command에 붙이지 않은 이유: Workers Builds
+컨테이너에는 "마지막 수락 baseline"을 둘 곳이 없다. 이전 배포 SHA를 base로 쓰면 통지 실패 batch를 잃는다. 붙이려면 원격 상태 저장소·
+trigger 변경 승인이 따로 필요하다(Phase 2 후보).
+
+- **배포↔commit 연결:** 빌드 stage `stamp`가 `public/deploy.json` = `{schema, host, commit, branch, build, built_at, clean}`를 쓴다
+  (CI: `WORKERS_CI_COMMIT_SHA`=HEAD 강제, `WORKERS_CI_BUILD_UUID`; 로컬: build `null`). env·기기·계정 정보는 넣지 않는다 — 산출물 gate가
+  키 집합을 정확히 검사하고, writer와 따로 `build-cloudflare.sh`가 구한 `git rev-parse HEAD`(`--expect-commit`)와 stamp commit을 대조한다
+  (형식만 맞는 다른 SHA도 실패). `clean=true`는 Workers Builds(`WORKERS_CI=1` → `--require-clean`)에서만 gate가 요구한다. 로컬 dirty 산출물은
+  gate를 통과하되 OK 줄에 `clean=false`를 찍는다 — 로컬 green은 production 근거가 아니며, notifier는 `clean=false`를 항상 거부한다.
+  `clean`은 tracked 파일 변경만 본다(untracked 미포함). `_headers`: mutable 캐시, 정본 host만 noindex.
+  정본에서 stamp.commit==X를 읽는 것이 "X 배포 성공 + Custom Domain 서빙"의 근거다. 빌드만 성공·실패한 배포·preview version은 정본 stamp를 바꾸지 못한다.
+- **실행:** 요청된 push 뒤 `node scripts/indexnow-notify.mjs notify --wait-for <sha>` — 정본 stamp가 그 sha(또는 후손)가 될 때까지
+  bounded poll(기본 15분, 15초 간격). 타임아웃이면 보내지 않는다. 미리보기는 `notify --dry-run`(GET만, 쓰기·POST 없음; `--base`는 dry-run 전용).
+- **production과 rehearsal은 다른 baseline이다:** 정본 origin + 실제 endpoint + 실제 fetch가 모두 맞을 때만 `production` namespace를 읽고 쓴다.
+  `--origin`/`--endpoint`는 **둘 다 loopback이거나 둘 다 없을 때만** 허용하고(실정본+가짜 endpoint, 그 반대는 usage 거부), 주어지면 그 실행과
+  주입 fetch(테스트)는 `rehearsal` namespace(`notes.junghanacs.com.rehearsal.*`)만 쓴다. state 파일은 자기 namespace를 기록하고 다른 namespace의
+  파일은 읽기를 거부한다. 그래서 가짜 endpoint의 200은 production baseline을 전진시킬 수 없다. `bootstrap`/`reset`/`status`는 `--rehearsal`로 그쪽을 다룬다.
+- **검증 순서:** stamp → sitemap → key 파일 → stamp. 모든 GET은 redirect 미추종·시간 제한·본문 상한(stamp 4KiB, key 1KiB, sitemap 16MiB).
+  두 stamp가 같아야 진행한다. 이것은 좁힐 뿐 **배제하지 못한다**: 두 읽기 사이·POST 중의 배포, 두 읽기가 같은 구버전을 본 분할 traffic은
+  밖에서 검출할 수 없다. 요청에 `cache-control: no-cache`를 보내고 응답의 `cf-cache-status`/`age`/`etag`를 receipt에 남긴다 — 신선도 증명은
+  아니다(2026-11-04 측정: 임의 query를 붙여도 `cf-cache-status: HIT`). 이어서 load-bearing gate: stamp host·`branch=main`·`clean=true`,
+  commit이 로컬에 있고 `origin/main`의 조상(자동 fetch 안 함), baseline이 그 commit의 조상(rollback·rewrite면 거부).
+- **key:** `/<key>.txt`가 200·`text/plain`·본문이 정확히 key 또는 key+`\n`일 때만 보낸다(SPA/HTML 200·redirect·404 배제). key 상수는
+  `post-build.sh` `INDEXNOW_KEY`와 테스트로 묶었다. 2026-11-04 정본 실측: 200 `text/plain` 33B = key+`\n`, 없는 `.txt`는 404 HTML.
+- **변경 집합:** `git diff --name-status --no-renames base..target -- content/`의 `.md`만. URL = Quartz `slugifyFilePath`+`simplifySlug`+
+  `encodeURI`(index → `/`·`/talks/`). target 쪽 공개 여부는 **배포된 sitemap**이 결정하고(draft·ignore와 교차검증, 불일치면 fail closed),
+  base 쪽은 draft 플래그(Quartz FrontMatter와 같은 js-yaml JSON schema)·ignore 패턴·dot 경로로 판정한다. 어느 한쪽에서라도 공개면 보낸다 →
+  추가·수정·삭제·rename(D+A)·draft 전환 포함. draft→draft, 비페이지(이미지·`llms.txt`·html), 코드 변경, `.md` 사본, 폴더·태그 페이지,
+  alias redirect 페이지는 보내지 않는다. frontmatter를 읽지 못하면 "비공개"로 치지 않고 멈춘다. 중복 제거, 요청당 10,000(공식 한도) 분할,
+  1,000 초과는 `--allow-large` 없이는 거부(대량 재export가 전체 재제출로 새는 것 방지).
+- **응답(공식 문서):** 200 = 수신 → 모든 batch가 200일 때만 baseline 전진. 202 = 수신·key 검증 대기 → `received-pending`, baseline 유지.
+  429 → `rate-limited`, `Retry-After`(초 또는 IMF-fixdate) 반영. 400/403/422·3xx → `rejected`. 5xx·전송 오류·timeout → `unknown`(수신됐을
+  수도 있음). **실행 안 재전송은 없다**: 다음 운영자 호출이 재시도이고, 202·429·unknown 뒤에는 cooldown(최소 10분, 429는 Retry-After, 최대 24시간)
+  동안 POST하지 않는다(FAQ: 429 뒤 같은 URL은 10분 이상 기다림). 재실행은 같은 누적 범위를 다시 보내므로 중복 수신이 가능하다.
+  cooldown은 state 저장이 성공했을 때만 효력이 있다 — 저장에 실패하면 receipt에 `cooldown_recorded: false`·`state_error`가 남고 exit는 원래
+  결과 그대로이며, **즉시 재실행을 막지 못한다**(baseline은 어느 경우에도 전진하지 않는다).
+- **exit:** 0 accepted/noop · 2 usage · 10 not-ready(stamp 없음·불일치·대기 타임아웃) · 11 precondition(baseline 없음·lock·key·gate·
+  mapping·cap) · 12 cooldown · 20 received-pending · 21 rate-limited · 22 rejected · 23 unknown · 24 200 수신 뒤 state 저장 실패(재실행 시 중복 가능).
+  변경 0(배포 commit = baseline)·통지 URL 0(코드만 바뀜)은 POST 없이 noop. 후자는 baseline을 전진시킨다.
+- **state:** `${XDG_STATE_HOME:-~/.local/state}/garden-indexnow/`(또는 `GARDEN_INDEXNOW_STATE_DIR`/`--state-dir`) —
+  `notes.junghanacs.com.json`(baseline·cooldown·last, temp+fsync+rename 원자 교체), `….attempts.jsonl`(시도마다 receipt 한 줄: base/target,
+  stamp 근거, key 결과, 페이지 분류·URL, batch별 HTTP·시각·sha256·정제한 응답 300자), `….lock`(O_EXCL). **host-local**이다: 다른 기기에는
+  state가 없으므로 보내지 않고 멈춘다. 첫 baseline은 `bootstrap --base <sha>`(state가 있으면 거부), 기존 baseline 교체는
+  `reset --base <sha> --confirm-current <현재 baseline>` — 둘 다 POST 없음. lock이 남았는데 그 프로세스가 없으면 파일을 지운다(자동 삭제 안 함).
+  state 쓰기가 중단되면 temp 파일만 남고 기존 state는 그대로다. attempts.jsonl 기록이 실패해도 baseline은 전진·exit 0일 수 있다 — 이때 receipt의
+  `log_error`와 stderr 경고가 남으므로 **stdout receipt가 1차 증거**이고 운영자가 보관한다.
+- **Crawler Hints:** zone 전체·dashboard 토글로만 문서화돼 있고 cache MISS 기반이다. 설정 상태는 **미측정**(문서화된 read API 없음). 켜져 있어도
+  URL별 receipt·배포 연동이 없어 이 경로를 대체하지 않으며, 켜져 있으면 같은 URL이 두 번 통지될 수 있다. 정본 응답의 `cf-cache-status: HIT`는 작동 여부의 증거가 아니다.
+- **검증 receipt(2026-11-04, 로컬):** notifier 42 + 산출물 gate 29 + parity 2 + 기존 스위트 통과. Sol 독립 검수가 재현한 두 결함(실정본+loopback
+  endpoint 실행이 production baseline을 전진시킴, gate가 stamp commit을 build commit과 대조하지 않음)을 위 namespace·`--expect-commit`으로 닫고
+  각각 회귀 테스트로 고정했다. 실정본 dry-run은 `deploy.json` 404 → exit 10, POST·state 없음.
+  loopback 리허설(실제 이력 `53227a332..6dd568882`, 실제 정본 sitemap·key 사본): 178 URL(추가 5·수정 173) 전부 실제 sitemap과 일치, 소문자 `t` 0,
+  mock POST 1회, 재실행 noop. 178은 그 두 SHA 사이의 diff 후보 수이지 "미통지"의 증명이 아니다(Netlify 시절 전송 결과·Crawler Hints 미측정).
 
 ## 검수 후보와 receipt
 

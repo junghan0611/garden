@@ -48,6 +48,10 @@
 /static/contentIndex.json
   Cache-Control: public, max-age=0, must-revalidate
 
+# Deploy stamp read by scripts/indexnow-notify.mjs: which commit the host serves. Not for search.
+/deploy.json
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
@@ -89,6 +93,9 @@ https://notes.junghanacs.com/*
 
 # The HTML page is the indexed original; its .md twin is for agents that follow the link, not for search.
 https://notes.junghanacs.com/*.md
+  X-Robots-Tag: noindex
+
+https://notes.junghanacs.com/deploy.json
   X-Robots-Tag: noindex
 
 # workers.dev production and version preview hosts are not canonical.
