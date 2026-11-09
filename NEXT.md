@@ -6,7 +6,7 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 - 닫힌 1–4(Cloudflare 이관)·6(AEO 1단계 Markdown 사본)은 `CHANGELOG.md` `v2026.10.14`로 옮겼다.
 - [ ] **7. Cloudflare AEO 고도화** — 아래 해당 절. 배포 확인 끝(v2026.10.14) → 빌드 시간 → 협상 관문 → 작은 후속.
-- [ ] **5. 이관 후 운영 후속** ← CURRENT: 11/09 콘텐츠 `030feaaa2` push → 정본 배포 확인 후 Google SC 제출. 이미지 최적화는 아래 후속으로 보류, 지금 구현하지 않는다.
+- [ ] **5. 이관 후 운영 후속** ← CURRENT: 11/09 정본 `030feaaa2` 배포·Google SC 제출 확인. IndexNow 변경 13 URL도 HTTP200 수신·baseline 저장 확인. 이미지 최적화는 아래 후속으로 보류.
 
 현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
 
@@ -24,7 +24,8 @@ GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a 
 
 ## 11/09 발행과 이미지 최적화 후속 — GLG 요청, 지금 구현 금지
 
-- 발행: GLG export·`run.sh` 검수 후 콘텐츠 `030feaaa20373f181d7c320487ab4ae8c236d2dc` push 완료. 약 5분 대기 후 정본 `/deploy.json`이 이 SHA 또는 그 후손을 서빙하는지 확인하고 Google SC sitemap을 제출한다. 문서-only push는 빌드 제외될 수 있어 문서 커밋 SHA로만 배포를 기다리지 않는다.
+- 발행 직접 측정: 5분 대기 후 정본 `/deploy.json`이 콘텐츠 `030feaaa20373f181d7c320487ab4ae8c236d2dc`를 서빙함을 확인. 2026-11-09 09:55:14 KST Google SC sitemap 제출 `submitted=true`, 오류/경고0·pending=true. last_downloaded는 11/08이므로 이번 재수집·색인은 미확인. 문서-only `e90a91b07` push는 별도이며 정본 SHA와 혼동하지 않는다.
+- IndexNow 직접 측정: GLG 추가 승인 후 2026-11-09 10:16:50 KST 변경 13 URL 단일 POST → HTTP200/accepted, baseline `d2a131e73`→`030feaaa2` 저장 성공. batch SHA256 `bfd06e5fc6241f3d2910c307a6f1f26dc720c6c6e3f009cf3936c747c56694e4`. 수신 확인이며 색인 확인은 아님. 영수증 `/tmp/garden-publish-20261109/{deploy-plan,indexnow-submit}.json` 및 영속 production attempts.
 - 이미지 원본은 GLG의 screenshot 보관 위치에 있다(사용자 설명). 가든으로 옮겨 공개하는 사본을 줄이는 가이드가 필요하다. 원본은 덮어쓰지 않는다.
 - 측정: 이번 공개 이미지 6장 합계 약 4.6MB. 사진 PNG 약 1MB, 지도·레고 JPG 합계 약 2.5MB. 글자 스크린샷과 사진은 가독성/압축 기준을 구분해야 한다.
 - 다음 설계: 복사·내보내기 시점의 최적화 위치와 최대 해상도/품질/형식 정책을 정하고, GLG가 늘 실행하는 `run.sh`에 확인 또는 사본 최적화 루틴을 붙일지 판단한다. 현행 링크·Denote 파일명·반복 실행 시 재압축 방지·원본 보존을 함께 확인한다. Org/내보낸 Markdown을 임의 수정하지 않는다.
