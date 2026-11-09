@@ -6,7 +6,7 @@ Boot sector for the next session. Durable facts live in `AGENTS.md`, not here.
 
 - 닫힌 1–4(Cloudflare 이관)·6(AEO 1단계 Markdown 사본)은 `CHANGELOG.md` `v2026.10.14`로 옮겼다.
 - [ ] **7. Cloudflare AEO 고도화** — 아래 해당 절. 배포 확인 끝(v2026.10.14) → 빌드 시간 → 협상 관문 → 작은 후속.
-- [ ] **5. 이관 후 운영 후속** ← CURRENT: IndexNow Phase 1 최초 178 URL HTTP 200 확인(11/04) → 다음 발행부터 운영자 실행 경로 유지. homepage·Crawler Hints·Naver 후속은 별도 판단.
+- [ ] **5. 이관 후 운영 후속** ← CURRENT: 11/09 콘텐츠 `030feaaa2` push → 정본 배포 확인 후 Google SC 제출. 이미지 최적화는 아래 후속으로 보류, 지금 구현하지 않는다.
 
 현재 좌표: homepage·garden 이관 완료. GLG가 2026-10-03 Netlify 정리 완료를 알려줬다(사용자 보고, 원격 재조회 없음). DNS 삭제·부착 재실행 금지.
 
@@ -21,6 +21,14 @@ indefinitely (see PARKED). Cloudflare now serves the canonical domain (2026-09-3
 GLG opened the Workers Free migration on 2026-09-30; Oracle self-host remains a separate, unscheduled question.
 
 # NOW
+
+## 11/09 발행과 이미지 최적화 후속 — GLG 요청, 지금 구현 금지
+
+- 발행: GLG export·`run.sh` 검수 후 콘텐츠 `030feaaa20373f181d7c320487ab4ae8c236d2dc` push 완료. 약 5분 대기 후 정본 `/deploy.json`이 이 SHA 또는 그 후손을 서빙하는지 확인하고 Google SC sitemap을 제출한다. 문서-only push는 빌드 제외될 수 있어 문서 커밋 SHA로만 배포를 기다리지 않는다.
+- 이미지 원본은 GLG의 screenshot 보관 위치에 있다(사용자 설명). 가든으로 옮겨 공개하는 사본을 줄이는 가이드가 필요하다. 원본은 덮어쓰지 않는다.
+- 측정: 이번 공개 이미지 6장 합계 약 4.6MB. 사진 PNG 약 1MB, 지도·레고 JPG 합계 약 2.5MB. 글자 스크린샷과 사진은 가독성/압축 기준을 구분해야 한다.
+- 다음 설계: 복사·내보내기 시점의 최적화 위치와 최대 해상도/품질/형식 정책을 정하고, GLG가 늘 실행하는 `run.sh`에 확인 또는 사본 최적화 루틴을 붙일지 판단한다. 현행 링크·Denote 파일명·반복 실행 시 재압축 방지·원본 보존을 함께 확인한다. Org/내보낸 Markdown을 임의 수정하지 않는다.
+- 지금은 가이드·루틴 검토를 NEXT에 남길 뿐, 이미지 리사이즈/재인코딩·`run.sh` 변경·자동화는 하지 않는다. GLG 재개 요청 때 설계부터 이어간다.
 
 ## IndexNow 배포 후 통지 — Phase 1 최초 수신 확인(2026-11-04)
 
