@@ -14,7 +14,7 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
-            pkgs.nodejs_22
+            pkgs.nodejs_24
             pkgs.gitleaks       # 비밀 탐지 (secretlint 대체)
           ];
 
