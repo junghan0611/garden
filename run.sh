@@ -8,4 +8,4 @@ set -e
 ./lint.sh
 
 # 3. 로컬 서버 — npx는 이 root package의 bin을 못 찾아 npm 재조정에 들어갈 수 있다.
-npm run quartz -- build --serve --port 1231 --concurrency 8
+npm run quartz -- build --serve --port 1231 --concurrency 4
